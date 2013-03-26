@@ -15,7 +15,11 @@ north=$(cat $extent_file | awk 'BEGIN { FS= "[\\(\\), ]" } { print $11 }')
 
 source ../../layers.sh
 
-for layer in $layers; do
+file=../../tilemill/project/osm-tilemill/input/highways.mml
+
+rm -f $file
+
+for highway in $highways; do
 (
 cat << EOS
     {
@@ -26,16 +30,24 @@ cat << EOS
         $east,
         $north
       ],
-      "id": "${layer}_${region}",
-      "class": "${layer}",
       "Datasource": {
-        "file": "/home/mdione/src/projects/osm/data/osm/${region}/${layer}.shp"
+        "type": "postgis",
+        "table": "(select * from planet_osm_roads where highway='$highway') as foo",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "368945.35,5243076.72,974136.32,5652196.58",
+        "host": "localhost",
+        "user": "postgres",
+        "dbname": "osm"
       },
-      "srs-name": "autodetect",
-      "srs": "",
+      "id": "$highway",
+      "class": "roads",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "${layer}_${region}"
-    }
+      "name": "roads"
+    },
 EOS
-) > ../../tilemill/project/osm-tilemill/input/${layer}_${region}.mml
+) >> $file
 done
