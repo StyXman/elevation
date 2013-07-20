@@ -1,8 +1,5 @@
 #! /usr/bin/python3
 
-# set -e
-# no equivalent yet
-
 import sys
 import sh
 import re
@@ -23,9 +20,42 @@ except (ValueError, AttributeError) as e:
 
 print (west, south, east, north)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+os.chdir ('../height')
+
+
+
+
 # we don't need the +1 on the left right limit, as we're already using ceiling()
 # but the tiles count from the south and west
 for lat in range (math.floor (south), math.ceil (north)):
+
+
     for lon in range (math.floor (west), math.ceil (east)):
         if lat<0:
             lat_template= "S%02d"
@@ -39,16 +69,18 @@ for lat in range (math.floor (south), math.ceil (north)):
 
         zip_file= "%s%s.hgt.zip" % (lat_template % abs (lat), lon_template % abs (lon))
 
-        if not _f (zip_file):
+        if not _f ("%s%s.hgt" % (lat_template % abs (lat), lon_template % abs (lon))):
             try:
+                print ("Getting %s" % zip_file)
+                # http://dds.cr.usgs.gov/srtm/version2_1/SRTM3/Eurasia/N00E072.hgt.zip
                 url= "http://dds.cr.usgs.gov/srtm/version2_1/SRTM3/South_America/%s" % zip_file
                 reason= sh.wget (url, _out=sys.stdout)
 
-                print ("Got %s" % zip_file)
             except sh.ErrorReturnCode as e:
                 print ("could not get %s; skipping" % url)
 
         if _f(zip_file):
+            print ("Got %s" % zip_file)
             sh.unzip ("-u %s" % zip_file)
             os.unlink (zip_file)
 

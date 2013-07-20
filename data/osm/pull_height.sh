@@ -15,7 +15,6 @@ north=$(echo $extent | awk 'BEGIN { FS= "[ ,\\.]+" } { print $8 }')
 
 echo $west, $south, $east, $north
 
-(
 declare -a mins maxs patterns
 
 # -17, 32, -6, 42
@@ -68,10 +67,6 @@ for s in $( seq 0 $((seqs-1)) ); do
                         # http://dds.cr.usgs.gov/srtm/version2_1/SRTM3/Eurasia/N00E072.hgt.zip
                         zip_file=$(eval "echo ${pattern}.hgt.zip")
                         wget $WGET_OPTS "http://dds.cr.usgs.gov/srtm/version2_1/SRTM3/Eurasia/$zip_file" || true
-                        # http://droppr.org/srtm/v4.1/6_5x5_TIFs/srtm_39_04.zip
-                        # convert -180/180 -90/90 -> 1/72 1/24
-                        # TODO: this calls for python
-                        # wget --no-verbose "http://droppr.org/srtm/v4.1/6_5x5_TIFs/$zip_file" || true
                     fi
                 fi
 
@@ -85,4 +80,3 @@ for s in $( seq 0 $((seqs-1)) ); do
         done
     done
 done
-)
