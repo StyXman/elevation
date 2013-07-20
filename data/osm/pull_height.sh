@@ -2,16 +2,21 @@
 
 set -e
 
-pbf_file=$1
 
+
+
+
+
+
+pbf_file=$1
 extent=$(osmpbf-outline $pbf_file | grep bbox)
 
 #     bbox: 9.5267800,46.3685100,17.1627300,49.0240300
-
 west=$(echo $extent | awk 'BEGIN { FS= "[ ,\\.]+" } { print $2 }')
 south=$(echo $extent | awk 'BEGIN { FS= "[ ,\\.]+" } { print $4 }')
 east=$(echo $extent | awk 'BEGIN { FS= "[ ,\\.]+" } { print $6 }')
 north=$(echo $extent | awk 'BEGIN { FS= "[ ,\\.]+" } { print $8 }')
+
 
 echo $west, $south, $east, $north
 
@@ -43,8 +48,6 @@ fi
 
 cd ../height
 
-# WGET_OPTS="--no-verbose"
-
 for s in $( seq 0 $((seqs-1)) ); do
     min=${mins[$s]}
     max=${maxs[$s]}
@@ -56,19 +59,25 @@ for s in $( seq 0 $((seqs-1)) ); do
         for j in $(seq $south $north); do
             lat=$(printf "%02d" $j)
 
-            if ! [ -f $(eval "echo ${pattern}.hgt") ]; then
-                echo "Getting $(eval "echo ${pattern}.hgt")"
-                zip_file=$(eval "echo ${pattern}.zip")
 
-                if ! [ -f $zip_file ]; then
-                    # http://www.viewfinderpanoramas.org/dem1/N47E006.zip
-                    if ! wget $WGET_OPTS "http://www.viewfinderpanoramas.org/dem1/$zip_file" || file $zip_file | grep -q 'HTML document'; then
-                        rm -f $zip_file
-                        # http://dds.cr.usgs.gov/srtm/version2_1/SRTM3/Eurasia/N00E072.hgt.zip
-                        zip_file=$(eval "echo ${pattern}.hgt.zip")
-                        wget $WGET_OPTS "http://dds.cr.usgs.gov/srtm/version2_1/SRTM3/Eurasia/$zip_file" || true
-                    fi
-                fi
+
+
+
+
+
+
+
+            zip_file=$(eval "echo ${pattern}.hgt.zip")
+
+            if ! [ -f $(eval "echo ${pattern}.hgt") ]; then
+
+                echo "Getting $(eval "echo ${pattern}.hgt")"
+                # http://dds.cr.usgs.gov/srtm/version2_1/SRTM3/Eurasia/N00E072.hgt.zip
+                url="http://dds.cr.usgs.gov/srtm/version2_1/SRTM3/Eurasia/$zip_file"
+                wget $WGET_OPTS $url || true
+
+
+
 
                 if [ -f $zip_file ]; then
                     echo "Got $zip_file"
