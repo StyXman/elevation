@@ -1,15 +1,17 @@
 # kate: replace-tabs: off; indent-width 8
 
-height_files = $(wildcard src/*.hgt)
+height_files = $(wildcard srtm*.tif) $(wildcard n*.hgt) $(wildcard N*.hgt)
 master = mixed.tif
 hillshade = mixed_hillshade.tif
 slopeshade = mixed_slopeshade.tif
 relief = mixed_relief.tif
 # shapefiles = $(foreach heigh_file, $(height_files), $(basename $(height_file)) )
 
-gopts = -co compress=lzw 
+gopts = -co compress=lzw
 
-all: $(hillshade) $(relief) $(slopeshade) contour10.shp contour100.shp contour500.shp contour1000.shp
+all: $(hillshade) $(relief) $(slopeshade) contour.shp
+# mixed_contour.sql
+# contour10.shp contour100.shp contour500.shp contour1000.shp
 # $(shapefiles)
 
 # TODO: gdalinfo /vsizip/N43E016.zip/N43E006.hgt
