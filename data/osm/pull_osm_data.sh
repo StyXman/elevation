@@ -1,4 +1,5 @@
 #! /bin/bash
 
-# wget http://download.geofabrik.de/openstreetmap/europe/$1.shp.zip
-wget http://download.geofabrik.de/europe/$1-latest.osm.pbf
+for i in $@; do
+    wget --continue http://download.geofabrik.de/$i-latest.osm.pbf
+done
