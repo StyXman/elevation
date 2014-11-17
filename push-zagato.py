@@ -1,9 +1,9 @@
 #! /usr/bin/python2
 
 import sys
-from math import pi,cos,sin,log,exp,atan
+from math import pi,cos,sin,log,exp,atan, ceil, floor
 from os.path import dirname, basename, join as path_join
-from os import listdir, stat, unlink, mkdir
+from os import listdir, stat, unlink, mkdir, walk
 from errno import ENOENT, EEXIST
 from shutil import copy, rmtree
 from ConfigParser import ConfigParser
@@ -16,7 +16,6 @@ def minmax (a,b,c):
     a = max(a,b)
     a = min(a,c)
     return a
-
 
 class GoogleProjection:
     def __init__(self,levels=18):
@@ -78,104 +77,137 @@ def file_newer (src, dst):
         else:
             raise e
 
+    # print src_stat.st_mtime, dst_stat.st_mtime
     return src_stat.st_mtime>dst_stat.st_mtime
-
-def process_x (src, dst, path, wanted):
-    try:
-        present= set (listdir (path_join (dst, path)))
-    except OSError, e:
-        if e.errno==ENOENT:
-            present= set ()
-        else:
-            raise e
-
-    to_delete= present-wanted
-    to_copy= (f for f in wanted
-                if (f not in present or
-                    file_newer (path_join (src, path, f),
-                                path_join (dst, path, f))))
-
-    # print present, wanted, to_delete, tuple (to_copy)
-
-    # TODO: rmtree() empty dirs
-    for f in to_delete:
-        f= path_join (dst, path, f)
-        unlink (f)
-        print "D: %s" % f
-
-    for f in to_copy:
-        f1= path_join (src, path, f)
-        f2= path_join (dst, path, f)
-        makedirs (path_join (dst, path))
-        try:
-            copy (f1, f2)
-            print "C: %s -> %s" % (f1, f2)
-        except IOError, e:
-            if e.errno==ENOENT:
-                # we want the file but it's not actually there
-                pass
-            else:
-                raise e
-
-
-bboxes= {}
-src= sys.argv.pop (1)
-dst= sys.argv.pop (1)
-sectors_wanted= sys.argv[1:]
-c= ConfigParser ()
-c.read ('bboxes.ini')
-minZoom= 0
-maxZoom= 0
-
-for sector in sectors_wanted:
-    bboxes[sector]= [ float (x) for x in c.get ('bboxes', sector).split (',') ]
-    # #4 is the max_z
-    if bboxes[sector][4]>maxZoom:
-        maxZoom= int (bboxes[sector][4])
-
-gprj = GoogleProjection(maxZoom+1)
 
 def coord_range (mn, mx, zoom):
     image_size=256.0
-    return ( coord for coord in range (int (mn/image_size), int (mx/image_size)+1)
+    return ( coord for coord in range (mn, mx+1)
                    if coord >= 0 and coord < 2**zoom )
+
+class Map:
+    def __init__ (self, bbox, max_z):
+        ll0 = (bbox[0],bbox[3])
+        ll1 = (bbox[2],bbox[1])
+        gprj = GoogleProjection(max_z+1)
+
+        self.levels= []
+        for z in range (0, max_z+1):
+            px0 = gprj.fromLLtoPixel(ll0,z)
+            px1 = gprj.fromLLtoPixel(ll1,z)
+            # print px0, px1
+            self.levels.append (( (int (px0[0]/256), int (px0[1]/256)),
+                                  (int (px1[0]/256), int (px1[1]/256)) ))
+        # print self.levels
+
+    def __contains__ (self, t):
+        if len (t)==3:
+            z, x, y= t
+            px0, px1= self.levels[z]
+            # print (z, px0[0], x, px1[0], px0[1], y, px1[1])
+            ans= px0[0]<=x and x<=px1[0]
+            # print ans
+            ans= ans and px0[1]<=y and y<=px1[1]
+            # print ans
+        elif len (t)==2:
+            z, x= t
+            px0, px1= self.levels[z]
+            # print (z, px0[0], x, px1[0])
+            ans= px0[0]<=x and x<=px1[0]
+        else:
+            raise ValueError
+
+        return ans
+
+    def iterate_x (self, z):
+        px0, px1= self.levels[z]
+        return coord_range (px0[0], px1[0], z) # NOTE
+
+    def iterate_y (self, z):
+        px0, px1= self.levels[z]
+        return coord_range (px0[1], px1[1], z) # NOTE
+
+class Atlas:
+    def __init__ (self, sectors):
+        self.maps= []
+        c= ConfigParser ()
+        c.read ('bboxes.ini')
+        self.minZoom= 0
+        self.maxZoom= 0
+
+        for sector in sectors:
+            sector= [ float (x) for x in c.get ('bboxes', sector).split (',') ]
+            self.maps.append (Map (sector[:4], int (sector [4])))
+            # #4 is the max_z
+            if sector[4]>self.maxZoom:
+                self.maxZoom= int (sector[4])
+
+    def __contains__ (self, t):
+        w= False
+        for m in self.maps:
+            w= w or t in m
+
+        return w
+
+    def iterate_x (self, z):
+        for m in self.maps:
+            for x in m.iterate_x (z):
+                yield x
+
+    def iterate_y (self, z, x):
+        for m in self.maps:
+            if (z, x) in m:
+                for y in m.iterate_y (z):
+                    yield y
+
+src= sys.argv.pop (1)
+dst= sys.argv.pop (1)
+sectors= sys.argv[1:]
+atlas= Atlas (sectors)
 
 # I assume I will want all the zoom levels
 # so I don't have to check for dir contents
-for z in range(minZoom,maxZoom + 1):
-
-    # NOTE: I think that there is a way to factorize this with process_x()
-    # but for the moment I'll just do the brute force way
-    wanted_x= set ()
-    for sector in sectors_wanted:
-        bbox= bboxes[sector]
-        ll0 = (bbox[0],bbox[3])
-        ll1 = (bbox[2],bbox[1])
-        px0 = gprj.fromLLtoPixel(ll0,z)
-        px1 = gprj.fromLLtoPixel(ll1,z)
-
-        for x in coord_range (px0[0], px1[0], z):
-            print "W: %s" % path_join (src, str(z), str (x))
-            # NOTE: I could also compare the dirs' mtimes to see if they're actually updated.
-            # which reinforces the idea that I could actually factorize this with process_x()
-            wanted_x.add (str (x))
-
+for z in range (atlas.minZoom, atlas.maxZoom+1):
+    # print "- z", (z, )
     try:
-        present_x= set (listdir (path_join (dst, str (z))))
+        present_x= listdir (path_join (dst, str (z)))
     except OSError, e:
-        if e.errno==ENOENT:
-            present_x= set ()
-        else:
+        if e.errno!=ENOENT:
             raise e
+    else:
+        for x in ( int (x) for x in present_x ):
+            # print "-- dx", (z, x)
+            if not (z, x) in atlas:
+                d= path_join (dst, str (z), str (x))
+                rmtree (d)
+                print "X: %s" % d
 
-    # clean up the dst dirs no longer wanted
-    x_to_delete= present_x-wanted_x
+    for x in atlas.iterate_x (z):
+        # print "-- sx", (z, x)
+        try:
+            present_y= listdir (path_join (dst, str (z), str (x)))
+        except OSError, e:
+            if e.errno!=ENOENT:
+                raise e
+        else:
+            for y in ( int (y.split ('.')[0]) for y in present_y):
+                # print "--- dy", (z, x, y)
+                if not (z, x, y) in atlas:
+                    f= path_join (dst, str (z), str (x), str (y)+'.png')
+                    unlink (f)
+                    print "D: %s" % f
 
-    for x in x_to_delete:
-        d= path_join (dst, str (z), str (x))
-        rmtree (d)
-        print "X: %s" % d
+        for y in atlas.iterate_y (z, x):
+            # print "--- sy", (z, x, y)
+            src_y= path_join (src, str (z), str (x), str (y)+'.png')
+            dst_y= path_join (dst, str (z), str (x), str (y)+'.png')
 
-    for x in wanted_x:
-        process_x (src, dst, path_join (str (z), str (x)),
-                   set ([ str (y)+'.png' for y in coord_range (px0[1], px1[1], z) ]))
+            if file_newer (src_y, dst_y):
+                makedirs (path_join (dst, str (z), str (x)))
+                try:
+                    copy (src_y,dst_y)
+                    print "C: %s -> %s" % (src_y, dst_y)
+                except Exception, e:
+                    print e
+            else:
+                print "K: %s" % dst_y
