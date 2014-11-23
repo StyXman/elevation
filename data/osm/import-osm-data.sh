@@ -1,15 +1,16 @@
 #! /bin/bash
 
-set -e
+set -eu
 
-common_opts="--username mdione --database gis --cache 1024 --number-processes 4 --verbose --slim --hstore"
+common_opts="--username mdione --database gis --cache 2048 --number-processes 4 \
+    --verbose --slim --flat-nodes /home/mdione/src/projects/osm/nodes.cache"
 
 if [ "$1" == "restart" ]; then
     sudo -u postgres dropdb gis
     sudo -u postgres createdb -E UTF8 -O mdione gis
     # sudo -u postgres createlang plpgsql gis
     sudo -u postgres psql -d gis -c "CREATE EXTENSION postgis;"
-    sudo -u postgres psql -d gis -c "CREATE EXTENSION hstore;"
+    # sudo -u postgres psql -d gis -c "CREATE EXTENSION hstore;"
     sudo -u postgres psql -d gis -c "ALTER TABLE geometry_columns OWNER TO mdione;"
     sudo -u postgres psql -d gis -c "ALTER TABLE spatial_ref_sys  OWNER TO mdione;"
     # sudo -u postgres psql -d gis -f /usr/share/osm2pgsql/900913.sql
