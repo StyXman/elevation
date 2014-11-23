@@ -137,10 +137,13 @@ class Atlas:
 
         for sector in sectors:
             sector= [ float (x) for x in c.get ('bboxes', sector).split (',') ]
-            self.maps.append (Map (sector[:4], int (sector [4])))
             # #4 is the max_z
             if sector[4]>self.maxZoom:
                 self.maxZoom= int (sector[4])
+
+        for sector in sectors:
+            sector= [ float (x) for x in c.get ('bboxes', sector).split (',') ]
+            self.maps.append (Map (sector[:4], self.maxZoom))
 
     def __contains__ (self, t):
         w= False
