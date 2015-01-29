@@ -3,7 +3,8 @@
 set -eu
 
 common_opts="--username mdione --database gis --cache 2048 --number-processes 4 \
-    --verbose --slim --flat-nodes /home/mdione/src/projects/osm/nodes.cache"
+    --verbose --slim --flat-nodes /home/mdione/src/projects/osm/nodes.cache \
+    --style import.style"
 
 case $1 in
   restart)
