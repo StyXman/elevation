@@ -99,7 +99,6 @@ node,way   disused      text         linear
 node       ele          text         linear
 node,way   embankment   text         linear
 node,way   foot         text         linear
-node,way   generator:source    text  linear
 node,way   harbour      text         polygon
 node,way   highway      text         linear
 node,way   historic     text         polygon
@@ -123,8 +122,6 @@ node,way   piste:difficulty text     linear
 node,way   place        text         polygon
 node       poi          text
 node,way   population   text         linear
-node,way   power        text         polygon
-node,way   power_source text         linear
 node,way   public_transport text     polygon
 node,way   railway      text         linear
 node,way   ref          text         linear
