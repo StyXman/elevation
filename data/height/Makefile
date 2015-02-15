@@ -31,7 +31,7 @@ $(slopeshade): mixed_slope.tif slope.txt
 	gdaldem color-relief $(gopts) $< slope.txt $@
 
 define gdal-contour
-gdal_contour -i 100 -snodata 32767 -a height $< .
+gdal_contour -i 50 -a height $< .
 shapeindex $(basename )
 endef
 
