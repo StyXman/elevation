@@ -7,7 +7,7 @@ slopeshade = mixed_slopeshade.tif
 relief = mixed_relief.tif
 # shapefiles = $(foreach heigh_file, $(height_files), $(basename $(height_file)) )
 
-gopts = -co compress=lzw
+gopts = -co compress=lzw -co BIGTIFF=YES
 
 all: $(hillshade) $(relief) $(slopeshade) contour.shp
 # mixed_contour.sql
