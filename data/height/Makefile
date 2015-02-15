@@ -18,17 +18,17 @@ all: $(hillshade) $(relief) $(slopeshade) contour.shp
 $(master): $(height_files)
 	gdal_merge.py -o $@ -v $^
 
-$(hillshade): $(master)
-	gdaldem hillshade $(gopts) $< $@
-
 $(relief): $(master) color-relief.txt
-	gdaldem color-relief $(gopts) $< color-relief.txt $@
+	gdaldem color-relief -alpha $(gopts) $< color-relief.txt $@
+
+$(hillshade): $(master)
+	gdaldem hillshade -alg Horn -s 111120 $(gopts) $< $@
+
+mixed_slope.tif: $(master)
+	gdaldem slope -alg Horn -s 111120 $(gopts) -p $< $@
 
 $(slopeshade): mixed_slope.tif slope.txt
 	gdaldem color-relief $(gopts) $< slope.txt $@
-
-mixed_slope.tif: $(master)
-	gdaldem slope $(gopts) -p $< $@
 
 define gdal-contour
 gdal_contour -i 100 -snodata 32767 -a height $< .
