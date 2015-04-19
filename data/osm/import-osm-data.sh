@@ -21,7 +21,7 @@ case $1 in
   import)
     opts="--create --unlogged"
     nice -n 19 osm2pgsql $opts $common_opts $2
-    sudo -u postgres psql -d gis -c "create index planet_osm_point_populaiton_index on planet_osm_point (cast (population as int) desc nulls last);"
+    psql -d gis -c "create index planet_osm_point_populaiton_index on planet_osm_point (cast (population as int) desc nulls last);"
     ;;
 
   append)
