@@ -179,7 +179,8 @@ def main ():
             else:
                 continue
 
-            if not _f (f) and z not in not_found:
+            if not _f (f) and not _f(z) and z not in not_found:
+                print ("%s not found, downloading" % f)
                 url= "%s/%s" % (u, z)
                 try:
                     wget ('--verbose', '--progress=bar', '--continue',
@@ -192,14 +193,17 @@ def main ():
 
                     # wget leaves an empty file if the download failed!
                     rm (z)
-                else:
-                    try:
-                        unzip ('-o', z)
-                        # unlink (zip_file)
-                        pass
-                    except CommandFailed as e:
-                        print ("unzipping %s failed[%s]; keeping..." % (z, e))
 
                 sleep (1)
+            else:
+                print ("%s found, skipping" % f)
+
+            if _f(z):
+                try:
+                    unzip ('-o', '-f', z)
+                    unlink (z)
+                    pass
+                except CommandFailed as e:
+                    print ("unzipping %s failed[%s]; keeping..." % (z, e))
 
 main ()
