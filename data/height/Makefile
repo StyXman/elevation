@@ -1,6 +1,14 @@
 # kate: replace-tabs: off; indent-width 8
 
-height_files = $(wildcard srtm*.tif) $(wildcard n*.hgt) $(wildcard N*.hgt)
+height_files = $(wildcard *1arc_v3.tif) $(wildcard *.hgt)
+corrected_files = $(foreach height_file,$(height_files),$(subst .tif,-corrected.tif, $(height_file)))
+terrain_files =   $(foreach height_file,$(height_files),$(subst .tif,-terrain.tif,   $(height_file))) \
+                  $(foreach height_file,$(height_files),$(subst .hgt,-terrain.tif,   $(height_file)))
+hill_files =      $(foreach height_file,$(height_files),$(subst .tif,-hillshade.tif, $(height_file))) \
+                  $(foreach height_file,$(height_files),$(subst .hgt,-hillshade.tif, $(height_file)))
+slope_files =     $(foreach height_file,$(height_files),$(subst .tif,-slopeshade.tif,$(height_file))) \
+                  $(foreach height_file,$(height_files),$(subst .hgt,-slopeshade.tif,$(height_file)))
+
 master = mixed.tif
 hillshade = mixed_hillshade.tif
 slopeshade = mixed_slopeshade.tif
@@ -9,8 +17,8 @@ relief = mixed_relief.tif
 
 gopts = -co compress=lzw -co BIGTIFF=YES
 
-all: $(hillshade) $(relief) $(slopeshade) contour.shp
-# mixed_contour.sql
+# all: $(hillshade) $(relief) $(slopeshade)
+all_single: $(terrain_files) $(hill_files) $(slope_files)
 # contour10.shp contour100.shp contour500.shp contour1000.shp
 # $(shapefiles)
 
