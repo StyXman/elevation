@@ -100,6 +100,9 @@ def SRTM_1as (lat, lon):
     n= abs (lat)
     w= abs (lon)
 
+    if n>59:
+        return None
+
     if lat<0:
         nsc= 's'
     else:
@@ -125,6 +128,9 @@ def SRTMGL1v003 (lat, lon):
     # http://e4ftl01.cr.usgs.gov//MODV6_Dal_D/SRTM/SRTMGL1.003/2000.02.11/
     n= abs (lat)
     w= abs (lon)
+
+    if n>59:
+        return None
 
     if lat<0:
         nsc= 'S'
@@ -167,7 +173,11 @@ def main ():
     # +1 so they're proper bounds for range
     for lat in range (math.floor (north), math.floor (south)+1, -1):
         for lon in range (math.floor (west), math.floor (east)+1):
-            f, u, z= SRTMGL1v003 (lat, lon)
+            data= SRTMGL1v003 (lat, lon)
+            if data is not None:
+                f, u, z= data
+            else:
+                continue
 
             if not _f (f) and z not in not_found:
                 url= "%s/%s" % (u, z)
