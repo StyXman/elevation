@@ -15,7 +15,7 @@ slopeshade = mixed_slopeshade.tif
 relief = mixed_relief.tif
 # shapefiles = $(foreach heigh_file, $(height_files), $(basename $(height_file)) )
 
-gopts = -co compress=lzw -co BIGTIFF=YES
+gopts = -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW
 
 # all: $(hillshade) $(relief) $(slopeshade)
 all_single: $(terrain_files) $(hill_files) $(slope_files)
