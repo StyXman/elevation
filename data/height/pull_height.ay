@@ -163,8 +163,6 @@ def main ():
     if not download:
         exit (0)
 
-    cd ('../height')
-
     not_found= set ()
 
     # +1 so they're proper bounds for range
