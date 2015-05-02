@@ -43,6 +43,9 @@ $(master): $(height_files)
 %-slopeshade.tif: %-slope.tif slope.txt
 	gdaldem color-relief $(gopts) $< slope.txt $@
 
+%-small.tif: %.vrt
+	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 0.002222222222224 -0.002222222222224 $< $@
+
 define gdal-contour
 gdal_contour -i 50 -a height $< .
 shapeindex $(basename )
