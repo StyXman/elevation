@@ -40,6 +40,15 @@ $(master): $(height_files)
 %-slope.tif: %-corrected.tif
 	gdaldem slope -alg Horn $(gopts) -compute_edges -p $< $@
 
+%-terrain.tif: %.hgt color-relief.txt
+	gdaldem color-relief -alpha $(gopts) $< color-relief.txt $@
+
+%-hillshade.tif: %.hgt
+	gdaldem hillshade -alg Horn -s 111120 -compute_edges $(gopts) $< $@
+
+%-slope.tif: %.hgt
+	gdaldem slope -alg Horn $(gopts) -compute_edges -p $< $@
+
 %-slopeshade.tif: %-slope.tif slope.txt
 	gdaldem color-relief $(gopts) $< slope.txt $@
 
