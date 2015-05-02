@@ -1,2 +1,2 @@
-rsync --verbose --archive --update --progress --stats $@ \
-    "./" "mustang.local::mdione/www/Elevation/"
+rsync --recursive --times --copy-links --update --progress --stats $@ \
+    "Elevation/" "mustang.local::mdione/www/Elevation/"
