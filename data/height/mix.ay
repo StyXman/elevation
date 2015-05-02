@@ -1,0 +1,68 @@
+#! /usr/bin/env ayrton
+
+from os import path
+import math
+
+def _1arc_v3_3arc_v4_1 (lat, lon):
+    # we have 5x5 degrees squares
+    #  1, 1 for -180,+59,-179,+60
+    # 13,37 for    0,  0,  +1, +1
+    # 24,72 for +179,-60,+180,-59
+
+    # n59, e029
+    nsc= lat[0]        # n
+    nsd= int (lat[1:]) # 59
+    if nsc=='n':
+        nss= -1
+    else:
+        nss= 1
+
+    ewc= lon[0]        # e
+    ewd= int (lon[1:]) # (0)29
+    if ewc=='w':
+        ews= -1
+    else:
+        ews= 1
+
+    # use integer division
+    lat= nss*(math.ceil (nsd/5.0))+13
+    lon= ews*(ewd//5)+37
+
+    return lat, lon
+
+for _1arc_tile in bash ('../SRTM_1as_v3/*.tif'):
+    # ../SRTM_1as_v3/n59_e029_1arc_v3.tif
+    (d, f)= path.split (_1arc_tile)
+    data= f.split ('_')
+
+    lat, lon= _1arc_v3_3arc_v4_1 (data[0], data[1])
+    _3arc_tile= "../SRTM_3as_v4.1/srtm_%02d_%02d.tif" % (lon, lat)
+
+    if not _f (f):
+        if _f (_3arc_tile):
+            for line in gdalinfo (_1arc_tile, _out=Capture):
+                if 'Pixel Size' in line:
+                    # Pixel Size = (0.000277777777778,-0.000277777777778)
+                    data= line.split ()
+                    # HACK
+                    x, y= eval (data[3])
+
+                elif 'Upper Left' in line:
+                    # Upper Left  (   5.9998611,  45.0001389) (  5d59'59.50"E, 45d 0' 0.50"N)
+                    # N, W
+                    data= line.split ()
+                    # no conversion so we don't lose precision
+                    n= data[4][:-1] # eliminate the trailing )
+                    w= data[3][:-1] # eliminate the trailing ,
+
+                elif 'Lower Right' in line:
+                    # Lower Right (   8.0001389,  42.9998611) (  8d 0' 0.50"E, 42d59'59.50"N)
+                    # S, E
+                    data= line.split ()
+                    # no conversion so we don't lose precision
+                    s= data[4][:-1] # eliminate the trailing )
+                    e= data[3][:-1] # eliminate the trailing ,
+
+            gdalwarp ('-te', w, s, e, n, '-tr', x, y, '-rb', _3arc_tile, f)
+
+        gdalwarp (_1arc_tile, f)

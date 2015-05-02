@@ -1,0 +1,65 @@
+#! /usr/bin/env ayrton
+
+src_dir= argv[1]
+
+for vrt in ('terrain', 'slopeshade', 'hillshade'):
+    f= open ('mixed-%s.vrt' % vrt, 'w+')
+    f.write ('<VRTDataset rasterXSize="208800" rasterYSize="90000">\n')
+    f.write ('  <SRS>GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433],AUTHORITY["EPSG","4326"]]</SRS>\n')
+    f.write ('  <GeoTransform> -1.0000138900000000e+01,  2.7777777777799614e-04,  0.0000000000000000e+00,  6.0000138900000003e+01,  0.0000000000000000e+00, -2.7777777777799614e-04</GeoTransform>\n')
+
+    if vrt in ('terrain', 'slopeshade'):
+        bands_colors= ( (1, 'Red'), (2, 'Green'), (3, 'Blue') )
+    else:
+        bands_colors= ( (1, 'Gray'), )
+    for band, color in bands_colors:
+        f.write ('  <VRTRasterBand dataType="Byte" band="%d">\n' % band)
+        f.write ('    <ColorInterp>%s</ColorInterp>\n' % color)
+
+        yOff= 0
+
+        for lat in range (59, 34, -1):
+            xOff= 0
+
+            # west
+            for lon in range (10, 0, -1):
+                # filename= '%s/n%02d_w%03d_1arc_v3-%s.tif' % (src_dir, lat, lon, vrt)
+                filename= '%s/N%02dW%03d-%s.tif' % (src_dir, lat, lon, vrt)
+                if _f (filename):
+                    f.write ('    <SimpleSource>\n')
+                    f.write ('      <SourceFilename relativeToVRT="1">%s</SourceFilename>\n' % filename)
+                    f.write ('      <SourceBand>%d</SourceBand>\n' % band)
+                    f.write ('      <SourceProperties RasterXSize="3601" RasterYSize="3601" DataType="Byte" BlockXSize="256" BlockYSize="256"/>\n')
+                    if lat<50:
+                        f.write ('      <SrcRect xOff="0" yOff="0" xSize="3600" ySize="3600"/>\n')
+                    else:
+                        f.write ('      <SrcRect xOff="1" yOff="1" xSize="3600" ySize="3600"/>\n')
+                    f.write ('      <DstRect xOff="%d" yOff="%d" xSize="3600" ySize="3600"/>\n' % (xOff, yOff))
+                    f.write ('    </SimpleSource>\n')
+
+                xOff+= 3600
+
+            # east
+            for lon in range (0, 48, 1):
+                # filename= '%s/n%02d_e%03d_1arc_v3-%s.tif' % (src_dir, lat, lon, vrt)
+                filename= '%s/N%02dE%03d-%s.tif' % (src_dir, lat, lon, vrt)
+                if _f (filename):
+                    f.write ('    <SimpleSource>\n')
+                    f.write ('      <SourceFilename relativeToVRT="1">%s</SourceFilename>\n' % filename)
+                    f.write ('      <SourceBand>%d</SourceBand>\n' % band)
+                    f.write ('      <SourceProperties RasterXSize="3601" RasterYSize="3601" DataType="Byte" BlockXSize="256" BlockYSize="256"/>\n')
+                    if lat<50:
+                        f.write ('      <SrcRect xOff="0" yOff="0" xSize="3600" ySize="3600"/>\n')
+                    else:
+                        f.write ('      <SrcRect xOff="1" yOff="1" xSize="3600" ySize="3600"/>\n')
+                    f.write ('      <DstRect xOff="%d" yOff="%d" xSize="3600" ySize="3600"/>\n' % (xOff, yOff))
+                    f.write ('    </SimpleSource>\n')
+
+                xOff+= 3600
+
+            yOff+= 3600
+
+        f.write ('  </VRTRasterBand>\n')
+
+    f.write ('</VRTDataset>\n')
+    f.close ()
