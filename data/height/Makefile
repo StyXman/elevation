@@ -26,16 +26,21 @@ all_single: $(terrain_files) $(hill_files) $(slope_files)
 $(master): $(height_files)
 	gdal_merge.py -o $@ -v $^
 
-$(relief): $(master) color-relief.txt
+.SECONDARY: $(correctd_files)
+
+%-corrected.tif: %.tif
+	if gdalinfo $< | grep -q 'Size is 1801'; then gdalwarp $(gopts) -tr 0.000277777777778 -0.000277777777778 $< $@; else ln $< $@; fi
+
+%-terrain.tif: %-corrected.tif color-relief.txt
 	gdaldem color-relief -alpha $(gopts) $< color-relief.txt $@
 
-$(hillshade): $(master)
-	gdaldem hillshade -alg Horn -s 111120 $(gopts) $< $@
+%-hillshade.tif: %-corrected.tif
+	gdaldem hillshade -alg Horn -s 111120 -compute_edges $(gopts) $< $@
 
-mixed_slope.tif: $(master)
-	gdaldem slope -alg Horn -s 111120 $(gopts) -p $< $@
+%-slope.tif: %-corrected.tif
+	gdaldem slope -alg Horn $(gopts) -compute_edges -p $< $@
 
-$(slopeshade): mixed_slope.tif slope.txt
+%-slopeshade.tif: %-slope.tif slope.txt
 	gdaldem color-relief $(gopts) $< slope.txt $@
 
 define gdal-contour
