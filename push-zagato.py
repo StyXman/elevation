@@ -206,11 +206,12 @@ for z in range (atlas.minZoom, atlas.maxZoom+1):
             dst_y= path_join (dst, str (z), str (x), str (y)+'.png')
 
             if file_newer (src_y, dst_y):
-                makedirs (path_join (dst, str (z), str (x)))
                 try:
+                    makedirs (path_join (dst, str (z), str (x)))
                     copy (src_y,dst_y)
                     print "C: %s -> %s" % (src_y, dst_y)
                 except Exception, e:
                     print e
             else:
-                print "K: %s" % dst_y
+                # print "K: %s" % dst_y
+                pass
