@@ -10,9 +10,9 @@ slope_files =     $(foreach height_file,$(height_files),$(subst .tif,-slopeshade
                   $(foreach height_file,$(height_files),$(subst .hgt,-slopeshade.tif,$(height_file)))
 
 master = mixed.tif
-hillshade = mixed_hillshade.tif
-slopeshade = mixed_slopeshade.tif
-relief = mixed_relief.tif
+hillshade = mixed-hillshade.tif
+slopeshade = mixed-slopeshade.tif
+relief = mixed-terrain.tif
 # shapefiles = $(foreach heigh_file, $(height_files), $(basename $(height_file)) )
 
 gopts = -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW
