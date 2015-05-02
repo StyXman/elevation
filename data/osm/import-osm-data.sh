@@ -6,7 +6,10 @@ common_opts="--username mdione --database gis --cache 2048 --number-processes 4 
     --verbose --slim --flat-nodes /home/mdione/src/projects/osm/nodes.cache \
     --style import.style"
 
-case $1 in
+command=$1
+shift
+
+case "$command" in
   restart)
     sudo -u postgres dropdb gis
     sudo -u postgres createdb -E UTF8 -O mdione gis
@@ -30,4 +33,8 @@ case $1 in
         nice -n 19 osm2pgsql $opts $common_opts $file
     done
     ;;
+
+  *)
+    echo "ERROR: wrong ocmmand $command"
+    exit 1
 esac
