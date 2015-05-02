@@ -15,11 +15,20 @@ Meanwhile, this is the current flow:
   but I recommend [Geofabrik's](http://geofabrik.de/) [planet extracts](http://download.geofabrik.de/):
 
     cd data/osm
-    wget [...]
+    wget [dbf_url]
+
+* Create the `gis` database:
+
+    ./import-osm-data.sh restart
+
+* Import the data. You can use --bbox to limit the import or any other osm2pgsql
+  option:
+
+    ./import-osm-data.sh import [dbf_file]
 
 * Get the DEMs for that region:
 
     cd ../height
-    ./
+    ./pull_height.ay ../osm/[dbf_file] # for this you will need ayrton properly installed
 
 (TBF)
