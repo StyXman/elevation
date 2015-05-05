@@ -1,9 +1,10 @@
 #! /usr/bin/env ayrton
 
-src_dir= argv[1]
+out_prefix= argv[1]
+src_dir= argv[2]
 
 for vrt in ('terrain', 'slopeshade', 'hillshade'):
-    f= open ('mixed-%s.vrt' % vrt, 'w+')
+    f= open ('%s-%s.vrt' % (out_prefix, vrt), 'w+')
     f.write ('<VRTDataset rasterXSize="208800" rasterYSize="90000">\n')
     f.write ('  <SRS>GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433],AUTHORITY["EPSG","4326"]]</SRS>\n')
     f.write ('  <GeoTransform> -1.0000138900000000e+01,  2.7777777777799614e-04,  0.0000000000000000e+00,  6.0000138900000003e+01,  0.0000000000000000e+00, -2.7777777777799614e-04</GeoTransform>\n')
