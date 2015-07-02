@@ -1,5 +1,19 @@
 # kate: replace-tabs: off; indent-width 8
 
+# options used everywhere
+gopts = -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW
+
+# for the main directory
+all: main
+
+# this Makefile has two goals:
+
+#############
+# FIRST GOAL
+# the first goal is to processes the original DEM files and produces 3 or 4 files:
+# * an ptional corrected version, for those DEMs that are not in the proper scale.
+# * final terrain, slopeshade and hillshade versions.
+
 height_files = $(wildcard *1arc_v3.tif) $(wildcard *.hgt)
 corrected_files = $(foreach height_file,$(height_files),$(subst .tif,-corrected.tif, $(height_file)))
 terrain_files =   $(foreach height_file,$(height_files),$(subst .tif,-terrain.tif,   $(height_file))) \
@@ -9,27 +23,17 @@ hill_files =      $(foreach height_file,$(height_files),$(subst .tif,-hillshade.
 slope_files =     $(foreach height_file,$(height_files),$(subst .tif,-slopeshade.tif,$(height_file))) \
                   $(foreach height_file,$(height_files),$(subst .hgt,-slopeshade.tif,$(height_file)))
 
-master = mixed.tif
-hillshade = mixed-hillshade.tif
-slopeshade = mixed-slopeshade.tif
-relief = mixed-terrain.tif
-# shapefiles = $(foreach heigh_file, $(height_files), $(basename $(height_file)) )
-
-gopts = -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW
-
-# all: $(hillshade) $(relief) $(slopeshade)
-all_single: $(terrain_files) $(hill_files) $(slope_files)
-# contour10.shp contour100.shp contour500.shp contour1000.shp
-# $(shapefiles)
-
-# TODO: gdalinfo /vsizip/N43E016.zip/N43E006.hgt
-$(master): $(height_files)
-	gdal_merge.py -o $@ -v $^
-
+# do not remove these intermediate files
 .SECONDARY: $(correctd_files)
 
+all_single: $(terrain_files) $(hill_files) $(slope_files)
+
 %-corrected.tif: %.tif
-	if gdalinfo $< | grep -q 'Size is 1801'; then gdalwarp $(gopts) -tr 0.000277777777778 -0.000277777777778 $< $@; else ln $< $@; fi
+	if gdalinfo $< | grep -q 'Size is 1801'; then \
+		gdalwarp $(gopts) -tr 0.000277777777778 -0.000277777777778 $< $@; \
+	else \
+		ln $< $@; \
+	fi
 
 %-terrain.tif: %-corrected.tif color-relief.txt
 	gdaldem color-relief -alpha $(gopts) $< color-relief.txt $@
@@ -52,8 +56,40 @@ $(master): $(height_files)
 %-slopeshade.tif: %-slope.tif slope.txt
 	gdaldem color-relief $(gopts) $< slope.txt $@
 
+# TODO: readd the .sql files with the contour lines
+
+##############
+# SECOND GOAL
+# the second goal is to combine these versions in three .vrt files,
+# so it can be used directly by the rendering engine
+# and also a small version so it can be used for rendering low zoom levels (currently 7 and below)
+
+# iterate first over the suffixes, then the datafiles
+# so .vrt are built first and small later
+# (but that should be resolved by the deps anyways)
+main_files = $(foreach suf,.vrt -small.tif,\
+                     $(foreach datafile,terrain slopeshade hillshade,\
+		               $(addsuffix $(suf),mixed-$(datafile))))
+
+main: $(main_files)
+
+%.vrt: datafiles/*
+
 %-small.tif: %.vrt
 	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 0.002222222222224 -0.002222222222224 $< $@
+
+###############################################
+# the old targets, left for historical reasons
+master = mixed.tif
+hillshade = mixed-hillshade.tif
+slopeshade = mixed-slopeshade.tif
+relief = mixed-terrain.tif
+# shapefiles = $(foreach heigh_file, $(height_files), $(basename $(height_file)) )
+
+# all: $(hillshade) $(relief) $(slopeshade)
+# contour10.shp contour100.shp contour500.shp contour1000.shp
+# mixed_contour.sql
+# $(shapefiles)
 
 define gdal-contour
 gdal_contour -i 50 -a height $< .
@@ -63,6 +99,9 @@ endef
 define shp2pgsql
 shp2pgsql -c -I -g way $(basename $<) contours > $@
 endef
+
+$(master): $(height_files)
+	gdal_merge.py -o $@ -v $^
 
 mixed_contour.sql: contour.shp
 	$(shp2pgsql)
