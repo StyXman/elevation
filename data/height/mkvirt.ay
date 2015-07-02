@@ -5,8 +5,10 @@ src_dir= argv[2]
 
 for vrt in ('terrain', 'slopeshade', 'hillshade'):
     f= open ('%s-%s.vrt' % (out_prefix, vrt), 'w+')
+    # TODO: hardcoded
     f.write ('<VRTDataset rasterXSize="208800" rasterYSize="90000">\n')
     f.write ('  <SRS>GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433],AUTHORITY["EPSG","4326"]]</SRS>\n')
+    # TODO: hardcoded
     f.write ('  <GeoTransform> -1.0000138900000000e+01,  2.7777777777799614e-04,  0.0000000000000000e+00,  6.0000138900000003e+01,  0.0000000000000000e+00, -2.7777777777799614e-04</GeoTransform>\n')
 
     if vrt in ('terrain', 'slopeshade'):
@@ -19,13 +21,16 @@ for vrt in ('terrain', 'slopeshade', 'hillshade'):
 
         yOff= 0
 
+        # TODO: hardcoded
         for lat in range (59, 34, -1):
             xOff= 0
 
+            # TODO: hardcoded
             # west
             for lon in range (10, 0, -1):
-                # filename= '%s/n%02d_w%03d_1arc_v3-%s.tif' % (src_dir, lat, lon, vrt)
-                filename= '%s/N%02dW%03d-%s.tif' % (src_dir, lat, lon, vrt)
+                # TODO: hardcoded
+                filename= '%s/n%02d_w%03d_1arc_v3-%s.tif' % (src_dir, lat, lon, vrt)
+                # filename= '%s/N%02dW%03d-%s.tif' % (src_dir, lat, lon, vrt)
                 if _f (filename):
                     f.write ('    <SimpleSource>\n')
                     f.write ('      <SourceFilename relativeToVRT="1">%s</SourceFilename>\n' % filename)
@@ -40,10 +45,12 @@ for vrt in ('terrain', 'slopeshade', 'hillshade'):
 
                 xOff+= 3600
 
+            # TODO: hardcoded
             # east
             for lon in range (0, 48, 1):
-                # filename= '%s/n%02d_e%03d_1arc_v3-%s.tif' % (src_dir, lat, lon, vrt)
-                filename= '%s/N%02dE%03d-%s.tif' % (src_dir, lat, lon, vrt)
+                # TODO: hardcoded
+                filename= '%s/n%02d_e%03d_1arc_v3-%s.tif' % (src_dir, lat, lon, vrt)
+                # filename= '%s/N%02dE%03d-%s.tif' % (src_dir, lat, lon, vrt)
                 if _f (filename):
                     f.write ('    <SimpleSource>\n')
                     f.write ('      <SourceFilename relativeToVRT="1">%s</SourceFilename>\n' % filename)
