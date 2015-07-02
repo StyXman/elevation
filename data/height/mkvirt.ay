@@ -15,6 +15,7 @@ for vrt in ('terrain', 'slopeshade', 'hillshade'):
         bands_colors= ( (1, 'Red'), (2, 'Green'), (3, 'Blue') )
     else:
         bands_colors= ( (1, 'Gray'), )
+
     for band, color in bands_colors:
         f.write ('  <VRTRasterBand dataType="Byte" band="%d">\n' % band)
         f.write ('    <ColorInterp>%s</ColorInterp>\n' % color)
@@ -36,7 +37,8 @@ for vrt in ('terrain', 'slopeshade', 'hillshade'):
                     f.write ('      <SourceFilename relativeToVRT="1">%s</SourceFilename>\n' % filename)
                     f.write ('      <SourceBand>%d</SourceBand>\n' % band)
                     f.write ('      <SourceProperties RasterXSize="3601" RasterYSize="3601" DataType="Byte" BlockXSize="256" BlockYSize="256"/>\n')
-                    if lat<50:
+                    # TODO: hardcoded for corrected files
+                    if lat<50 or True:
                         f.write ('      <SrcRect xOff="0" yOff="0" xSize="3600" ySize="3600"/>\n')
                     else:
                         f.write ('      <SrcRect xOff="1" yOff="1" xSize="3600" ySize="3600"/>\n')
