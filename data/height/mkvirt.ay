@@ -28,10 +28,16 @@ for vrt in ('terrain', 'slopeshade', 'hillshade'):
 
             # TODO: hardcoded
             # west
-            for lon in range (10, 0, -1):
+            for lon in range (-10, 48):
                 # TODO: hardcoded
-                filename= '%s/n%02d_w%03d_1arc_v3-%s.tif' % (src_dir, lat, lon, vrt)
-                # filename= '%s/N%02dW%03d-%s.tif' % (src_dir, lat, lon, vrt)
+                if lon<0:
+                    lon= -lon
+                    # filename= '%s/n%02d_w%03d_1arc_v3-%s.tif' % (src_dir, lat, lon, vrt)
+                    filename= '%s/N%02dW%03d-%s.tif' % (src_dir, lat, lon, vrt)
+                else:
+                    # filename= '%s/n%02d_e%03d_1arc_v3-%s.tif' % (src_dir, lat, lon, vrt)
+                    filename= '%s/N%02dE%03d-%s.tif' % (src_dir, lat, lon, vrt)
+
                 if _f (filename):
                     f.write ('    <SimpleSource>\n')
                     f.write ('      <SourceFilename relativeToVRT="1">%s</SourceFilename>\n' % filename)
@@ -39,26 +45,6 @@ for vrt in ('terrain', 'slopeshade', 'hillshade'):
                     f.write ('      <SourceProperties RasterXSize="3601" RasterYSize="3601" DataType="Byte" BlockXSize="256" BlockYSize="256"/>\n')
                     # TODO: hardcoded for corrected files
                     if lat<50 or True:
-                        f.write ('      <SrcRect xOff="0" yOff="0" xSize="3600" ySize="3600"/>\n')
-                    else:
-                        f.write ('      <SrcRect xOff="1" yOff="1" xSize="3600" ySize="3600"/>\n')
-                    f.write ('      <DstRect xOff="%d" yOff="%d" xSize="3600" ySize="3600"/>\n' % (xOff, yOff))
-                    f.write ('    </SimpleSource>\n')
-
-                xOff+= 3600
-
-            # TODO: hardcoded
-            # east
-            for lon in range (0, 48, 1):
-                # TODO: hardcoded
-                filename= '%s/n%02d_e%03d_1arc_v3-%s.tif' % (src_dir, lat, lon, vrt)
-                # filename= '%s/N%02dE%03d-%s.tif' % (src_dir, lat, lon, vrt)
-                if _f (filename):
-                    f.write ('    <SimpleSource>\n')
-                    f.write ('      <SourceFilename relativeToVRT="1">%s</SourceFilename>\n' % filename)
-                    f.write ('      <SourceBand>%d</SourceBand>\n' % band)
-                    f.write ('      <SourceProperties RasterXSize="3601" RasterYSize="3601" DataType="Byte" BlockXSize="256" BlockYSize="256"/>\n')
-                    if lat<50:
                         f.write ('      <SrcRect xOff="0" yOff="0" xSize="3600" ySize="3600"/>\n')
                     else:
                         f.write ('      <SrcRect xOff="1" yOff="1" xSize="3600" ySize="3600"/>\n')
