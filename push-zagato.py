@@ -28,6 +28,11 @@ def file_newer (src, dst):
     # print src_stat.st_mtime, dst_stat.st_mtime
     return src_stat.st_mtime>dst_stat.st_mtime
 
+overwrite= False
+if sys.argv[1] in ('-f', '-o', '--force', '--overwrite'):
+    overwrite= True
+    sys.argv.pop (1)
+
 src= sys.argv.pop (1)
 dst= sys.argv.pop (1)
 sectors= sys.argv[1:]
@@ -70,7 +75,7 @@ for z in range (atlas.minZoom, atlas.maxZoom+1):
             src_y= path_join (src, str (z), str (x), str (y)+'.png')
             dst_y= path_join (dst, str (z), str (x), str (y)+'.png')
 
-            if file_newer (src_y, dst_y):
+            if file_newer (src_y, dst_y) or overwrite:
                 try:
                     map_utils.makedirs (path_join (dst, str (z), str (x)))
                     copy (src_y, dst_y)
