@@ -11,7 +11,7 @@ all: main
 #############
 # FIRST GOAL
 # the first goal is to processes the original DEM files and produces 3 or 4 files:
-# * an ptional corrected version, for those DEMs that are not in the proper scale.
+# * an optional corrected version, for those DEMs that are not in the proper scale.
 # * final terrain, slopeshade and hillshade versions.
 
 height_files = $(wildcard *1arc_v3.tif) $(wildcard *.hgt)
@@ -81,7 +81,15 @@ main: $(main_files)
 
 %-small.tif: %.vrt
 	rm -f $@
+# 8 times less resolute than the original
 	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 0.002222222222224 -0.002222222222224 $< $@
+
+tiny: mixed-terrain-tiny.tif mixed-hillshade-tiny.tif mixed-slopeshade-tiny.tif
+
+%-tiny.tif: %-small.tif
+	rm -f $@
+# 8 times less resolute than the original
+	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 0.017777777777792 -0.017777777777792 $< $@
 
 ###############################################
 # the old targets, left for historical reasons
