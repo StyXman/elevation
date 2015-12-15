@@ -73,9 +73,14 @@ main_files = $(foreach suf,.vrt -small.tif,\
 
 main: $(main_files)
 
-%.vrt: datafiles/*
+%-terrain.vrt: datafiles/*-terrain.tif
+
+%-terrain.vrt: datafiles/*-terrain.tif
+
+%-terrain.vrt: datafiles/*-terrain.tif
 
 %-small.tif: %.vrt
+	rm -f $@
 	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 0.002222222222224 -0.002222222222224 $< $@
 
 ###############################################
