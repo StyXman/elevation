@@ -153,8 +153,7 @@ def main ():
         shift ()
 
     pbf_file= argv[1]
-    extent= grep (head (osmpbf_outline (pbf_file, _fails=True), n=100), 'bbox',
-                  _out=Capture, _fails=True)
+    extent= osmpbf_outline (pbf_file, _fails=True) | head (-n=100) | grep ('bbox', _out=Capture, _fails=True)
 
     # bbox: 9.5267800,46.3685100,17.1627300,49.0240300
     # bbox: -34.4929600,30.8165900,45.0000000,81.4729900
@@ -183,8 +182,8 @@ def main ():
                 print ("%s not found, downloading" % f)
                 url= "%s/%s" % (u, z)
                 try:
-                    wget ('--verbose', '--progress=bar', '--continue',
-                          '--output-document', z, url, _out_bufsize=0)
+                    wget (--verbose=True, --progress='bar', -c=True,  # continue is a reserved word
+                          --output-document=z, url, _out_bufsize=0)
                 except CommandFailed as e:
                     if e.command.exit_code ()==8:
                         # most probably 404
@@ -200,7 +199,7 @@ def main ():
 
             if _f(z):
                 try:
-                    unzip ('-o', '-f', z)
+                    unzip (-o=True, -f=True, z)
                     unlink (z)
                     pass
                 except CommandFailed as e:
