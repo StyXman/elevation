@@ -75,11 +75,11 @@ main_files = $(foreach suf,.vrt -small.tif,\
 
 main: $(main_files)
 
-%-terrain.vrt: datafiles/*-terrain.tif
-
-%-terrain.vrt: datafiles/*-terrain.tif
-
-%-terrain.vrt: datafiles/*-terrain.tif
+%-medium.tif: %.vrt
+	rm -f $@
+# 4 times less resolute than the original
+# units/pixel= 1 deg/900 (4 arc sec) = 0.001111111111111
+	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 0.001111111111111 -0.001111111111111 $< $@
 
 %-small.tif: %.vrt
 	rm -f $@
