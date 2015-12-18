@@ -28,6 +28,8 @@ slope_files =     $(foreach height_file,$(height_files),$(subst .tif,-slopeshade
 
 all_single: $(terrain_files) $(hill_files) $(slope_files)
 
+# unit is degree (math.pi/180)
+# units/pixel= 1 deg/3600 (1 arc sec) = 0.000277777777778
 %-corrected.tif: %.tif
 	if gdalinfo $< | grep -q 'Size is 1801'; then \
 		gdalwarp $(gopts) -tr 0.000277777777778 -0.000277777777778 $< $@; \
@@ -82,14 +84,16 @@ main: $(main_files)
 %-small.tif: %.vrt
 	rm -f $@
 # 8 times less resolute than the original
-	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 0.002222222222224 -0.002222222222224 $< $@
+# units/pixel= 1 deg/450 (8 arc sec) = 0.002222222222222
+	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 0.002222222222222 -0.002222222222222 $< $@
 
 tiny: mixed-terrain-tiny.tif mixed-hillshade-tiny.tif mixed-slopeshade-tiny.tif
 
 %-tiny.tif: %-small.tif
 	rm -f $@
-# 8 times less resolute than the original
-	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 0.017777777777792 -0.017777777777792 $< $@
+# 8 times less resolute than -small (64 times the original)
+# units/pixel= 1 deg/56.25 (64 arc sec) = 0.017777777777778
+	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 0.017777777777778 -0.017777777777778 $< $@
 
 ###############################################
 # the old targets, left for historical reasons
