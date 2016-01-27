@@ -191,7 +191,7 @@ def main ():
                         not_found.add (z)
 
                     # wget leaves an empty file if the download failed!
-                    rm (z)
+                    rm (-v=True, z)
 
                 sleep (1)
             else:
@@ -199,9 +199,8 @@ def main ():
 
             if _f(z):
                 try:
-                    unzip (-o=True, -f=True, z)
-                    unlink (z)
-                    pass
+                    unzip (-o=True, -f=True, -v=True, z)
+                    rm (-v=True, z)
                 except CommandFailed as e:
                     print ("unzipping %s failed[%s]; keeping..." % (z, e))
 
