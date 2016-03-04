@@ -28,6 +28,11 @@ def file_newer (src, dst):
     # print src_stat.st_mtime, dst_stat.st_mtime
     return src_stat.st_mtime>dst_stat.st_mtime
 
+if len (sys.argv)==0 or sys.argv[1] in ('-h', '--help'):
+    # usage
+    print """%s [-f|-o|--force|--overwrite] SRC DST MAP...""" % sys.argv[0]
+    exit (0)
+
 overwrite= False
 if sys.argv[1] in ('-f', '-o', '--force', '--overwrite'):
     overwrite= True
