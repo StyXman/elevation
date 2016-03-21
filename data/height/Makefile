@@ -22,11 +22,12 @@ hill_files =      $(foreach height_file,$(height_files),$(subst .tif,-hillshade.
                   $(foreach height_file,$(height_files),$(subst .hgt,-hillshade.tif, $(height_file)))
 slope_files =     $(foreach height_file,$(height_files),$(subst .tif,-slopeshade.tif,$(height_file))) \
                   $(foreach height_file,$(height_files),$(subst .hgt,-slopeshade.tif,$(height_file)))
+all_files = $(sort $(terrain_files) $(hill_files) $(slope_files))
 
 # do not remove these intermediate files
 .SECONDARY: $(correctd_files)
 
-all_single: $(terrain_files) $(hill_files) $(slope_files)
+all_single: $(all_files)
 
 # unit is degree (math.pi/180)
 # units/pixel= 1 deg/3600 (1 arc sec) = 0.000277777777778
