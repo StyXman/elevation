@@ -70,7 +70,7 @@ all_single: $(all_files)
 # iterate first over the suffixes, then the datafiles
 # so .vrt are built first and small later
 # (but that should be resolved by the deps anyways)
-main_files = $(foreach suf,.vrt -small.tif,\
+main_files = $(foreach suf,.vrt -medium.tif -small.tif,\
                      $(foreach datafile,terrain slopeshade hillshade,\
 		               $(addsuffix $(suf),mixed-$(datafile))))
 
