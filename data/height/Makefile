@@ -4,7 +4,9 @@
 gopts = -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW
 
 # for the main directory
-all: main
+all:
+	make -C datafiles -j 4 all_single
+	make main
 
 # this Makefile has two goals:
 
