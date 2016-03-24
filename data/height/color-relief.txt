@@ -4,3 +4,8 @@
 1000 255 255 127
    0 102 204 141
 -450  78 157 108
+# The lowest (from sea level) artificially made point with open sky
+# might be the Hambach surface mine, Germany, 293 m (961 feet) below sea level.
+# The lowest point on dry land
+# is the shore of the Dead Sea, shared by Israel, the West Bank, and Jordan,
+# 418 m (1,371 feet) below sea level.
