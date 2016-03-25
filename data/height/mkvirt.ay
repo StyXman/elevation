@@ -10,12 +10,12 @@
 src_dir= argv[1]
 out_prefix= argv[2]
 # BUG in ayrton
-# for the moment I have to this this way
+# for the moment I have to do this this way
 bbox= argv[3]
 w, s, e, n= [ int (x) for x in bbox.split(',') ]
 
 # TODO: hardcoded
-pixels_per_degree= 3600
+pixels_per_degree= 3600 # 1 arc sec
 degrees_per_pixel= 1.0/pixels_per_degree
 
 xsize= int (e-w+1)*pixels_per_degree
