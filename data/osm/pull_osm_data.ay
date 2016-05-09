@@ -1,0 +1,63 @@
+#! /usr/bin/env ayrton
+
+from datetime import datetime
+
+if len (argv)!=3:
+    print ("""Usage: %s EXTRACT DST
+        EXTRACT can be in the form 'europe', 'europe/france' or 'europe/france/provence-alps-cote-d-azur'
+        DST is where the file will be downloaded
+
+        For more info, go to http://download.geofabrik.de/""" % argv[0])
+    exit (1)
+
+# strptime formats for HTTP-date as defined here:
+# https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1
+RFC_1123='%a, %d %b %Y %H:%M:%S %Z'  # Sun, 06 Nov 1994 08:49:37 GMT
+RFC_1036='%A, %d-%b-%y %H:%M:%S %Z'  # Sunday, 06-Nov-94 08:49:37 GMT
+asctime= '%c'  # Sun Nov  6 08:49:37 1994
+
+extract, dst= argv
+
+final_path= "%s-latest.osm.pbf" % extract
+file= "%s/%s" % (dst, basename (final_path))
+url= "http://download.geofabrik.de/%s" % final_path
+
+makedirs (dst, exist_ok=True)
+
+# curl and/or http servers do not work very well with --continue and --time-cond
+# what I would expect is that if the URL's Last-Modified is newer that the
+# If-Modified-Since request field, then the Range is ignored
+# and the file is downloaded from the beginning
+
+# so, we implement that here as follows
+# we ask for the URL's date and size
+# if local file is older thet the URL, then we restart
+# if not, and the file is shorter, then we request the range
+# otherwise, the file is up-to-date and complete, so do nothing
+url_date= None
+url_size= None
+for line in curl (--location=True, --head=True, --silent=True, url):
+    data= line.split (': ')
+    if data[0]=='Last-Modified':
+        # Last-Modified: Sun, 08 May 2016 23:52:14 GMT
+        url_date= datetime.strptime (data[1], RFC_1123)
+
+    if data[0]=='Content-Length':
+        # Content-Length: 18227901968
+        url_size= int (data[1])
+
+# TODO: check None'ness
+
+s= stat (file)
+# I don't need ns precision
+file_date= datetime.fromtimestamp (s.st_mtime)
+file_size= s.st_size
+
+if url_date>file_date:
+    # download from the beginning
+    unlink (final_path)
+    curl (--location=True, --output=file, url)
+elif url_size>file_size:
+    # go on...
+    # -C because continue is a keyword in Python :(
+    curl (--location=True, --output=file, -C='-', url)
