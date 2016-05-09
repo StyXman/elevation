@@ -1,3 +1,5 @@
+.PHONY: osm-carto-prepare clean
+
 all: openstreetmap-carto.xml
 	# $(MAKE) -C data/osm
 	# $(MAKE) -C data/height
