@@ -7,8 +7,15 @@ OSM_CARTO_VERSION=04f6d1bd3c6bbe0d8e2b8016836a24ccdab974a4
 project.mml: project.yaml
 	./scripts/yaml2mml.py $< > $@
 
-prepare:
+# cqa is a shorthand for checkout quilt apply
+prepare: cqa other all
+
+cqa:
 # this is in case we're using a dirty quilt set
 	rm -f .pc/applied-patches
 	git reset --hard $(OSM_CARTO_VERSION)
 	quilt push -va
+	touch cqa
+
+other:
+	make -C symbols
