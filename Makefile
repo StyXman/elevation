@@ -1,3 +1,5 @@
+# Makefile
+
 .PHONY: osm-carto-prepare clean
 
 all: openstreetmap-carto.xml
@@ -16,13 +18,13 @@ openstreetmap-carto.xml: osm-carto/project.mml osm-carto/*.mss
 # but not to do it over and over again (and land in inconsistent states)
 # we avoid doing it if osm-carto-checkout is up to date
 # classic timestamp trick
-prepare: osm-carto-checkout osm-carto-prepare
+prepare: osm-carto-checkout osm-carto-prepare symbols
 
 osm-carto-checkout:
 	mv osm-carto tmp
 	git clone https://github.com/gravitystorm/openstreetmap-carto.git osm-carto
 	mv tmp/.pc tmp/patches tmp/Makefile tmp/.kateconfig osm-carto/
-	mv tmp/symbols/Makefile osm-carto/symbols/
+	mv tmp/symbols/Makefile tmp/symbols/local osm-carto/symbols/
 	rm -rf tmp
 	touch osm-carto-checkout
 
@@ -31,3 +33,6 @@ osm-carto-prepare:
 
 clean:
 	rm -f osm-carto-checkout
+
+symbols:
+	ln -svf osm-carto/symbols .
