@@ -25,3 +25,6 @@ osm-carto-checkout:
 osm-carto-prepare:
 	make -C osm-carto prepare
 	touch osm-carto-prepare
+
+clean:
+	rm -f osm-carto-checkout osm-carto-prepare
