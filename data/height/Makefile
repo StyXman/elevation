@@ -27,7 +27,7 @@ slope_files =     $(foreach height_file,$(height_files),$(subst .tif,-slopeshade
 all_files = $(sort $(terrain_files) $(hill_files) $(slope_files))
 
 # do not remove these intermediate files
-.SECONDARY: $(correctd_files)
+.SECONDARY: $(corrected_files)
 
 all_single: $(all_files)
 
