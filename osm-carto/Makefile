@@ -1,4 +1,6 @@
-.PHONY: other
+# osm-carto/Makefile
+
+.PHONY: symbols-prepare
 .DELETE_ON_ERROR:
 
 OSM_CARTO_VERSION=04f6d1bd3c6bbe0d8e2b8016836a24ccdab974a4
@@ -10,7 +12,7 @@ project.mml: project.yaml
 	./scripts/yaml2mml.py
 
 # cqa is a shorthand for checkout quilt apply
-prepare: cqa other all
+prepare: cqa symbols-prepare all
 
 cqa:
 # this is in case we're using a dirty quilt set
@@ -19,5 +21,5 @@ cqa:
 	quilt push -va
 	touch cqa
 
-other:
-	make -C symbols
+symbols-prepare:
+	make -C symbols prepare
