@@ -1,6 +1,6 @@
 # osm-carto/symbols/Makefile
 
-local_symbols=castle.svg fort.svg
+local_symbols=castle.svg fort.svg forest_trans.png scrub_trans.png
 osmic_symbols=castle-defensive-14.svg castle-manor-14.svg castle-stately-14.svg castle-fortress-14.svg castle-palace-14.svg
 
 prepare: deps $(local_symbols) $(osmic_symbols)
