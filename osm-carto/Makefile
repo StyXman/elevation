@@ -1,4 +1,5 @@
-OSM_CARTO_VERSION=v2.39.0
+OSM_CARTO_VERSION=04f6d1bd3c6bbe0d8e2b8016836a24ccdab974a4
+#v2.39.0
 
 project.mml: project.yaml
 	./scripts/yaml2mml.py $< > $@
