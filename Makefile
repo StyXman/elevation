@@ -18,7 +18,7 @@ prepare: osm-carto-checkout osm-carto-prepare
 osm-carto-checkout:
 	mv osm-carto tmp
 	git clone https://github.com/gravitystorm/openstreetmap-carto.git osm-carto
-	mv tmp/.pc tmp/patches tmp/Makefile osm-carto/
+	mv tmp/.pc tmp/patches tmp/Makefile tmp/.kateconfig osm-carto/
 	rm -rf tmp
 	touch osm-carto-checkout
 
