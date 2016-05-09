@@ -1,6 +1,6 @@
 # Makefile
 
-.PHONY: osm-carto-prepare clean
+.PHONY: osm-carto-prepare Elevation-prepare clean
 
 all: openstreetmap-carto.xml
 	# $(MAKE) -C data/osm
@@ -18,7 +18,7 @@ openstreetmap-carto.xml: osm-carto/project.mml osm-carto/*.mss
 # but not to do it over and over again (and land in inconsistent states)
 # we avoid doing it if osm-carto-checkout is up to date
 # classic timestamp trick
-prepare: osm-carto-checkout osm-carto-prepare symbols
+prepare: osm-carto-checkout osm-carto-prepare Elevation-prepare data-height-prepare symbols
 
 osm-carto-checkout:
 	mv osm-carto tmp
@@ -31,8 +31,13 @@ osm-carto-checkout:
 osm-carto-prepare:
 	make -C osm-carto prepare
 
-clean:
-	rm -f osm-carto-checkout
+Elevation-prepare:
+	make -C Elevation prepare
+
+data-height-prepare:
 
 symbols:
 	ln -svf osm-carto/symbols .
+
+clean:
+	rm -f osm-carto-checkout
