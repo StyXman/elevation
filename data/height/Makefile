@@ -34,10 +34,10 @@ all_single: $(all_files)
 # unit is degree (math.pi/180)
 # units/pixel= 1 deg/3600 (1 arc sec) = 0.000277777777778
 %-corrected.tif: %.tif
-	if gdalinfo $< | grep -q 'Size is 1801'; then \
+	@if gdalinfo $< | grep -q 'Size is 1801'; then \
 		gdalwarp $(gopts) -tr 0.000277777777778 -0.000277777777778 $< $@; \
 	else \
-		ln $< $@; \
+		ln -svf $< $@; \
 	fi
 
 %-terrain.tif: %-corrected.tif color-relief.txt
