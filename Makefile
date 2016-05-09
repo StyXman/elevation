@@ -7,6 +7,7 @@ all: openstreetmap-carto.xml
 	# $(MAKE) -C mapnik-stylesheets
 
 openstreetmap-carto.xml: osm-carto/project.mml osm-carto/*.mss
+	make -C osm-carto
 	carto $< | sed -e 's/minzoom/minimum-scale-denominator/g; s/maxzoom/maximum-scale-denominator/g;' > $@
 
 # it works like this
