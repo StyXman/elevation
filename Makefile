@@ -32,7 +32,7 @@ osm-carto-prepare:
 	make -C osm-carto prepare
 
 Elevation-prepare:
-	make -C Elevation prepare
+	make -C Elevation prepare DATA_DIR=$(DATA_DIR)
 
 data-height-prepare:
 
