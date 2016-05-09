@@ -104,7 +104,7 @@ master = mixed.tif
 hillshade = mixed-hillshade.tif
 slopeshade = mixed-slopeshade.tif
 relief = mixed-terrain.tif
-# shapefiles = $(foreach heigh_file, $(height_files), $(basename $(height_file)) )
+# shapefiles = $(foreach height_file, $(height_files), $(basename $(height_file)) )
 
 # all: $(hillshade) $(relief) $(slopeshade)
 # contour10.shp contour100.shp contour500.shp contour1000.shp
