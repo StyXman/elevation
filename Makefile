@@ -22,6 +22,7 @@ osm-carto-checkout:
 	mv osm-carto tmp
 	git clone https://github.com/gravitystorm/openstreetmap-carto.git osm-carto
 	mv tmp/.pc tmp/patches tmp/Makefile tmp/.kateconfig osm-carto/
+	mv tmp/symbols/Makefile osm-carto/symbols/
 	rm -rf tmp
 	touch osm-carto-checkout
 
