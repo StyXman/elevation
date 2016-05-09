@@ -12,7 +12,7 @@ project.mml: project.yaml
 	./scripts/yaml2mml.py
 
 # cqa is a shorthand for checkout quilt apply
-prepare: cqa symbols-prepare all
+prepare: cqa download-data symbols-prepare
 
 cqa:
 # this is in case we're using a dirty quilt set
@@ -20,6 +20,10 @@ cqa:
 	git reset --hard $(OSM_CARTO_VERSION)
 	quilt push -va
 	touch cqa
+	
+download-data:
+	./get-shapefiles.sh
+	touch download-data
 
 symbols-prepare:
 	make -C symbols prepare
