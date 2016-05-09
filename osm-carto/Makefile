@@ -5,7 +5,7 @@ project.mml: project.yaml
 	./scripts/yaml2mml.py $< > $@
 
 prepare:
-	git checkout $(OSM_CARTO_VERSION)
 # this is in case we're using a dirty quilt set
-	rm .pc/applied-patches
+	rm -f .pc/applied-patches
+	git reset --hard $(OSM_CARTO_VERSION)
 	quilt push -va
