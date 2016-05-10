@@ -47,12 +47,25 @@ for line in curl (--location=True, --head=True, --silent=True, url):
         url_size= int (data[1])
 
 # TODO: check None'ness
+
+# but there's a further complication
+# the local file ets its c/mtime to the time when the file was last written
+# which could easily be after the extract was rotated with a new version
+# which means a local file with a date newer than the remote, while being
+# completely different times.
+
+# we solve this by creating an empty file to save the initial download timestamp
+ts_file= file+'.ts'
+
 try:
-    s= stat (file)
+    s= stat (ts_file)
     # I don't need ns precision
     file_date= datetime.fromtimestamp (s.st_mtime)
+
+    s= stat (file)
     file_size= s.st_size
 except FileNotFoundError:
+    touch (ts_file)
     curl (--location=True, --output=file, url)
 else:
     print ('Local:  %s, %010d' % (file_date.strftime (RFC_1123), file_size))
@@ -61,6 +74,7 @@ else:
     if url_date>file_date:
         # download from the beginning
         unlink (final_path)
+        touch (ts_file)
         curl (--location=True, --output=file, url)
     elif url_size>file_size:
         # go on...
