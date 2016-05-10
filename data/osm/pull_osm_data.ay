@@ -47,17 +47,22 @@ for line in curl (--location=True, --head=True, --silent=True, url):
         url_size= int (data[1])
 
 # TODO: check None'ness
-
-s= stat (file)
-# I don't need ns precision
-file_date= datetime.fromtimestamp (s.st_mtime)
-file_size= s.st_size
-
-if url_date>file_date:
-    # download from the beginning
-    unlink (final_path)
+try:
+    s= stat (file)
+    # I don't need ns precision
+    file_date= datetime.fromtimestamp (s.st_mtime)
+    file_size= s.st_size
+except FileNotFoundError:
     curl (--location=True, --output=file, url)
-elif url_size>file_size:
-    # go on...
-    # -C because continue is a keyword in Python :(
-    curl (--location=True, --output=file, -C='-', url)
+else:
+    print ('Local:  %s, %010d' % (file_date.strftime (RFC_1123), file_size))
+    print ('Remote: %s, %010d' % (url_date.strftime (RFC_1123),  url_size))
+
+    if url_date>file_date:
+        # download from the beginning
+        unlink (final_path)
+        curl (--location=True, --output=file, url)
+    elif url_size>file_size:
+        # go on...
+        # -C because continue is a keyword in Python :(
+        curl (--location=True, --output=file, -C='-', url)
