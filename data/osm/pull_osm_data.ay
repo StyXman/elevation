@@ -34,19 +34,6 @@ makedirs (dst, exist_ok=True)
 # if local file is older thet the URL, then we restart
 # if not, and the file is shorter, then we request the range
 # otherwise, the file is up-to-date and complete, so do nothing
-url_date= None
-url_size= None
-for line in curl (--location=True, --head=True, --silent=True, url):
-    data= line.split (': ')
-    if data[0]=='Last-Modified':
-        # Last-Modified: Sun, 08 May 2016 23:52:14 GMT
-        url_date= datetime.strptime (data[1], RFC_1123)
-
-    if data[0]=='Content-Length':
-        # Content-Length: 18227901968
-        url_size= int (data[1])
-
-# TODO: check None'ness
 
 # but there's a further complication
 # the local file ets its c/mtime to the time when the file was last written
@@ -68,6 +55,20 @@ except FileNotFoundError:
     touch (ts_file)
     curl (--location=True, --output=file, url)
 else:
+    url_date= None
+    url_size= None
+    for line in curl (--location=True, --head=True, --silent=True, url):
+        data= line.split (': ')
+        if data[0]=='Last-Modified':
+            # Last-Modified: Sun, 08 May 2016 23:52:14 GMT
+            url_date= datetime.strptime (data[1], RFC_1123)
+
+        if data[0]=='Content-Length':
+            # Content-Length: 18227901968
+            url_size= int (data[1])
+
+    # TODO: check None'ness
+
     print ('Local:  %s, %010d' % (file_date.strftime (RFC_1123), file_size))
     print ('Remote: %s, %010d' % (url_date.strftime (RFC_1123),  url_size))
 
