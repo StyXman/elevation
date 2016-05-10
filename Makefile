@@ -1,12 +1,8 @@
 # Makefile
 
-.PHONY: osm-carto-prepare Elevation-prepare clean
+.PHONY: osm-carto-prepare Elevation-prepare data-height-prepare clean
 
 all: openstreetmap-carto.xml
-	# $(MAKE) -C data/osm
-	# $(MAKE) -C data/height
-	# $(MAKE) -C tilemill/project/osm-tilemill
-	# $(MAKE) -C mapnik-stylesheets
 
 openstreetmap-carto.xml: osm-carto/project.mml osm-carto/*.mss
 	make -C osm-carto
@@ -35,6 +31,7 @@ Elevation-prepare:
 	make -C Elevation prepare DATA_DIR=$(DATA_DIR)
 
 data-height-prepare:
+	make -C data/height prepare DATA_DIR=$(DATA_DIR)
 
 symbols:
 	ln -svf osm-carto/symbols .
