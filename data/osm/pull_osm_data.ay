@@ -31,15 +31,15 @@ makedirs (dst, exist_ok=True)
 
 # so, we implement that here as follows
 # we ask for the URL's date and size
-# if local file is older thet the URL, then we restart
+# if local file is older than the URL, then we restart
 # if not, and the file is shorter, then we request the range
 # otherwise, the file is up-to-date and complete, so do nothing
 
 # but there's a further complication
-# the local file ets its c/mtime to the time when the file was last written
+# the local file gets its c/mtime to the time when the file was last written
 # which could easily be after the extract was rotated with a new version
 # which means a local file with a date newer than the remote, while being
-# completely different times.
+# completely different files.
 
 # we solve this by creating an empty file to save the initial download timestamp
 ts_file= file+'.ts'
