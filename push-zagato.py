@@ -78,7 +78,7 @@ for z in range (atlas.minZoom, atlas.maxZoom+1):
 
             if file_newer (src_y, dst_y) or overwrite:
                 try:
-                    map_utils.makedirs (path_join (opts.dst, str (z), str (x)))
+                    makedirs (path_join (opts.dst, str (z), str (x)), exists_ok=True)
                     copy (src_y, dst_y)
                     print ("C: %s -> %s" % (src_y, dst_y))
                 except Exception as e:
