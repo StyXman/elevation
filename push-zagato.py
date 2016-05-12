@@ -33,6 +33,7 @@ parser= argparse.ArgumentParser ()
 parser.add_argument ('-f', '--force',     dest='overwrite', action='store_true')
 parser.add_argument ('-o', '--overwrite', dest='overwrite', action='store_true')
 parser.add_argument ('-k', '--keep', action='store_true')
+parser.add_argument ('-n', '--dry-run', action='store_true')
 parser.add_argument ('src', metavar='SRC')
 parser.add_argument ('dst', metavar='DST')
 parser.add_argument ('maps', metavar='MAP', nargs='+')
@@ -54,8 +55,9 @@ for z in range (atlas.minZoom, atlas.maxZoom+1):
             # print ("-- dx", (z, x))
             if not (z, x) in atlas and not opts.keep:
                 d= path_join (opts.dst, str (z), str (x))
-                rmtree (d)
                 print ("X: %s" % d)
+                if not opts.dry_run:
+                    rmtree (d)
 
     for x in atlas.iterate_x (z):
         # print ("-- sx", (z, x))
@@ -69,8 +71,9 @@ for z in range (atlas.minZoom, atlas.maxZoom+1):
                 # print ("--- dy", (z, x, y))
                 if not (z, x, y) in atlas and not opts.keep:
                     f= path_join (opts.dst, str (z), str (x), str (y)+'.png')
-                    unlink (f)
                     print ("D: %s" % f)
+                    if not opts.dry_run:
+                        unlink (f)
 
         for y in atlas.iterate_y (z, x):
             # print ("--- sy", (z, x, y))
@@ -79,9 +82,10 @@ for z in range (atlas.minZoom, atlas.maxZoom+1):
 
             if file_newer (src_y, dst_y) or opts.overwrite:
                 try:
-                    makedirs (path_join (opts.dst, str (z), str (x)), exists_ok=True)
-                    copy (src_y, dst_y)
                     print ("C: %s -> %s" % (src_y, dst_y))
+                    if not opts.dry_run:
+                        makedirs (path_join (opts.dst, str (z), str (x)), exist_ok=True)
+                        copy (src_y, dst_y)
                 except Exception as e:
                     print (e)
             else:
