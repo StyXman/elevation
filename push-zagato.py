@@ -32,6 +32,7 @@ def file_newer (src, dst):
 parser= argparse.ArgumentParser ()
 parser.add_argument ('-f', '--force',     dest='overwrite', action='store_true')
 parser.add_argument ('-o', '--overwrite', dest='overwrite', action='store_true')
+parser.add_argument ('-k', '--keep', action='store_true')
 parser.add_argument ('src', metavar='SRC')
 parser.add_argument ('dst', metavar='DST')
 parser.add_argument ('maps', metavar='MAP', nargs='+')
@@ -51,7 +52,7 @@ for z in range (atlas.minZoom, atlas.maxZoom+1):
     else:
         for x in ( int (x) for x in present_x ):
             # print ("-- dx", (z, x))
-            if not (z, x) in atlas:
+            if not (z, x) in atlas and not opts.keep:
                 d= path_join (opts.dst, str (z), str (x))
                 rmtree (d)
                 print ("X: %s" % d)
@@ -66,7 +67,7 @@ for z in range (atlas.minZoom, atlas.maxZoom+1):
         else:
             for y in ( int (y.split ('.')[0]) for y in present_y):
                 # print ("--- dy", (z, x, y))
-                if not (z, x, y) in atlas:
+                if not (z, x, y) in atlas and not opts.keep:
                     f= path_join (opts.dst, str (z), str (x), str (y)+'.png')
                     unlink (f)
                     print ("D: %s" % f)
