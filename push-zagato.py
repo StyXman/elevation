@@ -1,13 +1,13 @@
 #! /usr/bin/python3
 
 import sys
-
-import map_utils
 from shutil import copy, rmtree
 from os import listdir, stat, unlink, mkdir, walk, makedirs
 from os.path import dirname, basename, join as path_join
 from errno import ENOENT, EEXIST
 import argparse
+
+import map_utils
 
 def file_newer (src, dst):
     try:
