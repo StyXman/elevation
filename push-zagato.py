@@ -77,7 +77,7 @@ for z in range (atlas.minZoom, atlas.maxZoom+1):
             src_y= path_join (opts.src, str (z), str (x), str (y)+'.png')
             dst_y= path_join (opts.dst, str (z), str (x), str (y)+'.png')
 
-            if file_newer (src_y, dst_y) or overwrite:
+            if file_newer (src_y, dst_y) or opts.overwrite:
                 try:
                     makedirs (path_join (opts.dst, str (z), str (x)), exists_ok=True)
                     copy (src_y, dst_y)
