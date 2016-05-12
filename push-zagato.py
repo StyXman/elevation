@@ -1,10 +1,10 @@
-#! /usr/bin/python2
+#! /usr/bin/python3
 
 import sys
 
 import map_utils
 from shutil import copy, rmtree
-from os import listdir, stat, unlink, mkdir, walk
+from os import listdir, stat, unlink, mkdir, walk, makedirs
 from os.path import dirname, basename, join as path_join
 from errno import ENOENT, EEXIST
 
@@ -46,7 +46,7 @@ atlas= map_utils.Atlas (sectors)
 # I assume I will want all the zoom levels
 # so I don't have to check for dir contents
 for z in range (atlas.minZoom, atlas.maxZoom+1):
-    # print "- z", (z, )
+    # print ("- z", (z, ))
     try:
         present_x= listdir (path_join (dst, str (z)))
     except OSError as e:
@@ -54,14 +54,14 @@ for z in range (atlas.minZoom, atlas.maxZoom+1):
             raise e
     else:
         for x in ( int (x) for x in present_x ):
-            # print "-- dx", (z, x)
+            # print ("-- dx", (z, x))
             if not (z, x) in atlas:
                 d= path_join (dst, str (z), str (x))
                 rmtree (d)
-                print "X: %s" % d
+                print ("X: %s" % d)
 
     for x in atlas.iterate_x (z):
-        # print "-- sx", (z, x)
+        # print ("-- sx", (z, x))
         try:
             present_y= listdir (path_join (dst, str (z), str (x)))
         except OSError as e:
@@ -69,14 +69,14 @@ for z in range (atlas.minZoom, atlas.maxZoom+1):
                 raise e
         else:
             for y in ( int (y.split ('.')[0]) for y in present_y):
-                # print "--- dy", (z, x, y)
+                # print ("--- dy", (z, x, y))
                 if not (z, x, y) in atlas:
                     f= path_join (dst, str (z), str (x), str (y)+'.png')
                     unlink (f)
-                    print "D: %s" % f
+                    print ("D: %s" % f)
 
         for y in atlas.iterate_y (z, x):
-            # print "--- sy", (z, x, y)
+            # print ("--- sy", (z, x, y))
             src_y= path_join (src, str (z), str (x), str (y)+'.png')
             dst_y= path_join (dst, str (z), str (x), str (y)+'.png')
 
@@ -84,9 +84,9 @@ for z in range (atlas.minZoom, atlas.maxZoom+1):
                 try:
                     map_utils.makedirs (path_join (dst, str (z), str (x)))
                     copy (src_y, dst_y)
-                    print "C: %s -> %s" % (src_y, dst_y)
+                    print ("C: %s -> %s" % (src_y, dst_y))
                 except Exception as e:
-                    print e
+                    print (e)
             else:
-                # print "K: %s" % dst_y
+                # print ("K: %s" % dst_y)
                 pass
