@@ -1,6 +1,6 @@
 # osm-carto/symbols/Makefile
 
-local_symbols=castle.svg fort.svg forest_trans.png scrub_trans.png
+local_symbols=castle.24.png fort.24.png forest_trans.png scrub_trans.png
 osmic_symbols=castle-defensive-14.svg castle-manor-14.svg castle-stately-14.svg castle-fortress-14.svg castle-palace-14.svg
 maki_0.5_symbols=fuel-24.png london-underground-18.png parking-24.png
 
