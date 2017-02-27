@@ -6,7 +6,7 @@ all: openstreetmap-carto.xml
 
 openstreetmap-carto.xml: osm-carto/project.mml osm-carto/*.mss
 	make -C osm-carto
-	carto $< | sed -e 's/minzoom/minimum-scale-denominator/g; s/maxzoom/maximum-scale-denominator/g;' > $@
+	./node_modules/.bin/carto $< | sed -e 's/minzoom/minimum-scale-denominator/g; s/maxzoom/maximum-scale-denominator/g;' > $@
 
 # it works like this
 # git clone complaints when you try to checkout to an exiting directory
