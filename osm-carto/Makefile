@@ -3,13 +3,10 @@
 .PHONY: symbols-prepare
 .DELETE_ON_ERROR:
 
-OSM_CARTO_VERSION=04f6d1bd3c6bbe0d8e2b8016836a24ccdab974a4
-#v2.39.0
+OSM_CARTO_VERSION=8f0d7f0afa8851ab9ee59b88f32cd215ea06144c
+#v3.1.0
 
-all: project.mml
-
-project.mml: project.yaml
-	./scripts/yaml2mml.py
+all:
 
 # cqa is a shorthand for checkout quilt apply
 prepare: cqa download-data symbols-prepare
@@ -20,9 +17,12 @@ cqa:
 	git reset --hard $(OSM_CARTO_VERSION)
 	quilt push -va
 	touch cqa
-	
+
+all.diff:
+	git diff > $@
+
 download-data:
-	./get-shapefiles.sh
+	./scripts/get-shapefiles.py
 	touch download-data
 
 symbols-prepare:
