@@ -44,6 +44,9 @@ class Stack:
     def pop(self):
         return self.stack.pop(0)
 
+    def size(self):
+        return len(self.stack)
+
 
 class RenderThread:
     def __init__(self, opts, backend, queues):
@@ -125,7 +128,7 @@ class RenderThread:
                 sys.stdout.flush()
         else:
             # simulate some work
-            time.sleep(randint(0, 150) / 10)
+            time.sleep(randint(0, 50) / 10)
 
         for r, c in ( (0, 0), (0, 1),
                       (1, 0), (1, 1) ):
@@ -149,8 +152,8 @@ class RenderThread:
                 (z, x, y) = r
 
             if self.opts.skip_existing or self.opts.skip_newer is not None:
-                debug('skip test existing:%s, newer:%s',
-                       self.opts.skip_existing, self.opts.skip_newer)
+                # debug('skip test existing:%s, newer:%s',
+                #        self.opts.skip_existing, self.opts.skip_newer)
                 skip= True
                 # we use min() so we can support low zoom levels with less than metatile_size tiles
                 for tile_x in range(x, x+min(self.metatile_size, 2**z)):
@@ -160,7 +163,7 @@ class RenderThread:
                         else:
                             skip=(skip and
                                 self.backend.newer_than(z, tile_x, tile_y,
-                                                         self.opts.skip_newer))
+                                                        self.opts.skip_newer))
             else:
                 skip= False
 
@@ -168,9 +171,11 @@ class RenderThread:
                 self.render_tile(z, x, y)
             else:
                 if self.opts.skip_existing:
-                    print("%d:%d:%d: present, skipping" % (z, x, y))
+                    # print("%d:%d:%d: present, skipping" % (z, x, y))
+                    pass
                 else:
-                    print("%d:%d:%d: too new, skipping" % (z, x, y))
+                    # print("%d:%d:%d: too new, skipping" % (z, x, y))
+                    pass
 
             # self.q.task_done()
 
@@ -210,7 +215,7 @@ class Master:
         for i in range(self.opts.threads):
             renderer = RenderThread(self.opts, backend, self.queues)
 
-            if self.opts.parallel!='single':
+            if self.opts.parallel != 'single':
                 if self.opts.parallel == 'fork':
                     debug('mp.Process()')
                     render_thread = multiprocessing.Process(target=renderer.loop)
@@ -250,6 +255,12 @@ class Master:
 
     def render_bbox(self):
         work_out, work_in = self.queues
+        went_out, came_back = 0, 0
+
+        should_be_done = set(( (z, x, y) for z in range(self.opts.min_zoom,
+                                                        self.opts.max_zoom + 1)
+                                         for y in range(0, 2**z)
+                                         for x in range(0, 2**z) ))
 
         gprj = map_utils.GoogleProjection(self.opts.max_zoom+1)
 
@@ -282,11 +293,17 @@ class Master:
                      y*self.opts.metatile_size)
                 # debug("--> %r" % (t, ))
                 work_out.put(t)
+                went_out += 1
 
         # I wish I could get to the underlying pipes so I could select() on them
         # NOTE: work_out._writer, self.queues[1]._reader
         # TODO: find/create cut condition
+        last_work = None
+        # while went_out > came_back // 4 or self.work_stack.size() != 0:
         while True:
+            debug("%d <-> %d, %d [%d]", went_out, came_back // 4,
+                                        self.work_stack.size(),
+                                        len(should_be_done))
             try:
                 # we have space to put things,
                 # pop from the reader,
@@ -299,28 +316,49 @@ class Master:
                         # debug('timeout!')
                         break
                     else:
-                        # debug("<-- %r" % (metatile, ))
+                        came_back += 1
+                        debug("<-- %r" % (metatile, ))
                         if metatile[0] <= self.opts.max_zoom:
                             # push in the stack,
                             self.work_stack.push(metatile)
+                        debug("%d <-> %d, %d", went_out, came_back // 4, self.work_stack.size())
                     # debug('... t!')
 
+                # debug(self.work_stack.stack)
 
                 while True:
                     try:
                         # pop from there,
-                        debug(self.work_stack.stack)
+                        # debug(self.work_stack.stack)
                         new_work = self.work_stack.pop()
                     except IndexError:
                         break
                     else:
                         try:
+                            if last_work is not None:
+                                # calculate distance
+                                if new_work[0] == last_work[0]:
+                                    # same ZL, check the coords as is
+                                    distance = ( abs(new_work[1] // 2 - last_work[1] // 2) +
+                                                 abs(new_work[2] // 2 - last_work[2] // 2) )
+                                elif new_work[0] == last_work[0] + 1:
+                                    distance = ( abs(new_work[1] // 2 - last_work[1]) +
+                                                 abs(new_work[2] // 2 - last_work[2]) )
+                                else:
+                                    distance = -1
+
+                                # debug(distance)
                             # push in the writer
-                            # debug("--> %r" % (new_work, ))
+                            debug("[%s] --> %r" % (work_out.qsize(), new_work, ))
                             work_out.put(new_work, True, 1)
+                            went_out += 1
+                            should_be_done.remove(new_work)
+                            debug("%d <-> %d, %d", went_out, came_back // 4, self.work_stack.size())
+                            last_work = new_work
                         except queue.Full:
                             break
             except KeyboardInterrupt:
+                debug(should_be_done)
                 self.finish()
                 raise SystemExit("Ctrl-c detected, exiting...")
 
@@ -404,6 +442,10 @@ def parse_args():
 
 if __name__  ==  "__main__":
     opts = parse_args()
+
+    # fixes for locally installed mapnik
+    # mapnik.register_fonts('/usr/share/fonts/')
+    mapnik.register_plugins('/home/mdione/local/lib/mapnik/3.0/input/')
 
     master = Master(opts)
     master.render_tiles()
