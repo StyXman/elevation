@@ -2,9 +2,9 @@
 
 .PHONY: osm-carto-prepare Elevation-prepare data-height-prepare clean
 
-all: openstreetmap-carto.xml
+all: Elevation.xml
 
-openstreetmap-carto.xml: osm-carto/project.mml osm-carto/*.mss
+Elevation.xml: osm-carto/project.mml osm-carto/*.mss
 	make -C osm-carto
 	./node_modules/.bin/carto $< > $@
 
