@@ -1,7 +1,8 @@
 # kate: replace-tabs: off; indent-width 8
 
 # options used everywhere
-gopts = -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW
+# gopts = -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW
+gopts = -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZMA -co LZMA_PRESET=9
 
 # for the main directory
 all:
