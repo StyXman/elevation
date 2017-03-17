@@ -40,12 +40,14 @@ all_single: $(all_files)
 # unit is degree (math.pi/180)
 # units/pixel= 1 deg/3600 (1 arc sec) = 0.000277777777778
 WebMerc = "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+m_per_pixel=30.92208077590933
 %-corrected.tif: %.tif
-	@if gdalinfo $< | grep -q 'Size is 1801'; then \
-		gdalwarp $(gopts) -tr 0.000277777777778 -0.000277777777778 $< $@; \
-	else \
-		gdalwarp $(gopts) -t_srs $(WebMerc) -r lanczos $< $@; \
-	fi
+	gdalwarp $(gopts) -t_srs $(WebMerc) -r lanczos \
+		-tr $(m_per_pixel) -$(m_per_pixel) $< $@; \
+
+%-corrected.tif: %.hgt
+	gdalwarp $(gopts) -t_srs $(WebMerc) -r lanczos \
+		-tr $(m_per_pixel) -$(m_per_pixel) $< $@; \
 
 %-terrain.tif: %-corrected.tif color-relief.txt
 	gdaldem color-relief -alpha $(gopts) $< color-relief.txt $@
