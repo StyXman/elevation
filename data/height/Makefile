@@ -55,20 +55,10 @@ m_per_pixel=30.92208077590933
 %-hillshade.tif: %-corrected.tif
 	gdaldem hillshade -alg Horn -s 111120 -compute_edges $(gopts) $< $@
 
-%-slope.tif: %-corrected.tif
-	gdaldem slope -alg Horn $(gopts) -compute_edges -p $< $@
-
-%-terrain.tif: %.hgt color-relief.txt
-	gdaldem color-relief -alpha $(gopts) $< color-relief.txt $@
-
-%-hillshade.tif: %.hgt
-	gdaldem hillshade -alg Horn -s 111120 -compute_edges $(gopts) $< $@
-
-%-slope.tif: %.hgt
-	gdaldem slope -alg Horn $(gopts) -compute_edges -p $< $@
-
-%-slopeshade.tif: %-slope.tif slope.txt
-	gdaldem color-relief $(gopts) $< slope.txt $@
+%-slopeshade.tif: %-corrected.tif slope.txt
+	gdaldem slope -alg Horn $(gopts) -compute_edges -p $< $(subst -slopeshade,-slope,$@)
+	gdaldem color-relief $(gopts) $(subst -slopeshade,-slope,$@) slope.txt $@
+	rm $(subst -slopeshade,-slope,$@)
 
 # TODO: readd the .sql files with the contour lines
 
