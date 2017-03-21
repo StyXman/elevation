@@ -1,8 +1,11 @@
 # kate: replace-tabs: off; indent-width 8
 
 # options used everywhere
-# gopts = -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW
 gopts = -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZMA -co LZMA_PRESET=9
+# options used in final filkes because of
+# Cannot open TIFF file due to missing codec
+# see: https://gis.stackexchange.com/questions/72463/qgis-2-0-cannot-open-tiff
+final_gopts = -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW
 
 # for the main directory
 all:
@@ -50,14 +53,14 @@ m_per_pixel=30.92208077590933
 		-tr $(m_per_pixel) -$(m_per_pixel) $< $@; \
 
 %-terrain.tif: %-corrected.tif color-relief.txt
-	gdaldem color-relief -alpha $(gopts) $< color-relief.txt $@
+	gdaldem color-relief -alpha $(final_gopts) $< color-relief.txt $@
 
 %-hillshade.tif: %-corrected.tif
-	gdaldem hillshade -alg Horn -s 111120 -compute_edges $(gopts) $< $@
+	gdaldem hillshade -alg Horn -s 111120 -compute_edges $(final_gopts) $< $@
 
 %-slopeshade.tif: %-corrected.tif slope.txt
 	gdaldem slope -alg Horn $(gopts) -compute_edges -p $< $(subst -slopeshade,-slope,$@)
-	gdaldem color-relief $(gopts) $(subst -slopeshade,-slope,$@) slope.txt $@
+	gdaldem color-relief $(final_gopts) $(subst -slopeshade,-slope,$@) slope.txt $@
 	rm $(subst -slopeshade,-slope,$@)
 
 # TODO: readd the .sql files with the contour lines
