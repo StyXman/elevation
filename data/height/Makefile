@@ -87,13 +87,13 @@ main: $(main_files)
 	rm -f $@
 # 4 times less resolute than the original
 # units/pixel= 1 deg/900 (4 arc sec) = 0.001111111111111
-	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 0.001111111111111 -0.001111111111111 $< $@
+	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 123.68832310363732 -123.68832310363732 $< $@
 
 %-small.tif: %.vrt
 	rm -f $@
 # 8 times less resolute than the original
 # units/pixel= 1 deg/450 (8 arc sec) = 0.002222222222222
-	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 0.002222222222222 -0.002222222222222 $< $@
+	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 247.37664620727463 -247.37664620727463 $< $@
 
 tiny: mixed-terrain-tiny.tif mixed-hillshade-tiny.tif mixed-slopeshade-tiny.tif
 
@@ -101,7 +101,7 @@ tiny: mixed-terrain-tiny.tif mixed-hillshade-tiny.tif mixed-slopeshade-tiny.tif
 	rm -f $@
 # 8 times less resolute than -small (64 times the original)
 # units/pixel= 1 deg/56.25 (64 arc sec) = 0.017777777777778
-	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 0.017777777777778 -0.017777777777778 $< $@
+	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 1979.013169658197 -1979.013169658197 $< $@
 
 ###############################################
 # the old targets, left for historical reasons
