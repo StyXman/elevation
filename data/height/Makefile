@@ -6,6 +6,9 @@ gopts = -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZMA -co LZMA_PRESET=9
 # Cannot open TIFF file due to missing codec
 # see: https://gis.stackexchange.com/questions/72463/qgis-2-0-cannot-open-tiff
 final_gopts = -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW
+# apply to slope (not slopeshade) and hillshade processing
+# scale_option = -s 111120
+scale_option = -s 1
 
 # for the main directory
 all:
@@ -56,10 +59,10 @@ m_per_pixel=30.92208077590933
 	gdaldem color-relief -alpha $(final_gopts) $< color-relief.txt $@
 
 %-hillshade.tif: %-corrected.tif
-	gdaldem hillshade -alg Horn -s 111120 -compute_edges $(final_gopts) $< $@
+	gdaldem hillshade -alg Horn $(scale_option) -compute_edges $(final_gopts) $< $@
 
 %-slopeshade.tif: %-corrected.tif slope.txt
-	gdaldem slope -alg Horn $(gopts) -compute_edges -p $< $(subst -slopeshade,-slope,$@)
+	gdaldem slope -alg Horn $(scale_option) -compute_edges $(gopts) $< $(subst -slopeshade,-slope,$@)
 	gdaldem color-relief $(final_gopts) $(subst -slopeshade,-slope,$@) slope.txt $@
 	rm $(subst -slopeshade,-slope,$@)
 
