@@ -66,6 +66,12 @@ m_per_pixel=30.92208077590933
 	gdaldem color-relief $(final_gopts) $(subst -slopeshade,-slope,$@) slope.txt $@
 	rm $(subst -slopeshade,-slope,$@)
 
+%-corrected.shp: %-corrected.tif
+	gdal_contour -i 50 -a height $< .
+	for ext in dbf prj shp shx; do \
+		mv -v contour.$$ext $(basename $@).$$ext; \
+	done
+
 # TODO: readd the .sql files with the contour lines
 
 ##############
