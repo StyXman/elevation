@@ -1,0 +1,3435 @@
+diff --git a/INSTALL.md b/INSTALL.md
+index 9077eec..7d597b9 100644
+--- a/INSTALL.md
++++ b/INSTALL.md
+@@ -34,7 +34,9 @@ This script generates and populates the *data* directory with all needed shapefi
+ You can also download them manually at the following paths:
+ 
+ * [`simplified-land-polygons.shp`](http://data.openstreetmapdata.com/simplified-land-polygons-complete-3857.zip) (updated daily)
++* [`simplified-water-polygons.shp`](http://data.openstreetmapdata.com/simplified-water-polygons-complete-3857.zip) (updated daily)
+ * [`land-polygon.shp`](http://data.openstreetmapdata.com/land-polygons-split-3857.zip) (updated daily)
++* [`water-polygon.shp`](http://data.openstreetmapdata.com/water-polygons-split-3857.zip) (updated daily)
+ * [`builtup_area.shp`](http://planet.openstreetmap.org/historical-shapefiles/world_boundaries-spherical.tgz)
+ * [`ne_110m_admin_0_boundary_lines_land.shp`](http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_boundary_lines_land.zip)
+ 
+diff --git a/admin.mss b/admin.mss
+index 5090845..9314651 100644
+--- a/admin.mss
++++ b/admin.mss
+@@ -6,57 +6,74 @@ For each zoomlevel, all borders come from a single attachment, to handle
+ overlapping borders correctly.
+ */
+ 
+-#admin-low-zoom[zoom < 11],
++#admin-low-zoom/*[zoom < 11],
+ #admin-mid-zoom[zoom >= 11][zoom < 13],
+-#admin-high-zoom[zoom >= 13] {
++#admin-high-zoom[zoom >= 13]*/ {
+   [admin_level = '2'] {
+     [zoom >= 4] {
++      /*
+       background/line-join: bevel;
+       background/line-color: white;
+       background/line-width: 1.2;
++      */
+       line-join: bevel;
+       line-color: @admin-boundaries;
+       line-width: 1.2;
+     }
+     [zoom >= 5] {
++      /*
+       background/line-width: 1.5;
++      */
+       line-width: 1.5;
+     }
+     [zoom >= 6] {
++      /*
+       background/line-width: 1.8;
++      */
+       line-width: 1.8;
+     }
+     [zoom >= 7] {
++      /*
+       background/line-width: 2;
++      */
+       line-width: 2;
+     }
+     [zoom >= 10] {
++      /*
+       background/line-width: 6;
++      */
+       line-width: 6;
+     }
+   }
+ 
+   [admin_level = '3'] {
+     [zoom >= 4] {
++      /*
+       background/line-join: bevel;
+       background/line-color: white;
+       background/line-width: 0.6;
++      */
+       line-join: bevel;
+       line-color: @admin-boundaries;
+       line-width: 0.6;
+     }
+     [zoom >= 7] {
++      /*
+       background/line-width: 1.2;
++      */
+       line-width: 1.2;
+     }
+     [zoom >= 10] {
++      /*
+       background/line-width: 4;
++      */
+       line-width: 4;
+       line-dasharray: 4,2;
+       line-clip: false;
+     }
+   }
+ 
++  /*
+   [admin_level = '4'] {
+     [zoom >= 4] {
+       background/line-join: bevel;
+@@ -93,6 +110,7 @@ overlapping borders correctly.
+       line-width: 3;
+     }
+   }
++  */
+   /*
+   The following code prevents admin boundaries from being rendered on top of
+   each other. Comp-op works on the entire attachment, not on the individual
+@@ -108,6 +126,7 @@ overlapping borders correctly.
+   comp-op: darken;
+ }
+ 
++/*
+ #admin-mid-zoom[zoom >= 11][zoom < 13],
+ #admin-high-zoom[zoom >= 13] {
+   [admin_level = '5'][zoom >= 11] {
+@@ -146,7 +165,9 @@ overlapping borders correctly.
+   opacity: 0.5;
+   comp-op: darken;
+ }
++*/
+ 
++/*
+ #admin-high-zoom[zoom >= 13] {
+   [admin_level = '9'],
+   [admin_level = '10'] {
+@@ -161,10 +182,12 @@ overlapping borders correctly.
+       line-clip: false;
+     }
+   }
+-  opacity: 0.5;
++  opacity: 0.7;
+   comp-op: darken;
+ }
++*/
+ 
++/*
+ #admin-text[zoom >= 16] {
+   text-name: "[name]";
+   text-face-name: @book-fonts;
+@@ -176,6 +199,7 @@ overlapping borders correctly.
+   text-vertical-alignment: middle;
+   text-dy: -10;
+ }
++*/
+ 
+ #nature-reserve-text[zoom >= 13][way_pixels > 192000] {
+   text-name: "[name]";
+@@ -191,12 +215,12 @@ overlapping borders correctly.
+ 
+ #nature-reserve-boundaries {
+   [way_pixels > 100][zoom >= 7] {
+-    [zoom < 10] {
++    // [zoom < 10] {
+       ::fill {
+         opacity: 0.05;
+         polygon-fill: green;
+       }
+-    }
++    // }
+     a/line-width: 1;
+     a/line-offset: -0.5;
+     a/line-color: green;
+diff --git a/amenity-points.mss b/amenity-points.mss
+index be5b115..d3d2f84 100644
+--- a/amenity-points.mss
++++ b/amenity-points.mss
+@@ -40,7 +40,7 @@
+     marker-clip: false;
+   }
+ 
+-  [feature = 'amenity_atm'][zoom >= 17] {
++  [feature = 'amenity_atm'][zoom >= @useful] {
+     marker-file: url('symbols/atm.svg');
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+@@ -56,6 +56,8 @@
+ 
+   [feature = 'amenity_bar'][zoom >= 17] {
+     marker-file: url('symbols/bar.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -63,6 +65,8 @@
+ 
+   [feature = 'amenity_bicycle_rental'][zoom >= 17] {
+     marker-file: url('symbols/rental_bicycle.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @transportation-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -71,14 +75,14 @@
+   [feature = 'highway_bus_stop'] {
+     [zoom >= 16] {
+       marker-file: url('symbols/square.svg');
+-      marker-fill: @transportation-icon;
++      marker-fill: black;
+       marker-placement: interior;
+       marker-width: 6;
+       marker-clip: false;
+     }
+     [zoom >= 17] {
+       marker-file: url('symbols/bus_stop.12.svg');
+-      marker-width: 12;
++      marker-width: 14;
+     }
+   }
+ 
+@@ -112,6 +116,8 @@
+ 
+   [feature = 'amenity_cafe'][zoom >= 17] {
+     marker-file: url('symbols/cafe.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -119,6 +125,8 @@
+ 
+   [feature = 'tourism_artwork'][zoom >= 17] {
+     marker-file: url('symbols/artwork.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -126,6 +134,8 @@
+ 
+   [feature = 'tourism_camp_site'][zoom >= 16] {
+     marker-file: url('symbols/camping.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @transportation-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -140,6 +150,8 @@
+ 
+   [feature = 'tourism_caravan_site'][zoom >= 16] {
+     marker-file: url('symbols/caravan_park.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @transportation-icon;
+@@ -147,6 +159,8 @@
+ 
+   [feature = 'amenity_car_rental'][zoom >= 17] {
+     marker-file: url('symbols/rental_car.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @transportation-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -154,6 +168,8 @@
+ 
+   [feature = 'amenity_car_wash'][zoom >= 17] {
+     marker-file: url('symbols/car_wash.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -161,11 +177,15 @@
+ 
+   [feature = 'tourism_chalet'][zoom >= 17] {
+     point-file: url('symbols/chalet.p.16.png');
++    marker-width: 10;
++    marker-height: 10;
+     point-placement: interior;
+   }
+ 
+   [feature = 'amenity_cinema'][zoom >= 16] {
+     marker-file: url('symbols/cinema.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -173,6 +193,8 @@
+ 
+   [feature = 'amenity_nightclub'][zoom >= 17] {
+     marker-file: url('symbols/nightclub.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -214,13 +236,17 @@
+ 
+   [feature = 'amenity_charging_station'][zoom >= 17] {
+     marker-file: url('symbols/charging_station.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @transportation-icon;
+     marker-placement: interior;
+     marker-clip: false;
+   }
+ 
+-  [feature = 'amenity_fuel'][zoom >= 17] {
+-    marker-file: url('symbols/fuel.svg');
++  [feature = 'amenity_fuel'][zoom >= @useful] {
++    // too small
++    // marker-file: url('symbols/fuel.svg');
++    marker-file: url('symbols/fuel-24.png');
+     marker-fill: @transportation-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -231,7 +257,7 @@
+     point-placement: interior;
+   }
+ 
+-  [feature = 'amenity_hospital'][zoom >= 15] {
++  [feature = 'amenity_hospital'][zoom >= @useful] {
+     marker-file: url('symbols/hospital.svg');
+     marker-fill: @health-color;
+     marker-placement: interior;
+@@ -275,6 +301,8 @@
+ 
+   [feature = 'amenity_embassy'][zoom >= 17] {
+     marker-file: url('symbols/embassy.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @transportation-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -282,6 +310,8 @@
+ 
+   [feature = 'amenity_library'][zoom >= 16] {
+     marker-file: url('symbols/library.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -289,6 +319,8 @@
+ 
+   [feature = 'amenity_courthouse'][zoom >= 16] {
+     marker-file: url('symbols/courthouse.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-fill: @amenity-brown;
+     marker-clip: false;
+@@ -296,6 +328,8 @@
+ 
+   [feature = 'amenity_community_centre'][zoom >= 17] {
+     marker-file: url('symbols/community_centre.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -303,6 +337,8 @@
+ 
+   [feature = 'amenity_social_facility'][zoom >= 17] {
+     marker-file: url('symbols/social_facility.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -333,7 +369,9 @@
+   [feature = 'amenity_bicycle_parking'][way_pixels > 900],
+   [feature = 'amenity_motorcycle_parking'][way_pixels > 900] {
+     [feature = 'amenity_parking'] {
+-      marker-file: url('symbols/parking.svg');
++      // the color is too light
++      // marker-file: url('symbols/parking.svg');
++      marker-file: url('symbols/parking-24.png');
+     }
+     [feature = 'amenity_bicycle_parking'] {
+       marker-file: url('symbols/bicycle_parking.svg');
+@@ -349,7 +387,7 @@
+     }
+   }
+ 
+-  [feature = 'amenity_pharmacy'][zoom >= 17] {
++  [feature = 'amenity_pharmacy'][zoom >= @useful] {
+     marker-file: url('symbols/pharmacy.svg');
+     marker-fill: @health-color;
+     marker-placement: interior;
+@@ -359,6 +397,8 @@
+   [feature = 'amenity_clinic'][zoom >= 16],
+   [feature = 'amenity_doctors'][zoom >= 17] {
+     marker-file: url('symbols/doctors.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @health-color;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -366,6 +406,8 @@
+ 
+   [feature = 'amenity_dentist'][zoom >= 17] {
+     marker-file: url('symbols/dentist.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @health-color;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -373,6 +415,8 @@
+ 
+   [feature = 'amenity_veterinary'][zoom >= 17] {
+     marker-file: url('symbols/veterinary.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @health-color;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -420,7 +464,7 @@
+     marker-clip: false;
+   }
+ 
+-  [feature = 'amenity_police'][zoom >= 16] {
++  [feature = 'amenity_police'][zoom >= @useful] {
+     marker-file: url('symbols/police.svg');
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+@@ -434,7 +478,7 @@
+     marker-clip: false;
+   }
+ 
+-  [feature = 'amenity_post_office'][zoom >= 17] {
++  [feature = 'amenity_post_office'][zoom >= @useful] {
+     marker-file: url('symbols/post_office.svg');
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+@@ -443,6 +487,8 @@
+ 
+   [feature = 'amenity_pub'][zoom >= 17] {
+     marker-file: url('symbols/pub.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -450,6 +496,8 @@
+ 
+   [feature = 'amenity_biergarten'][zoom >= 17] {
+     marker-file: url('symbols/biergarten.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -468,6 +516,8 @@
+   [feature = 'amenity_restaurant'][zoom >= 17],
+   [feature = 'amenity_food_court'][zoom >= 17] {
+     marker-file: url('symbols/restaurant.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -475,6 +525,8 @@
+ 
+   [feature = 'amenity_fast_food'][zoom >= 17] {
+     marker-file: url('symbols/fast_food.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -496,12 +548,14 @@
+ 
+   [feature = 'amenity_theatre'][zoom >= 16] {
+     marker-file: url('symbols/theatre.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+   }
+ 
+-  [feature = 'amenity_toilets'][zoom >= 17] {
++  [feature = 'amenity_toilets'][zoom >= @useful] {
+     marker-file: url('symbols/toilets.svg');
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+@@ -517,12 +571,14 @@
+ 
+   [feature = 'amenity_prison'][zoom >= 17] {
+     marker-file: url('symbols/prison.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+   }
+ 
+-  [feature = 'tourism_viewpoint'][zoom >= 16] {
++  [feature = 'tourism_viewpoint'][zoom >= @nice] {
+     marker-file: url('symbols/viewpoint.svg');
+     marker-placement: interior;
+     marker-fill: @amenity-brown;
+@@ -551,13 +607,44 @@
+     marker-clip: false;
+   }
+ 
+-  [feature = 'historic_archaeological_site'][zoom >= 16] {
++  [feature = 'historic_archaeological_site'][zoom >= @nice] {
+     marker-file: url('symbols/archaeological_site.svg');
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+   }
+ 
++  // local
++  [feature = 'historic_castle'][zoom >= @nice] {
++    marker-file: url('symbols/castle.svg');
++    marker-width: 14;
++    marker-fill: @amenity-brown;
++    marker-placement: interior;
++    marker-clip: false;
++    [castle_type = 'defensive'][zoom >= @nice] {
++      marker-file: url('symbols/castle-defensive-14.svg');
++    }
++    [castle_type = 'fortress'][zoom >= @nice] {
++      marker-file: url('symbols/castle-fortress-14.svg');
++    }
++    [castle_type = 'manor'][zoom >= @nice] {
++      marker-file: url('symbols/castle-manor-14.svg');
++    }
++    [castle_type = 'palace'][zoom >= @nice] {
++      marker-file: url('symbols/castle-palace-14.svg');
++    }
++    [castle_type = 'stately'][zoom >= @nice] {
++      marker-file: url('symbols/castle-stately-14.svg');
++    }
++  }
++
++  // local
++  [feature = 'historic_fort'][zoom >= @nice] {
++    marker-file: url('symbols/fort.svg');
++    marker-width: 14;
++    marker-placement: interior;
++  }
++
+   [feature = 'shop_other'][zoom >= 17] {
+     marker-fill: @shop-icon;
+     marker-width: 6;
+@@ -566,7 +653,7 @@
+     marker-clip: false;
+   }
+ 
+-  [feature = 'shop_supermarket'][zoom >= 16] {
++  [feature = 'shop_supermarket'][zoom >= @useful] {
+     marker-file: url('symbols/shop/supermarket.svg');
+     marker-placement: interior;
+     marker-clip: false;
+@@ -575,6 +662,8 @@
+ 
+   [feature = 'shop_art'][zoom >= 17] {
+     marker-file: url('symbols/shop/art.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @shop-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -582,6 +671,8 @@
+ 
+   [feature = 'shop_bag'][zoom >= 17] {
+     marker-file: url('symbols/shop/bag.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @shop-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -589,6 +680,8 @@
+ 
+   [feature = 'shop_bakery'][zoom >= 17] {
+     marker-file: url('symbols/shop/bakery.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @shop-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -596,6 +689,8 @@
+ 
+   [feature = 'shop_beauty'][zoom >= 17] {
+     marker-file: url('symbols/shop/beauty.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @shop-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -603,6 +698,8 @@
+ 
+   [feature = 'shop_beverages'][zoom >= 17] {
+     marker-file: url('symbols/shop/beverages.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -610,6 +707,8 @@
+ 
+   [feature = 'shop_books'][zoom >= 17] {
+     marker-file: url('symbols/library.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @shop-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -617,6 +716,8 @@
+ 
+   [feature = 'shop_butcher'][zoom >= 17] {
+     marker-file: url('symbols/shop/butcher.png');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+   }
+@@ -632,6 +733,8 @@
+   [feature = 'shop_fashion'] {
+     [zoom >= 17] {
+       marker-file: url('symbols/shop/clothes.svg');
++      marker-width: 10;
++      marker-height: 10;
+       marker-placement: interior;
+       marker-clip: false;
+       marker-fill: @shop-icon;
+@@ -640,6 +743,8 @@
+ 
+   [feature = 'shop_coffee'][zoom >= 17] {
+     marker-file: url('symbols/shop/coffee.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -647,6 +752,8 @@
+ 
+   [feature = 'shop_computer'][zoom >= 17] {
+     marker-file: url('symbols/shop/computer.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -654,6 +761,8 @@
+ 
+   [feature = 'shop_convenience'][zoom >= 17] {
+     marker-file: url('symbols/shop/convenience.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -661,6 +770,8 @@
+ 
+   [feature = 'shop_confectionery'][zoom >= 17] {
+     marker-file: url('symbols/shop/confectionery.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @shop-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -668,6 +779,8 @@
+ 
+   [feature = 'shop_copyshop'][zoom >= 17] {
+     marker-file: url('symbols/shop/copyshop.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -677,6 +790,8 @@
+   [feature = 'shop_perfumery'] {
+     [zoom >= 17] {
+       marker-file: url('symbols/shop/perfumery.svg');
++    marker-width: 10;
++    marker-height: 10;
+       marker-placement: interior;
+       marker-clip: false;
+       marker-fill: @shop-icon;
+@@ -686,6 +801,8 @@
+   [feature = 'shop_deli'] {
+     [zoom >= 17] {
+       marker-file: url('symbols/shop/deli.svg');
++      marker-width: 10;
++      marker-height: 10;
+       marker-placement: interior;
+       marker-clip: false;
+       marker-fill: @shop-icon;
+@@ -694,6 +811,8 @@
+ 
+   [feature = 'shop_department_store'][zoom >= 16] {
+     marker-file: url('symbols/shop/department_store.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -703,6 +822,8 @@
+   [feature = 'shop_hardware'] {
+     [zoom >= 17] {
+       marker-file: url('symbols/shop/diy.svg');
++      marker-width: 10;
++      marker-height: 10;
+       marker-placement: interior;
+       marker-clip: false;
+       marker-fill: @shop-icon;
+@@ -731,6 +852,8 @@
+ 
+   [feature = 'shop_florist'][zoom >= 17] {
+     marker-file: url('symbols/shop/florist.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -738,6 +861,8 @@
+ 
+   [feature = 'shop_garden_centre'][zoom >= 17] {
+     marker-file: url('symbols/shop/garden_centre.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -755,6 +880,8 @@
+ 
+   [feature = 'shop_hairdresser'][zoom >= 17] {
+     marker-file: url('symbols/shop/hairdresser.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -762,6 +889,8 @@
+ 
+   [feature = 'shop_hifi'][zoom >= 17] {
+     marker-file: url('symbols/shop/hifi.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -776,6 +905,8 @@
+ 
+   [feature = 'shop_car'][zoom >= 17] {
+     marker-file: url('symbols/shop/car.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -783,12 +914,14 @@
+ 
+   [feature = 'shop_car_parts'][zoom >= 17] {
+     marker-file: url('symbols/shop/car_parts.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @shop-icon;
+     marker-placement: interior;
+     marker-clip: false;
+   }
+ 
+-  [feature = 'shop_car_repair'][zoom >= 17] {
++  [feature = 'shop_car_repair'][zoom >= @useful] {
+     marker-file: url('symbols/shop/car_repair.svg');
+     marker-placement: interior;
+     marker-clip: false;
+@@ -797,6 +930,8 @@
+ 
+   [feature = 'shop_bicycle'][zoom >= 17] {
+     marker-file: url('symbols/shop/bicycle.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @shop-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -804,6 +939,8 @@
+ 
+   [feature = 'shop_pet'][zoom >= 17] {
+     marker-file: url('symbols/shop/pet.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -814,6 +951,8 @@
+   [feature = 'shop_photography'] {
+     [zoom >= 17] {
+       marker-file: url('symbols/shop/photo.svg');
++      marker-width: 10;
++      marker-height: 10;
+       marker-placement: interior;
+       marker-clip: false;
+       marker-fill: @shop-icon;
+@@ -822,6 +961,8 @@
+ 
+   [feature = 'shop_shoes'][zoom >= 17] {
+     marker-file: url('symbols/shop/shoes.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -829,6 +970,8 @@
+ 
+   [feature = 'shop_gift'][zoom >= 17] {
+     marker-file: url('symbols/shop/gift.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -836,6 +979,8 @@
+   
+   [feature = 'shop_electronics'][zoom >= 17] {
+     marker-file: url('symbols/shop/electronics.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -845,6 +990,8 @@
+   [feature = 'shop_wine'] {
+     [zoom >= 17] {
+       marker-file: url('symbols/shop/alcohol.svg');
++      marker-width: 10;
++      marker-height: 10;
+       marker-placement: interior;
+       marker-clip: false;
+       marker-fill: @shop-icon;
+@@ -853,6 +1000,8 @@
+   
+   [feature = 'shop_optician'][zoom >= 17] {
+     marker-file: url('symbols/shop/optician.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -860,6 +1009,8 @@
+   
+   [feature = 'shop_outdoor'][zoom >= 17] {
+     marker-file: url('symbols/shop/outdoor.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -867,6 +1018,8 @@
+   
+   [feature = 'shop_furniture'][zoom >= 17] {
+     marker-file: url('symbols/shop/furniture.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -874,6 +1027,8 @@
+   
+   [feature = 'shop_mobile_phone'][zoom >= 17] {
+     marker-file: url('symbols/shop/mobile_phone.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -881,6 +1036,8 @@
+ 
+   [feature = 'shop_motorcycle'][zoom >= 17] {
+     marker-file: url('symbols/motorcycle.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -888,6 +1045,8 @@
+ 
+   [feature = 'shop_musical_instrument'][zoom >= 17] {
+     marker-file: url('symbols/shop/musical_instrument.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -897,6 +1056,8 @@
+   [feature = 'shop_newsagent'] {
+     [zoom >= 17] {
+       marker-file: url('symbols/shop/newsagent.svg');
++      marker-width: 10;
++      marker-height: 10;
+       marker-placement: interior;
+       marker-clip: false;
+       marker-fill: @shop-icon;
+@@ -907,6 +1068,8 @@
+   [feature = 'shop_jewellery'] {
+     [zoom >= 17] {
+       marker-file: url('symbols/shop/jewelry.svg');
++      marker-width: 10;
++      marker-height: 10;
+       marker-placement: interior;
+       marker-clip: false;
+       marker-fill: @shop-icon;
+@@ -915,6 +1078,8 @@
+ 
+   [feature = 'shop_toys'][zoom >= 17] {
+     marker-file: url('symbols/shop/toys.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @shop-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -922,6 +1087,8 @@
+ 
+   [feature = 'shop_travel_agency'][zoom >= 17] {
+     marker-file: url('symbols/shop/travel_agency.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -929,6 +1096,8 @@
+ 
+   [feature = 'shop_sports'][zoom >= 17] {
+     marker-file: url('symbols/shop/sports.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @shop-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -936,6 +1105,8 @@
+ 
+   [feature = 'shop_stationery'][zoom >= 17] {
+     marker-file: url('symbols/shop/stationery.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -943,6 +1114,8 @@
+ 
+   [feature = 'shop_tobacco'][zoom >= 17] {
+     marker-file: url('symbols/shop/tobacco.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -950,6 +1123,8 @@
+ 
+   [feature = 'shop_tea'][zoom >= 17] {
+     marker-file: url('symbols/shop/tea.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -957,6 +1132,8 @@
+ 
+   [feature = 'shop_variety_store'][zoom >= 17] {
+     marker-file: url('symbols/shop/variety_store.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @shop-icon;
+@@ -964,6 +1141,8 @@
+ 
+   [feature = 'leisure_water_park'][zoom >= 17] {
+     marker-file: url('symbols/water_park.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-fill: @amenity-brown;
+     marker-clip: false;
+@@ -971,6 +1150,8 @@
+ 
+   [feature = 'leisure_dog_park'][zoom >= 17] {
+     marker-file: url('symbols/shop/pet.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-fill: @amenity-brown;
+     marker-clip: false;
+@@ -978,6 +1159,8 @@
+ 
+   [feature = 'leisure_playground'][zoom >= 17] {
+     marker-file: url('symbols/playground.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -988,11 +1171,15 @@
+ 
+   [feature = 'leisure_miniature_golf'][zoom >= 17] {
+     point-file: url('symbols/miniature_golf.p.20.png');
++    marker-width: 10;
++    marker-height: 10;
+     point-placement: interior;
+   }
+ 
+   [feature = 'leisure_golf_course'][zoom >= 15] {
+     point-file: url('symbols/golf.p.20.png');
++    marker-width: 10;
++    marker-height: 10;
+     point-placement: interior;
+   }
+ 
+@@ -1012,6 +1199,8 @@
+ 
+   [feature = 'leisure_slipway'][zoom >= 17] {
+     point-file: url('symbols/transport_slipway.p.20.png');
++    marker-width: 10;
++    marker-height: 10;
+     point-placement: interior;
+   }
+ 
+@@ -1372,7 +1561,9 @@
+   [feature = 'historic_memorial'][zoom >= 17],
+   [feature = 'man_made_obelisk'][zoom >= 16],
+   [feature = 'historic_monument'][zoom >= 16],
+-  [feature = 'historic_archaeological_site'][zoom >= 17] {
++  [feature = 'historic_castle'][zoom >= @nice],
++  [feature = 'historic_fort'][zoom >= @nice],
++  [feature = 'historic_archaeological_site'][zoom >= @nice] {
+     text-name: "[name]";
+     text-size: @standard-text-size;
+     text-fill: @amenity-brown;
+@@ -2190,6 +2381,7 @@
+     text-wrap-width: @standard-wrap-width;
+   }
+ 
++  /*
+   [feature = 'natural_tree'][zoom >= 17] {
+     text-name: "[name]";
+     text-size: @standard-text-size;
+@@ -2204,8 +2396,10 @@
+     text-placement: interior;
+     text-wrap-width: @standard-wrap-width;
+   }
++  */
+ }
+ 
++/*
+ #trees [zoom >= 16] {
+   ::canopy {
+     opacity: 0.3;
+@@ -2270,3 +2464,4 @@
+     }
+   }
+ }
++*/
+diff --git a/landcover.mss b/landcover.mss
+index 0d11dcf..15df217 100644
+--- a/landcover.mss
++++ b/landcover.mss
+@@ -55,6 +55,19 @@
+ @military: #f55;
+ @beach: #fff1ba;
+ 
++// --- Reliefs --
++
++@ridge-text:          #7A2F18;
++@valley-text:         #305040;
++@mountain_range-text: #C03A01;
++@mountain_area-text:  @mountain_range-text;
++@massif-text:         #C03A01;
++@cliff-text:          #999;
++@arete-text:          #800000;
++@couloir-text:        #0080C0;
++@dale-text:           #008000;
++@gorge-text:          #800040;
++
+ // --- Sports ---
+ 
+ @pitch: #aae0cb; // also track
+@@ -76,6 +89,7 @@
+     }
+   }
+ 
++  /*
+   [feature = 'leisure_swimming_pool'][zoom >= 14] {
+     polygon-fill: @water-color;
+     line-color: saturate(darken(@water-color, 40%), 30%);
+@@ -83,6 +97,7 @@
+     [way_pixels >= 4]  { polygon-gamma: 0.75; }
+     [way_pixels >= 64] { polygon-gamma: 0.3;  }
+   }
++  */
+ 
+   [feature = 'leisure_playground'][zoom >= 13] {
+     polygon-fill: @playground;
+@@ -118,25 +133,31 @@
+   }
+ 
+   [feature = 'landuse_vineyard'] {
++    /*
+     [zoom >= 10] {
+       polygon-fill: @orchard;
+       [way_pixels >= 4]  { polygon-gamma: 0.75; }
+       [way_pixels >= 64] { polygon-gamma: 0.3;  }
+     }
++    */
+     [zoom >= 14] {
+       polygon-pattern-file: url('symbols/vineyard.png');
+       polygon-pattern-alignment: global;
++      /*
+       [way_pixels >= 4]  { polygon-pattern-gamma: 0.75; }
+       [way_pixels >= 64] { polygon-pattern-gamma: 0.3;  }
++      */
+     }
+   }
+ 
+   [feature = 'landuse_orchard'] {
++    /*
+     [zoom >= 10] {
+       polygon-fill: @orchard;
+       [way_pixels >= 4]  { polygon-gamma: 0.75; }
+       [way_pixels >= 64] { polygon-gamma: 0.3;  }
+     }
++    */
+     [zoom >= 14] {
+       polygon-pattern-file: url('symbols/orchard.png');
+       polygon-pattern-alignment: global;
+@@ -246,6 +267,8 @@
+     [way_pixels >= 64] { polygon-gamma: 0.3;  }
+   }
+ 
++  // TODO: make them transparent
++  /*
+   [feature = 'landuse_allotments'] {
+     [zoom >= 10] {
+       polygon-fill: @allotments;
+@@ -259,7 +282,9 @@
+       [way_pixels >= 64] { polygon-pattern-gamma: 0.3;  }
+     }
+   }
++  */
+ 
++  /*
+   [feature = 'landuse_forest'],
+   [feature = 'natural_wood'] {
+     [zoom >= 8] {
+@@ -268,7 +293,10 @@
+       [way_pixels >= 64] { polygon-gamma: 0.3;  }
+     }
+   }
++  */
+ 
++  // TODO: make them transparent
++  /*
+   [feature = 'landuse_farmyard'][zoom >= 10] {
+     polygon-fill: @farmyard;
+       [zoom >= 16] {
+@@ -281,7 +309,10 @@
+     [way_pixels >= 4]  { polygon-gamma: 0.75; }
+     [way_pixels >= 64] { polygon-gamma: 0.3;  }
+   }
++  */
+ 
++  // TODO: make them transparent
++  /*
+   [feature = 'landuse_farm'],
+   [feature = 'landuse_farmland'],
+   [feature = 'landuse_greenhouse_horticulture'] {
+@@ -295,6 +326,7 @@
+       [way_pixels >= 64] { polygon-gamma: 0.3;  }
+     }
+   }
++  */
+ 
+   [feature = 'landuse_meadow'],
+   [feature = 'natural_grassland'],
+@@ -303,13 +335,17 @@
+   [feature = 'landuse_village_green'],
+   [feature = 'leisure_common'],
+   [feature = 'leisure_garden'] {
+-    [zoom >= 10] {
++    [zoom >= 13] {
++      /*
+       polygon-fill: @grass;
+       [way_pixels >= 4]  { polygon-gamma: 0.75; }
+       [way_pixels >= 64] { polygon-gamma: 0.3;  }
++      */
++      polygon-pattern-file: url('symbols/grass2.png');
+     }
+   }
+ 
++  /*
+   [feature = 'landuse_retail'][zoom >= 10] {
+     polygon-fill: @retail;
+     [zoom >= 16] {
+@@ -322,7 +358,9 @@
+       [way_pixels >= 64] { polygon-gamma: 0.3;  }
+     }
+   }
++  */
+ 
++  /*
+   [feature = 'landuse_industrial'][zoom >= 10] {
+     polygon-fill: @industrial;
+     [zoom >= 16] {
+@@ -335,6 +373,7 @@
+     [way_pixels >= 4]  { polygon-gamma: 0.75; }
+     [way_pixels >= 64] { polygon-gamma: 0.3;  }
+   }
++  */
+ 
+   [feature = 'landuse_railway'][zoom >= 10] {
+     polygon-fill: @railway;
+@@ -346,6 +385,7 @@
+     [way_pixels >= 64] { polygon-gamma: 0.3;  }
+   }
+ 
++  /*
+   [feature = 'power_station'][zoom >= 10],
+   [feature = 'power_generator'][zoom >= 10],
+   [feature = 'power_sub_station'][zoom >= 13],
+@@ -364,6 +404,7 @@
+     [way_pixels >= 4]  { polygon-gamma: 0.75; }
+     [way_pixels >= 64] { polygon-gamma: 0.3;  }
+   }
++  */
+ 
+   [feature = 'landuse_commercial'][zoom >= 10] {
+     polygon-fill: @commercial;
+@@ -378,6 +419,7 @@
+     [way_pixels >= 64] { polygon-gamma: 0.3;  }
+   }
+ 
++  /*
+   [feature = 'landuse_brownfield'],
+   [feature = 'landuse_construction'] {
+     [zoom >= 10] {
+@@ -394,11 +436,14 @@
+       [way_pixels >= 64] { polygon-gamma: 0.3;  }
+     }
+   }
++  */
+ 
+   [feature = 'natural_bare_rock'][zoom >= 9] {
++    /*
+     polygon-fill: @bare_ground;
+     [way_pixels >= 4]  { polygon-gamma: 0.75; }
+     [way_pixels >= 64] { polygon-gamma: 0.3;  }
++    */
+     [zoom >= 13] {
+       polygon-pattern-file: url('symbols/rock_overlay.png');
+       [way_pixels >= 4]  { polygon-pattern-gamma: 0.75; }
+@@ -409,9 +454,11 @@
+   [feature = 'natural_scree'],
+   [feature = 'natural_shingle'] {
+     [zoom >= 9] {
++      /*
+       polygon-fill: @bare_ground;
+       [way_pixels >= 4]  { polygon-gamma: 0.75; }
+       [way_pixels >= 64] { polygon-gamma: 0.3;  }
++      */
+       [zoom >= 13] {
+         polygon-pattern-file: url('symbols/scree_overlay.png');
+         [way_pixels >= 4]  { polygon-pattern-gamma: 0.75; }
+@@ -426,17 +473,21 @@
+     [way_pixels >= 64] { polygon-gamma: 0.3;  }
+   }
+ 
++  /*
+   [feature = 'natural_heath'][zoom >= 10] {
+     polygon-fill: @heath;
+     [way_pixels >= 4]  { polygon-gamma: 0.75; }
+     [way_pixels >= 64] { polygon-gamma: 0.3;  }
+   }
++  */
+ 
++  /*
+   [feature = 'natural_scrub'][zoom >= 10] {
+     polygon-fill: @scrub;
+     [way_pixels >= 4]  { polygon-gamma: 0.75; }
+     [way_pixels >= 64] { polygon-gamma: 0.3;  }
+   }
++  */
+  
+   [feature = 'wetland_swamp'][zoom >= 8] {
+     polygon-fill: @forest;
+@@ -625,7 +676,8 @@
+         polygon-pattern-alignment: global;
+       }
+     }
+-    [natural = 'scrub'] {
++    [natural = 'scrub'],
++    [natural = 'heath'] {
+       polygon-pattern-file: url('symbols/scrub.png');
+       polygon-pattern-alignment: global;
+     }
+@@ -633,7 +685,8 @@
+ 
+   //Also landuse = forest, converted in the SQL
+   [natural = 'wood'][zoom >= 13]::wood {
+-    polygon-pattern-file: url('symbols/forest.png'); // Lch(55,30,135)
++    // polygon-pattern-file: url('symbols/forest.png'); // Lch(55,30,135)
++    polygon-pattern-file: url('symbols/forest-mixed.png');
+     polygon-pattern-alignment: global;
+     opacity: 0.4; // The entire layer has opacity to handle overlapping forests
+   }
+@@ -651,11 +704,39 @@
+   }
+ }
+ 
+-#cliffs {
++#reliefsymbols {
++  [natural = 'arete'][zoom >= 12] {
++    line-pattern-smooth: 0.3;
++    /*
++    line-pattern-file: url('symbols/arete_small.png');
++    [zoom >= 15] {
++      line-pattern-file: url('symbols/arete_medium.png');
++    }
++    [zoom >= 16] {
++      line-pattern-file: url('symbols/arete_large.png');
++    }
++    */
++    line-pattern-file: url('symbols/arete.svg');
++  }
++  [natural = 'ridge'][zoom >= 12] {
++    /*
++    line-pattern-smooth: 0.3;
++    line-pattern-file: url('symbols/ridge_small.png');
++    [zoom >= 15] {
++      line-pattern-file: url('symbols/ridge_medium.png');
++    }
++    [zoom >= 16] {
++      line-pattern-file: url('symbols/ridge_large.png');
++    }
++    */
++    line-pattern-file: url('symbols/ridge.svg');
++  }
+   [natural = 'cliff'][zoom >= 13] {
+-    line-pattern-file: url('symbols/cliff.png');
++    // line-pattern-file: url('symbols/cliff.png');
++    line-pattern-file: url('symbols/cliff_mdione.png');
+     [zoom >= 15] {
+-      line-pattern-file: url('symbols/cliff2.png');
++      // line-pattern-file: url('symbols/cliff2.png');
++      line-pattern-file: url('symbols/cliff2_mdione.png');
+     }
+   }
+   [man_made = 'embankment'][zoom >= 15]::man_made {
+@@ -728,18 +809,214 @@
+   }
+ }
+ 
++#text-point[zoom >= 15],
+ #text-line {
+-  [feature = 'natural_cliff'][zoom >= 15],
++  [feature = 'natural_cliff'][zoom >= 11],
+   [feature = 'man_made_embankment'][zoom >= 15] {
+     text-name: "[name]";
+     text-halo-radius: @standard-halo-radius;
+     text-halo-fill: @standard-halo-fill;
+-    text-fill: #999;
++    text-fill: @cliff-text;
+     text-size: 10;
+     text-face-name: @book-fonts;
+-    text-placement: line;
+     text-dy: 8;
+     text-vertical-alignment: middle;
+     text-spacing: 400;
++    #text-line {
++      text-placement: line;
++    }
++    #text-point {
++      text-placement: point;
++      text-dy: 8;
++      text-size: 10;
++    }
++  }
++  [feature = 'natural_dale'][zoom >= 13],
++  [feature = 'natural_gorge'][zoom >= 14],
++  [feature = 'natural_couloir'][zoom >= 14],
++  [feature = 'natural_ridge'][zoom >= 8]::foreground,
++  [feature = 'natural_arete'][zoom >= 8]::foreground,
++  [feature = 'natural_massif'][zoom >= 15]#text-point, // point visibility given to mappers at high zoom, to help debugging tags to be changed to polylines
++  [feature = 'natural_mountain_range'][zoom >= 15]#text-point, // point visibility given to mappers at high zoom, to help debugging tags to be changed to polylines
++  [feature = 'place_mountain_area'][zoom >= 15]#text-point, // point visibility given to mappers at high zoom, to help debugging tags to be changed to polylines
++  [feature = 'natural_valley'][zoom >= 8]::foreground {
++    [feature = 'natural_dale'] { text-fill: @dale-text; }
++    [feature = 'natural_gorge'] { text-fill: @gorge-text; }
++    [feature = 'natural_couloir'] { text-fill: @couloir-text; }
++    [feature = 'natural_ridge'] { text-fill: @ridge-text; }
++    [feature = 'natural_arete']  { text-fill: @arete-text; }
++    [feature = 'natural_valley'] { text-fill: @valley-text; }
++    [feature = 'natural_massif'] {
++      text-fill: @massif-text;
++      text-transform: uppercase;
++    }
++    [feature = 'natural_mountain_range'] {
++      text-fill: @mountain_range-text;
++      text-transform: uppercase;
++    }
++    [feature = 'place_mountain_area'] {
++      text-fill: @mountain_area-text;
++      text-transform: uppercase;
++    }
++    // general settings
++    text-halo-radius: 2;
++    text-halo-fill: rgba(255,255,255,0.6);
++    text-opacity: 1;
++    [zoom >= 10] { text-opacity: 0.7; }
++    text-dx: 8;
++    text-dy: 8;
++    text-spacing: 760;
++    text-face-name: @oblique-fonts;
++    text-wrap-width: 2;
++    text-name: "[name]";
++    // the following text-line and spacing dimensions are independent from pixel_length (which needs text-line)
++    [zoom >= 10] { text-size: 10; text-opacity: 0.5; }
++    [zoom >= 11] { text-size: 11; text-character-spacing: 4; text-opacity: 0.6; }
++    [zoom >= 12] { text-size: 13; text-character-spacing: 4; text-opacity: 0.6; }
++    [zoom >= 13] { text-size: 13; text-character-spacing: 5; text-opacity: 0.6; }
++    [zoom >= 14] { text-size: 12; text-character-spacing: 3; }
++    [zoom >= 15] {
++      text-size: 16;
++      text-dx: 15;
++      text-dy: 15;
++      text-character-spacing: 6;
++    }
++    [zoom >= 16] { text-size: 18; text-character-spacing: 12; }
++    #text-line {
++      text-max-char-angle-delta: 30;
++      text-placement: line;
++      text-placement-type: simple;
++      [zoom < 15] {
++        // text-placements: "N,S,E,W,NE,SE,NW,SW,18,16,14,12,10,9,8";
++      }
++      // the following text-line and spacing dimensions depend on pixel_length (e.g., differentiate long lines)
++      [pixel_length > 60] {
++        text-dx: 11;
++        text-dy: 11;
++        text-size: 11;
++        text-character-spacing: 3;
++        text-wrap-width: 100;
++      }
++      [zoom = 10][pixel_length > 125] {
++        text-character-spacing: 2;
++        text-size: 13;
++      }
++      [zoom = 11][pixel_length > 250] {
++        text-size: 13;
++        text-character-spacing: 6;
++        text-opacity: 0.6;
++      }
++      [zoom = 12][pixel_length > 500] {
++        text-size: 14;
++        text-character-spacing: 7;
++        text-opacity: 0.6;
++        text-transform: uppercase;
++      }
++      [zoom = 13][pixel_length > 1000] {
++        text-size: 15;
++        text-character-spacing: 10;
++        text-opacity: 0.6;
++        text-max-char-angle-delta: 10;
++        text-transform: uppercase;
++      }
++      [zoom = 14][pixel_length > 2000] {
++        text-size: 20;
++        text-character-spacing: 10;
++        text-opacity: 0.5;
++        text-max-char-angle-delta: 10;
++        text-transform: uppercase;
++        text-placement-type: dummy;
++      }
++      [zoom >= 15][pixel_length > 4000] {
++        text-size: 25;
++        text-character-spacing: 20;
++        text-opacity: 0.5;
++        text-max-char-angle-delta: 10;
++        text-transform: uppercase;
++        text-placement-type: dummy;
++      }
++      [zoom < 16][name=~'^.{14,}$'] { // improve probability for long names (>=14 characters) to be shown
++        text-max-char-angle-delta: 30;
++        text-transform: none;
++      }
++    }
++    [feature = 'natural_dale'],
++    [feature = 'natural_gorge'],
++    [feature = 'natural_couloir'],
++    [feature = 'natural_arete'],
++    [feature = 'natural_ridge'] {
++      [zoom >= 10] { text-size: 10; }
++      [zoom >= 11] { text-size: 12; }
++      [zoom >= 12] { text-size: 12; }
++      [zoom >= 13] { text-size: 12; }
++      [zoom >= 14] { text-size: 12; }
++      [zoom >= 15] { text-size: 15; }
++      [zoom >= 16] { text-size: 18; }
++    }
++    #text-point { // points are only shown for debugging purpose, with fixed rendering
++      text-placement: point;
++      text-character-spacing: 0;
++      text-size: 10;
++    }
++  }
++}
++
++#landcover-low-zoom[zoom < 10]::foreground,
++#amenity-points-poly[zoom >= 10] {
++  [feature = 'natural_dale'][zoom >= 14],
++  [feature = 'natural_gorge'][zoom >= 15],
++  [feature = 'natural_couloir'][zoom >= 15],
++  [feature = 'natural_arete'][zoom >= 15],
++  [feature = 'natural_ridge'][zoom >= 15],
++  [feature = 'natural_massif'][zoom >= 8],
++  [feature = 'natural_mountain_range'][zoom >= 8][zoom < 13],
++  [feature = 'place_mountain_area'][zoom >= 8][zoom < 13],
++  [feature = 'natural_valley'] {
++    text-halo-radius: 2.5;
++    text-halo-fill: rgba(255,255,255,0.6);
++    text-vertical-alignment: middle;
++    text-opacity: 1;
++    text-spacing: 760;
++    text-face-name: @oblique-fonts;
++    text-wrap-width: 2;
++    text-placement: interior;
++    text-placement-type: simple;
++    text-size: 8;
++    [zoom >= 9] { text-size: 9; }
++    [zoom < 11] {
++      // text-placements: "N,S,E,W,NE,SE,NW,SW,10,9,8,7";
++      text-placements: "N,S,E,W";
++    }
++    [zoom >= 10] {
++      text-size: 10;
++      text-opacity: 0.7;
++      [way_pixels > 4000] { text-size: 12; }
++      [way_pixels > 20000][zoom >= 10] { text-size: 14; }
++      [way_pixels > 60000][zoom >= 11] { text-size: 17; }
++      [way_pixels > 200000][zoom >= 12] { text-size: 21; }
++      [way_pixels > 500000][zoom >= 13] { text-size: 25; }
++    }
++    text-name: "[name]";
++    [feature = 'natural_dale'] { text-fill: @dale-text; }
++    [feature = 'natural_gorge'] { text-fill: @gorge-text; }
++    [feature = 'natural_couloir'] { text-fill: @couloir-text; }
++    [feature = 'natural_ridge'] { text-fill: @ridge-text; }
++    [feature = 'natural_arete']  { text-fill: @arete-text; }
++    [feature = 'natural_massif'] {
++      text-fill: @massif-text;
++      text-transform: uppercase;
++      [zoom>=9] { text-character-spacing: 3; }
++    }
++    [feature = 'natural_mountain_range'] {
++      text-fill: @mountain_range-text;
++      text-transform: uppercase;
++      [zoom>=9] { text-character-spacing: 3; }
++    }
++    [feature = 'place_mountain_area'] {
++      text-fill: @mountain_area-text;
++      text-transform: uppercase;
++      [zoom>=9] { text-character-spacing: 3; }
++    }
++    [feature = 'natural_valley'] { text-fill: @valley-text; }
+   }
+ }
+diff --git a/placenames.mss b/placenames.mss
+index 4b84e4b..2312343 100644
+--- a/placenames.mss
++++ b/placenames.mss
+@@ -6,35 +6,35 @@
+ .country {
+   [zoom >= 3][way_pixels > 1000][way_pixels < 360000] {
+     text-name: "[name]";
+-    text-size: 10;
++    text-size: 11;
+     text-wrap-width: 35; // 3.5 em
+     text-line-spacing: -1.5; // -0.15 em
+     text-margin: 7.0; // 0.7 em
+     [zoom >= 4] {
+-      text-size: 11;
++      text-size: 12;
+       text-wrap-width: 40; // 3.6 em
+       text-line-spacing: -1.4; // -0.13 em
+       text-margin: 7.7; // 0.7 em
+     }
+-    [zoom >= 5] {
+-      text-size: 12;
++    [zoom >= 6] {
++      text-size: 13;
+       text-wrap-width: 45; // 3.8 em
+       text-line-spacing: -1.2; // -0.10 em
+       text-margin: 8.4; // 0.7 em
+     }
+-    [zoom >= 7] {
+-      text-size: 13;
++    [zoom >= 8] {
++      text-size: 14;
+       text-wrap-width: 50; // 3.8 em
+       text-line-spacing: -1.0; // -0.08 em
+       text-margin: 9.1; // 0.7 em
+     }
+     [zoom >= 10] {
+-      text-size: 14;
++      text-size: 15;
+       text-wrap-width: 55; // 3.9 em
+       text-line-spacing: -0.7; // -0.05 em
+     }
+     text-fill: @country-labels;
+-    text-face-name: @book-fonts;
++    text-face-name: @bold-fonts;
+     text-halo-fill: @standard-halo-fill;
+     text-halo-radius: @standard-halo-radius * 1.5;
+     text-placement: interior;
+@@ -42,6 +42,7 @@
+   }
+ }
+ 
++/*
+ .state {
+   [zoom >= 5][way_pixels > 3000][way_pixels < 196000] {
+     text-name: "[name]";
+@@ -62,6 +63,7 @@
+     }
+   }
+ }
++*/
+ 
+ #capital-names {
+   [zoom >= 4][zoom < 8][population > 600000],
+@@ -70,7 +72,7 @@
+     shield-text-dx: 6;
+     shield-text-dy: 6;
+     shield-name: '[name]';
+-    shield-face-name: @book-fonts;
++    shield-face-name: @bold-fonts;
+     shield-fill: @placenames;
+     shield-size: 11;
+     shield-wrap-width: 30; // 2.7 em
+@@ -103,7 +105,7 @@
+   }
+   [zoom >= 8] {
+     text-name: '[name]';
+-    text-face-name: @book-fonts;
++    text-face-name: @bold-fonts;
+     text-fill: @placenames;
+     text-size: 13;
+     text-wrap-width: 65; // 5.0 em
+@@ -124,6 +126,12 @@
+       text-line-spacing: -0.75; // -0.05 em
+       text-margin: 10.5; // 0.7 em
+     }
++    [zoom >= 16] {
++      text-size: 16;
++      text-wrap-width: 80; // 5.0 em
++      text-line-spacing: -0.80; // -0.05 em
++      text-margin: 11.2; // 0.7 em
++    }
+   }
+ }
+ 
+@@ -170,7 +178,7 @@
+     }
+     [zoom >= 8][score >= 400000] {
+       text-name: '[name]';
+-      text-face-name: @book-fonts;
++      text-face-name: @bold-fonts;
+       text-fill: @placenames;
+       text-size: 13;
+       text-wrap-width: 65; // 5.0 em
+@@ -191,6 +199,12 @@
+         text-line-spacing: -0.75; // -0.05 em
+         text-margin: 10.5; // 0.7 em
+       }
++      [zoom >= 16] {
++        text-size: 16;
++        text-wrap-width: 80; // 5.0 em
++        text-line-spacing: -0.80; // -0.05 em
++        text-margin: 11.2; // 0.7 em
++      }
+     }
+   }
+ }
+@@ -207,10 +221,11 @@
+       shield-fill: @placenames;
+       shield-face-name: @book-fonts;
+       shield-halo-fill: @standard-halo-fill;
+-      shield-halo-radius: @standard-halo-radius * 1.5;
++      shield-halo-radius: @standard-halo-radius;
+       shield-wrap-width: 30; // 3.0 em
+       shield-line-spacing: -1.5; // -0.15 em
+       shield-margin: 7.0; // 0.7 em
++      shield-spacing: 75;
+       shield-placement-type: simple;
+       shield-placements: 'S,N,E,W';
+       [dir = 1] {
+@@ -227,7 +242,7 @@
+       text-fill: @placenames;
+       text-face-name: @book-fonts;
+       text-halo-fill: @standard-halo-fill;
+-      text-halo-radius: @standard-halo-radius * 1.5;
++      text-halo-radius: @standard-halo-radius;
+       text-wrap-width: 40; // 4.0 em
+       text-line-spacing: -1.0; // -0.10 em
+       text-margin: 7.0; // 0.7 em
+@@ -267,7 +282,7 @@
+       text-fill: @placenames;
+       text-face-name: @book-fonts;
+       text-halo-fill: @standard-halo-fill;
+-      text-halo-radius: @standard-halo-radius * 1.5;
++      text-halo-radius: @standard-halo-radius;
+       text-wrap-width: 45; // 4.5 em
+       text-line-spacing: -0.8; // -0.08 em
+       text-margin: 7; // 0.7 em
+@@ -300,7 +315,7 @@
+     text-fill: @placenames;
+     text-face-name: @book-fonts;
+     text-halo-fill: @standard-halo-fill;
+-    text-halo-radius: @standard-halo-radius * 1.5;
++    text-halo-radius: @standard-halo-radius;
+     text-wrap-width: 55; // 5.0 em
+     text-line-spacing: -0.55; // -0.05 em
+     text-margin: 7.7; // 0.7 em
+@@ -329,13 +344,13 @@
+ 
+ #placenames-small::village {
+   [place = 'village'] {
+-    [zoom >= 12][zoom < 17] {
++    [zoom >= 10][zoom < 17] {
+       text-name: "[name]";
+       text-size: 10;
+       text-fill: @placenames;
+       text-face-name: @book-fonts;
+       text-halo-fill: @standard-halo-fill;
+-      text-halo-radius: @standard-halo-radius * 1.5;
++      text-halo-radius: @standard-halo-radius;
+       text-wrap-width: 50; // 5.0 em
+       text-line-spacing: -0.50; // -0.05 em
+       text-margin: 7.0; // 0.7 em
+@@ -381,7 +396,7 @@
+       text-fill: @placenames;
+       text-face-name: @book-fonts;
+       text-halo-fill: @standard-halo-fill;
+-      text-halo-radius: @standard-halo-radius * 1.5;
++      text-halo-radius: @standard-halo-radius;
+       text-wrap-width: 45; // 4.5 em
+       text-line-spacing: -0.8; // -0.08 em
+       text-margin: 7.0; // 0.7 em
+diff --git a/power.mss b/power.mss
+index 065f6d7..f3d11ba 100644
+--- a/power.mss
++++ b/power.mss
+@@ -1,5 +1,6 @@
+ @power-line-color: #888;
+ 
++/*
+ #power-line {
+   [zoom >= 14] {
+     line-width: 0.5;
+@@ -53,3 +54,4 @@
+     marker-width: 3;
+   }
+ }
++*/
+diff --git a/project.mml b/project.mml
+index 33e487d..619cedb 100644
+--- a/project.mml
++++ b/project.mml
+@@ -1,16 +1,16 @@
+ scale: 1
+ metatile: 2
+-name: OpenStreetMap Carto
+-description: A general-purpose OpenStreetMap mapnik style, in CartoCSS
++name: Elevation
++description: A OSM-carto based map with relief info, contrasting roads and other minor changes.
+ bounds: &world
+   - -180
+   - -85.05112877980659
+   - 180
+   - 85.05112877980659
+ center:
+-  - 0
+-  - 0
+-  - 4
++  - 5.5
++  - 43.25
++  - 12
+ format: png
+ interactivity: false
+ minzoom: 0
+@@ -53,24 +53,40 @@ Stylesheet:
+   - admin.mss
+   - addressing.mss
+ Layer:
+-  - id: world
+-    name: world
+-    geometry: polygon
++  - id: "terrain-small"
++    name: "terrain-small"
++    class: "terrain"
++    geometry: "raster"
+     <<: *extents
+     Datasource:
+-      file: data/simplified-land-polygons-complete-3857/simplified_land_polygons.shp
+-      type: shape
++      file: "data/height/mixed-terrain-small.tif"
++      type: "gdal"
++    advanced: {}
+     properties:
+-      maxzoom: 9
+-  - id: coast-poly
+-    name: coast-poly
+-    geometry: polygon
++      maxzoom: 6
++  - id: "terrain-medium"
++    name: "terrain-medium"
++    class: "terrain"
++    geometry: "raster"
+     <<: *extents
+     Datasource:
+-      file: data/land-polygons-split-3857/land_polygons.shp
+-      type: shape
++      file: "data/height/mixed-terrain-medium.tif"
++      type: "gdal"
++    advanced: {}
+     properties:
+-      minzoom: 10
++      minzoom: 7
++      maxzoom: 8
++  - id: "terrain-big"
++    name: "terrain-big"
++    class: "terrain"
++    geometry: "raster"
++    <<: *extents
++    Datasource:
++      file: "data/height/mixed-terrain.vrt"
++      type: "gdal"
++    advanced: {}
++    properties:
++      minzoom: 8
+   - id: builtup
+     name: builtup
+     geometry: polygon
+@@ -81,7 +97,7 @@ Layer:
+       file: data/world_boundaries/builtup_area.shp
+       type: shape
+     properties:
+-      minzoom: 8
++      minzoom: 6
+       maxzoom: 9
+   - id: necountries
+     name: necountries
+@@ -139,7 +155,7 @@ Layer:
+               ('landuse_' || (CASE WHEN landuse IN ('quarry', 'vineyard', 'orchard', 'cemetery', 'residential', 'garages', 'meadow', 'grass', 
+                                                     'allotments', 'forest', 'farmyard', 'farm', 'farmland', 'greenhouse_horticulture', 
+                                                     'recreation_ground', 'village_green', 'retail', 'industrial', 'railway', 'commercial', 
+-                                                    'brownfield', 'landfill', 'construction') THEN landuse ELSE NULL END)) AS landuse,
++                                                    'brownfield', 'landfill') THEN landuse ELSE NULL END)) AS landuse,
+               ('leisure_' || (CASE WHEN leisure IN ('swimming_pool', 'playground', 'park', 'recreation_ground', 'common', 'garden', 
+                                                     'golf_course', 'miniature_golf', 'picnic_table', 'sports_centre', 'stadium', 'pitch', 
+                                                     'track', 'dog_park') THEN leisure ELSE NULL END)) AS leisure,
+@@ -184,6 +200,175 @@ Layer:
+         ) AS landcover_line
+     properties:
+       minzoom: 14
++  - id: "hillshade-small"
++    name: "hillshade-small"
++    class: "hillshade-over"
++    geometry: "raster"
++    <<: *extents
++    Datasource:
++      file: "data/height/mixed-hillshade-small.tif"
++      type: "gdal"
++    advanced: {}
++    properties:
++      maxzoom: 6
++  - id: "hillshade-medium-over"
++    name: "hillshade-medium-over"
++    class: "hillshade-over"
++    geometry: "raster"
++    <<: *extents
++    Datasource:
++      file: "data/height/mixed-hillshade-medium.tif"
++      type: "gdal"
++    advanced: {}
++    properties:
++      minzoom: 7
++      maxzoom: 8
++  - id: "hillshade-medium-overlay"
++    name: "hillshade-medium-overlay"
++    class: "hillshade-overlay"
++    geometry: "raster"
++    <<: *extents
++    Datasource:
++      file: "data/height/mixed-hillshade-medium.tif"
++      type: "gdal"
++    advanced: {}
++    properties:
++      minzoom: 8
++      maxzoom: 8
++  - id: "hillshade-big"
++    name: "hillshade-big"
++    class: "hillshade-overlay"
++    geometry: "raster"
++    <<: *extents
++    Datasource:
++      file: "data/height/mixed-hillshade.vrt"
++      type: "gdal"
++    advanced: {}
++    properties:
++      minzoom: 9
++  - id: "slopeshade-small"
++    name: "slopeshade-small"
++    class: "slopeshade-over"
++    geometry: "raster"
++    <<: *extents
++    Datasource:
++      file: "data/height/mixed-slopeshade-small.tif"
++      type: "gdal"
++    advanced: {}
++    properties:
++      maxzoom: 6
++    # status: off
++  - id: "slopeshade-medium-over"
++    name: "slopeshade-medium-over"
++    class: "slopeshade-over"
++    geometry: "raster"
++    <<: *extents
++    Datasource:
++      file: "data/height/mixed-slopeshade-medium.tif"
++      type: "gdal"
++    advanced: {}
++    properties:
++      minzoom: 7
++      maxzoom: 7
++    # status: off
++  - id: "slopeshade-medium-overlay"
++    name: "slopeshade-medium-overlay"
++    class: "slopeshade-overlay"
++    geometry: "raster"
++    <<: *extents
++    Datasource:
++      file: "data/height/mixed-slopeshade-medium.tif"
++      type: "gdal"
++    advanced: {}
++    properties:
++      minzoom: 8
++      maxzoom: 8
++  - id: "slopeshade-big"
++    name: "slopeshade-big"
++    class: "slopeshade-overlay"
++    geometry: "raster"
++    <<: *extents
++    Datasource:
++      file: "data/height/mixed-slopeshade.vrt"
++      type: "gdal"
++    advanced: {}
++    properties:
++      minzoom: 9
++  - id: "contour-50"
++    name: "contour-50"
++    class: ""
++    geometry: "linestring"
++    <<: *extents84
++    Datasource:
++      <<: *osm2pgsql
++      table: |-
++        (SELECT height, way
++         FROM contours
++         WHERE height::int%100 = 50
++        ) as c50
++    advanced: {}
++    properties:
++      minzoom: 13
++  - id: "contour-100"
++    name: "contour-100"
++    class: ""
++    geometry: "linestring"
++    <<: *extents84
++    Datasource:
++      <<: *osm2pgsql
++      table: |-
++        (SELECT height, way
++         FROM contours
++         WHERE height::int%1000 in (100, 200, 300, 400, 600, 700, 800, 900)
++        ) as c100
++    advanced: {}
++    properties:
++      minzoom: 11
++  - id: "contour-250"
++    name: "contour-250"
++    class: ""
++    geometry: "linestring"
++    <<: *extents84
++    Datasource:
++      <<: *osm2pgsql
++      table: |-
++        (SELECT height, way
++         FROM contours
++         WHERE height::int%1000 in (250, 750)
++        ) as c250
++    advanced: {}
++    properties:
++      minzoom: 10
++  - id: "contour-500"
++    name: "contour-500"
++    class: ""
++    geometry: "linestring"
++    <<: *extents84
++    Datasource:
++      <<: *osm2pgsql
++      table: |-
++        (SELECT height, way
++         FROM contours
++         WHERE height::int%1000 = 500
++        ) as c500
++    advanced: {}
++    properties:
++      minzoom: 9
++  - id: "contour-1000"
++    name: "contour-1000"
++    class: ""
++    geometry: "linestring"
++    <<: *extents84
++    Datasource:
++      <<: *osm2pgsql
++      table: |-
++        (SELECT height, way
++         FROM contours
++         WHERE height::int%1000 = 0
++        ) as c1000
++    advanced: {}
++    properties:
++      minzoom: 8
+   - id: water-lines-casing
+     name: water-lines-casing
+     geometry: linestring
+@@ -195,10 +380,11 @@ Layer:
+             way, waterway, intermittent,
+             CASE WHEN tunnel IN ('yes', 'culvert') THEN 'yes' ELSE 'no' END AS int_tunnel
+           FROM planet_osm_line
+-          WHERE waterway IN ('stream', 'drain', 'ditch')
++          WHERE waterway IN ('stream', 'drain', 'ditch', 'river')
+         ) AS water_lines_casing
+     properties:
+-      minzoom: 13
++      minzoom: 6
++    status: off
+   - id: water-lines-low-zoom
+     name: water-lines-low-zoom
+     geometry: linestring
+@@ -216,6 +402,27 @@ Layer:
+     properties:
+       minzoom: 8
+       maxzoom: 11
++    status: off
++  - id: ocean-lz
++    name: ocean-lz
++    class: ocean
++    geometry: polygon
++    <<: *extents
++    Datasource:
++      file: data/simplified-water-polygons-complete-3857/simplified_water_polygons.shp
++      type: shape
++    properties:
++      maxzoom: 9
++  - id: ocean
++    name: ocean
++    class: ocean
++    geometry: polygon
++    <<: *extents
++    Datasource:
++      file: data/water-polygons-split-3857/water_polygons.shp
++      type: shape
++    properties:
++      minzoom: 10
+   - id: icesheet-poly
+     name: icesheet-poly
+     geometry: polygon
+@@ -352,6 +559,25 @@ Layer:
+         ) AS marinas_area
+     properties:
+       minzoom: 14
++  - id: nature-reserve-boundaries
++    name: nature-reserve-boundaries
++    geometry: polygon
++    <<: *extents
++    Datasource:
++      <<: *osm2pgsql
++      table: |-
++        (SELECT
++            way,
++            name,
++            boundary,
++            way_area/NULLIF(!pixel_width!::real*!pixel_height!::real,0) AS way_pixels
++          FROM planet_osm_polygon
++          WHERE (boundary = 'national_park' OR leisure = 'nature_reserve')
++            AND building IS NULL
++            AND way_area > 0.01*!pixel_width!::real*!pixel_height!::real
++        ) AS national_park_boundaries
++    properties:
++      minzoom: 7
+   - id: piers-poly
+     name: piers-poly
+     geometry: polygon
+@@ -474,7 +700,6 @@ Layer:
+             tracktype,
+             int_surface,
+             access,
+-            construction,
+             service,
+             link,
+             layernotnull
+@@ -496,7 +721,6 @@ Layer:
+                   WHEN access IN ('no', 'private') THEN 'no'::text
+                   ELSE NULL
+                 END AS access,
+-                construction,
+                 CASE
+                   WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text
+                   ELSE 'INT-normal'::text
+@@ -528,7 +752,6 @@ Layer:
+                   WHEN access IN ('no', 'private') THEN 'no'::text
+                   ELSE NULL
+                 END AS access,
+-                construction,
+                 CASE WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text ELSE 'INT-normal'::text END AS service,
+                 'no' AS link,
+                 CASE WHEN layer~E'^-?\\d+$' AND length(layer)<10 THEN layer::integer ELSE 0 END AS layernotnull
+@@ -550,8 +773,6 @@ Layer:
+               ('railway_turntable', 420),
+               ('railway_tram', 410),
+               ('railway_tram-service', 405),
+-              ('railway_disused', 400),
+-              ('railway_construction', 400),
+               ('highway_motorway', 380),
+               ('highway_trunk', 370),
+               ('highway_primary', 360),
+@@ -578,8 +799,7 @@ Layer:
+               ('highway_platform', 90),
+               ('railway_platform', 90),
+               ('aeroway_runway', 60),
+-              ('aeroway_taxiway', 50),
+-              ('highway_construction', 10)
++              ('aeroway_taxiway', 50)
+             ) AS ordertable (feature, prio)
+             USING (feature)
+           ORDER BY
+@@ -631,20 +851,20 @@ Layer:
+         ) AS line_barriers
+     properties:
+       minzoom: 14
+-  - id: cliffs
+-    name: cliffs
++  - id: reliefsymbols
++    name: reliefsymbols
+     geometry: linestring
+     <<: *extents
+     Datasource:
+       <<: *osm2pgsql
+       table: |-
+         (SELECT
+-            way, "natural", man_made
++            way, "natural", name, ST_Length(way)/NULLIF(SQRT(!pixel_width!::real*!pixel_width!::real),0) AS pixel_length, man_made
+           FROM planet_osm_line
+-          WHERE "natural" = 'cliff' OR man_made = 'embankment'
+-        ) AS cliffs
++          WHERE "natural" in ('cliff', 'arete', 'ridge') OR man_made = 'embankment'
++        ) AS reliefsymbols
+     properties:
+-      minzoom: 13
++      minzoom: 10
+   - id: area-barriers
+     name: area-barriers
+     class: barriers
+@@ -743,7 +963,6 @@ Layer:
+             tracktype,
+             int_surface,
+             access,
+-            construction,
+             service,
+             link,
+             layernotnull
+@@ -765,7 +984,6 @@ Layer:
+                   WHEN access IN ('no', 'private') THEN 'no'::text
+                   ELSE NULL
+                 END AS access,
+-                construction,
+                 CASE
+                   WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text
+                   ELSE 'INT-normal'::text
+@@ -799,7 +1017,6 @@ Layer:
+                   WHEN access IN ('no', 'private') THEN 'no'::text
+                   ELSE NULL
+                 END AS access,
+-                construction,
+                 CASE WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text ELSE 'INT-normal'::text END AS service,
+                 'no' AS link,
+                 CASE WHEN layer~E'^-?\\d+$' AND length(layer)<10 THEN layer::integer ELSE 0 END AS layernotnull
+@@ -823,8 +1040,6 @@ Layer:
+               ('railway_turntable', 420),
+               ('railway_tram', 410),
+               ('railway_tram-service', 405),
+-              ('railway_disused', 400),
+-              ('railway_construction', 400),
+               ('highway_motorway', 380),
+               ('highway_trunk', 370),
+               ('highway_primary', 360),
+@@ -851,8 +1066,7 @@ Layer:
+               ('highway_platform', 90),
+               ('railway_platform', 90),
+               ('aeroway_runway', 60),
+-              ('aeroway_taxiway', 50),
+-              ('highway_construction', 10)
++              ('aeroway_taxiway', 50)
+             ) AS ordertable (feature, prio)
+             USING (feature)
+           ORDER BY
+@@ -908,7 +1122,6 @@ Layer:
+             tracktype,
+             int_surface,
+             access,
+-            construction,
+             service,
+             link,
+             layernotnull
+@@ -930,7 +1143,6 @@ Layer:
+                   WHEN access IN ('no', 'private') THEN 'no'::text
+                   ELSE NULL
+                 END AS access,
+-                construction,
+                 CASE
+                   WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text
+                   ELSE 'INT-normal'::text
+@@ -964,7 +1176,6 @@ Layer:
+                   WHEN access IN ('no', 'private') THEN 'no'::text
+                   ELSE NULL
+                 END AS access,
+-                construction,
+                 CASE WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text ELSE 'INT-normal'::text END AS service,
+                 'no' AS link,
+                 CASE WHEN layer~E'^-?\\d+$' AND length(layer)<10 THEN layer::integer ELSE 0 END AS layernotnull
+@@ -988,8 +1199,6 @@ Layer:
+               ('railway_turntable', 420),
+               ('railway_tram', 410),
+               ('railway_tram-service', 405),
+-              ('railway_disused', 400),
+-              ('railway_construction', 400),
+               ('highway_motorway', 380),
+               ('highway_trunk', 370),
+               ('highway_primary', 360),
+@@ -1016,8 +1225,7 @@ Layer:
+               ('highway_platform', 90),
+               ('railway_platform', 90),
+               ('aeroway_runway', 60),
+-              ('aeroway_taxiway', 50),
+-              ('highway_construction', 10)
++              ('aeroway_taxiway', 50)
+             ) AS ordertable (feature, prio)
+             USING (feature)
+           ORDER BY
+@@ -1028,6 +1236,25 @@ Layer:
+         ) AS roads_fill
+     properties:
+       minzoom: 10
++  - id: "pistes"
++    name: "pistes"
++    class: ""
++    geometry: "linestring"
++    <<: *extents
++    Datasource:
++      <<: *osm2pgsql
++      table: |-
++        (SELECT way,
++          ('piste_' || "piste:type") AS feature,
++          "piste:difficulty" AS grade,
++          name
++        FROM planet_osm_line
++        WHERE
++          "piste:type" IN ('downhill')
++        ) AS pistes
++    advanced: {}
++    properties:
++      minzoom: 14
+   - id: turning-circle-fill
+     name: turning-circle-fill
+     geometry: point
+@@ -1142,7 +1369,6 @@ Layer:
+             tracktype,
+             int_surface,
+             access,
+-            construction,
+             service,
+             link,
+             layernotnull
+@@ -1164,7 +1390,6 @@ Layer:
+                   WHEN access IN ('no', 'private') THEN 'no'::text
+                   ELSE NULL
+                 END AS access,
+-                construction,
+                 CASE
+                   WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text
+                   ELSE 'INT-normal'::text
+@@ -1196,7 +1421,6 @@ Layer:
+                   WHEN access IN ('no', 'private') THEN 'no'::text
+                   ELSE NULL
+                 END AS access,
+-                construction,
+                 CASE WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text ELSE 'INT-normal'::text END AS service,
+                 'no' AS link,
+                 CASE WHEN layer~E'^-?\\d+$' AND length(layer)<10 THEN layer::integer ELSE 0 END AS layernotnull
+@@ -1218,8 +1442,6 @@ Layer:
+               ('railway_turntable', 420),
+               ('railway_tram', 410),
+               ('railway_tram-service', 405),
+-              ('railway_disused', 400),
+-              ('railway_construction', 400),
+               ('highway_motorway', 380),
+               ('highway_trunk', 370),
+               ('highway_primary', 360),
+@@ -1246,8 +1468,7 @@ Layer:
+               ('highway_platform', 90),
+               ('railway_platform', 90),
+               ('aeroway_runway', 60),
+-              ('aeroway_taxiway', 50),
+-              ('highway_construction', 10)
++              ('aeroway_taxiway', 50)
+             ) AS ordertable (feature, prio)
+             USING (feature)
+           ORDER BY
+@@ -1285,97 +1506,12 @@ Layer:
+             admin_level
+           FROM planet_osm_roads
+           WHERE boundary = 'administrative'
+-            AND admin_level IN ('0', '1', '2', '3', '4')
++            AND admin_level IN ('2', '3')
+             AND osm_id < 0
+           ORDER BY admin_level DESC
+         ) AS admin_low_zoom
+     properties:
+       minzoom: 4
+-      maxzoom: 10
+-  - id: admin-mid-zoom
+-    name: admin-mid-zoom
+-    geometry: linestring
+-    <<: *extents
+-    Datasource:
+-      <<: *osm2pgsql
+-      table: |-
+-        (SELECT
+-            way,
+-            admin_level
+-          FROM planet_osm_roads
+-          WHERE boundary = 'administrative'
+-            AND admin_level IN ('0', '1', '2', '3', '4', '5', '6', '7', '8')
+-            AND osm_id < 0
+-          ORDER BY admin_level DESC
+-        ) AS admin_mid_zoom
+-    properties:
+-      minzoom: 11
+-      maxzoom: 12
+-  - id: admin-high-zoom
+-    name: admin-high-zoom
+-    geometry: linestring
+-    <<: *extents
+-    Datasource:
+-      <<: *osm2pgsql
+-      table: |-
+-        (SELECT
+-            way,
+-            admin_level
+-          FROM planet_osm_roads
+-          WHERE boundary = 'administrative'
+-            AND admin_level IN ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10')
+-            AND osm_id < 0
+-          ORDER BY admin_level::integer DESC -- With 10 as a valid value, we need to do a numeric ordering, not a text ordering
+-        ) AS admin_high_zoom
+-    properties:
+-      minzoom: 13
+-  - id: power-minorline
+-    name: power-minorline
+-    geometry: linestring
+-    <<: *extents
+-    Datasource:
+-      <<: *osm2pgsql
+-      table: |-
+-        (SELECT
+-            way
+-          FROM planet_osm_line
+-          WHERE power = 'minor_line'
+-        ) AS power_minorline
+-    properties:
+-      minzoom: 16
+-  - id: power-line
+-    name: power-line
+-    geometry: linestring
+-    <<: *extents
+-    Datasource:
+-      <<: *osm2pgsql
+-      table: |-
+-        (SELECT
+-            way
+-          FROM planet_osm_line
+-          WHERE power = 'line'
+-        ) AS power_line
+-    properties:
+-      minzoom: 14
+-  - id: nature-reserve-boundaries
+-    name: nature-reserve-boundaries
+-    geometry: polygon
+-    <<: *extents
+-    Datasource:
+-      <<: *osm2pgsql
+-      table: |-
+-        (SELECT
+-            way,
+-            name,
+-            boundary,
+-            way_area/NULLIF(!pixel_width!::real*!pixel_height!::real,0) AS way_pixels
+-          FROM planet_osm_polygon
+-          WHERE (boundary = 'national_park' OR leisure = 'nature_reserve')
+-            AND building IS NULL
+-            AND way_area > 0.01*!pixel_width!::real*!pixel_height!::real
+-        ) AS national_park_boundaries
+-    properties:
+-      minzoom: 7
+   - id: tourism-boundary
+     name: tourism-boundary
+     geometry: polygon
+@@ -1394,25 +1530,6 @@ Layer:
+         ) AS tourism_boundary
+     properties:
+       minzoom: 10
+-  - id: trees
+-    name: trees
+-    geometry: polygon
+-    <<: *extents
+-    Datasource:
+-      <<: *osm2pgsql
+-      table: |-
+-        (SELECT
+-            way, "natural"
+-          FROM planet_osm_point
+-          WHERE "natural" = 'tree'
+-        UNION ALL
+-        SELECT
+-            way, "natural"
+-          FROM planet_osm_line
+-          WHERE "natural" = 'tree_row'
+-        ) AS trees
+-    properties:
+-      minzoom: 16
+   - id: country-names
+     name: country-names
+     class: country
+@@ -1633,8 +1750,8 @@ Layer:
+                               WHEN shop IN ('no', 'vacant', 'closed', 'disused', 'empty') OR shop IS NULL THEN NULL ELSE 'other' END,
+               'leisure_' || CASE WHEN leisure IN ('water_park', 'playground', 'miniature_golf', 'golf_course', 'picnic_table') THEN leisure ELSE NULL END,
+               'man_made_' || CASE WHEN man_made IN ('mast', 'water_tower', 'lighthouse', 'windmill', 'obelisk') THEN man_made ELSE NULL END,
+-              'natural_' || CASE WHEN "natural" IN ('spring') THEN "natural" ELSE NULL END,
+-              'historic_' || CASE WHEN historic IN ('memorial', 'monument', 'archaeological_site') THEN historic ELSE NULL END,
++              'natural_' || CASE WHEN "natural" IN ('spring', 'valley', 'ridge', 'cliff', 'arete', 'dale', 'gorge', 'couloir', 'mountain_range', 'massif') THEN "natural" ELSE NULL END,
++              'historic_' || CASE WHEN historic IN ('memorial', 'monument', 'archaeological_site', 'castle', 'fort') THEN historic ELSE NULL END,
+               'highway_'|| CASE WHEN highway IN ('bus_stop', 'elevator', 'traffic_signals') THEN highway ELSE NULL END,
+               'power_' || CASE WHEN power IN ('generator') THEN power ELSE NULL END,
+               'tourism_' || CASE WHEN tourism IN ('viewpoint') THEN tourism ELSE NULL END
+@@ -1644,6 +1761,8 @@ Layer:
+             denomination,
+             "generator:source",
+             power_source,
++            name,
++            castle_type,
+             way_area/NULLIF(!pixel_width!::real*!pixel_height!::real,0) AS way_pixels
+           FROM planet_osm_polygon
+           -- The upcoming where clause is needed for performance only, as the CASE statements would end up doing the equivalent filtering
+@@ -1661,8 +1780,8 @@ Layer:
+             OR shop IS NOT NULL -- skip checking a huge list and use a null check
+             OR leisure IN ('water_park', 'playground', 'miniature_golf', 'golf_course', 'picnic_table')
+             OR man_made IN ('mast', 'water_tower', 'lighthouse', 'windmill', 'obelisk')
+-            OR "natural" IN ('spring')
+-            OR historic IN ('memorial', 'monument', 'archaeological_site')
++            OR "natural" IN ('spring', 'valley', 'ridge', 'cliff', 'arete', 'dale', 'gorge', 'couloir', 'mountain_range', 'massif')
++            OR historic IN ('memorial', 'monument', 'archaeological_site', 'castle', 'fort')
+             OR highway IN ('bus_stop', 'elevator', 'traffic_signals')
+             OR (power = 'generator' AND ("generator:source" = 'wind' OR power_source = 'wind'))
+           ORDER BY way_area desc
+@@ -1704,7 +1823,7 @@ Layer:
+                                                   'dog_park') THEN leisure ELSE NULL END,
+               'man_made_' || CASE WHEN man_made IN ('mast', 'water_tower', 'lighthouse', 'windmill', 'obelisk') THEN man_made ELSE NULL END,
+               'natural_' || CASE WHEN "natural" IN ('peak', 'volcano', 'saddle', 'spring', 'cave_entrance') THEN "natural" ELSE NULL END,
+-              'historic_' || CASE WHEN historic IN ('memorial', 'monument', 'archaeological_site') THEN historic ELSE NULL END,
++              'historic_' || CASE WHEN historic IN ('memorial', 'monument', 'archaeological_site', 'castle', 'fort') THEN historic ELSE NULL END,
+               'highway_'|| CASE WHEN highway IN ('bus_stop', 'elevator', 'traffic_signals', 'ford') THEN highway ELSE NULL END,
+               'power_' || CASE WHEN power IN ('generator') THEN power ELSE NULL END,
+               'tourism_' || CASE WHEN tourism IN ('viewpoint') THEN tourism ELSE NULL END,
+@@ -1724,6 +1843,7 @@ Layer:
+             denomination,
+             "generator:source",
+             power_source,
++            castle_type,
+             NULL AS way_pixels
+           FROM planet_osm_point
+           -- The upcoming where clause is needed for performance only, as the CASE statements would end up doing the equivalent filtering
+@@ -1743,41 +1863,13 @@ Layer:
+                            'dog_park')
+             OR man_made IN ('mast', 'water_tower', 'lighthouse', 'windmill', 'cross', 'obelisk')
+             OR "natural" IN ('peak', 'volcano', 'saddle', 'spring', 'cave_entrance')
+-            OR historic IN ('memorial', 'monument', 'archaeological_site', 'wayside_cross')
++            OR historic IN ('memorial', 'monument', 'archaeological_site', 'castle', 'fort', 'wayside_cross')
+             OR highway IN ('bus_stop', 'elevator', 'traffic_signals', 'ford')
+             OR (power = 'generator' AND ("generator:source" = 'wind' OR power_source = 'wind'))
+           ORDER BY score DESC NULLS LAST
+           ) AS amenity_points
+     properties:
+       minzoom: 10
+-  - id: power-towers
+-    name: power-towers
+-    geometry: point
+-    <<: *extents
+-    Datasource:
+-      <<: *osm2pgsql
+-      table: |-
+-        (SELECT
+-            way
+-          FROM planet_osm_point
+-          WHERE power = 'tower'
+-        ) AS power_towers
+-    properties:
+-      minzoom: 14
+-  - id: power-poles
+-    name: power-poles
+-    geometry: point
+-    <<: *extents
+-    Datasource:
+-      <<: *osm2pgsql
+-      table: |-
+-        (SELECT
+-            way
+-          FROM planet_osm_point
+-          WHERE power = 'pole'
+-        ) AS power_poles
+-    properties:
+-      minzoom: 16
+   - id: roads-text-ref-low-zoom
+     name: roads-text-ref-low-zoom
+     geometry: linestring
+@@ -1953,7 +2045,6 @@ Layer:
+             way,
+             CASE WHEN substr(highway, length(highway)-3, 4) = 'link' THEN substr(highway, 0, length(highway)-4) ELSE highway END,
+             CASE WHEN (tunnel = 'yes' OR tunnel = 'building_passage' OR covered = 'yes') THEN 'yes' ELSE 'no' END AS tunnel,
+-            CASE WHEN construction IN ('service', 'footway', 'cycleway', 'bridleway', 'path', 'track') THEN 'yes' ELSE 'no' END AS int_construction_minor,
+             name,
+             CASE
+               WHEN oneway IN ('yes', '-1') THEN oneway
+@@ -1984,7 +2075,7 @@ Layer:
+             ) AS ordertable (highway, prio)
+             USING (highway)
+           WHERE highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 
+-                            'tertiary_link', 'residential', 'unclassified', 'road', 'service', 'pedestrian', 'raceway', 'living_street', 'construction')
++                            'tertiary_link', 'residential', 'unclassified', 'road', 'service', 'pedestrian', 'raceway', 'living_street')
+             AND (name IS NOT NULL
+               OR oneway IN ('yes', '-1')
+               OR junction IN ('roundabout'))
+@@ -2033,6 +2124,7 @@ Layer:
+               'leisure_' || CASE WHEN leisure IN ('nature_reserve') THEN leisure ELSE NULL END
+             ) AS feature,
+             name,
++            castle_type,
+             CASE WHEN building = 'no' OR building IS NULL THEN 'no' ELSE 'yes' END AS is_building -- always no with the where conditions
+           FROM planet_osm_polygon
+           WHERE (landuse IN ('forest', 'military')
+@@ -2088,13 +2180,13 @@ Layer:
+               'landuse_' || CASE WHEN landuse IN ('reservoir', 'basin', 'recreation_ground', 'village_green', 'quarry', 'vineyard', 'orchard', 'cemetery', 
+                                                   'residential', 'garages', 'meadow', 'grass', 'allotments', 'forest', 'farmyard', 'farm', 'farmland', 
+                                                   'greenhouse_horticulture', 'retail', 'industrial', 'railway', 'commercial', 'brownfield', 'landfill', 
+-                                                  'construction', 'military') THEN landuse ELSE NULL END,
++                                                  'military') THEN landuse ELSE NULL END,
+               'man_made_' || CASE WHEN man_made IN ('lighthouse', 'windmill', 'mast', 'water_tower', 'pier', 'breakwater', 'groyne', 'obelisk') THEN man_made ELSE NULL END,
+               'natural_' || CASE WHEN "natural" IN ('wood', 'water', 'mud', 'wetland', 'marsh', 'bay', 'spring', 'scree', 'shingle', 'bare_rock', 'sand', 'heath', 
+                                                     'grassland', 'scrub', 'beach', 'shoal', 'reef', 'glacier') THEN "natural" ELSE NULL END,
+               'place_' || CASE WHEN place IN ('island', 'islet') THEN place ELSE NULL END,
+               'military_' || CASE WHEN military IN ('danger_area') THEN military ELSE NULL END,
+-              'historic_' || CASE WHEN historic IN ('memorial', 'monument', 'archaeological_site') THEN historic ELSE NULL END,
++              'historic_' || CASE WHEN historic IN ('memorial', 'monument', 'archaeological_site', 'castle', 'fort') THEN historic ELSE NULL END,
+               'highway_' || CASE WHEN highway IN ('services', 'rest_area', 'bus_stop', 'elevator', 'ford') THEN highway ELSE NULL END,
+               'boundary_' || CASE WHEN boundary IN ('national_park') THEN boundary ELSE NULL END,
+               'waterway_' || CASE WHEN waterway IN ('dam') THEN waterway ELSE NULL END,
+@@ -2105,6 +2197,7 @@ Layer:
+             operator,
+             ref,
+             way_area,
++            castle_type,
+             CASE WHEN building = 'no' OR building IS NULL THEN 'no' ELSE 'yes' END AS is_building
+           FROM planet_osm_polygon
+           -- The upcoming where clause is needed for performance only, as the CASE statements would end up doing the equivalent filtering
+@@ -2119,7 +2212,7 @@ Layer:
+               OR "natural" IS NOT NULL
+               OR place IN ('island', 'islet')
+               OR military IN ('danger_area')
+-              OR historic IN ('memorial', 'monument', 'archaeological_site')
++              OR historic IN ('memorial', 'monument', 'archaeological_site', 'castle', 'fort')
+               OR highway IN ('services', 'rest_area', 'bus_stop', 'elevator', 'ford')
+               OR power IN ('plant', 'station', 'generator', 'sub_station', 'substation')
+               OR boundary IN ('national_park')
+@@ -2146,12 +2239,13 @@ Layer:
+             name,
+             operator,
+             ref,
++            ST_Length(way)/NULLIF(SQRT(!pixel_width!::real*!pixel_width!::real),0) AS pixel_length,
+             NULL AS way_area,
+             CASE WHEN building = 'no' OR building IS NULL THEN 'no' ELSE 'yes' END AS is_building
+           FROM planet_osm_line
+           WHERE (man_made IN ('pier', 'breakwater', 'groyne', 'embankment')
+               OR waterway IN ('dam', 'weir')
+-              OR "natural" IN ('cliff'))
++              OR "natural" IN ('cliff', 'ridge', 'valley', 'glacier', 'arete', 'dale', 'gorge', 'couloir', 'mountain_range', 'massif'))
+             AND name IS NOT NULL
+         ) AS text_line
+     properties:
+@@ -2183,6 +2277,7 @@ Layer:
+             operator,
+             ref,
+             way_area,
++            castle_type,
+             is_building
+           FROM
+             (SELECT
+@@ -2215,14 +2310,16 @@ Layer:
+                   'landuse_' || CASE WHEN landuse IN ('reservoir', 'basin', 'recreation_ground', 'village_green', 'quarry', 'vineyard', 'orchard', 'cemetery', 
+                                                       'residential', 'garages', 'meadow', 'grass', 'allotments', 'forest', 'farmyard', 'farm', 'farmland', 
+                                                       'greenhouse_horticulture', 'retail', 'industrial', 'railway', 'commercial', 'brownfield', 'landfill', 
+-                                                      'construction', 'military') THEN landuse ELSE NULL END,
++                                                      'military') THEN landuse ELSE NULL END,
+                   'man_made_' || CASE WHEN man_made IN ('lighthouse', 'windmill', 'mast', 'water_tower', 'obelisk') THEN man_made ELSE NULL END,
+                   'natural_' || CASE WHEN "natural" IN ('wood', 'peak', 'volcano', 'saddle', 'cave_entrance', 'water', 'mud', 'wetland', 'marsh', 'bay', 'spring', 
+-                                                        'scree', 'shingle', 'bare_rock', 'sand', 'heath', 'grassland', 'scrub', 'beach', 'glacier', 'tree') 
++                                                        'scree', 'shingle', 'bare_rock', 'sand', 'heath', 'grassland', 'scrub', 'beach', 'cliff', 'valley',
++                                                        'ridge', 'arete', 'dale', 'gorge', 'couloir', 'mountain_range', 'massif', 'glacier', 'tree')
+                                                         THEN "natural" ELSE NULL END,
+-                  'place_' || CASE WHEN place IN ('island', 'islet') THEN place ELSE NULL END,
++                  'place_' || CASE WHEN place IN ('island', 'islet', 'ocean', 'sea') THEN place
++                                  ELSE NULL END,
+                   'military_' || CASE WHEN military IN ('danger_area') THEN military ELSE NULL END,
+-                  'historic_' || CASE WHEN historic IN ('memorial', 'monument', 'archaeological_site') THEN historic ELSE NULL END,
++                  'historic_' || CASE WHEN historic IN ('memorial', 'monument', 'archaeological_site', 'castle', 'fort') THEN historic ELSE NULL END,
+                   'highway_' || CASE WHEN highway IN ('services', 'rest_area', 'bus_stop', 'elevator', 'ford') THEN highway ELSE NULL END,
+                   'boundary_' || CASE WHEN boundary IN ('national_park') THEN boundary ELSE NULL END,
+                   'waterway_' || CASE WHEN waterway IN ('dam', 'weir') THEN waterway ELSE NULL END,
+@@ -2244,6 +2341,7 @@ Layer:
+                 operator,
+                 ref,
+                 NULL AS way_area,
++                castle_type,
+                 CASE WHEN building = 'no' OR building IS NULL THEN 'no' ELSE 'yes' END AS is_building
+               FROM planet_osm_point
+               -- The upcoming where clause is needed for performance only, as the CASE statements would end up doing the equivalent filtering
+@@ -2255,12 +2353,12 @@ Layer:
+                   OR leisure IS NOT NULL
+                   OR landuse IN ('reservoir', 'basin', 'recreation_ground', 'village_green', 'quarry', 'vineyard', 'orchard', 'cemetery', 'residential', 
+                                  'garages', 'meadow', 'grass', 'allotments', 'forest', 'farmyard', 'farm', 'farmland', 'greenhouse_horticulture', 
+-                                 'retail', 'industrial', 'railway', 'commercial', 'brownfield', 'landfill', 'construction', 'military')
++                                 'retail', 'industrial', 'railway', 'commercial', 'brownfield', 'landfill', 'military')
+                   OR man_made IN ('lighthouse', 'windmill', 'mast', 'water_tower', 'cross', 'obelisk')
+                   OR "natural" IS NOT NULL
+                   OR place IN ('island', 'islet')
+                   OR military IN ('danger_area')
+-                  OR historic IN ('memorial', 'monument', 'archaeological_site', 'wayside_cross')
++                  OR historic IN ('memorial', 'monument', 'archaeological_site', 'castle', 'fort', 'wayside_cross')
+                   OR highway IN ('bus_stop', 'services', 'rest_area', 'elevator', 'ford')
+                   OR power IN ('plant', 'station', 'generator', 'sub_station', 'substation')
+                   OR boundary IN ('national_park')
+diff --git a/roads.mss b/roads.mss
+index 6e638be..05fe516 100644
+--- a/roads.mss
++++ b/roads.mss
+@@ -789,7 +789,7 @@
+     }
+ 
+     [feature = 'railway_disused'][zoom >= 15],
+-    [feature = 'railway_construction'],
++    // [feature = 'railway_construction'],
+     [feature = 'railway_miniature'][zoom >= 15],
+     [feature = 'railway_INT-preserved-ssy'][zoom >= 14] {
+       .bridges-casing {
+@@ -1003,8 +1003,10 @@
+       }
+     }
+ 
++    /*
+     [feature = 'railway_disused'][zoom >= 15],
+     [feature = 'railway_construction'],
++    */
+     [feature = 'railway_miniature'][zoom >= 15],
+     [feature = 'railway_INT-preserved-ssy'][zoom >= 14] {
+       .bridges-casing {
+@@ -1074,6 +1076,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+      * https://github.com/mapbox/carto/issues/235
+      * https://github.com/mapbox/carto/issues/237
+      */
++    /*
+     [feature = 'highway_construction'] {
+       [zoom >= 12] {
+         line-width: 2;
+@@ -1149,6 +1152,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+         }
+       }
+     }
++    */
+ 
+     [feature = 'highway_motorway'] {
+       [zoom >= 5] {
+@@ -1268,11 +1272,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+ 
+     [feature = 'highway_secondary'] {
+       [zoom >= 9] {
+-        line-color: @unimportant-road;
++        line-color: @secondary-low-zoom;
+         line-width: @secondary-width-z9;
+       }
+       [zoom >=10] {
+-        line-color: @unimportant-road;
++        line-color: @secondary-low-zoom;
+         line-width: @secondary-width-z10;
+       }
+       [zoom >= 11] { line-width: @secondary-width-z11; }
+@@ -1802,13 +1806,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+       }
+     }
+ 
+-    [feature = 'railway_rail'][zoom >= 7],
++    [feature = 'railway_rail'][zoom >= 5],
+     [feature = 'railway_INT-spur-siding-yard'][zoom >= 13] {
+       [zoom < 13] {
+-        line-color: #787878;
++        line-color: @rail-fill;
+         line-width: 0.5;
+-        [zoom >= 8] { line-width: 0.8; }
+-        [zoom >= 12] { line-width: 0.9; }
++        [zoom >= 7] { line-width: 1.0; }
++        [zoom >= 9] { line-width: 2.0; }
+         line-join: round;
+         .roads_low_zoom[int_tunnel = 'yes'], .tunnels-fill {
+           line-dasharray: 5,2;
+@@ -1991,6 +1995,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+       }
+     }
+ 
++    /*
+     [feature = 'railway_construction'] {
+       [zoom >= 13] {
+         line-color: grey;
+@@ -2006,7 +2011,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+         }
+       }
+     }
++    */
+ 
++    /*
+     [feature = 'railway_disused'] {
+       [zoom >= 15] {
+         line-color: #aaa;
+@@ -2015,6 +2022,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+         line-join: round;
+       }
+     }
++    */
+ 
+     [feature = 'railway_platform'] {
+       [zoom >= 16] {
+@@ -2059,6 +2067,23 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+       }
+     }
+   }
++
++  ::strip {
++    [feature = 'highway_motorway'][link = 'no'],
++    [feature = 'highway_trunk'][link = 'no'] {
++      [zoom >= 12] {
++        line-width: 1;
++        [feature = 'highway_motorway'] {
++          line-color: yellow;
++        }
++        [feature = 'highway_trunk'][link = 'no'] {
++          line-color: white;
++        }
++      }
++      [zoom >= 14] { line-width: 1.5; }
++      [zoom >= 16] { line-width: 2; }
++    }
++  }
+ }
+ 
+ #turning-circle-casing {
+@@ -2744,25 +2769,31 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+   [highway = 'primary'] {
+     [zoom >= 13] {
+       text-name: "[name]";
+-      text-size: 8;
++      text-size: 10;
+       text-fill: black;
+       text-spacing: 300;
+       text-clip: false;
+       text-placement: line;
+       text-face-name: @book-fonts;
+       [tunnel = 'no'] {
++        /*
+         text-halo-radius: @standard-halo-radius;
+         [highway = 'motorway'] { text-halo-fill: @motorway-fill; }
+         [highway = 'trunk'] { text-halo-fill: @trunk-fill; }
+         [highway = 'primary'] { text-halo-fill: @primary-fill; }
++        */
++        text-halo-radius: 1.5;
++        text-halo-fill: white;
+       }
+     }
++    /*
+     [zoom >= 14] {
+       text-size: 9;
+     }
+     [zoom >= 15] {
+       text-size: 10;
+     }
++    */
+     [zoom >= 17] {
+       text-size: 11;
+     }
+@@ -2773,21 +2804,23 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+   [highway = 'secondary'] {
+     [zoom >= 13] {
+       text-name: "[name]";
+-      text-size: 8;
++      text-size: 10;
+       text-fill: black;
+       text-spacing: 300;
+       text-clip: false;
+       text-placement: line;
+       text-face-name: @book-fonts;
+       text-halo-radius: @standard-halo-radius;
+-      text-halo-fill: @secondary-fill;
++      text-halo-fill: white;
+     }
++    /*
+     [zoom >= 14] {
+       text-size: 9;
+     }
+     [zoom >= 15] {
+       text-size: 10;
+     }
++    */
+     [zoom >= 17] {
+       text-size: 11;
+     }
+@@ -2799,14 +2832,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+   [highway = 'tertiary_link'] {
+     [zoom >= 14] {
+       text-name: "[name]";
+-      text-size: 9;
++      text-size: 10;
+       text-fill: black;
+       text-spacing: 300;
+       text-clip: false;
+       text-placement: line;
+       text-face-name: @book-fonts;
+       text-halo-radius: @standard-halo-radius;
+-      text-halo-fill: @tertiary-fill;
++      text-halo-fill: white;
+     }
+     [zoom >= 17] {
+       text-size: 11;
+@@ -2815,6 +2848,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+       text-size: 12;
+     }
+   }
++  /*
+   [highway = 'construction'] {
+     [int_construction_minor = 'no'][zoom >= 13],
+     [int_construction_minor = 'yes'][zoom >= 14] {
+@@ -2835,23 +2869,26 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+       }
+     }
+   }
++  */
+   [highway = 'residential'],
+   [highway = 'unclassified'],
+   [highway = 'road'] {
+     [zoom >= 15] {
+       text-name: "[name]";
+-      text-size: 8;
++      text-size: 10;
+       text-fill: black;
+       text-spacing: 300;
+       text-clip: false;
+       text-placement: line;
+       text-halo-radius: @standard-halo-radius;
+-      text-halo-fill: @residential-fill;
++      text-halo-fill: white;
+       text-face-name: @book-fonts;
+     }
++    /*
+     [zoom >= 16] {
+       text-size: 9;
+     }
++    */
+     [zoom >= 17] {
+       text-size: 11;
+       text-spacing: 400;
+@@ -3005,7 +3042,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+       [oneway = 'yes'],
+       [oneway = '-1'] {
+         marker-placement: line;
+-        marker-spacing: 180;
++        marker-spacing: 50;
+         marker-max-error: 0.5;
+ 
+         marker-file: url('symbols/oneway.svg');
+diff --git a/scripts/get-shapefiles.py b/scripts/get-shapefiles.py
+index 32862f3..6443a9c 100755
+--- a/scripts/get-shapefiles.py
++++ b/scripts/get-shapefiles.py
+@@ -82,7 +82,24 @@ settings = {
+         'type': 'zip',
+         'index': ['icesheet_outlines.shp'],
+         'long_opt': '--icesheet-outlines'
+-    }
++    },
++
++    7: {
++        'directory': 'simplified-water-polygons-complete-3857',
++        'url': 'http://data.openstreetmapdata.com/simplified-water-polygons-complete-3857.zip',  # noqa
++        'type': 'zip',
++        'index': ['simplified_water_polygons.shp'],
++        'long_opt': '--simplified-water'
++    },
++
++
++    8: {
++        'directory': 'water-polygons-split-3857',
++        'url': 'http://data.openstreetmapdata.com/water-polygons-split-3857.zip',  # noqa
++        'type': 'zip',
++        'index': ['water_polygons.shp'],
++        'long_opt': '--water-polygons'
++    },
+ }
+ 
+ u_prompt = True
+diff --git a/shapefiles.mss b/shapefiles.mss
+index 1274b57..a91283f 100644
+--- a/shapefiles.mss
++++ b/shapefiles.mss
+@@ -47,7 +47,8 @@
+ }
+ 
+ #builtup {
+-  [zoom >= 8][zoom < 10] {
++  [zoom >= 6][zoom < 10] {
+     polygon-fill: #ddd;
++    polygon-opacity: 0.5;
+   }
+ }
+diff --git a/stations.mss b/stations.mss
+index 6b9b226..3719e09 100644
+--- a/stations.mss
++++ b/stations.mss
+@@ -2,8 +2,8 @@
+ @station-text: darken(saturate(@station-color, 15%), 10%);
+ 
+ .stations {
+-  [railway = 'subway_entrance'][zoom >= 18] {
+-    marker-file: url('symbols/entrance.10.svg');
++  [railway = 'subway_entrance'][zoom >= @nice] {
++    marker-file: url('symbols/london-underground-18.png');
+     marker-placement: interior;
+     marker-fill: @transportation-icon;
+     marker-clip: false;
+diff --git a/style.mss b/style.mss
+index c9e3838..83ed0f8 100644
+--- a/style.mss
++++ b/style.mss
+@@ -114,11 +114,9 @@ A regular style.
+ 
+                 "Noto Naskh Arabic UI Regular",
+ 
+-                "Noto Emoji Regular",
+-
+                 "DejaVu Sans Book",
+ 
+-                "Unifont Medium", "unifont Medium", "Unifont Upper Medium";
++                "Unifont Medium", "Unifont Upper Medium";
+ 
+ /*
+ A bold style is available for almost all scripts. Bold text is heavier than
+@@ -193,11 +191,9 @@ regular text and can be used for emphasis. Fallback is a regular style.
+ 
+                 "Noto Naskh Arabic UI Regular",
+ 
+-                "Noto Emoji Regular",
+-
+                 "DejaVu Sans Bold", "DejaVu Sans Book",
+ 
+-                "Unifont Medium", "unifont Medium", "Unifont Upper Medium";
++                "Unifont Medium", "Unifont Upper Medium";
+ 
+ /*
+ Italics are only available for the base font, not the other scripts.
+@@ -266,14 +262,274 @@ For a considerable number of labels this style will make no difference to the re
+ 
+                 "Noto Naskh Arabic UI Regular",
+ 
+-                "Noto Emoji Regular",
+-
+                 "DejaVu Sans Oblique", "DejaVu Sans Book",
+ 
+-                "Unifont Medium", "unifont Medium", "Unifont Upper Medium";
++                "Unifont Medium", "Unifont Upper Medium";
++
++// nice stuff is things that are not so common and that I like to see from far,
++// like castles, viewpoints and such
++@nice: 11;
++// it's also the max general zoom level
++@emergency: 14;
++// things that are useful and common enough to see in the near range
++@useful: 16;
+ 
+ @water-color: #b5d0d0;
++@water-dark: #5A5AA1;
++@water-text: #5A5AA1;
+ @land-color: #f2efe9;
+ 
+-@standard-halo-radius: 1;
+-@standard-halo-fill: rgba(255,255,255,0.6);
++@standard-halo-radius: 1.5;
++@standard-halo-fill: rgba(255,255,255,0.7);
++
++// admin
++// @admin-boundaries: purple;
++
++// amenities
++@attraction: #f2caea;
++@barracks: #ff8f8f;
++@transportation-icon: @water-dark;
++
++@darken-lighten: 15%;
++
++// roads
++@oneway: #aaa;
++
++@motorway-casing: darken(@motorway-fill, @darken-lighten);
++@motorway-low-zoom: @motorway-fill;
++@motorway-fill: #cf3030;
++@motorway-tunnel-fill: lighten(@motorway-fill, @darken-lighten);
++
++@trunk-casing: darken(@trunk-fill, @darken-lighten);
++@trunk-low-zoom: #cf6868;
++@trunk-fill: @motorway-fill;
++@trunk-tunnel-fill: lighten(@trunk-fill, @darken-lighten);
++
++@primary-casing: darken(@primary-fill, @darken-lighten);
++@primary-low-zoom: @primary-fill;
++@primary-fill: #8a5c00;
++@primary-tunnel-fill: lighten(@primary-fill, @darken-lighten);
++
++@secondary-casing: darken(@secondary-fill, @darken-lighten);
++@secondary-low-zoom: @secondary-fill;
++@secondary-fill: #2f6f2f;
++@secondary-tunnel-fill: lighten(@secondary-fill, @darken-lighten);
++
++@tertiary-casing: #444;
++@tertiary-fill: #ffffff;
++@tertiary-tunnel-fill: lighten(@tertiary-fill, 5%);
++
++@residential-casing: #444;
++@residential-fill: #ffffff;
++@residential-tunnel-fill: lighten(@residential-fill, 10%);
++
++@living-street-casing: @default-casing;
++@living-street-fill: #ededed;
++
++/*
++minor roads for different zoom levels
++tertiary    10-12
++residential 12-13
++road        10-
++service     13
++*/
++@unimportant-road: #bbb;
++
++@service-casing: #999;
++@service-fill: @residential-fill;
++
++@pedestrian-casing: grey;
++@pedestrian-fill: #dddde8;
++
++@road-casing: @residential-casing;
++@road-fill: #ddd;
++
++@path-casing: @default-casing;
++@path-fill: black;
++
++@steps-casing: @default-casing;
++@steps-fill: @footway-fill;
++
++@cycleway-casing: @default-casing;
++@cycleway-fill: blue;
++
++@bridleway-casing: @default-casing;
++@bridleway-fill: green;
++
++@byway-casing: @default-casing;
++@byway-fill: #ffcc00;
++
++@track-casing: @default-casing;
++@track-fill: #996600;
++@track-grade1-fill: #b37700;
++@track-grade2-fill: #a87000;
++
++@footway-casing: @default-casing;
++@footway-fill: @track-fill;
++
++@aeroway-fill: #bbc;
++@runway-fill: @aeroway-fill;
++@taxiway-fill: @aeroway-fill;
++@helipad-fill: @aeroway-fill;
++
++@rail-fill: #404040;
++
++// terrain-small [0-6], terrain-medium [7-8], terrain-big [9-]
++.terrain {
++  raster-scaling: lanczos;
++  raster-opacity: 0.7;
++  [zoom >= 9] { raster-opacity: 0.7; }
++}
++
++// hillshade-small [0-6], hillshade-big [7-8]
++.hillshade-over {
++  comp-op: src-over;
++  raster-scaling: lanczos;
++  raster-opacity: 0.3;
++}
++
++// hillshade-big [9-]
++.hillshade-overlay {
++  raster-scaling: lanczos;
++  [zoom >= 9] {
++    comp-op: overlay;
++    raster-opacity: 0.5;
++  }
++}
++
++// slopeshade-small [0-6], slopeshade-medium [7-8]
++.slopeshade-over {
++  comp-op: multiply;
++  raster-scaling: lanczos;
++  raster-opacity: 0.9;
++}
++
++// slopeshade-big [9-]
++.slopeshade-overlay {
++  raster-scaling: lanczos;
++  comp-op: overlay;
++  // comp-op: soft-light;
++  raster-opacity: 0.8;
++  [zoom >= 10] { raster-opacity: 0.9; }
++}
++
++#contour-50 {
++  [zoom >= 13] {
++    line-color: #222;
++    line-width: 0.5;
++    line-smooth: 0.8;
++    line-opacity: 0.2;
++  }
++}
++
++#contour-100 {
++  [zoom >= 11] {
++    line-color: #222;
++    line-width: 0.5;
++    line-smooth: 0.8;
++    line-opacity: 0.6;
++  }
++
++  [zoom >= 13] {
++    text-name: "[height]";
++    text-face-name: @book-fonts;
++    text-size: 12;
++    text-fill: #222;
++    text-opacity: 0.6;
++    text-halo-radius: 1;
++    text-placement: line;
++    text-spacing: 400;
++  }
++}
++
++#contour-250 {
++  [zoom = 10] {
++    line-color: #222;
++    line-width: 0.5;
++    line-smooth: 0.8;
++    line-opacity: 0.6;
++  }
++}
++
++#contour-500 {
++  [zoom >= 9] {
++    line-color: #222;
++    line-width: 0.5;
++    line-smooth: 0.8;
++    line-opacity: 0.6;
++  }
++
++  [zoom >= 11] {
++    line-width: 0.75;
++  }
++
++  [zoom >= 12] {
++    line-width: 1;
++
++    text-name: "[height]";
++    text-face-name: @book-fonts;
++    text-size: 12;
++    text-fill: #222;
++    text-opacity: 0.6;
++    text-halo-radius: 1;
++    text-placement: line;
++    text-spacing: 400;
++  }
++}
++
++#contour-1000 {
++  [zoom >= 8] {
++    line-color: #222;
++    line-width: 0.5;
++    line-smooth: 0.8;
++    line-opacity: 0.6;
++  }
++
++  [zoom >= 10] {
++    line-width: 1.0;
++  }
++
++  [zoom >= 12] {
++    // line-width: 1.5;
++
++    text-name: "[height]";
++    text-face-name: @book-fonts;
++    text-size: 12;
++    text-fill: #222;
++    text-opacity: 0.6;
++    text-halo-radius: 1;
++    text-placement: line;
++    text-spacing: 400;
++  }
++}
++
++#pistes {
++  [zoom >= 14] {
++    [grade = 'novice'] {
++      line-color: green;
++    }
++    [grade = 'easy'] {
++      line-color: blue;
++    }
++    [grade = 'intermediate'] {
++      line-color: red;
++    }
++    [grade = 'advanced'] {
++      line-color: black;
++    }
++
++    line-width: 2;
++    line-opacity: 0.6;
++    line-smooth: 0.4;
++  }
++
++  [zoom >= 15] {
++    line-width: 4;
++    text-name: "[name]";
++    text-size: 10;
++    text-fill: #666;
++    text-face-name: @book-fonts;
++    text-halo-radius: 1;
++    text-placement: line;
++  }
++}
+diff --git a/water.mss b/water.mss
+index f4f2d6c..1a3a120 100644
+--- a/water.mss
++++ b/water.mss
+@@ -9,6 +9,28 @@
+ @water-wrap-width-size-big: 35;
+ @water-wrap-width-size-bigger: 45;
+ 
++// local
++#water-areas::border {
++  [natural = 'lake'][way_pixels >= 4],
++  [natural = 'water'][way_pixels >= 4],
++  [landuse = 'reservoir'][way_pixels >= 4],
++  [waterway = 'riverbank'][way_pixels >= 4],
++  [landuse = 'water'][way_pixels >= 4],
++  [landuse = 'basin'][way_pixels >= 4] {
++    [zoom >= 8] {
++      line-width: 1.5;
++      line-color: @water-dark;
++    }
++  }
++
++  [waterway = 'riverbank'][way_pixels >= 64] {
++    [zoom >= 9] {
++      line-width: 1.5;
++      line-color: @water-dark;
++    }
++  }
++}
++
+ #water-areas {
+   [natural = 'glacier']::natural {
+     [zoom >= 6] {
+@@ -25,6 +47,7 @@
+     }
+   }
+ 
++  /*
+   [waterway = 'dock'],
+   [waterway = 'canal'] {
+     [zoom >= 9]::waterway {
+@@ -61,6 +84,35 @@
+       }
+     }
+   }
++  */
++}
++
++/*
++ * Water areas, of all types. Because they are rendered all the same,
++ * attachments can be used to reduce combinational rules
++ */
++
++.ocean::border {
++  line-width: 1.5;
++  line-color: @water-dark;
++}
++
++#water-areas[waterway = 'dock'][zoom >= 9]::waterway,
++#water-areas[waterway = 'canal'][zoom >= 9]::waterway,
++#water-areas[landuse = 'basin'][zoom >= 7]::landuse,
++#water-areas[natural = 'water'][zoom >= 6]::natural,
++#water-areas[landuse = 'reservoir'][zoom >= 6]::landuse,
++#water-areas[waterway = 'riverbank'][zoom >= 6]::waterway,
++.ocean {
++  polygon-fill: @water-color;
++
++  // Only the SQL layers have way_pixels
++  #water-areas[way_pixels >= 4] {
++    polygon-gamma: 0.75;
++  }
++  #water-areas[way_pixels >= 64] {
++    polygon-gamma: 0.6;
++  }
+ }
+ 
+ #water-lines-casing {
+@@ -70,7 +122,7 @@
+     [int_tunnel = 'no'] {
+       [zoom >= 13] {
+         line-width: 2.5;
+-        line-color: white;
++        line-color: @water-dark;
+         [waterway = 'stream'][zoom >= 15] {
+           line-width: 3.5;
+         }
+@@ -83,6 +135,35 @@
+       }
+     }
+   }
++
++  // local
++  [waterway = 'river'][zoom >= 6] {
++    line-color: @water-dark;
++    line-width: 0.5;
++    [zoom >= 8] { line-width: 2.2; }
++    [zoom >= 9] { line-width: 2.7; }
++    [zoom >= 10] { line-width: 3.1; }
++    [zoom >= 12] {
++      line-width: 3.5;
++      line-cap: round;
++      line-join: round;
++      [zoom >= 13] {
++        line-width: 4.5;
++      }
++      [zoom >= 14] {
++        line-width: 6.5;
++      }
++      [zoom >= 15] {
++        line-width: 7.5;
++      }
++      [zoom >= 17] {
++        line-width: 11.5;
++      }
++      [zoom >= 18] {
++        line-width: 13.5;
++      }
++    }
++  }
+ }
+ 
+ #water-lines-low-zoom {
+@@ -93,9 +174,13 @@
+       line-join: round;
+       line-clip: false;
+     }
+-    line-color: @water-color;
++    line-color: @water-dark;
+     line-width: 0.7;
+-    [zoom >= 9] { line-width: 1.2; }
++    [zoom >= 8] { line-width: 1; }
++    [zoom >= 9] {
++      line-width: 1.2;
++      line-color: @water-color;
++    }
+     [zoom >= 10] { line-width: 1.6; }
+   }
+ }
+@@ -285,7 +370,19 @@
+   }
+ }
+ 
+-.text[zoom >= 10] {
++.text[zoom >= 5] {
++  [feature = 'place_ocean'],
++  [feature = 'place_sea'] {
++    #text-point[zoom >= 5] {
++      text-name: "[name]";
++      text-halo-radius: 1;
++      text-halo-fill: rgba(255,255,255,0.6);
++      text-fill: @water-text;
++      text-size: 12;
++      text-face-name: @oblique-fonts;
++    }
++  }
++
+   [feature = 'natural_water'],
+   [feature = 'landuse_reservoir'],
+   [feature = 'landuse_basin'] {
