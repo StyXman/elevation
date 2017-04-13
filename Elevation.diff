@@ -13,7 +13,7 @@ index 9077eec..7d597b9 100644
  * [`ne_110m_admin_0_boundary_lines_land.shp`](http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_boundary_lines_land.zip)
  
 diff --git a/admin.mss b/admin.mss
-index 5090845..363604e 100644
+index 5090845..77e4452 100644
 --- a/admin.mss
 +++ b/admin.mss
 @@ -6,57 +6,74 @@ For each zoomlevel, all borders come from a single attachment, to handle
@@ -101,12 +101,15 @@ index 5090845..363604e 100644
    /*
    The following code prevents admin boundaries from being rendered on top of
    each other. Comp-op works on the entire attachment, not on the individual
-@@ -104,10 +122,11 @@ overlapping borders correctly.
+@@ -104,10 +122,14 @@ overlapping borders correctly.
    The SQL has `ORDER BY admin_level`, so the boundary with the lowest
    admin_level is rendered on top, and therefore the only visible boundary.
    */
 -  opacity: 0.4;
 +  opacity: 0.8;
++  [zoom >= 10] {
++    opacity: 0.8;
++  }
    comp-op: darken;
  }
  
@@ -114,7 +117,7 @@ index 5090845..363604e 100644
  #admin-mid-zoom[zoom >= 11][zoom < 13],
  #admin-high-zoom[zoom >= 13] {
    [admin_level = '5'][zoom >= 11] {
-@@ -146,7 +165,9 @@ overlapping borders correctly.
+@@ -146,7 +168,9 @@ overlapping borders correctly.
    opacity: 0.5;
    comp-op: darken;
  }
@@ -124,7 +127,7 @@ index 5090845..363604e 100644
  #admin-high-zoom[zoom >= 13] {
    [admin_level = '9'],
    [admin_level = '10'] {
-@@ -161,10 +182,12 @@ overlapping borders correctly.
+@@ -161,10 +185,12 @@ overlapping borders correctly.
        line-clip: false;
      }
    }
@@ -138,7 +141,7 @@ index 5090845..363604e 100644
  #admin-text[zoom >= 16] {
    text-name: "[name]";
    text-face-name: @book-fonts;
-@@ -176,6 +199,7 @@ overlapping borders correctly.
+@@ -176,6 +202,7 @@ overlapping borders correctly.
    text-vertical-alignment: middle;
    text-dy: -10;
  }
@@ -146,7 +149,7 @@ index 5090845..363604e 100644
  
  #nature-reserve-text[zoom >= 13][way_pixels > 192000] {
    text-name: "[name]";
-@@ -191,12 +215,12 @@ overlapping borders correctly.
+@@ -191,12 +218,12 @@ overlapping borders correctly.
  
  #nature-reserve-boundaries {
    [way_pixels > 100][zoom >= 7] {
@@ -1742,7 +1745,7 @@ index 065f6d7..f3d11ba 100644
  }
 +*/
 diff --git a/project.mml b/project.mml
-index 33e487d..1e4fcd5 100644
+index 33e487d..a4978de 100644
 --- a/project.mml
 +++ b/project.mml
 @@ -1,16 +1,16 @@
