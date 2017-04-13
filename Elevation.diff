@@ -2063,7 +2063,7 @@ index 33e487d..1e4fcd5 100644
      properties:
 -      minzoom: 13
 +      minzoom: 6
-+    status: off
++    # status: off
    - id: water-lines-low-zoom
      name: water-lines-low-zoom
      geometry: linestring
@@ -2071,7 +2071,7 @@ index 33e487d..1e4fcd5 100644
      properties:
        minzoom: 8
        maxzoom: 11
-+    status: off
++    # status: off
 +  - id: ocean-lz
 +    name: ocean-lz
 +    class: ocean
@@ -3313,7 +3313,7 @@ index c9e3838..523a44f 100644
 +  }
 +}
 diff --git a/water.mss b/water.mss
-index f4f2d6c..53dffc3 100644
+index f4f2d6c..4d7cc43 100644
 --- a/water.mss
 +++ b/water.mss
 @@ -9,7 +9,47 @@
@@ -3425,7 +3425,7 @@ index f4f2d6c..53dffc3 100644
 +  [waterway = 'river'][zoom >= 6] {
 +    line-color: @water-dark;
 +    line-width: 0.5;
-+    [zoom >= 8] { line-width: 2.2; }
++    [zoom >= 8] { line-width: 1; }
 +    [zoom >= 9] { line-width: 2.7; }
 +    [zoom >= 10] { line-width: 3.1; }
 +    [zoom >= 12] {
@@ -3452,23 +3452,19 @@ index f4f2d6c..53dffc3 100644
  }
  
  #water-lines-low-zoom {
-@@ -93,9 +191,13 @@
-       line-join: round;
-       line-clip: false;
+@@ -95,7 +193,10 @@
      }
--    line-color: @water-color;
-+    line-color: @water-dark;
+     line-color: @water-color;
      line-width: 0.7;
 -    [zoom >= 9] { line-width: 1.2; }
-+    [zoom >= 8] { line-width: 1; }
++    [zoom >= 8] { line-width: 0.5; }
 +    [zoom >= 9] {
 +      line-width: 1.2;
-+      line-color: @water-color;
 +    }
      [zoom >= 10] { line-width: 1.6; }
    }
  }
-@@ -285,7 +387,19 @@
+@@ -285,7 +386,19 @@
    }
  }
  
