@@ -2,7 +2,12 @@
 
 .PHONY: osm-carto-prepare Elevation-prepare data-height-prepare clean
 
-all: Elevation.xml
+all: Elevation.xml Elevation.diff
+
+diff: Elevation.diff
+
+Elevation.diff: osm-carto/project.mml osm-carto/*.mss
+	cd osm-carto; git diff > ../Elevation.diff
 
 Elevation.xml: osm-carto/project.mml osm-carto/*.mss
 	make -C osm-carto
