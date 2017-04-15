@@ -1927,7 +1927,7 @@ index 065f6d7..f3d11ba 100644
  }
 +*/
 diff --git a/project.mml b/project.mml
-index 33e487d..50ba9de 100644
+index 33e487d..5eb6036 100644
 --- a/project.mml
 +++ b/project.mml
 @@ -1,16 +1,16 @@
@@ -2280,7 +2280,7 @@ index 33e487d..50ba9de 100644
              CASE WHEN tunnel IN ('yes', 'culvert') THEN 'yes' ELSE 'no' END AS int_tunnel
            FROM planet_osm_line
 -          WHERE waterway IN ('stream', 'drain', 'ditch')
-+          WHERE waterway IN ('stream', 'drain', 'ditch', 'river')
++          WHERE waterway IN ('stream', 'drain', 'ditch', 'river', 'canal')
          ) AS water_lines_casing
      properties:
 -      minzoom: 13
@@ -3542,7 +3542,7 @@ index c9e3838..32f7a47 100644
 +  }
 +}
 diff --git a/water.mss b/water.mss
-index f4f2d6c..4d7cc43 100644
+index f4f2d6c..cc43ccf 100644
 --- a/water.mss
 +++ b/water.mss
 @@ -9,7 +9,47 @@
@@ -3645,15 +3645,19 @@ index f4f2d6c..4d7cc43 100644
          [waterway = 'stream'][zoom >= 15] {
            line-width: 3.5;
          }
-@@ -83,6 +152,35 @@
+@@ -83,6 +152,39 @@
        }
      }
    }
 +
 +  // local
++  [waterway = 'canal'][zoom >= 12],
 +  [waterway = 'river'][zoom >= 6] {
 +    line-color: @water-dark;
 +    line-width: 0.5;
++    [waterway = 'canal'] {
++      line-color: #545454;
++    }
 +    [zoom >= 8] { line-width: 1; }
 +    [zoom >= 9] { line-width: 2.7; }
 +    [zoom >= 10] { line-width: 3.1; }
@@ -3681,7 +3685,7 @@ index f4f2d6c..4d7cc43 100644
  }
  
  #water-lines-low-zoom {
-@@ -95,7 +193,10 @@
+@@ -95,7 +197,10 @@
      }
      line-color: @water-color;
      line-width: 0.7;
@@ -3693,7 +3697,7 @@ index f4f2d6c..4d7cc43 100644
      [zoom >= 10] { line-width: 1.6; }
    }
  }
-@@ -285,7 +386,19 @@
+@@ -285,7 +390,19 @@
    }
  }
  
