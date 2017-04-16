@@ -3211,7 +3211,7 @@ index 1274b57..a91283f 100644
    }
  }
 diff --git a/stations.mss b/stations.mss
-index 6b9b226..3719e09 100644
+index 6b9b226..4ea8ddf 100644
 --- a/stations.mss
 +++ b/stations.mss
 @@ -2,8 +2,8 @@
@@ -3220,7 +3220,7 @@ index 6b9b226..3719e09 100644
  .stations {
 -  [railway = 'subway_entrance'][zoom >= 18] {
 -    marker-file: url('symbols/entrance.10.svg');
-+  [railway = 'subway_entrance'][zoom >= @nice] {
++  [railway = 'subway_entrance'][zoom >= 14] {
 +    marker-file: url('symbols/london-underground-18.png');
      marker-placement: interior;
      marker-fill: @transportation-icon;
