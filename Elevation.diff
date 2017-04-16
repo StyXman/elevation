@@ -3658,7 +3658,7 @@ index f4f2d6c..cc43ccf 100644
 +    line-color: @water-dark;
 +    line-width: 0.5;
 +    [waterway = 'canal'] {
-+      line-color: #545454;
++      line-color: #181818;
 +    }
 +    [zoom >= 8] { line-width: 1; }
 +    [zoom >= 9] { line-width: 2.7; }
