@@ -1063,7 +1063,7 @@ index be5b115..1c0eaeb 100644
  }
 +*/
 diff --git a/landcover.mss b/landcover.mss
-index 0d11dcf..7d87d57 100644
+index 0d11dcf..0e0b991 100644
 --- a/landcover.mss
 +++ b/landcover.mss
 @@ -55,6 +55,19 @@
@@ -1465,17 +1465,19 @@ index 0d11dcf..7d87d57 100644
  }
  
  /* man_made=cutline */
-@@ -625,7 +771,8 @@
+@@ -625,15 +771,18 @@
          polygon-pattern-alignment: global;
        }
      }
 -    [natural = 'scrub'] {
+-      polygon-pattern-file: url('symbols/scrub.png');
 +    [natural = 'scrub'],
 +    [natural = 'heath'] {
-       polygon-pattern-file: url('symbols/scrub.png');
++      polygon-pattern-file: url('symbols/scrub_mdione.png');
        polygon-pattern-alignment: global;
++      opacity: 0.4; // The entire layer has opacity to handle overlapping forests
      }
-@@ -633,7 +780,8 @@
+   }
  
    //Also landuse = forest, converted in the SQL
    [natural = 'wood'][zoom >= 13]::wood {
@@ -1485,7 +1487,7 @@ index 0d11dcf..7d87d57 100644
      polygon-pattern-alignment: global;
      opacity: 0.4; // The entire layer has opacity to handle overlapping forests
    }
-@@ -651,11 +799,39 @@
+@@ -651,11 +800,39 @@
    }
  }
  
@@ -1528,7 +1530,7 @@ index 0d11dcf..7d87d57 100644
      }
    }
    [man_made = 'embankment'][zoom >= 15]::man_made {
-@@ -728,18 +904,214 @@
+@@ -728,18 +905,214 @@
    }
  }
  
@@ -3209,7 +3211,7 @@ index 1274b57..a91283f 100644
    }
  }
 diff --git a/stations.mss b/stations.mss
-index 6b9b226..3719e09 100644
+index 6b9b226..4ea8ddf 100644
 --- a/stations.mss
 +++ b/stations.mss
 @@ -2,8 +2,8 @@
@@ -3218,7 +3220,7 @@ index 6b9b226..3719e09 100644
  .stations {
 -  [railway = 'subway_entrance'][zoom >= 18] {
 -    marker-file: url('symbols/entrance.10.svg');
-+  [railway = 'subway_entrance'][zoom >= @nice] {
++  [railway = 'subway_entrance'][zoom >= 14] {
 +    marker-file: url('symbols/london-underground-18.png');
      marker-placement: interior;
      marker-fill: @transportation-icon;
@@ -3656,7 +3658,7 @@ index f4f2d6c..cc43ccf 100644
 +    line-color: @water-dark;
 +    line-width: 0.5;
 +    [waterway = 'canal'] {
-+      line-color: #545454;
++      line-color: #181818;
 +    }
 +    [zoom >= 8] { line-width: 1; }
 +    [zoom >= 9] { line-width: 2.7; }
