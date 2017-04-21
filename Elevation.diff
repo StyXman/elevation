@@ -1,5 +1,5 @@
 diff --git a/INSTALL.md b/INSTALL.md
-index 9077eec..7d597b9 100644
+index c9e1803..5df2fcf 100644
 --- a/INSTALL.md
 +++ b/INSTALL.md
 @@ -34,7 +34,9 @@ This script generates and populates the *data* directory with all needed shapefi
@@ -165,7 +165,7 @@ index 5090845..77e4452 100644
      a/line-offset: -0.5;
      a/line-color: green;
 diff --git a/amenity-points.mss b/amenity-points.mss
-index be5b115..1c0eaeb 100644
+index 0cba35b..5743b69 100644
 --- a/amenity-points.mss
 +++ b/amenity-points.mss
 @@ -40,7 +40,7 @@
@@ -466,7 +466,7 @@ index be5b115..1c0eaeb 100644
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
-@@ -496,12 +548,14 @@
+@@ -496,6 +548,8 @@
  
    [feature = 'amenity_theatre'][zoom >= 16] {
      marker-file: url('symbols/theatre.svg');
@@ -475,14 +475,18 @@ index be5b115..1c0eaeb 100644
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
+@@ -508,7 +562,10 @@
+     marker-clip: false;
    }
  
--  [feature = 'amenity_toilets'][zoom >= 17] {
++  /*
+   [feature = 'amenity_toilets'][zoom >= 17] {
++  */
 +  [feature = 'amenity_toilets'][zoom >= @useful] {
      marker-file: url('symbols/toilets.svg');
      marker-fill: @amenity-brown;
      marker-placement: interior;
-@@ -517,12 +571,14 @@
+@@ -524,12 +581,14 @@
  
    [feature = 'amenity_prison'][zoom >= 17] {
      marker-file: url('symbols/prison.svg');
@@ -498,7 +502,7 @@ index be5b115..1c0eaeb 100644
      marker-file: url('symbols/viewpoint.svg');
      marker-placement: interior;
      marker-fill: @amenity-brown;
-@@ -551,13 +607,54 @@
+@@ -558,13 +617,54 @@
      marker-clip: false;
    }
  
@@ -554,7 +558,7 @@ index be5b115..1c0eaeb 100644
    [feature = 'shop_other'][zoom >= 17] {
      marker-fill: @shop-icon;
      marker-width: 6;
-@@ -566,7 +663,7 @@
+@@ -573,7 +673,7 @@
      marker-clip: false;
    }
  
@@ -563,7 +567,7 @@ index be5b115..1c0eaeb 100644
      marker-file: url('symbols/shop/supermarket.svg');
      marker-placement: interior;
      marker-clip: false;
-@@ -575,6 +672,8 @@
+@@ -582,6 +682,8 @@
  
    [feature = 'shop_art'][zoom >= 17] {
      marker-file: url('symbols/shop/art.svg');
@@ -572,7 +576,7 @@ index be5b115..1c0eaeb 100644
      marker-fill: @shop-icon;
      marker-placement: interior;
      marker-clip: false;
-@@ -582,6 +681,8 @@
+@@ -589,6 +691,8 @@
  
    [feature = 'shop_bag'][zoom >= 17] {
      marker-file: url('symbols/shop/bag.svg');
@@ -581,7 +585,7 @@ index be5b115..1c0eaeb 100644
      marker-fill: @shop-icon;
      marker-placement: interior;
      marker-clip: false;
-@@ -589,6 +690,8 @@
+@@ -596,6 +700,8 @@
  
    [feature = 'shop_bakery'][zoom >= 17] {
      marker-file: url('symbols/shop/bakery.svg');
@@ -590,7 +594,7 @@ index be5b115..1c0eaeb 100644
      marker-fill: @shop-icon;
      marker-placement: interior;
      marker-clip: false;
-@@ -596,6 +699,8 @@
+@@ -603,6 +709,8 @@
  
    [feature = 'shop_beauty'][zoom >= 17] {
      marker-file: url('symbols/shop/beauty.svg');
@@ -599,7 +603,7 @@ index be5b115..1c0eaeb 100644
      marker-fill: @shop-icon;
      marker-placement: interior;
      marker-clip: false;
-@@ -603,6 +708,8 @@
+@@ -610,6 +718,8 @@
  
    [feature = 'shop_beverages'][zoom >= 17] {
      marker-file: url('symbols/shop/beverages.svg');
@@ -608,7 +612,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -610,6 +717,8 @@
+@@ -617,6 +727,8 @@
  
    [feature = 'shop_books'][zoom >= 17] {
      marker-file: url('symbols/library.svg');
@@ -617,7 +621,7 @@ index be5b115..1c0eaeb 100644
      marker-fill: @shop-icon;
      marker-placement: interior;
      marker-clip: false;
-@@ -617,6 +726,8 @@
+@@ -624,6 +736,8 @@
  
    [feature = 'shop_butcher'][zoom >= 17] {
      marker-file: url('symbols/shop/butcher.png');
@@ -626,7 +630,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
    }
-@@ -632,6 +743,8 @@
+@@ -639,6 +753,8 @@
    [feature = 'shop_fashion'] {
      [zoom >= 17] {
        marker-file: url('symbols/shop/clothes.svg');
@@ -635,7 +639,7 @@ index be5b115..1c0eaeb 100644
        marker-placement: interior;
        marker-clip: false;
        marker-fill: @shop-icon;
-@@ -640,6 +753,8 @@
+@@ -647,6 +763,8 @@
  
    [feature = 'shop_coffee'][zoom >= 17] {
      marker-file: url('symbols/shop/coffee.svg');
@@ -644,7 +648,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -647,6 +762,8 @@
+@@ -654,6 +772,8 @@
  
    [feature = 'shop_computer'][zoom >= 17] {
      marker-file: url('symbols/shop/computer.svg');
@@ -653,7 +657,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -654,6 +771,8 @@
+@@ -661,6 +781,8 @@
  
    [feature = 'shop_convenience'][zoom >= 17] {
      marker-file: url('symbols/shop/convenience.svg');
@@ -662,7 +666,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -661,6 +780,8 @@
+@@ -668,6 +790,8 @@
  
    [feature = 'shop_confectionery'][zoom >= 17] {
      marker-file: url('symbols/shop/confectionery.svg');
@@ -671,7 +675,7 @@ index be5b115..1c0eaeb 100644
      marker-fill: @shop-icon;
      marker-placement: interior;
      marker-clip: false;
-@@ -668,6 +789,8 @@
+@@ -675,6 +799,8 @@
  
    [feature = 'shop_copyshop'][zoom >= 17] {
      marker-file: url('symbols/shop/copyshop.svg');
@@ -680,7 +684,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -677,6 +800,8 @@
+@@ -684,6 +810,8 @@
    [feature = 'shop_perfumery'] {
      [zoom >= 17] {
        marker-file: url('symbols/shop/perfumery.svg');
@@ -689,7 +693,7 @@ index be5b115..1c0eaeb 100644
        marker-placement: interior;
        marker-clip: false;
        marker-fill: @shop-icon;
-@@ -686,6 +811,8 @@
+@@ -693,6 +821,8 @@
    [feature = 'shop_deli'] {
      [zoom >= 17] {
        marker-file: url('symbols/shop/deli.svg');
@@ -698,7 +702,7 @@ index be5b115..1c0eaeb 100644
        marker-placement: interior;
        marker-clip: false;
        marker-fill: @shop-icon;
-@@ -694,6 +821,8 @@
+@@ -701,6 +831,8 @@
  
    [feature = 'shop_department_store'][zoom >= 16] {
      marker-file: url('symbols/shop/department_store.svg');
@@ -707,7 +711,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -703,6 +832,8 @@
+@@ -710,6 +842,8 @@
    [feature = 'shop_hardware'] {
      [zoom >= 17] {
        marker-file: url('symbols/shop/diy.svg');
@@ -716,7 +720,7 @@ index be5b115..1c0eaeb 100644
        marker-placement: interior;
        marker-clip: false;
        marker-fill: @shop-icon;
-@@ -731,6 +862,8 @@
+@@ -738,6 +872,8 @@
  
    [feature = 'shop_florist'][zoom >= 17] {
      marker-file: url('symbols/shop/florist.svg');
@@ -725,7 +729,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -738,6 +871,8 @@
+@@ -745,6 +881,8 @@
  
    [feature = 'shop_garden_centre'][zoom >= 17] {
      marker-file: url('symbols/shop/garden_centre.svg');
@@ -734,7 +738,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -755,6 +890,8 @@
+@@ -762,6 +900,8 @@
  
    [feature = 'shop_hairdresser'][zoom >= 17] {
      marker-file: url('symbols/shop/hairdresser.svg');
@@ -743,7 +747,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -762,6 +899,8 @@
+@@ -769,6 +909,8 @@
  
    [feature = 'shop_hifi'][zoom >= 17] {
      marker-file: url('symbols/shop/hifi.svg');
@@ -752,7 +756,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -776,6 +915,8 @@
+@@ -783,6 +925,8 @@
  
    [feature = 'shop_car'][zoom >= 17] {
      marker-file: url('symbols/shop/car.svg');
@@ -761,7 +765,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -783,12 +924,14 @@
+@@ -790,12 +934,14 @@
  
    [feature = 'shop_car_parts'][zoom >= 17] {
      marker-file: url('symbols/shop/car_parts.svg');
@@ -777,7 +781,7 @@ index be5b115..1c0eaeb 100644
      marker-file: url('symbols/shop/car_repair.svg');
      marker-placement: interior;
      marker-clip: false;
-@@ -797,6 +940,8 @@
+@@ -804,6 +950,8 @@
  
    [feature = 'shop_bicycle'][zoom >= 17] {
      marker-file: url('symbols/shop/bicycle.svg');
@@ -786,7 +790,7 @@ index be5b115..1c0eaeb 100644
      marker-fill: @shop-icon;
      marker-placement: interior;
      marker-clip: false;
-@@ -804,6 +949,8 @@
+@@ -811,6 +959,8 @@
  
    [feature = 'shop_pet'][zoom >= 17] {
      marker-file: url('symbols/shop/pet.svg');
@@ -795,7 +799,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -814,6 +961,8 @@
+@@ -821,6 +971,8 @@
    [feature = 'shop_photography'] {
      [zoom >= 17] {
        marker-file: url('symbols/shop/photo.svg');
@@ -804,7 +808,7 @@ index be5b115..1c0eaeb 100644
        marker-placement: interior;
        marker-clip: false;
        marker-fill: @shop-icon;
-@@ -822,6 +971,8 @@
+@@ -829,6 +981,8 @@
  
    [feature = 'shop_shoes'][zoom >= 17] {
      marker-file: url('symbols/shop/shoes.svg');
@@ -813,7 +817,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -829,6 +980,8 @@
+@@ -836,6 +990,8 @@
  
    [feature = 'shop_gift'][zoom >= 17] {
      marker-file: url('symbols/shop/gift.svg');
@@ -822,7 +826,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -836,6 +989,8 @@
+@@ -843,6 +999,8 @@
    
    [feature = 'shop_electronics'][zoom >= 17] {
      marker-file: url('symbols/shop/electronics.svg');
@@ -831,7 +835,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -845,6 +1000,8 @@
+@@ -852,6 +1010,8 @@
    [feature = 'shop_wine'] {
      [zoom >= 17] {
        marker-file: url('symbols/shop/alcohol.svg');
@@ -840,7 +844,7 @@ index be5b115..1c0eaeb 100644
        marker-placement: interior;
        marker-clip: false;
        marker-fill: @shop-icon;
-@@ -853,6 +1010,8 @@
+@@ -860,6 +1020,8 @@
    
    [feature = 'shop_optician'][zoom >= 17] {
      marker-file: url('symbols/shop/optician.svg');
@@ -849,7 +853,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -860,6 +1019,8 @@
+@@ -867,6 +1029,8 @@
    
    [feature = 'shop_outdoor'][zoom >= 17] {
      marker-file: url('symbols/shop/outdoor.svg');
@@ -858,7 +862,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -867,6 +1028,8 @@
+@@ -874,6 +1038,8 @@
    
    [feature = 'shop_furniture'][zoom >= 17] {
      marker-file: url('symbols/shop/furniture.svg');
@@ -867,7 +871,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -874,6 +1037,8 @@
+@@ -881,6 +1047,8 @@
    
    [feature = 'shop_mobile_phone'][zoom >= 17] {
      marker-file: url('symbols/shop/mobile_phone.svg');
@@ -876,7 +880,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -881,6 +1046,8 @@
+@@ -888,6 +1056,8 @@
  
    [feature = 'shop_motorcycle'][zoom >= 17] {
      marker-file: url('symbols/motorcycle.svg');
@@ -885,7 +889,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -888,6 +1055,8 @@
+@@ -895,6 +1065,8 @@
  
    [feature = 'shop_musical_instrument'][zoom >= 17] {
      marker-file: url('symbols/shop/musical_instrument.svg');
@@ -894,7 +898,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -897,6 +1066,8 @@
+@@ -904,6 +1076,8 @@
    [feature = 'shop_newsagent'] {
      [zoom >= 17] {
        marker-file: url('symbols/shop/newsagent.svg');
@@ -903,7 +907,7 @@ index be5b115..1c0eaeb 100644
        marker-placement: interior;
        marker-clip: false;
        marker-fill: @shop-icon;
-@@ -907,6 +1078,8 @@
+@@ -914,6 +1088,8 @@
    [feature = 'shop_jewellery'] {
      [zoom >= 17] {
        marker-file: url('symbols/shop/jewelry.svg');
@@ -912,7 +916,7 @@ index be5b115..1c0eaeb 100644
        marker-placement: interior;
        marker-clip: false;
        marker-fill: @shop-icon;
-@@ -915,6 +1088,8 @@
+@@ -922,6 +1098,8 @@
  
    [feature = 'shop_toys'][zoom >= 17] {
      marker-file: url('symbols/shop/toys.svg');
@@ -921,7 +925,7 @@ index be5b115..1c0eaeb 100644
      marker-fill: @shop-icon;
      marker-placement: interior;
      marker-clip: false;
-@@ -922,6 +1097,8 @@
+@@ -929,6 +1107,8 @@
  
    [feature = 'shop_travel_agency'][zoom >= 17] {
      marker-file: url('symbols/shop/travel_agency.svg');
@@ -930,7 +934,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -929,6 +1106,8 @@
+@@ -936,6 +1116,8 @@
  
    [feature = 'shop_sports'][zoom >= 17] {
      marker-file: url('symbols/shop/sports.svg');
@@ -939,7 +943,7 @@ index be5b115..1c0eaeb 100644
      marker-fill: @shop-icon;
      marker-placement: interior;
      marker-clip: false;
-@@ -936,6 +1115,8 @@
+@@ -943,6 +1125,8 @@
  
    [feature = 'shop_stationery'][zoom >= 17] {
      marker-file: url('symbols/shop/stationery.svg');
@@ -948,7 +952,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -943,6 +1124,8 @@
+@@ -950,6 +1134,8 @@
  
    [feature = 'shop_tobacco'][zoom >= 17] {
      marker-file: url('symbols/shop/tobacco.svg');
@@ -957,7 +961,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -950,6 +1133,8 @@
+@@ -957,6 +1143,8 @@
  
    [feature = 'shop_tea'][zoom >= 17] {
      marker-file: url('symbols/shop/tea.svg');
@@ -966,7 +970,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -957,6 +1142,8 @@
+@@ -964,6 +1152,8 @@
  
    [feature = 'shop_variety_store'][zoom >= 17] {
      marker-file: url('symbols/shop/variety_store.svg');
@@ -975,7 +979,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @shop-icon;
-@@ -964,6 +1151,8 @@
+@@ -971,6 +1161,8 @@
  
    [feature = 'leisure_water_park'][zoom >= 17] {
      marker-file: url('symbols/water_park.svg');
@@ -984,7 +988,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-fill: @amenity-brown;
      marker-clip: false;
-@@ -971,6 +1160,8 @@
+@@ -978,6 +1170,8 @@
  
    [feature = 'leisure_dog_park'][zoom >= 17] {
      marker-file: url('symbols/shop/pet.svg');
@@ -993,7 +997,7 @@ index be5b115..1c0eaeb 100644
      marker-placement: interior;
      marker-fill: @amenity-brown;
      marker-clip: false;
-@@ -978,6 +1169,8 @@
+@@ -985,6 +1179,8 @@
  
    [feature = 'leisure_playground'][zoom >= 17] {
      marker-file: url('symbols/playground.svg');
@@ -1002,7 +1006,7 @@ index be5b115..1c0eaeb 100644
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
-@@ -988,11 +1181,15 @@
+@@ -995,11 +1191,15 @@
  
    [feature = 'leisure_miniature_golf'][zoom >= 17] {
      point-file: url('symbols/miniature_golf.p.20.png');
@@ -1018,7 +1022,7 @@ index be5b115..1c0eaeb 100644
      point-placement: interior;
    }
  
-@@ -1012,6 +1209,8 @@
+@@ -1019,6 +1219,8 @@
  
    [feature = 'leisure_slipway'][zoom >= 17] {
      point-file: url('symbols/transport_slipway.p.20.png');
@@ -1027,7 +1031,7 @@ index be5b115..1c0eaeb 100644
      point-placement: interior;
    }
  
-@@ -1372,7 +1571,9 @@
+@@ -1381,7 +1583,9 @@
    [feature = 'historic_memorial'][zoom >= 17],
    [feature = 'man_made_obelisk'][zoom >= 16],
    [feature = 'historic_monument'][zoom >= 16],
@@ -1038,7 +1042,7 @@ index be5b115..1c0eaeb 100644
      text-name: "[name]";
      text-size: @standard-text-size;
      text-fill: @amenity-brown;
-@@ -2190,6 +2391,7 @@
+@@ -2203,6 +2407,7 @@
      text-wrap-width: @standard-wrap-width;
    }
  
@@ -1046,7 +1050,7 @@ index be5b115..1c0eaeb 100644
    [feature = 'natural_tree'][zoom >= 17] {
      text-name: "[name]";
      text-size: @standard-text-size;
-@@ -2204,8 +2406,10 @@
+@@ -2217,8 +2422,10 @@
      text-placement: interior;
      text-wrap-width: @standard-wrap-width;
    }
@@ -1057,13 +1061,13 @@ index be5b115..1c0eaeb 100644
  #trees [zoom >= 16] {
    ::canopy {
      opacity: 0.3;
-@@ -2270,3 +2474,4 @@
+@@ -2283,3 +2490,4 @@
      }
    }
  }
 +*/
 diff --git a/landcover.mss b/landcover.mss
-index 0d11dcf..0e0b991 100644
+index 23ce1ec..1a9f809 100644
 --- a/landcover.mss
 +++ b/landcover.mss
 @@ -55,6 +55,19 @@
@@ -1144,7 +1148,21 @@ index 0d11dcf..0e0b991 100644
      [zoom >= 14] {
        polygon-pattern-file: url('symbols/orchard.png');
        polygon-pattern-alignment: global;
-@@ -145,6 +168,7 @@
+@@ -146,11 +169,13 @@
+   }
+ 
+   [feature = 'landuse_plant_nursery'] {
++    /*
+     [zoom >= 10] {
+       polygon-fill: @orchard;
+       [way_pixels >= 4]  { polygon-gamma: 0.75; }
+       [way_pixels >= 64] { polygon-gamma: 0.3;  }
+     }
++    */
+     [zoom >= 14] {
+       polygon-pattern-file: url('symbols/plant_nursery.png');
+       polygon-pattern-alignment: global;
+@@ -159,6 +184,7 @@
      }
    }
  
@@ -1152,7 +1170,7 @@ index 0d11dcf..0e0b991 100644
    [feature = 'landuse_cemetery'],
    [feature = 'amenity_grave_yard'] {
      [zoom >= 10] {
-@@ -164,6 +188,7 @@
+@@ -178,6 +204,7 @@
        }
      }
    }
@@ -1160,7 +1178,7 @@ index 0d11dcf..0e0b991 100644
  
    [feature = 'amenity_place_of_worship'][zoom >= 13] {
      polygon-fill: @place_of_worship;
-@@ -216,6 +241,7 @@
+@@ -230,6 +257,7 @@
      }
    }
  
@@ -1168,7 +1186,7 @@ index 0d11dcf..0e0b991 100644
    [feature = 'leisure_park'],
    [feature = 'leisure_recreation_ground'] {
      [zoom >= 10] {
-@@ -224,7 +250,9 @@
+@@ -238,7 +266,9 @@
        [way_pixels >= 64] { polygon-gamma: 0.3;  }
      }
    }
@@ -1178,7 +1196,7 @@ index 0d11dcf..0e0b991 100644
    [feature = 'leisure_dog_park'] {
      [zoom >= 10] {
        polygon-fill: @playground;
-@@ -238,6 +266,7 @@
+@@ -252,6 +282,7 @@
        [way_pixels >= 64] { polygon-pattern-gamma: 0.3;  }
      }
    }
@@ -1186,7 +1204,7 @@ index 0d11dcf..0e0b991 100644
  
    [feature = 'leisure_golf_course'][zoom >= 10],
    [feature = 'leisure_miniature_golf'][zoom >= 15] {
-@@ -247,11 +276,13 @@
+@@ -261,11 +292,13 @@
    }
  
    [feature = 'landuse_allotments'] {
@@ -1200,7 +1218,7 @@ index 0d11dcf..0e0b991 100644
      [zoom >= 14] {
        polygon-pattern-file: url('symbols/allotments.png');
        polygon-pattern-alignment: global;
-@@ -260,6 +291,7 @@
+@@ -274,6 +307,7 @@
      }
    }
  
@@ -1208,7 +1226,7 @@ index 0d11dcf..0e0b991 100644
    [feature = 'landuse_forest'],
    [feature = 'natural_wood'] {
      [zoom >= 8] {
-@@ -268,7 +300,10 @@
+@@ -282,7 +316,10 @@
        [way_pixels >= 64] { polygon-gamma: 0.3;  }
      }
    }
@@ -1219,7 +1237,7 @@ index 0d11dcf..0e0b991 100644
    [feature = 'landuse_farmyard'][zoom >= 10] {
      polygon-fill: @farmyard;
        [zoom >= 16] {
-@@ -281,7 +316,10 @@
+@@ -295,7 +332,10 @@
      [way_pixels >= 4]  { polygon-gamma: 0.75; }
      [way_pixels >= 64] { polygon-gamma: 0.3;  }
    }
@@ -1227,10 +1245,10 @@ index 0d11dcf..0e0b991 100644
  
 +  // TODO: make them transparent
 +  /*
-   [feature = 'landuse_farm'],
    [feature = 'landuse_farmland'],
    [feature = 'landuse_greenhouse_horticulture'] {
-@@ -295,21 +333,28 @@
+     [zoom >= 10] {
+@@ -308,21 +348,28 @@
        [way_pixels >= 64] { polygon-gamma: 0.3;  }
      }
    }
@@ -1261,7 +1279,7 @@ index 0d11dcf..0e0b991 100644
    [feature = 'landuse_retail'][zoom >= 10] {
      polygon-fill: @retail;
      [zoom >= 16] {
-@@ -322,7 +367,9 @@
+@@ -335,7 +382,9 @@
        [way_pixels >= 64] { polygon-gamma: 0.3;  }
      }
    }
@@ -1271,7 +1289,7 @@ index 0d11dcf..0e0b991 100644
    [feature = 'landuse_industrial'][zoom >= 10] {
      polygon-fill: @industrial;
      [zoom >= 16] {
-@@ -335,6 +382,7 @@
+@@ -348,6 +397,7 @@
      [way_pixels >= 4]  { polygon-gamma: 0.75; }
      [way_pixels >= 64] { polygon-gamma: 0.3;  }
    }
@@ -1279,7 +1297,7 @@ index 0d11dcf..0e0b991 100644
  
    [feature = 'landuse_railway'][zoom >= 10] {
      polygon-fill: @railway;
-@@ -346,6 +394,7 @@
+@@ -359,6 +409,7 @@
      [way_pixels >= 64] { polygon-gamma: 0.3;  }
    }
  
@@ -1287,7 +1305,7 @@ index 0d11dcf..0e0b991 100644
    [feature = 'power_station'][zoom >= 10],
    [feature = 'power_generator'][zoom >= 10],
    [feature = 'power_sub_station'][zoom >= 13],
-@@ -364,6 +413,7 @@
+@@ -377,6 +428,7 @@
      [way_pixels >= 4]  { polygon-gamma: 0.75; }
      [way_pixels >= 64] { polygon-gamma: 0.3;  }
    }
@@ -1295,7 +1313,7 @@ index 0d11dcf..0e0b991 100644
  
    [feature = 'landuse_commercial'][zoom >= 10] {
      polygon-fill: @commercial;
-@@ -378,6 +428,7 @@
+@@ -391,6 +443,7 @@
      [way_pixels >= 64] { polygon-gamma: 0.3;  }
    }
  
@@ -1303,7 +1321,7 @@ index 0d11dcf..0e0b991 100644
    [feature = 'landuse_brownfield'],
    [feature = 'landuse_construction'] {
      [zoom >= 10] {
-@@ -394,11 +445,14 @@
+@@ -407,11 +460,14 @@
        [way_pixels >= 64] { polygon-gamma: 0.3;  }
      }
    }
@@ -1318,7 +1336,7 @@ index 0d11dcf..0e0b991 100644
      [zoom >= 13] {
        polygon-pattern-file: url('symbols/rock_overlay.png');
        [way_pixels >= 4]  { polygon-pattern-gamma: 0.75; }
-@@ -409,9 +463,11 @@
+@@ -422,9 +478,11 @@
    [feature = 'natural_scree'],
    [feature = 'natural_shingle'] {
      [zoom >= 9] {
@@ -1330,7 +1348,7 @@ index 0d11dcf..0e0b991 100644
        [zoom >= 13] {
          polygon-pattern-file: url('symbols/scree_overlay.png');
          [way_pixels >= 4]  { polygon-pattern-gamma: 0.75; }
-@@ -426,17 +482,21 @@
+@@ -439,17 +497,21 @@
      [way_pixels >= 64] { polygon-gamma: 0.3;  }
    }
  
@@ -1352,7 +1370,7 @@ index 0d11dcf..0e0b991 100644
   
    [feature = 'wetland_swamp'][zoom >= 8] {
      polygon-fill: @forest;
-@@ -508,12 +568,14 @@
+@@ -522,12 +584,14 @@
      [way_pixels >= 64] { polygon-gamma: 0.3;  }
    }
  
@@ -1367,15 +1385,15 @@ index 0d11dcf..0e0b991 100644
  
    [feature = 'highway_services'],
    [feature = 'highway_rest_area'] {
-@@ -528,6 +590,7 @@
+@@ -542,6 +606,7 @@
      polygon-fill: @station;
    }
  
 +  /*
+   [feature = 'leisure_fitness_centre'],
    [feature = 'leisure_sports_centre'],
    [feature = 'leisure_stadium'] {
-     [zoom >= 10] {
-@@ -556,6 +619,89 @@
+@@ -575,6 +640,89 @@
      [way_pixels >= 4]  { polygon-gamma: 0.75; }
      [way_pixels >= 64] { polygon-gamma: 0.3;  }
    }
@@ -1465,7 +1483,7 @@ index 0d11dcf..0e0b991 100644
  }
  
  /* man_made=cutline */
-@@ -625,15 +771,18 @@
+@@ -644,15 +792,18 @@
          polygon-pattern-alignment: global;
        }
      }
@@ -1487,7 +1505,7 @@ index 0d11dcf..0e0b991 100644
      polygon-pattern-alignment: global;
      opacity: 0.4; // The entire layer has opacity to handle overlapping forests
    }
-@@ -651,11 +800,39 @@
+@@ -670,11 +821,39 @@
    }
  }
  
@@ -1530,7 +1548,7 @@ index 0d11dcf..0e0b991 100644
      }
    }
    [man_made = 'embankment'][zoom >= 15]::man_made {
-@@ -728,18 +905,214 @@
+@@ -747,18 +926,214 @@
    }
  }
  
@@ -1929,7 +1947,7 @@ index 065f6d7..f3d11ba 100644
  }
 +*/
 diff --git a/project.mml b/project.mml
-index 33e487d..5eb6036 100644
+index 0a3a3dc..cd2b7f2 100644
 --- a/project.mml
 +++ b/project.mml
 @@ -1,16 +1,16 @@
@@ -2024,17 +2042,18 @@ index 33e487d..5eb6036 100644
 +                                                    'hospital', 'kindergarten', 'prison', 'place_of_worship', 'clinic')
                                                      THEN amenity ELSE NULL END)) AS amenity,
 -              ('landuse_' || (CASE WHEN landuse IN ('quarry', 'vineyard', 'orchard', 'cemetery', 'residential', 'garages', 'meadow', 'grass', 
-+              ('landuse_' || (CASE WHEN landuse IN ('quarry', 'vineyard', 'orchard', 'residential', 'garages', 'meadow', 'grass',
-                                                     'allotments', 'forest', 'farmyard', 'farm', 'farmland', 'greenhouse_horticulture', 
+-                                                    'allotments', 'forest', 'farmyard', 'farmland', 'greenhouse_horticulture', 
 -                                                    'recreation_ground', 'village_green', 'retail', 'industrial', 'railway', 'commercial', 
--                                                    'brownfield', 'landfill', 'construction') THEN landuse ELSE NULL END)) AS landuse,
+-                                                    'brownfield', 'landfill', 'construction', 'plant_nursery') THEN landuse ELSE NULL END)) AS landuse,
 -              ('leisure_' || (CASE WHEN leisure IN ('swimming_pool', 'playground', 'park', 'recreation_ground', 'common', 'garden', 
--                                                    'golf_course', 'miniature_golf', 'picnic_table', 'sports_centre', 'stadium', 'pitch', 
+-                                                    'golf_course', 'miniature_golf', 'picnic_table', 'fitness_centre', 'sports_centre', 'stadium', 'pitch', 
 -                                                    'track', 'dog_park') THEN leisure ELSE NULL END)) AS leisure,
++              ('landuse_' || (CASE WHEN landuse IN ('quarry', 'vineyard', 'orchard', 'residential', 'garages', 'meadow', 'grass',
++                                                    'allotments', 'forest', 'farmyard', 'farmland', 'greenhouse_horticulture',
 +                                                    'retail', 'industrial', 'railway', 'commercial',
-+                                                    'brownfield', 'landfill') THEN landuse ELSE NULL END)) AS landuse,
++                                                    'brownfield', 'landfill', 'plant_nursery') THEN landuse ELSE NULL END)) AS landuse,
 +              ('leisure_' || (CASE WHEN leisure IN ('swimming_pool',
-+                                                    'golf_course', 'miniature_golf', 'picnic_table') THEN leisure ELSE NULL END)) AS leisure,
++                                                    'golf_course', 'miniature_golf', 'picnic_table', 'fitness_centre') THEN leisure ELSE NULL END)) AS leisure,
                ('military_' || (CASE WHEN military IN ('danger_area') THEN military ELSE NULL END)) AS military,
 -              ('natural_' || (CASE WHEN "natural" IN ('beach', 'shoal', 'heath', 'grassland', 'wood', 'sand', 'scree', 'shingle', 'bare_rock', 'scrub') THEN "natural" ELSE NULL END)) AS "natural",
 +              ('natural_' || (CASE WHEN "natural" IN ('heath', 'grassland', 'wood', 'sand', 'scree', 'shingle', 'bare_rock', 'scrub') THEN "natural" ELSE NULL END)) AS "natural",
@@ -2097,7 +2116,7 @@ index 33e487d..5eb6036 100644
 +    advanced: {}
 +    properties:
 +      minzoom: 7
-+      maxzoom: 8
++      maxzoom: 7
 +  - id: "hillshade-medium-overlay"
 +    name: "hillshade-medium-overlay"
 +    class: "hillshade-overlay"
@@ -2321,7 +2340,7 @@ index 33e487d..5eb6036 100644
      geometry: polygon
 @@ -243,7 +500,7 @@ Layer:
            WHERE
-             (waterway IN ('dock', 'riverbank', 'canal')
+             (waterway IN ('dock', 'riverbank')
                OR landuse IN ('reservoir', 'basin')
 -              OR "natural" IN ('water', 'glacier'))
 +              OR "natural" = 'water')
@@ -2801,7 +2820,7 @@ index 33e487d..5eb6036 100644
              way,
              CASE WHEN substr(highway, length(highway)-3, 4) = 'link' THEN substr(highway, 0, length(highway)-4) ELSE highway END,
              CASE WHEN (tunnel = 'yes' OR tunnel = 'building_passage' OR covered = 'yes') THEN 'yes' ELSE 'no' END AS tunnel,
--            CASE WHEN construction IN ('service', 'footway', 'cycleway', 'bridleway', 'path', 'track') THEN 'yes' ELSE 'no' END AS int_construction_minor,
+-            construction,
              name,
              CASE
                WHEN oneway IN ('yes', '-1') THEN oneway
@@ -2824,10 +2843,10 @@ index 33e487d..5eb6036 100644
            WHERE (landuse IN ('forest', 'military')
 @@ -2088,13 +2232,13 @@ Layer:
                'landuse_' || CASE WHEN landuse IN ('reservoir', 'basin', 'recreation_ground', 'village_green', 'quarry', 'vineyard', 'orchard', 'cemetery', 
-                                                   'residential', 'garages', 'meadow', 'grass', 'allotments', 'forest', 'farmyard', 'farm', 'farmland', 
+                                                   'residential', 'garages', 'meadow', 'grass', 'allotments', 'forest', 'farmyard', 'farmland', 
                                                    'greenhouse_horticulture', 'retail', 'industrial', 'railway', 'commercial', 'brownfield', 'landfill', 
--                                                  'construction', 'military') THEN landuse ELSE NULL END,
-+                                                  'military') THEN landuse ELSE NULL END,
+-                                                  'construction', 'military', 'plant_nursery') THEN landuse ELSE NULL END,
++                                                  'military', 'plant_nursery') THEN landuse ELSE NULL END,
                'man_made_' || CASE WHEN man_made IN ('lighthouse', 'windmill', 'mast', 'water_tower', 'pier', 'breakwater', 'groyne', 'obelisk') THEN man_made ELSE NULL END,
                'natural_' || CASE WHEN "natural" IN ('wood', 'water', 'mud', 'wetland', 'marsh', 'bay', 'spring', 'scree', 'shingle', 'bare_rock', 'sand', 'heath', 
                                                      'grassland', 'scrub', 'beach', 'shoal', 'reef', 'glacier') THEN "natural" ELSE NULL END,
@@ -2880,10 +2899,10 @@ index 33e487d..5eb6036 100644
              (SELECT
 @@ -2215,14 +2362,16 @@ Layer:
                    'landuse_' || CASE WHEN landuse IN ('reservoir', 'basin', 'recreation_ground', 'village_green', 'quarry', 'vineyard', 'orchard', 'cemetery', 
-                                                       'residential', 'garages', 'meadow', 'grass', 'allotments', 'forest', 'farmyard', 'farm', 'farmland', 
+                                                       'residential', 'garages', 'meadow', 'grass', 'allotments', 'forest', 'farmyard', 'farmland', 
                                                        'greenhouse_horticulture', 'retail', 'industrial', 'railway', 'commercial', 'brownfield', 'landfill', 
--                                                      'construction', 'military') THEN landuse ELSE NULL END,
-+                                                      'military') THEN landuse ELSE NULL END,
+-                                                      'construction', 'military', 'plant_nursery') THEN landuse ELSE NULL END,
++                                                      'military', 'plant_nursery') THEN landuse ELSE NULL END,
                    'man_made_' || CASE WHEN man_made IN ('lighthouse', 'windmill', 'mast', 'water_tower', 'obelisk') THEN man_made ELSE NULL END,
                    'natural_' || CASE WHEN "natural" IN ('wood', 'peak', 'volcano', 'saddle', 'cave_entrance', 'water', 'mud', 'wetland', 'marsh', 'bay', 'spring', 
 -                                                        'scree', 'shingle', 'bare_rock', 'sand', 'heath', 'grassland', 'scrub', 'beach', 'glacier', 'tree') 
@@ -2907,12 +2926,14 @@ index 33e487d..5eb6036 100644
                  CASE WHEN building = 'no' OR building IS NULL THEN 'no' ELSE 'yes' END AS is_building
                FROM planet_osm_point
                -- The upcoming where clause is needed for performance only, as the CASE statements would end up doing the equivalent filtering
-@@ -2255,12 +2405,12 @@ Layer:
+@@ -2254,13 +2404,13 @@ Layer:
+                   OR shop IS NOT NULL
                    OR leisure IS NOT NULL
                    OR landuse IN ('reservoir', 'basin', 'recreation_ground', 'village_green', 'quarry', 'vineyard', 'orchard', 'cemetery', 'residential', 
-                                  'garages', 'meadow', 'grass', 'allotments', 'forest', 'farmyard', 'farm', 'farmland', 'greenhouse_horticulture', 
--                                 'retail', 'industrial', 'railway', 'commercial', 'brownfield', 'landfill', 'construction', 'military')
-+                                 'retail', 'industrial', 'railway', 'commercial', 'brownfield', 'landfill', 'military')
+-                                 'garages', 'meadow', 'grass', 'allotments', 'forest', 'farmyard', 'farmland', 'greenhouse_horticulture', 
+-                                 'retail', 'industrial', 'railway', 'commercial', 'brownfield', 'landfill', 'construction', 'military', 'plant_nursery')
++                                 'garages', 'meadow', 'grass', 'allotments', 'forest', 'farmyard', 'farmland', 'greenhouse_horticulture',
++                                 'retail', 'industrial', 'railway', 'commercial', 'brownfield', 'landfill', 'military', 'plant_nursery')
                    OR man_made IN ('lighthouse', 'windmill', 'mast', 'water_tower', 'cross', 'obelisk')
                    OR "natural" IS NOT NULL
                    OR place IN ('island', 'islet')
@@ -2923,10 +2944,10 @@ index 33e487d..5eb6036 100644
                    OR power IN ('plant', 'station', 'generator', 'sub_station', 'substation')
                    OR boundary IN ('national_park')
 diff --git a/roads.mss b/roads.mss
-index 6e638be..05fe516 100644
+index 08d6dd8..7f30af3 100644
 --- a/roads.mss
 +++ b/roads.mss
-@@ -789,7 +789,7 @@
+@@ -794,7 +794,7 @@
      }
  
      [feature = 'railway_disused'][zoom >= 15],
@@ -2935,7 +2956,7 @@ index 6e638be..05fe516 100644
      [feature = 'railway_miniature'][zoom >= 15],
      [feature = 'railway_INT-preserved-ssy'][zoom >= 14] {
        .bridges-casing {
-@@ -1003,8 +1003,10 @@
+@@ -1008,8 +1008,10 @@
        }
      }
  
@@ -2946,7 +2967,7 @@ index 6e638be..05fe516 100644
      [feature = 'railway_miniature'][zoom >= 15],
      [feature = 'railway_INT-preserved-ssy'][zoom >= 14] {
        .bridges-casing {
-@@ -1074,6 +1076,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -1079,6 +1081,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       * https://github.com/mapbox/carto/issues/235
       * https://github.com/mapbox/carto/issues/237
       */
@@ -2954,7 +2975,7 @@ index 6e638be..05fe516 100644
      [feature = 'highway_construction'] {
        [zoom >= 12] {
          line-width: 2;
-@@ -1149,6 +1152,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -1154,6 +1157,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
          }
        }
      }
@@ -2962,7 +2983,7 @@ index 6e638be..05fe516 100644
  
      [feature = 'highway_motorway'] {
        [zoom >= 5] {
-@@ -1268,11 +1272,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -1273,11 +1277,11 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
  
      [feature = 'highway_secondary'] {
        [zoom >= 9] {
@@ -2976,7 +2997,7 @@ index 6e638be..05fe516 100644
          line-width: @secondary-width-z10;
        }
        [zoom >= 11] { line-width: @secondary-width-z11; }
-@@ -1802,13 +1806,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -1807,13 +1811,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        }
      }
  
@@ -2994,7 +3015,7 @@ index 6e638be..05fe516 100644
          line-join: round;
          .roads_low_zoom[int_tunnel = 'yes'], .tunnels-fill {
            line-dasharray: 5,2;
-@@ -1991,6 +1995,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -1996,6 +2000,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        }
      }
  
@@ -3002,7 +3023,7 @@ index 6e638be..05fe516 100644
      [feature = 'railway_construction'] {
        [zoom >= 13] {
          line-color: grey;
-@@ -2006,7 +2011,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -2011,7 +2016,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
          }
        }
      }
@@ -3012,7 +3033,7 @@ index 6e638be..05fe516 100644
      [feature = 'railway_disused'] {
        [zoom >= 15] {
          line-color: #aaa;
-@@ -2015,6 +2022,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -2020,6 +2027,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
          line-join: round;
        }
      }
@@ -3020,7 +3041,7 @@ index 6e638be..05fe516 100644
  
      [feature = 'railway_platform'] {
        [zoom >= 16] {
-@@ -2059,6 +2067,23 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -2064,6 +2072,23 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        }
      }
    }
@@ -3044,8 +3065,8 @@ index 6e638be..05fe516 100644
  }
  
  #turning-circle-casing {
-@@ -2744,25 +2769,31 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-   [highway = 'primary'] {
+@@ -2767,25 +2792,31 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+   [highway = 'construction'][construction = 'primary'] {
      [zoom >= 13] {
        text-name: "[name]";
 -      text-size: 8;
@@ -3077,8 +3098,8 @@ index 6e638be..05fe516 100644
      [zoom >= 17] {
        text-size: 11;
      }
-@@ -2773,21 +2804,23 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-   [highway = 'secondary'] {
+@@ -2797,21 +2828,23 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+   [highway = 'construction'][construction = 'secondary'] {
      [zoom >= 13] {
        text-name: "[name]";
 -      text-size: 8;
@@ -3103,8 +3124,8 @@ index 6e638be..05fe516 100644
      [zoom >= 17] {
        text-size: 11;
      }
-@@ -2799,14 +2832,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-   [highway = 'tertiary_link'] {
+@@ -2823,14 +2856,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+   [highway = 'construction'][construction = 'tertiary'] {
      [zoom >= 14] {
        text-name: "[name]";
 -      text-size: 9;
@@ -3120,22 +3141,24 @@ index 6e638be..05fe516 100644
      }
      [zoom >= 17] {
        text-size: 11;
-@@ -2815,6 +2848,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -2839,6 +2872,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        text-size: 12;
      }
    }
 +  /*
-   [highway = 'construction'] {
-     [int_construction_minor = 'no'][zoom >= 13],
-     [int_construction_minor = 'yes'][zoom >= 14] {
-@@ -2835,23 +2869,26 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-       }
+   [highway = 'construction'][construction = null][zoom >= 16] {
+     text-name: "[name]";
+     text-size: 9;
+@@ -2859,6 +2893,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+       text-spacing: 400;
      }
    }
 +  */
    [highway = 'residential'],
    [highway = 'unclassified'],
-   [highway = 'road'] {
+   [highway = 'road'],
+@@ -2867,18 +2902,20 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+   [highway = 'construction'][construction = 'road'] {
      [zoom >= 15] {
        text-name: "[name]";
 -      text-size: 8;
@@ -3157,7 +3180,7 @@ index 6e638be..05fe516 100644
      [zoom >= 17] {
        text-size: 11;
        text-spacing: 400;
-@@ -3005,7 +3042,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -3029,7 +3066,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        [oneway = 'yes'],
        [oneway = '-1'] {
          marker-placement: line;
@@ -3388,7 +3411,9 @@ index c9e3838..32f7a47 100644
 +.terrain {
 +  raster-scaling: lanczos;
 +  raster-opacity: 0.7;
-+  [zoom >= 9] { raster-opacity: 0.7; }
++  [zoom >= 8] {
++    raster-opacity: 0.9;
++  }
 +}
 +
 +// hillshade-small [0-6], hillshade-big [7-8]
@@ -3401,13 +3426,13 @@ index c9e3838..32f7a47 100644
 +// hillshade-big [9-]
 +.hillshade-overlay {
 +  raster-scaling: lanczos;
-+  [zoom >= 9] {
++  [zoom >= 8] {
 +    comp-op: overlay;
 +    raster-opacity: 0.5;
 +  }
 +}
 +
-+// slopeshade-small [0-6], slopeshade-medium [7-8]
++// slopeshade-small [0-6], slopeshade-medium [7]
 +.slopeshade-over {
 +  comp-op: multiply;
 +  raster-scaling: lanczos;
@@ -3418,9 +3443,7 @@ index c9e3838..32f7a47 100644
 +.slopeshade-overlay {
 +  raster-scaling: lanczos;
 +  comp-op: overlay;
-+  // comp-op: soft-light;
-+  raster-opacity: 0.8;
-+  [zoom >= 10] { raster-opacity: 0.9; }
++  // raster-opacity: 0.8;
 +}
 +
 +#contour-50 {
@@ -3544,12 +3567,12 @@ index c9e3838..32f7a47 100644
 +  }
 +}
 diff --git a/water.mss b/water.mss
-index f4f2d6c..cc43ccf 100644
+index c3b26fe..c6b387e 100644
 --- a/water.mss
 +++ b/water.mss
-@@ -9,7 +9,47 @@
- @water-wrap-width-size-big: 35;
- @water-wrap-width-size-bigger: 45;
+@@ -2,7 +2,47 @@
+ @glacier: #ddecec;
+ @glacier-line: #9cf;
  
 +// local
 +#water-areas::border {
@@ -3580,7 +3603,7 @@ index f4f2d6c..cc43ccf 100644
 +      line-color: @glacier-line;
 +      polygon-fill: @glacier;
 +      [zoom >= 8] {
-+        line-width: 1.0;
++        line-width: 1;
 +      }
 +      [zoom >= 10] {
 +        line-dasharray: 4,2;
@@ -3595,15 +3618,15 @@ index f4f2d6c..cc43ccf 100644
    [natural = 'glacier']::natural {
      [zoom >= 6] {
        line-width: 0.75;
-@@ -24,6 +64,7 @@
+@@ -17,6 +57,7 @@
        }
      }
    }
 +  */
  
-   [waterway = 'dock'],
-   [waterway = 'canal'] {
-@@ -63,6 +104,34 @@
+   [waterway = 'dock'] {
+     [zoom >= 9]::waterway {
+@@ -55,6 +96,34 @@
    }
  }
  
@@ -3638,7 +3661,7 @@ index f4f2d6c..cc43ccf 100644
  #water-lines-casing {
    [waterway = 'stream'],
    [waterway = 'ditch'],
-@@ -70,7 +139,7 @@
+@@ -62,7 +131,7 @@
      [int_tunnel = 'no'] {
        [zoom >= 13] {
          line-width: 2.5;
@@ -3647,7 +3670,7 @@ index f4f2d6c..cc43ccf 100644
          [waterway = 'stream'][zoom >= 15] {
            line-width: 3.5;
          }
-@@ -83,6 +152,39 @@
+@@ -75,6 +144,39 @@
        }
      }
    }
@@ -3687,7 +3710,7 @@ index f4f2d6c..cc43ccf 100644
  }
  
  #water-lines-low-zoom {
-@@ -95,7 +197,10 @@
+@@ -87,7 +189,10 @@
      }
      line-color: @water-color;
      line-width: 0.7;
@@ -3699,7 +3722,7 @@ index f4f2d6c..cc43ccf 100644
      [zoom >= 10] { line-width: 1.6; }
    }
  }
-@@ -285,7 +390,19 @@
+@@ -277,7 +382,19 @@
    }
  }
  
