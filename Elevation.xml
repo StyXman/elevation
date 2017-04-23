@@ -230,11 +230,11 @@
 </FontSet>
 <Style name="terrain-small" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <RasterSymbolizer opacity="0.9" scaling="lanczos" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
     <RasterSymbolizer scaling="lanczos" opacity="0.7" />
   </Rule>
 </Style>
@@ -250,11 +250,11 @@
 
 <Style name="terrain-medium" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <RasterSymbolizer opacity="0.9" scaling="lanczos" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
     <RasterSymbolizer scaling="lanczos" opacity="0.7" />
   </Rule>
 </Style>
@@ -271,11 +271,11 @@
 
 <Style name="terrain-big" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <RasterSymbolizer opacity="0.9" scaling="lanczos" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
     <RasterSymbolizer scaling="lanczos" opacity="0.7" />
   </Rule>
 </Style>
@@ -2099,11 +2099,11 @@
 
 <Style name="hillshade-big" filter-mode="first" comp-op="overlay">
   <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <RasterSymbolizer opacity="0.5" scaling="lanczos" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
     <RasterSymbolizer scaling="lanczos" />
   </Rule>
 </Style>
@@ -21967,22 +21967,34 @@ WHERE
     <TextSymbolizer size="14" wrap-width="50" line-spacing="-1" margin="9.1" fill="#763076" fontset-name="fontset-2" halo-fill="rgba(255, 255, 255, 0.7)" halo-radius="2.25" placement="interior" character-spacing="0.5"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([way_pixels] &gt; 1000) and ([way_pixels] &lt; 360000)</Filter>
-    <TextSymbolizer size="13" wrap-width="45" line-spacing="-1.2" margin="8.4" fill="#763076" fontset-name="fontset-2" halo-fill="rgba(255, 255, 255, 0.7)" halo-radius="2.25" placement="interior" character-spacing="0.5"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="13" wrap-width="50" line-spacing="-1.2" margin="8.4" fill="#763076" fontset-name="fontset-2" halo-fill="rgba(255, 255, 255, 0.7)" halo-radius="2.25" placement="interior" character-spacing="0.5"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([way_pixels] &gt; 1000) and ([way_pixels] &lt; 360000)</Filter>
+    <TextSymbolizer size="12" wrap-width="45" line-spacing="-1.4" margin="7.7" fill="#763076" fontset-name="fontset-2" halo-fill="rgba(255, 255, 255, 0.7)" halo-radius="2.25" placement="interior" character-spacing="0.5"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([way_pixels] &gt; 1000) and ([way_pixels] &lt; 360000)</Filter>
+    <TextSymbolizer size="11" wrap-width="40" line-spacing="-1.5" margin="7" fill="#763076" fontset-name="fontset-2" halo-fill="rgba(255, 255, 255, 0.7)" halo-radius="2.25" placement="interior" character-spacing="0.5"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([way_pixels] &gt; 1000) and ([way_pixels] &lt; 360000)</Filter>
-    <TextSymbolizer size="12" wrap-width="40" line-spacing="-1.4" margin="7.7" fill="#763076" fontset-name="fontset-2" halo-fill="rgba(255, 255, 255, 0.7)" halo-radius="2.25" placement="interior" character-spacing="0.5"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="10" wrap-width="35" line-spacing="-1.7" margin="6.3" fill="#763076" fontset-name="fontset-2" halo-fill="rgba(255, 255, 255, 0.7)" halo-radius="2.25" placement="interior" character-spacing="0.5"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000000</MinScaleDenominator>
     <Filter>([way_pixels] &gt; 1000) and ([way_pixels] &lt; 360000)</Filter>
-    <TextSymbolizer size="11" wrap-width="35" line-spacing="-1.5" margin="7" fill="#763076" fontset-name="fontset-2" halo-fill="rgba(255, 255, 255, 0.7)" halo-radius="2.25" placement="interior" character-spacing="0.5"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" wrap-width="30" line-spacing="-1.9" margin="5.6" fill="#763076" fontset-name="fontset-2" halo-fill="rgba(255, 255, 255, 0.7)" halo-radius="2.25" placement="interior" character-spacing="0.5"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="country-names"
@@ -22650,13 +22662,13 @@ WHERE
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <Filter>([place] = 'isolated_dwelling')</Filter>
+    <Filter>([place] = 'farm')</Filter>
     <TextSymbolizer size="12" wrap-width="60" line-spacing="-0.6" margin="8.4" fill="#777777" halo-fill="#ffffff" fontset-name="fontset-1" halo-radius="1.5"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([place] = 'isolated_dwelling')</Filter>
+    <Filter>([place] = 'farm')</Filter>
     <TextSymbolizer size="10" fill="#222222" fontset-name="fontset-1" halo-fill="rgba(255, 255, 255, 0.7)" halo-radius="1.5" wrap-width="45" line-spacing="-0.8" margin="7"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
@@ -22672,13 +22684,13 @@ WHERE
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <Filter>([place] = 'farm')</Filter>
+    <Filter>([place] = 'isolated_dwelling')</Filter>
     <TextSymbolizer size="12" wrap-width="60" line-spacing="-0.6" margin="8.4" fill="#777777" halo-fill="#ffffff" fontset-name="fontset-1" halo-radius="1.5"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([place] = 'farm')</Filter>
+    <Filter>([place] = 'isolated_dwelling')</Filter>
     <TextSymbolizer size="10" fill="#222222" fontset-name="fontset-1" halo-fill="rgba(255, 255, 255, 0.7)" halo-radius="1.5" wrap-width="45" line-spacing="-0.8" margin="7"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
