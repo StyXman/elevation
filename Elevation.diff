@@ -3273,9 +3273,16 @@ index 6b9b226..4ea8ddf 100644
      marker-fill: @transportation-icon;
      marker-clip: false;
 diff --git a/style.mss b/style.mss
-index c9e3838..32f7a47 100644
+index c9e3838..0fd8e6d 100644
 --- a/style.mss
 +++ b/style.mss
+@@ -1,5 +1,5 @@
+ Map {
+-  background-color: @water-color;
++  background-color: @land-color;
+ }
+ 
+ /*
 @@ -114,11 +114,9 @@ A regular style.
  
                  "Noto Naskh Arabic UI Regular",
