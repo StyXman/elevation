@@ -2799,7 +2799,13 @@ index 0a3a3dc..8c44fdb 100644
              name,
              CASE
                WHEN oneway IN ('yes', '-1') THEN oneway
-@@ -1984,7 +2127,7 @@ Layer:
+@@ -1979,12 +2097,11 @@ Layer:
+               ('primary_link', 220),
+               ('secondary_link', 210),
+               ('tertiary_link', 200),
+-              ('service', 150),
+-              ('construction', 10)
++              ('service', 150)
              ) AS ordertable (highway, prio)
              USING (highway)
            WHERE highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 
@@ -2919,19 +2925,20 @@ index 0a3a3dc..8c44fdb 100644
                    OR power IN ('plant', 'station', 'generator', 'sub_station', 'substation')
                    OR boundary IN ('national_park')
 diff --git a/roads.mss b/roads.mss
-index 08d6dd8..7f30af3 100644
+index 08d6dd8..49f2c53 100644
 --- a/roads.mss
 +++ b/roads.mss
-@@ -794,7 +794,7 @@
+@@ -794,7 +794,9 @@
      }
  
      [feature = 'railway_disused'][zoom >= 15],
--    [feature = 'railway_construction'],
-+    // [feature = 'railway_construction'],
++    /*
+     [feature = 'railway_construction'],
++    */
      [feature = 'railway_miniature'][zoom >= 15],
      [feature = 'railway_INT-preserved-ssy'][zoom >= 14] {
        .bridges-casing {
-@@ -1008,8 +1008,10 @@
+@@ -1008,8 +1010,10 @@
        }
      }
  
@@ -3040,8 +3047,15 @@ index 08d6dd8..7f30af3 100644
  }
  
  #turning-circle-casing {
-@@ -2767,25 +2792,31 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-   [highway = 'construction'][construction = 'primary'] {
+@@ -2762,30 +2789,37 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+   [highway = 'motorway'],
+   [highway = 'trunk'],
+   [highway = 'primary'],
++  /*
+   [highway = 'construction'][construction = 'motorway'],
+   [highway = 'construction'][construction = 'trunk'],
+-  [highway = 'construction'][construction = 'primary'] {
++  [highway = 'construction'][construction = 'primary']*/ {
      [zoom >= 13] {
        text-name: "[name]";
 -      text-size: 8;
@@ -3073,8 +3087,13 @@ index 08d6dd8..7f30af3 100644
      [zoom >= 17] {
        text-size: 11;
      }
-@@ -2797,21 +2828,23 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-   [highway = 'construction'][construction = 'secondary'] {
+@@ -2794,24 +2828,27 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+     }
+   }
+   [highway = 'secondary'],
+-  [highway = 'construction'][construction = 'secondary'] {
++  /*
++  [highway = 'construction'][construction = 'secondary']*/ {
      [zoom >= 13] {
        text-name: "[name]";
 -      text-size: 8;
@@ -3099,8 +3118,13 @@ index 08d6dd8..7f30af3 100644
      [zoom >= 17] {
        text-size: 11;
      }
-@@ -2823,14 +2856,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-   [highway = 'construction'][construction = 'tertiary'] {
+@@ -2820,17 +2857,18 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+     }
+   }
+   [highway = 'tertiary'],
+-  [highway = 'construction'][construction = 'tertiary'] {
++  /*
++  [highway = 'construction'][construction = 'tertiary']*/ {
      [zoom >= 14] {
        text-name: "[name]";
 -      text-size: 9;
@@ -3132,8 +3156,11 @@ index 08d6dd8..7f30af3 100644
    [highway = 'residential'],
    [highway = 'unclassified'],
    [highway = 'road'],
-@@ -2867,18 +2902,20 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-   [highway = 'construction'][construction = 'road'] {
++  /*
+   [highway = 'construction'][construction = 'residential'],
+   [highway = 'construction'][construction = 'unclassified'],
+-  [highway = 'construction'][construction = 'road'] {
++  [highway = 'construction'][construction = 'road']*/ {
      [zoom >= 15] {
        text-name: "[name]";
 -      text-size: 8;
@@ -3155,7 +3182,29 @@ index 08d6dd8..7f30af3 100644
      [zoom >= 17] {
        text-size: 11;
        text-spacing: 400;
-@@ -3029,7 +3066,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -2891,8 +2934,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+ 
+   [highway = 'raceway'],
+   [highway = 'service'],
++  /*
+   [highway = 'construction'][construction = 'raceway'],
+-  [highway = 'construction'][construction = 'service'] {
++  [highway = 'construction'][construction = 'service']*/ {
+     [zoom >= 16] {
+       text-name: "[name]";
+       text-size: 9;
+@@ -2912,8 +2956,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+ 
+   [highway = 'living_street'],
+   [highway = 'pedestrian'],
++  /*
+   [highway = 'construction'][construction = 'living_street'],
+-  [highway = 'construction'][construction = 'pedestrian'] {
++  [highway = 'construction'][construction = 'pedestrian']*/ {
+     [zoom >= 15] {
+       text-name: "[name]";
+       text-size: 8;
+@@ -3029,7 +3074,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        [oneway = 'yes'],
        [oneway = '-1'] {
          marker-placement: line;
