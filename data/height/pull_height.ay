@@ -174,34 +174,34 @@ def main ():
         for lon in range (math.floor (west), math.floor (east)+1):
             data= SRTMGL1v003 (lat, lon)
             if data is not None:
-                f, u, z= data
+                file, u, zip_file= data
             else:
                 continue
 
-            if not _f (f) and not _f(z) and z not in not_found:
-                print ("%s not found, downloading" % f)
-                url= "%s/%s" % (u, z)
+            if not -f (file) and not -f(zip_file) and zip_file not in not_found:
+                print ("%s not found, downloading" % file)
+                url= "%s/%s" % (u, zip_file)
                 try:
                     wget (--verbose=True, --progress='bar', -c=True,  # continue is a reserved word
-                          --output-document=z, url, _out_bufsize=0)
+                          --output-document=zip_file, url, _out_bufsize=0)
                 except CommandFailed as e:
                     if e.command.exit_code ()==8:
                         # most probably 404
                         # TODO: use curl instead
-                        not_found.add (z)
+                        not_found.add (zip_file)
 
                     # wget leaves an empty file if the download failed!
-                    rm (-v=True, z)
+                    rm (-v=True, zip_file)
 
                 sleep (1)
             else:
                 print ("%s found, skipping" % f)
 
-            if _f(z):
+            if -f(zip_file):
                 try:
-                    unzip (-o=True, -f=True, -v=True, z)
-                    rm (-v=True, z)
+                    unzip (-o=True, -f=True, -v=True, zip_file)
+                    rm (-v=True, zip_file)
                 except CommandFailed as e:
-                    print ("unzipping %s failed[%s]; keeping..." % (z, e))
+                    print ("unzipping %s failed[%s]; keeping..." % (zip_file, e))
 
 main ()
