@@ -8,8 +8,8 @@ set -eu
 # path
 
 db='gis'
-# bin='osm2pgsql'
-bin='/home/mdione/src/system/osm/osm2pgsql/build/osm2pgsql'
+bin='osm2pgsql'
+# bin='/home/mdione/src/system/osm/osm2pgsql/build/osm2pgsql'
 
 case "$1" in
   -d|--database)
