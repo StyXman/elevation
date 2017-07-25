@@ -1,5 +1,5 @@
 diff --git a/INSTALL.md b/INSTALL.md
-index c9e1803..5df2fcf 100644
+index afb19d2..c617b83 100644
 --- a/INSTALL.md
 +++ b/INSTALL.md
 @@ -34,7 +34,9 @@ This script generates and populates the *data* directory with all needed shapefi
@@ -165,10 +165,20 @@ index 5090845..77e4452 100644
      a/line-offset: -0.5;
      a/line-color: green;
 diff --git a/amenity-points.mss b/amenity-points.mss
-index 0cba35b..5743b69 100644
+index bcbe74e..43b09fb 100644
 --- a/amenity-points.mss
 +++ b/amenity-points.mss
-@@ -40,7 +40,7 @@
+@@ -2,7 +2,8 @@
+ @wetland-text: darken(#4aa5fa, 25%); /* Also for marsh and mud */
+ @shop-icon: #ac39ac;
+ @shop-text: #939;
+-@transportation-icon: #0092da;
++@transportation-icon: @water-dark;
++// TODO:
+ @transportation-text: #0066ff;
+ @airtransport: #8461C4;
+ @health-color: #da0092;
+@@ -40,7 +41,7 @@
      marker-clip: false;
    }
  
@@ -177,7 +187,7 @@ index 0cba35b..5743b69 100644
      marker-file: url('symbols/atm.svg');
      marker-fill: @amenity-brown;
      marker-placement: interior;
-@@ -56,6 +56,8 @@
+@@ -56,6 +57,8 @@
  
    [feature = 'amenity_bar'][zoom >= 17] {
      marker-file: url('symbols/bar.svg');
@@ -186,7 +196,7 @@ index 0cba35b..5743b69 100644
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
-@@ -63,6 +65,8 @@
+@@ -63,6 +66,8 @@
  
    [feature = 'amenity_bicycle_rental'][zoom >= 17] {
      marker-file: url('symbols/rental_bicycle.svg');
@@ -195,7 +205,7 @@ index 0cba35b..5743b69 100644
      marker-fill: @transportation-icon;
      marker-placement: interior;
      marker-clip: false;
-@@ -71,14 +75,14 @@
+@@ -71,14 +76,14 @@
    [feature = 'highway_bus_stop'] {
      [zoom >= 16] {
        marker-file: url('symbols/square.svg');
@@ -212,7 +222,7 @@ index 0cba35b..5743b69 100644
      }
    }
  
-@@ -112,6 +116,8 @@
+@@ -112,6 +117,8 @@
  
    [feature = 'amenity_cafe'][zoom >= 17] {
      marker-file: url('symbols/cafe.svg');
@@ -221,7 +231,7 @@ index 0cba35b..5743b69 100644
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
-@@ -119,6 +125,8 @@
+@@ -119,6 +126,8 @@
  
    [feature = 'tourism_artwork'][zoom >= 17] {
      marker-file: url('symbols/artwork.svg');
@@ -230,7 +240,7 @@ index 0cba35b..5743b69 100644
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
-@@ -126,6 +134,8 @@
+@@ -126,6 +135,8 @@
  
    [feature = 'tourism_camp_site'][zoom >= 16] {
      marker-file: url('symbols/camping.svg');
@@ -239,7 +249,7 @@ index 0cba35b..5743b69 100644
      marker-fill: @transportation-icon;
      marker-placement: interior;
      marker-clip: false;
-@@ -140,6 +150,8 @@
+@@ -140,6 +151,8 @@
  
    [feature = 'tourism_caravan_site'][zoom >= 16] {
      marker-file: url('symbols/caravan_park.svg');
@@ -248,7 +258,7 @@ index 0cba35b..5743b69 100644
      marker-placement: interior;
      marker-clip: false;
      marker-fill: @transportation-icon;
-@@ -147,6 +159,8 @@
+@@ -147,6 +160,8 @@
  
    [feature = 'amenity_car_rental'][zoom >= 17] {
      marker-file: url('symbols/rental_car.svg');
@@ -257,7 +267,7 @@ index 0cba35b..5743b69 100644
      marker-fill: @transportation-icon;
      marker-placement: interior;
      marker-clip: false;
-@@ -154,6 +168,8 @@
+@@ -154,6 +169,8 @@
  
    [feature = 'amenity_car_wash'][zoom >= 17] {
      marker-file: url('symbols/car_wash.svg');
@@ -266,7 +276,7 @@ index 0cba35b..5743b69 100644
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
-@@ -161,11 +177,15 @@
+@@ -161,11 +178,15 @@
  
    [feature = 'tourism_chalet'][zoom >= 17] {
      point-file: url('symbols/chalet.p.16.png');
@@ -282,7 +292,7 @@ index 0cba35b..5743b69 100644
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
-@@ -173,6 +193,8 @@
+@@ -173,6 +194,8 @@
  
    [feature = 'amenity_nightclub'][zoom >= 17] {
      marker-file: url('symbols/nightclub.svg');
@@ -291,7 +301,7 @@ index 0cba35b..5743b69 100644
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
-@@ -214,13 +236,17 @@
+@@ -214,13 +237,17 @@
  
    [feature = 'amenity_charging_station'][zoom >= 17] {
      marker-file: url('symbols/charging_station.svg');
@@ -311,7 +321,7 @@ index 0cba35b..5743b69 100644
      marker-fill: @transportation-icon;
      marker-placement: interior;
      marker-clip: false;
-@@ -231,7 +257,7 @@
+@@ -231,7 +258,7 @@
      point-placement: interior;
    }
  
@@ -320,7 +330,7 @@ index 0cba35b..5743b69 100644
      marker-file: url('symbols/hospital.svg');
      marker-fill: @health-color;
      marker-placement: interior;
-@@ -275,6 +301,8 @@
+@@ -275,6 +302,8 @@
  
    [feature = 'amenity_embassy'][zoom >= 17] {
      marker-file: url('symbols/embassy.svg');
@@ -329,7 +339,7 @@ index 0cba35b..5743b69 100644
      marker-fill: @transportation-icon;
      marker-placement: interior;
      marker-clip: false;
-@@ -282,6 +310,8 @@
+@@ -282,6 +311,8 @@
  
    [feature = 'amenity_library'][zoom >= 16] {
      marker-file: url('symbols/library.svg');
@@ -338,7 +348,7 @@ index 0cba35b..5743b69 100644
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
-@@ -289,6 +319,8 @@
+@@ -289,6 +320,8 @@
  
    [feature = 'amenity_courthouse'][zoom >= 16] {
      marker-file: url('symbols/courthouse.svg');
@@ -347,7 +357,7 @@ index 0cba35b..5743b69 100644
      marker-placement: interior;
      marker-fill: @amenity-brown;
      marker-clip: false;
-@@ -296,6 +328,8 @@
+@@ -296,6 +329,8 @@
  
    [feature = 'amenity_community_centre'][zoom >= 17] {
      marker-file: url('symbols/community_centre.svg');
@@ -356,7 +366,7 @@ index 0cba35b..5743b69 100644
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
-@@ -303,6 +337,8 @@
+@@ -303,6 +338,8 @@
  
    [feature = 'amenity_social_facility'][zoom >= 17] {
      marker-file: url('symbols/social_facility.svg');
@@ -365,18 +375,18 @@ index 0cba35b..5743b69 100644
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
-@@ -333,7 +369,9 @@
+@@ -333,7 +370,9 @@
    [feature = 'amenity_bicycle_parking'][way_pixels > 900],
    [feature = 'amenity_motorcycle_parking'][way_pixels > 900] {
      [feature = 'amenity_parking'] {
 -      marker-file: url('symbols/parking.svg');
-+      // the color is too light
++      // the color is too light, size too small
 +      // marker-file: url('symbols/parking.svg');
 +      marker-file: url('symbols/parking-24.png');
      }
      [feature = 'amenity_bicycle_parking'] {
        marker-file: url('symbols/bicycle_parking.svg');
-@@ -349,7 +387,7 @@
+@@ -349,7 +388,7 @@
      }
    }
  
@@ -385,7 +395,7 @@ index 0cba35b..5743b69 100644
      marker-file: url('symbols/pharmacy.svg');
      marker-fill: @health-color;
      marker-placement: interior;
-@@ -359,6 +397,8 @@
+@@ -359,6 +398,8 @@
    [feature = 'amenity_clinic'][zoom >= 16],
    [feature = 'amenity_doctors'][zoom >= 17] {
      marker-file: url('symbols/doctors.svg');
@@ -394,7 +404,7 @@ index 0cba35b..5743b69 100644
      marker-fill: @health-color;
      marker-placement: interior;
      marker-clip: false;
-@@ -366,6 +406,8 @@
+@@ -366,6 +407,8 @@
  
    [feature = 'amenity_dentist'][zoom >= 17] {
      marker-file: url('symbols/dentist.svg');
@@ -403,7 +413,7 @@ index 0cba35b..5743b69 100644
      marker-fill: @health-color;
      marker-placement: interior;
      marker-clip: false;
-@@ -373,6 +415,8 @@
+@@ -373,6 +416,8 @@
  
    [feature = 'amenity_veterinary'][zoom >= 17] {
      marker-file: url('symbols/veterinary.svg');
@@ -412,7 +422,7 @@ index 0cba35b..5743b69 100644
      marker-fill: @health-color;
      marker-placement: interior;
      marker-clip: false;
-@@ -420,7 +464,7 @@
+@@ -420,7 +465,7 @@
      marker-clip: false;
    }
  
@@ -421,7 +431,7 @@ index 0cba35b..5743b69 100644
      marker-file: url('symbols/police.svg');
      marker-fill: @amenity-brown;
      marker-placement: interior;
-@@ -434,7 +478,7 @@
+@@ -434,7 +479,7 @@
      marker-clip: false;
    }
  
@@ -430,7 +440,7 @@ index 0cba35b..5743b69 100644
      marker-file: url('symbols/post_office.svg');
      marker-fill: @amenity-brown;
      marker-placement: interior;
-@@ -443,6 +487,8 @@
+@@ -443,6 +488,8 @@
  
    [feature = 'amenity_pub'][zoom >= 17] {
      marker-file: url('symbols/pub.svg');
@@ -439,7 +449,7 @@ index 0cba35b..5743b69 100644
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
-@@ -450,6 +496,8 @@
+@@ -450,6 +497,8 @@
  
    [feature = 'amenity_biergarten'][zoom >= 17] {
      marker-file: url('symbols/biergarten.svg');
@@ -448,16 +458,18 @@ index 0cba35b..5743b69 100644
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
-@@ -468,6 +516,8 @@
+@@ -468,6 +517,10 @@
    [feature = 'amenity_restaurant'][zoom >= 17],
    [feature = 'amenity_food_court'][zoom >= 17] {
      marker-file: url('symbols/restaurant.svg');
++    // making them smaller means we can see more,
++    // but not their names :(
 +    marker-width: 10;
 +    marker-height: 10;
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
-@@ -475,6 +525,8 @@
+@@ -475,6 +528,8 @@
  
    [feature = 'amenity_fast_food'][zoom >= 17] {
      marker-file: url('symbols/fast_food.svg');
@@ -466,7 +478,7 @@ index 0cba35b..5743b69 100644
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
-@@ -496,6 +548,8 @@
+@@ -496,6 +551,8 @@
  
    [feature = 'amenity_theatre'][zoom >= 16] {
      marker-file: url('symbols/theatre.svg');
@@ -475,18 +487,23 @@ index 0cba35b..5743b69 100644
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
-@@ -508,7 +562,10 @@
+@@ -503,12 +560,14 @@
+ 
+   [feature = 'amenity_arts_centre'][zoom >= 17] {
+     marker-file: url('symbols/shop/art.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
      marker-clip: false;
    }
  
-+  /*
-   [feature = 'amenity_toilets'][zoom >= 17] {
-+  */
+-  [feature = 'amenity_toilets'][zoom >= 17] {
 +  [feature = 'amenity_toilets'][zoom >= @useful] {
      marker-file: url('symbols/toilets.svg');
      marker-fill: @amenity-brown;
      marker-placement: interior;
-@@ -524,12 +581,14 @@
+@@ -524,12 +583,14 @@
  
    [feature = 'amenity_prison'][zoom >= 17] {
      marker-file: url('symbols/prison.svg');
@@ -502,7 +519,7 @@ index 0cba35b..5743b69 100644
      marker-file: url('symbols/viewpoint.svg');
      marker-placement: interior;
      marker-fill: @amenity-brown;
-@@ -558,13 +617,54 @@
+@@ -558,16 +619,59 @@
      marker-clip: false;
    }
  
@@ -536,6 +553,7 @@ index 0cba35b..5743b69 100644
 +    [castle_type = 'stately'][zoom >= @nice] {
 +      marker-file: url('symbols/castle-stately-14.svg');
 +    }
++    // ruins is not imported yet :(
 +    /*
 +    [ruins = 'yes'] {
 +      marker-fill: grey;
@@ -548,6 +566,7 @@ index 0cba35b..5743b69 100644
 +    marker-file: url('symbols/fort.svg');
 +    marker-width: 14;
 +    marker-placement: interior;
++    // ruins is not imported yet :(
 +    /*
 +    [ruins = 'yes'] {
 +      marker-fill: grey;
@@ -555,431 +574,284 @@ index 0cba35b..5743b69 100644
 +    */
 +  }
 +
-   [feature = 'shop_other'][zoom >= 17] {
-     marker-fill: @shop-icon;
-     marker-width: 6;
-@@ -573,7 +673,7 @@
-     marker-clip: false;
+   [feature = 'shop'] {
+     [zoom >= 17],
+-    [shop = 'supermarket'][zoom >= 16],
++    [shop = 'supermarket'][zoom >= @useful],
+     [shop = 'department_store'][zoom >= 16] {
+       marker-placement: interior;
+       marker-clip: false;
+@@ -593,10 +697,14 @@
+ 
+     [shop = 'art'][zoom >= 18] {
+       marker-file: url('symbols/shop/art.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'bag'][zoom >= 18] {
+       marker-file: url('symbols/shop/bag.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'bakery'][zoom >= 18] {
+@@ -605,6 +713,8 @@
+ 
+     [shop = 'beauty'][zoom >= 18] {
+       marker-file: url('symbols/shop/beauty.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'beverages'][zoom >= 18] {
+@@ -613,6 +723,8 @@
+ 
+     [shop = 'books'][zoom >= 18] {
+       marker-file: url('symbols/library.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'butcher'][zoom >= 18] {
+@@ -627,6 +739,8 @@
+     [shop = 'fashion'] {
+       [zoom >= 18] {
+         marker-file: url('symbols/shop/clothes.svg');
++        marker-width: 10;
++        marker-height: 10;
+       }
+     }
+ 
+@@ -636,6 +750,8 @@
+ 
+     [shop = 'computer'][zoom >= 18] {
+       marker-file: url('symbols/shop/computer.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'convenience'][zoom >= 18] {
+@@ -644,16 +760,22 @@
+ 
+     [shop = 'confectionery'][zoom >= 18] {
+       marker-file: url('symbols/shop/confectionery.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'copyshop'][zoom >= 18] {
+       marker-file: url('symbols/shop/copyshop.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'cosmetics'],
+     [shop = 'perfumery'] {
+       [zoom >= 18] {
+         marker-file: url('symbols/shop/perfumery.svg');
++        marker-width: 10;
++        marker-height: 10;
+       }
+     }
+ 
+@@ -665,12 +787,16 @@
+ 
+     [shop = 'department_store'][zoom >= 16] {
+       marker-file: url('symbols/shop/department_store.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'doityourself'],
+     [shop = 'hardware'] {
+       [zoom >= 18] {
+         marker-file: url('symbols/shop/diy.svg');
++        marker-width: 10;
++        marker-height: 10;
+       }
+     }
+ 
+@@ -678,6 +804,8 @@
+     [shop = 'laundry'] {
+       [zoom >= 18] {
+         marker-file: url('symbols/shop/laundry.svg');
++        marker-width: 10;
++        marker-height: 10;
+       }
+     }
+ 
+@@ -690,10 +818,14 @@
+ 
+     [shop = 'florist'][zoom >= 18] {
+       marker-file: url('symbols/shop/florist.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'garden_centre'][zoom >= 18] {
+       marker-file: url('symbols/shop/garden_centre.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'greengrocer'],
+@@ -705,10 +837,14 @@
+ 
+     [shop = 'hairdresser'][zoom >= 18] {
+       marker-file: url('symbols/shop/hairdresser.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'hifi'][zoom >= 18] {
+       marker-file: url('symbols/shop/hifi.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'ice_cream'][zoom >= 18] {
+@@ -717,10 +853,14 @@
+ 
+     [shop = 'car'][zoom >= 18] {
+       marker-file: url('symbols/shop/car.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'car_parts'][zoom >= 18] {
+       marker-file: url('symbols/shop/car_parts.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'car_repair'][zoom >= 18] {
+@@ -734,6 +874,8 @@
+ 
+     [shop = 'pet'][zoom >= 18] {
+       marker-file: url('symbols/shop/pet.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'photo'],
+@@ -746,45 +888,65 @@
+ 
+     [shop = 'shoes'][zoom >= 18] {
+       marker-file: url('symbols/shop/shoes.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'gift'][zoom >= 18] {
+       marker-file: url('symbols/shop/gift.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+     
+     [shop = 'electronics'][zoom >= 18] {
+       marker-file: url('symbols/shop/electronics.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+     
+     [shop = 'alcohol'],
+     [shop = 'wine'] {
+       [zoom >= 18] {
+         marker-file: url('symbols/shop/alcohol.svg');
++        marker-width: 10;
++        marker-height: 10;
+       }
+     }
+     
+     [shop = 'optician'][zoom >= 18] {
+       marker-file: url('symbols/shop/optician.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+     
+     [shop = 'outdoor'][zoom >= 18] {
+       marker-file: url('symbols/shop/outdoor.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+     
+     [shop = 'furniture'][zoom >= 18] {
+       marker-file: url('symbols/shop/furniture.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+     
+     [shop = 'mobile_phone'][zoom >= 18] {
+       marker-file: url('symbols/shop/mobile_phone.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'motorcycle'][zoom >= 18] {
+       marker-file: url('symbols/motorcycle.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'musical_instrument'][zoom >= 18] {
+       marker-file: url('symbols/shop/musical_instrument.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'kiosk'],
+@@ -798,40 +960,58 @@
+     [shop = 'jewellery'] {
+       [zoom >= 18] {
+         marker-file: url('symbols/shop/jewelry.svg');
++        marker-width: 10;
++        marker-height: 10;
+       }
+     }
+ 
+     [shop = 'toys'][zoom >= 18] {
+       marker-file: url('symbols/shop/toys.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'travel_agency'][zoom >= 18] {
+       marker-file: url('symbols/shop/travel_agency.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'sports'][zoom >= 18] {
+       marker-file: url('symbols/shop/sports.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'stationery'][zoom >= 18] {
+       marker-file: url('symbols/shop/stationery.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'tobacco'][zoom >= 18] {
+       marker-file: url('symbols/shop/tobacco.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'tea'][zoom >= 18] {
+       marker-file: url('symbols/shop/tea.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
+ 
+     [shop = 'variety_store'][zoom >= 18] {
+       marker-file: url('symbols/shop/variety_store.svg');
++      marker-width: 10;
++      marker-height: 10;
+     }
    }
- 
--  [feature = 'shop_supermarket'][zoom >= 16] {
-+  [feature = 'shop_supermarket'][zoom >= @useful] {
-     marker-file: url('symbols/shop/supermarket.svg');
-     marker-placement: interior;
-     marker-clip: false;
-@@ -582,6 +682,8 @@
- 
-   [feature = 'shop_art'][zoom >= 17] {
-     marker-file: url('symbols/shop/art.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @shop-icon;
-     marker-placement: interior;
-     marker-clip: false;
-@@ -589,6 +691,8 @@
- 
-   [feature = 'shop_bag'][zoom >= 17] {
-     marker-file: url('symbols/shop/bag.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @shop-icon;
-     marker-placement: interior;
-     marker-clip: false;
-@@ -596,6 +700,8 @@
- 
-   [feature = 'shop_bakery'][zoom >= 17] {
-     marker-file: url('symbols/shop/bakery.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @shop-icon;
-     marker-placement: interior;
-     marker-clip: false;
-@@ -603,6 +709,8 @@
- 
-   [feature = 'shop_beauty'][zoom >= 17] {
-     marker-file: url('symbols/shop/beauty.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @shop-icon;
-     marker-placement: interior;
-     marker-clip: false;
-@@ -610,6 +718,8 @@
- 
-   [feature = 'shop_beverages'][zoom >= 17] {
-     marker-file: url('symbols/shop/beverages.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -617,6 +727,8 @@
- 
-   [feature = 'shop_books'][zoom >= 17] {
-     marker-file: url('symbols/library.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @shop-icon;
-     marker-placement: interior;
-     marker-clip: false;
-@@ -624,6 +736,8 @@
- 
-   [feature = 'shop_butcher'][zoom >= 17] {
-     marker-file: url('symbols/shop/butcher.png');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-   }
-@@ -639,6 +753,8 @@
-   [feature = 'shop_fashion'] {
-     [zoom >= 17] {
-       marker-file: url('symbols/shop/clothes.svg');
-+      marker-width: 10;
-+      marker-height: 10;
-       marker-placement: interior;
-       marker-clip: false;
-       marker-fill: @shop-icon;
-@@ -647,6 +763,8 @@
- 
-   [feature = 'shop_coffee'][zoom >= 17] {
-     marker-file: url('symbols/shop/coffee.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -654,6 +772,8 @@
- 
-   [feature = 'shop_computer'][zoom >= 17] {
-     marker-file: url('symbols/shop/computer.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -661,6 +781,8 @@
- 
-   [feature = 'shop_convenience'][zoom >= 17] {
-     marker-file: url('symbols/shop/convenience.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -668,6 +790,8 @@
- 
-   [feature = 'shop_confectionery'][zoom >= 17] {
-     marker-file: url('symbols/shop/confectionery.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @shop-icon;
-     marker-placement: interior;
-     marker-clip: false;
-@@ -675,6 +799,8 @@
- 
-   [feature = 'shop_copyshop'][zoom >= 17] {
-     marker-file: url('symbols/shop/copyshop.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -684,6 +810,8 @@
-   [feature = 'shop_perfumery'] {
-     [zoom >= 17] {
-       marker-file: url('symbols/shop/perfumery.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-       marker-placement: interior;
-       marker-clip: false;
-       marker-fill: @shop-icon;
-@@ -693,6 +821,8 @@
-   [feature = 'shop_deli'] {
-     [zoom >= 17] {
-       marker-file: url('symbols/shop/deli.svg');
-+      marker-width: 10;
-+      marker-height: 10;
-       marker-placement: interior;
-       marker-clip: false;
-       marker-fill: @shop-icon;
-@@ -701,6 +831,8 @@
- 
-   [feature = 'shop_department_store'][zoom >= 16] {
-     marker-file: url('symbols/shop/department_store.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -710,6 +842,8 @@
-   [feature = 'shop_hardware'] {
-     [zoom >= 17] {
-       marker-file: url('symbols/shop/diy.svg');
-+      marker-width: 10;
-+      marker-height: 10;
-       marker-placement: interior;
-       marker-clip: false;
-       marker-fill: @shop-icon;
-@@ -738,6 +872,8 @@
- 
-   [feature = 'shop_florist'][zoom >= 17] {
-     marker-file: url('symbols/shop/florist.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -745,6 +881,8 @@
- 
-   [feature = 'shop_garden_centre'][zoom >= 17] {
-     marker-file: url('symbols/shop/garden_centre.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -762,6 +900,8 @@
- 
-   [feature = 'shop_hairdresser'][zoom >= 17] {
-     marker-file: url('symbols/shop/hairdresser.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -769,6 +909,8 @@
- 
-   [feature = 'shop_hifi'][zoom >= 17] {
-     marker-file: url('symbols/shop/hifi.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -783,6 +925,8 @@
- 
-   [feature = 'shop_car'][zoom >= 17] {
-     marker-file: url('symbols/shop/car.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -790,12 +934,14 @@
- 
-   [feature = 'shop_car_parts'][zoom >= 17] {
-     marker-file: url('symbols/shop/car_parts.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @shop-icon;
-     marker-placement: interior;
-     marker-clip: false;
-   }
- 
--  [feature = 'shop_car_repair'][zoom >= 17] {
-+  [feature = 'shop_car_repair'][zoom >= @useful] {
-     marker-file: url('symbols/shop/car_repair.svg');
-     marker-placement: interior;
-     marker-clip: false;
-@@ -804,6 +950,8 @@
- 
-   [feature = 'shop_bicycle'][zoom >= 17] {
-     marker-file: url('symbols/shop/bicycle.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @shop-icon;
-     marker-placement: interior;
-     marker-clip: false;
-@@ -811,6 +959,8 @@
- 
-   [feature = 'shop_pet'][zoom >= 17] {
-     marker-file: url('symbols/shop/pet.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -821,6 +971,8 @@
-   [feature = 'shop_photography'] {
-     [zoom >= 17] {
-       marker-file: url('symbols/shop/photo.svg');
-+      marker-width: 10;
-+      marker-height: 10;
-       marker-placement: interior;
-       marker-clip: false;
-       marker-fill: @shop-icon;
-@@ -829,6 +981,8 @@
- 
-   [feature = 'shop_shoes'][zoom >= 17] {
-     marker-file: url('symbols/shop/shoes.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -836,6 +990,8 @@
- 
-   [feature = 'shop_gift'][zoom >= 17] {
-     marker-file: url('symbols/shop/gift.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -843,6 +999,8 @@
-   
-   [feature = 'shop_electronics'][zoom >= 17] {
-     marker-file: url('symbols/shop/electronics.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -852,6 +1010,8 @@
-   [feature = 'shop_wine'] {
-     [zoom >= 17] {
-       marker-file: url('symbols/shop/alcohol.svg');
-+      marker-width: 10;
-+      marker-height: 10;
-       marker-placement: interior;
-       marker-clip: false;
-       marker-fill: @shop-icon;
-@@ -860,6 +1020,8 @@
-   
-   [feature = 'shop_optician'][zoom >= 17] {
-     marker-file: url('symbols/shop/optician.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -867,6 +1029,8 @@
-   
-   [feature = 'shop_outdoor'][zoom >= 17] {
-     marker-file: url('symbols/shop/outdoor.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -874,6 +1038,8 @@
-   
-   [feature = 'shop_furniture'][zoom >= 17] {
-     marker-file: url('symbols/shop/furniture.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -881,6 +1047,8 @@
-   
-   [feature = 'shop_mobile_phone'][zoom >= 17] {
-     marker-file: url('symbols/shop/mobile_phone.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -888,6 +1056,8 @@
- 
-   [feature = 'shop_motorcycle'][zoom >= 17] {
-     marker-file: url('symbols/motorcycle.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -895,6 +1065,8 @@
- 
-   [feature = 'shop_musical_instrument'][zoom >= 17] {
-     marker-file: url('symbols/shop/musical_instrument.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -904,6 +1076,8 @@
-   [feature = 'shop_newsagent'] {
-     [zoom >= 17] {
-       marker-file: url('symbols/shop/newsagent.svg');
-+      marker-width: 10;
-+      marker-height: 10;
-       marker-placement: interior;
-       marker-clip: false;
-       marker-fill: @shop-icon;
-@@ -914,6 +1088,8 @@
-   [feature = 'shop_jewellery'] {
-     [zoom >= 17] {
-       marker-file: url('symbols/shop/jewelry.svg');
-+      marker-width: 10;
-+      marker-height: 10;
-       marker-placement: interior;
-       marker-clip: false;
-       marker-fill: @shop-icon;
-@@ -922,6 +1098,8 @@
- 
-   [feature = 'shop_toys'][zoom >= 17] {
-     marker-file: url('symbols/shop/toys.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @shop-icon;
-     marker-placement: interior;
-     marker-clip: false;
-@@ -929,6 +1107,8 @@
- 
-   [feature = 'shop_travel_agency'][zoom >= 17] {
-     marker-file: url('symbols/shop/travel_agency.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -936,6 +1116,8 @@
- 
-   [feature = 'shop_sports'][zoom >= 17] {
-     marker-file: url('symbols/shop/sports.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @shop-icon;
-     marker-placement: interior;
-     marker-clip: false;
-@@ -943,6 +1125,8 @@
- 
-   [feature = 'shop_stationery'][zoom >= 17] {
-     marker-file: url('symbols/shop/stationery.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -950,6 +1134,8 @@
- 
-   [feature = 'shop_tobacco'][zoom >= 17] {
-     marker-file: url('symbols/shop/tobacco.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -957,6 +1143,8 @@
- 
-   [feature = 'shop_tea'][zoom >= 17] {
-     marker-file: url('symbols/shop/tea.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -964,6 +1152,8 @@
- 
-   [feature = 'shop_variety_store'][zoom >= 17] {
-     marker-file: url('symbols/shop/variety_store.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @shop-icon;
-@@ -971,6 +1161,8 @@
  
    [feature = 'leisure_water_park'][zoom >= 17] {
      marker-file: url('symbols/water_park.svg');
@@ -988,7 +860,7 @@ index 0cba35b..5743b69 100644
      marker-placement: interior;
      marker-fill: @amenity-brown;
      marker-clip: false;
-@@ -978,6 +1170,8 @@
+@@ -839,6 +1019,8 @@
  
    [feature = 'leisure_dog_park'][zoom >= 17] {
      marker-file: url('symbols/shop/pet.svg');
@@ -997,7 +869,7 @@ index 0cba35b..5743b69 100644
      marker-placement: interior;
      marker-fill: @amenity-brown;
      marker-clip: false;
-@@ -985,6 +1179,8 @@
+@@ -846,6 +1028,8 @@
  
    [feature = 'leisure_playground'][zoom >= 17] {
      marker-file: url('symbols/playground.svg');
@@ -1006,7 +878,7 @@ index 0cba35b..5743b69 100644
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
-@@ -995,11 +1191,15 @@
+@@ -856,11 +1040,15 @@
  
    [feature = 'leisure_miniature_golf'][zoom >= 17] {
      point-file: url('symbols/miniature_golf.p.20.png');
@@ -1022,7 +894,7 @@ index 0cba35b..5743b69 100644
      point-placement: interior;
    }
  
-@@ -1019,6 +1219,8 @@
+@@ -880,6 +1068,8 @@
  
    [feature = 'leisure_slipway'][zoom >= 17] {
      point-file: url('symbols/transport_slipway.p.20.png');
@@ -1031,7 +903,7 @@ index 0cba35b..5743b69 100644
      point-placement: interior;
    }
  
-@@ -1381,7 +1583,9 @@
+@@ -1242,7 +1432,9 @@
    [feature = 'historic_memorial'][zoom >= 17],
    [feature = 'man_made_obelisk'][zoom >= 16],
    [feature = 'historic_monument'][zoom >= 16],
@@ -1042,7 +914,7 @@ index 0cba35b..5743b69 100644
      text-name: "[name]";
      text-size: @standard-text-size;
      text-fill: @amenity-brown;
-@@ -2203,6 +2407,7 @@
+@@ -2064,6 +2256,7 @@
      text-wrap-width: @standard-wrap-width;
    }
  
@@ -1050,7 +922,7 @@ index 0cba35b..5743b69 100644
    [feature = 'natural_tree'][zoom >= 17] {
      text-name: "[name]";
      text-size: @standard-text-size;
-@@ -2217,8 +2422,10 @@
+@@ -2078,8 +2271,10 @@
      text-placement: interior;
      text-wrap-width: @standard-wrap-width;
    }
@@ -1061,15 +933,76 @@ index 0cba35b..5743b69 100644
  #trees [zoom >= 16] {
    ::canopy {
      opacity: 0.3;
-@@ -2283,3 +2490,4 @@
+@@ -2144,3 +2339,4 @@
      }
    }
  }
 +*/
+diff --git a/fonts.mss b/fonts.mss
+index 55f125d..0755dee 100644
+--- a/fonts.mss
++++ b/fonts.mss
+@@ -110,12 +110,10 @@ A regular style.
+ 
+                 "Noto Naskh Arabic UI Regular",
+ 
+-                "Noto Emoji Regular",
+-
+                 "DejaVu Sans Book",
+ 
+                 "HanaMinA Regular", "HanaMinB Regular",
+-                "Unifont Medium", "unifont Medium", "Unifont Upper Medium";
++                "Unifont Medium", "Unifont Upper Medium";
+ 
+ /*
+ A bold style is available for almost all scripts. Bold text is heavier than
+@@ -190,12 +188,10 @@ regular text and can be used for emphasis. Fallback is a regular style.
+ 
+                 "Noto Naskh Arabic UI Regular",
+ 
+-                "Noto Emoji Regular",
+-
+                 "DejaVu Sans Bold", "DejaVu Sans Book",
+ 
+                 "HanaMinA Regular", "HanaMinB Regular",
+-                "Unifont Medium", "unifont Medium", "Unifont Upper Medium";
++                "Unifont Medium", "Unifont Upper Medium";
+ 
+ /*
+ Italics are only available for the base font, not the other scripts.
+@@ -264,9 +260,7 @@ For a considerable number of labels this style will make no difference to the re
+ 
+                 "Noto Naskh Arabic UI Regular",
+ 
+-                "Noto Emoji Regular",
+-
+                 "DejaVu Sans Oblique", "DejaVu Sans Book",
+ 
+                 "HanaMinA Regular", "HanaMinB Regular",
+-                "Unifont Medium", "unifont Medium", "Unifont Upper Medium";
+\ No newline at end of file
++                "Unifont Medium", "Unifont Upper Medium";
 diff --git a/landcover.mss b/landcover.mss
-index 23ce1ec..2158b8d 100644
+index 79875f5..cd32e97 100644
 --- a/landcover.mss
 +++ b/landcover.mss
+@@ -1,11 +1,11 @@
+ // --- Parks, woods, other green things ---
+ 
+-@grass: #cdebb0; // also meadow, common, garden, village_green
+-@scrub: #b5e3b5;
+-@forest: #add19e;       // Lch(80,30,135)
++@grass: #b5e3b5; // also meadow, common, garden, village_green
++@scrub: @grass;
++@forest: @grass;
+ @forest-text: #46673b;  // Lch(40,30,135)
+-@park: #c8facc;         // Lch(94,30,145) also recreation_ground
+-@orchard: #aedfa3; // also vineyard, plant_nursery
++@park: @grass;          // also recreation_ground
++@orchard: @grass; // also vineyard, plant_nursery
+ 
+ // --- "Base" landuses ---
+ 
 @@ -55,6 +55,19 @@
  @military: #f55;
  @beach: #fff1ba;
@@ -1495,7 +1428,7 @@ index 23ce1ec..2158b8d 100644
      polygon-pattern-alignment: global;
      opacity: 0.4; // The entire layer has opacity to handle overlapping forests
    }
-@@ -670,11 +819,39 @@
+@@ -670,11 +819,40 @@
    }
  }
  
@@ -1528,17 +1461,18 @@ index 23ce1ec..2158b8d 100644
 +    line-pattern-file: url('symbols/ridge.svg');
 +  }
    [natural = 'cliff'][zoom >= 13] {
--    line-pattern-file: url('symbols/cliff.png');
-+    // line-pattern-file: url('symbols/cliff.png');
+-    line-pattern-file: url('symbols/cliff.svg');
++    // -color: #262626;
++    // line-pattern-file: url('symbols/cliff.svg');
 +    line-pattern-file: url('symbols/cliff_mdione.png');
      [zoom >= 15] {
--      line-pattern-file: url('symbols/cliff2.png');
-+      // line-pattern-file: url('symbols/cliff2.png');
+-      line-pattern-file: url('symbols/cliff2.svg');
++      // line-pattern-file: url('symbols/cliff2.svg');
 +      line-pattern-file: url('symbols/cliff2_mdione.png');
      }
    }
    [man_made = 'embankment'][zoom >= 15]::man_made {
-@@ -747,18 +924,214 @@
+@@ -747,18 +925,214 @@
    }
  }
  
@@ -1953,7 +1887,7 @@ index 065f6d7..f3d11ba 100644
  }
 +*/
 diff --git a/project.mml b/project.mml
-index 0a3a3dc..1fca2f1 100644
+index f986ca1..294ca32 100644
 --- a/project.mml
 +++ b/project.mml
 @@ -1,16 +1,16 @@
@@ -1986,7 +1920,7 @@ index 0a3a3dc..1fca2f1 100644
      key_field: ""
      geometry_field: "way"
      extent: "-20037508,-20037508,20037508,20037508"
-@@ -53,24 +54,40 @@ Stylesheet:
+@@ -54,24 +55,40 @@ Stylesheet:
    - admin.mss
    - addressing.mss
  Layer:
@@ -2039,7 +1973,7 @@ index 0a3a3dc..1fca2f1 100644
    - id: builtup
      name: builtup
      geometry: polygon
-@@ -81,7 +98,7 @@ Layer:
+@@ -82,7 +99,7 @@ Layer:
        file: data/world_boundaries/builtup_area.shp
        type: shape
      properties:
@@ -2048,7 +1982,7 @@ index 0a3a3dc..1fca2f1 100644
        maxzoom: 9
    - id: necountries
      name: necountries
-@@ -134,17 +151,16 @@ Layer:
+@@ -135,15 +152,14 @@ Layer:
                way, COALESCE(name, '') AS name,
                ('aeroway_' || (CASE WHEN aeroway IN ('apron', 'aerodrome') THEN aeroway ELSE NULL END)) AS aeroway,
                ('amenity_' || (CASE WHEN amenity IN ('parking', 'bicycle_parking', 'motorcycle_parking', 'university', 'college', 'school', 
@@ -2069,12 +2003,9 @@ index 0a3a3dc..1fca2f1 100644
 +              ('leisure_' || (CASE WHEN leisure IN ('swimming_pool',
 +                                                    'golf_course', 'miniature_golf', 'picnic_table', 'fitness_centre') THEN leisure ELSE NULL END)) AS leisure,
                ('military_' || (CASE WHEN military IN ('danger_area') THEN military ELSE NULL END)) AS military,
--              ('natural_' || (CASE WHEN "natural" IN ('beach', 'shoal', 'heath', 'grassland', 'wood', 'sand', 'scree', 'shingle', 'bare_rock', 'scrub') THEN "natural" ELSE NULL END)) AS "natural",
-+              ('natural_' || (CASE WHEN "natural" IN ('heath', 'grassland', 'wood', 'sand', 'scree', 'shingle', 'bare_rock', 'scrub') THEN "natural" ELSE NULL END)) AS "natural",
+               ('natural_' || (CASE WHEN "natural" IN ('beach', 'shoal', 'heath', 'grassland', 'wood', 'sand', 'scree', 'shingle', 'bare_rock', 'scrub') THEN "natural" ELSE NULL END)) AS "natural",
                ('wetland_' || (CASE WHEN "natural" IN ('wetland', 'marsh', 'mud') THEN (CASE WHEN "natural" IN ('marsh', 'mud') THEN "natural" ELSE wetland END) ELSE NULL END)) AS wetland,
-               ('power_' || (CASE WHEN power IN ('station', 'sub_station', 'substation', 'generator') THEN power ELSE NULL END)) AS power,
-               ('tourism_' || (CASE WHEN tourism IN ('attraction', 'camp_site', 'caravan_site', 'picnic_site') THEN tourism ELSE NULL END)) AS tourism,
-@@ -159,7 +175,7 @@ Layer:
+@@ -160,7 +176,7 @@ Layer:
                OR amenity IN ('parking', 'bicycle_parking', 'motorcycle_parking', 'university', 'college', 'school', 'hospital', 'kindergarten', 
                               'grave_yard', 'place_of_worship', 'prison', 'clinic')
                OR military IN ('danger_area')
@@ -2083,7 +2014,7 @@ index 0a3a3dc..1fca2f1 100644
                OR power IN ('station', 'sub_station', 'substation', 'generator')
                OR tourism IN ('attraction', 'camp_site', 'caravan_site', 'picnic_site')
                OR highway IN ('services', 'rest_area')
-@@ -184,6 +200,201 @@ Layer:
+@@ -185,6 +201,201 @@ Layer:
          ) AS landcover_line
      properties:
        minzoom: 14
@@ -2285,7 +2216,7 @@ index 0a3a3dc..1fca2f1 100644
    - id: water-lines-casing
      name: water-lines-casing
      geometry: linestring
-@@ -195,10 +406,11 @@ Layer:
+@@ -196,10 +407,11 @@ Layer:
              way, waterway, intermittent,
              CASE WHEN tunnel IN ('yes', 'culvert') THEN 'yes' ELSE 'no' END AS int_tunnel
            FROM planet_osm_line
@@ -2299,7 +2230,7 @@ index 0a3a3dc..1fca2f1 100644
    - id: water-lines-low-zoom
      name: water-lines-low-zoom
      geometry: linestring
-@@ -216,6 +428,27 @@ Layer:
+@@ -217,6 +429,27 @@ Layer:
      properties:
        minzoom: 8
        maxzoom: 11
@@ -2327,7 +2258,7 @@ index 0a3a3dc..1fca2f1 100644
    - id: icesheet-poly
      name: icesheet-poly
      geometry: polygon
-@@ -243,7 +476,7 @@ Layer:
+@@ -244,7 +477,7 @@ Layer:
            WHERE
              (waterway IN ('dock', 'riverbank')
                OR landuse IN ('reservoir', 'basin')
@@ -2336,7 +2267,7 @@ index 0a3a3dc..1fca2f1 100644
              AND building IS NULL
              AND way_area > 0.01*!pixel_width!::real*!pixel_height!::real
            ORDER BY z_order, way_area DESC
-@@ -352,6 +585,25 @@ Layer:
+@@ -353,6 +586,25 @@ Layer:
          ) AS marinas_area
      properties:
        minzoom: 14
@@ -2362,7 +2293,7 @@ index 0a3a3dc..1fca2f1 100644
    - id: piers-poly
      name: piers-poly
      geometry: polygon
-@@ -474,7 +726,6 @@ Layer:
+@@ -475,7 +727,6 @@ Layer:
              tracktype,
              int_surface,
              access,
@@ -2370,7 +2301,7 @@ index 0a3a3dc..1fca2f1 100644
              service,
              link,
              layernotnull
-@@ -496,7 +747,6 @@ Layer:
+@@ -497,7 +748,6 @@ Layer:
                    WHEN access IN ('no', 'private') THEN 'no'::text
                    ELSE NULL
                  END AS access,
@@ -2378,7 +2309,7 @@ index 0a3a3dc..1fca2f1 100644
                  CASE
                    WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text
                    ELSE 'INT-normal'::text
-@@ -528,7 +778,6 @@ Layer:
+@@ -529,7 +779,6 @@ Layer:
                    WHEN access IN ('no', 'private') THEN 'no'::text
                    ELSE NULL
                  END AS access,
@@ -2386,7 +2317,7 @@ index 0a3a3dc..1fca2f1 100644
                  CASE WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text ELSE 'INT-normal'::text END AS service,
                  'no' AS link,
                  CASE WHEN layer~E'^-?\\d+$' AND length(layer)<10 THEN layer::integer ELSE 0 END AS layernotnull
-@@ -550,8 +799,6 @@ Layer:
+@@ -551,8 +800,6 @@ Layer:
                ('railway_turntable', 420),
                ('railway_tram', 410),
                ('railway_tram-service', 405),
@@ -2395,7 +2326,7 @@ index 0a3a3dc..1fca2f1 100644
                ('highway_motorway', 380),
                ('highway_trunk', 370),
                ('highway_primary', 360),
-@@ -578,8 +825,7 @@ Layer:
+@@ -579,8 +826,7 @@ Layer:
                ('highway_platform', 90),
                ('railway_platform', 90),
                ('aeroway_runway', 60),
@@ -2405,7 +2336,7 @@ index 0a3a3dc..1fca2f1 100644
              ) AS ordertable (feature, prio)
              USING (feature)
            ORDER BY
-@@ -631,20 +877,20 @@ Layer:
+@@ -632,20 +878,20 @@ Layer:
          ) AS line_barriers
      properties:
        minzoom: 14
@@ -2432,7 +2363,7 @@ index 0a3a3dc..1fca2f1 100644
    - id: area-barriers
      name: area-barriers
      class: barriers
-@@ -743,7 +989,6 @@ Layer:
+@@ -744,7 +990,6 @@ Layer:
              tracktype,
              int_surface,
              access,
@@ -2440,7 +2371,7 @@ index 0a3a3dc..1fca2f1 100644
              service,
              link,
              layernotnull
-@@ -765,7 +1010,6 @@ Layer:
+@@ -766,7 +1011,6 @@ Layer:
                    WHEN access IN ('no', 'private') THEN 'no'::text
                    ELSE NULL
                  END AS access,
@@ -2448,7 +2379,7 @@ index 0a3a3dc..1fca2f1 100644
                  CASE
                    WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text
                    ELSE 'INT-normal'::text
-@@ -799,7 +1043,6 @@ Layer:
+@@ -800,7 +1044,6 @@ Layer:
                    WHEN access IN ('no', 'private') THEN 'no'::text
                    ELSE NULL
                  END AS access,
@@ -2456,7 +2387,7 @@ index 0a3a3dc..1fca2f1 100644
                  CASE WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text ELSE 'INT-normal'::text END AS service,
                  'no' AS link,
                  CASE WHEN layer~E'^-?\\d+$' AND length(layer)<10 THEN layer::integer ELSE 0 END AS layernotnull
-@@ -823,8 +1066,6 @@ Layer:
+@@ -824,8 +1067,6 @@ Layer:
                ('railway_turntable', 420),
                ('railway_tram', 410),
                ('railway_tram-service', 405),
@@ -2465,7 +2396,7 @@ index 0a3a3dc..1fca2f1 100644
                ('highway_motorway', 380),
                ('highway_trunk', 370),
                ('highway_primary', 360),
-@@ -851,8 +1092,7 @@ Layer:
+@@ -852,8 +1093,7 @@ Layer:
                ('highway_platform', 90),
                ('railway_platform', 90),
                ('aeroway_runway', 60),
@@ -2475,7 +2406,7 @@ index 0a3a3dc..1fca2f1 100644
              ) AS ordertable (feature, prio)
              USING (feature)
            ORDER BY
-@@ -908,7 +1148,6 @@ Layer:
+@@ -909,7 +1149,6 @@ Layer:
              tracktype,
              int_surface,
              access,
@@ -2483,7 +2414,7 @@ index 0a3a3dc..1fca2f1 100644
              service,
              link,
              layernotnull
-@@ -930,7 +1169,6 @@ Layer:
+@@ -931,7 +1170,6 @@ Layer:
                    WHEN access IN ('no', 'private') THEN 'no'::text
                    ELSE NULL
                  END AS access,
@@ -2491,7 +2422,7 @@ index 0a3a3dc..1fca2f1 100644
                  CASE
                    WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text
                    ELSE 'INT-normal'::text
-@@ -964,7 +1202,6 @@ Layer:
+@@ -965,7 +1203,6 @@ Layer:
                    WHEN access IN ('no', 'private') THEN 'no'::text
                    ELSE NULL
                  END AS access,
@@ -2499,7 +2430,7 @@ index 0a3a3dc..1fca2f1 100644
                  CASE WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text ELSE 'INT-normal'::text END AS service,
                  'no' AS link,
                  CASE WHEN layer~E'^-?\\d+$' AND length(layer)<10 THEN layer::integer ELSE 0 END AS layernotnull
-@@ -988,8 +1225,6 @@ Layer:
+@@ -989,8 +1226,6 @@ Layer:
                ('railway_turntable', 420),
                ('railway_tram', 410),
                ('railway_tram-service', 405),
@@ -2508,7 +2439,7 @@ index 0a3a3dc..1fca2f1 100644
                ('highway_motorway', 380),
                ('highway_trunk', 370),
                ('highway_primary', 360),
-@@ -1016,8 +1251,7 @@ Layer:
+@@ -1017,8 +1252,7 @@ Layer:
                ('highway_platform', 90),
                ('railway_platform', 90),
                ('aeroway_runway', 60),
@@ -2518,7 +2449,7 @@ index 0a3a3dc..1fca2f1 100644
              ) AS ordertable (feature, prio)
              USING (feature)
            ORDER BY
-@@ -1028,6 +1262,25 @@ Layer:
+@@ -1029,6 +1263,25 @@ Layer:
          ) AS roads_fill
      properties:
        minzoom: 10
@@ -2544,7 +2475,7 @@ index 0a3a3dc..1fca2f1 100644
    - id: turning-circle-fill
      name: turning-circle-fill
      geometry: point
-@@ -1142,7 +1395,6 @@ Layer:
+@@ -1143,7 +1396,6 @@ Layer:
              tracktype,
              int_surface,
              access,
@@ -2552,7 +2483,7 @@ index 0a3a3dc..1fca2f1 100644
              service,
              link,
              layernotnull
-@@ -1164,7 +1416,6 @@ Layer:
+@@ -1165,7 +1417,6 @@ Layer:
                    WHEN access IN ('no', 'private') THEN 'no'::text
                    ELSE NULL
                  END AS access,
@@ -2560,7 +2491,7 @@ index 0a3a3dc..1fca2f1 100644
                  CASE
                    WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text
                    ELSE 'INT-normal'::text
-@@ -1196,7 +1447,6 @@ Layer:
+@@ -1197,7 +1448,6 @@ Layer:
                    WHEN access IN ('no', 'private') THEN 'no'::text
                    ELSE NULL
                  END AS access,
@@ -2568,7 +2499,7 @@ index 0a3a3dc..1fca2f1 100644
                  CASE WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text ELSE 'INT-normal'::text END AS service,
                  'no' AS link,
                  CASE WHEN layer~E'^-?\\d+$' AND length(layer)<10 THEN layer::integer ELSE 0 END AS layernotnull
-@@ -1218,8 +1468,6 @@ Layer:
+@@ -1219,8 +1469,6 @@ Layer:
                ('railway_turntable', 420),
                ('railway_tram', 410),
                ('railway_tram-service', 405),
@@ -2577,7 +2508,7 @@ index 0a3a3dc..1fca2f1 100644
                ('highway_motorway', 380),
                ('highway_trunk', 370),
                ('highway_primary', 360),
-@@ -1246,8 +1494,7 @@ Layer:
+@@ -1247,8 +1495,7 @@ Layer:
                ('highway_platform', 90),
                ('railway_platform', 90),
                ('aeroway_runway', 60),
@@ -2587,7 +2518,7 @@ index 0a3a3dc..1fca2f1 100644
              ) AS ordertable (feature, prio)
              USING (feature)
            ORDER BY
-@@ -1285,97 +1532,12 @@ Layer:
+@@ -1286,97 +1533,12 @@ Layer:
              admin_level
            FROM planet_osm_roads
            WHERE boundary = 'administrative'
@@ -2686,7 +2617,7 @@ index 0a3a3dc..1fca2f1 100644
    - id: tourism-boundary
      name: tourism-boundary
      geometry: polygon
-@@ -1394,25 +1556,6 @@ Layer:
+@@ -1395,25 +1557,6 @@ Layer:
          ) AS tourism_boundary
      properties:
        minzoom: 10
@@ -2712,8 +2643,8 @@ index 0a3a3dc..1fca2f1 100644
    - id: country-names
      name: country-names
      class: country
-@@ -1633,8 +1776,8 @@ Layer:
-                               WHEN shop IN ('no', 'vacant', 'closed', 'disused', 'empty') OR shop IS NULL THEN NULL ELSE 'other' END,
+@@ -1626,8 +1769,8 @@ Layer:
+               'shop' || CASE WHEN shop IN ('no', 'vacant', 'closed', 'disused', 'empty') OR shop IS NULL THEN NULL ELSE '' END,
                'leisure_' || CASE WHEN leisure IN ('water_park', 'playground', 'miniature_golf', 'golf_course', 'picnic_table') THEN leisure ELSE NULL END,
                'man_made_' || CASE WHEN man_made IN ('mast', 'water_tower', 'lighthouse', 'windmill', 'obelisk') THEN man_made ELSE NULL END,
 -              'natural_' || CASE WHEN "natural" IN ('spring') THEN "natural" ELSE NULL END,
@@ -2723,17 +2654,31 @@ index 0a3a3dc..1fca2f1 100644
                'highway_'|| CASE WHEN highway IN ('bus_stop', 'elevator', 'traffic_signals') THEN highway ELSE NULL END,
                'power_' || CASE WHEN power IN ('generator') THEN power ELSE NULL END,
                'tourism_' || CASE WHEN tourism IN ('viewpoint') THEN tourism ELSE NULL END
-@@ -1644,6 +1787,9 @@ Layer:
+@@ -1637,13 +1780,16 @@ Layer:
              denomination,
              "generator:source",
              power_source,
+-            CASE WHEN shop IN ('supermarket', 'bag', 'bakery', 'beauty', 'books', 'butcher', 'clothes', 'computer', 
+-                               'confectionery', 'fashion', 'convenience', 'department_store', 'doityourself', 'hardware', 'fishmonger', 'florist', 
+-                               'garden_centre', 'hairdresser', 'hifi', 'ice_cream', 'car', 'car_repair', 'bicycle', 'mall', 'pet', 
+-                               'photo', 'photo_studio', 'photography', 'seafood', 'shoes', 'alcohol', 'gift', 'furniture', 'kiosk', 
+-                               'mobile_phone', 'motorcycle', 'musical_instrument', 'newsagent', 'optician', 'jewelry', 'jewellery', 
+-                               'electronics', 'chemist', 'toys', 'travel_agency', 'car_parts', 'greengrocer', 'farm', 'stationery', 
+-                               'laundry', 'dry_cleaning', 'beverages', 'perfumery', 'cosmetics', 'variety_store', 'wine', 'outdoor', 
 +            name,
 +            castle_type,
 +            -- ruins,
++            CASE WHEN shop IN ('supermarket', 'bag', 'bakery', 'beauty', 'books', 'butcher', 'clothes', 'computer',
++                               'confectionery', 'fashion', 'convenience', 'department_store', 'doityourself', 'hardware', 'fishmonger', 'florist',
++                               'garden_centre', 'hairdresser', 'hifi', 'ice_cream', 'car', 'car_repair', 'bicycle', 'mall', 'pet',
++                               'photo', 'photo_studio', 'photography', 'seafood', 'shoes', 'alcohol', 'gift', 'furniture', 'kiosk',
++                               'mobile_phone', 'motorcycle', 'musical_instrument', 'newsagent', 'optician', 'jewelry', 'jewellery',
++                               'electronics', 'chemist', 'toys', 'travel_agency', 'car_parts', 'greengrocer', 'farm', 'stationery',
++                               'laundry', 'dry_cleaning', 'beverages', 'perfumery', 'cosmetics', 'variety_store', 'wine', 'outdoor',
+                                'copyshop', 'sports', 'deli', 'tobacco', 'art', 'tea', 'coffee') THEN shop
+                                ELSE 'other' END AS shop,
              way_area/NULLIF(!pixel_width!::real*!pixel_height!::real,0) AS way_pixels
-           FROM planet_osm_polygon
-           -- The upcoming where clause is needed for performance only, as the CASE statements would end up doing the equivalent filtering
-@@ -1661,8 +1807,8 @@ Layer:
+@@ -1663,8 +1809,8 @@ Layer:
              OR shop IS NOT NULL -- skip checking a huge list and use a null check
              OR leisure IN ('water_park', 'playground', 'miniature_golf', 'golf_course', 'picnic_table')
              OR man_made IN ('mast', 'water_tower', 'lighthouse', 'windmill', 'obelisk')
@@ -2744,7 +2689,7 @@ index 0a3a3dc..1fca2f1 100644
              OR highway IN ('bus_stop', 'elevator', 'traffic_signals')
              OR (power = 'generator' AND ("generator:source" = 'wind' OR power_source = 'wind'))
            ORDER BY way_area desc
-@@ -1704,7 +1850,7 @@ Layer:
+@@ -1698,7 +1844,7 @@ Layer:
                                                    'dog_park') THEN leisure ELSE NULL END,
                'man_made_' || CASE WHEN man_made IN ('mast', 'water_tower', 'lighthouse', 'windmill', 'obelisk') THEN man_made ELSE NULL END,
                'natural_' || CASE WHEN "natural" IN ('peak', 'volcano', 'saddle', 'spring', 'cave_entrance') THEN "natural" ELSE NULL END,
@@ -2753,16 +2698,30 @@ index 0a3a3dc..1fca2f1 100644
                'highway_'|| CASE WHEN highway IN ('bus_stop', 'elevator', 'traffic_signals', 'ford') THEN highway ELSE NULL END,
                'power_' || CASE WHEN power IN ('generator') THEN power ELSE NULL END,
                'tourism_' || CASE WHEN tourism IN ('viewpoint') THEN tourism ELSE NULL END,
-@@ -1724,6 +1870,8 @@ Layer:
+@@ -1718,13 +1864,15 @@ Layer:
              denomination,
              "generator:source",
              power_source,
+-            CASE WHEN shop IN ('supermarket', 'bag', 'bakery', 'beauty', 'books', 'butcher', 'clothes', 'computer', 
+-                               'confectionery', 'fashion', 'convenience', 'department_store', 'doityourself', 'hardware', 'fishmonger', 'florist', 
+-                               'garden_centre', 'hairdresser', 'hifi', 'ice_cream', 'car', 'car_repair', 'bicycle', 'mall', 'pet', 
+-                               'photo', 'photo_studio', 'photography', 'seafood', 'shoes', 'alcohol', 'gift', 'furniture', 'kiosk', 
+-                               'mobile_phone', 'motorcycle', 'musical_instrument', 'newsagent', 'optician', 'jewelry', 'jewellery', 
+-                               'electronics', 'chemist', 'toys', 'travel_agency', 'car_parts', 'greengrocer', 'farm', 'stationery', 
+-                               'laundry', 'dry_cleaning', 'beverages', 'perfumery', 'cosmetics', 'variety_store', 'wine', 'outdoor', 
 +            castle_type,
 +            -- ruins,
++            CASE WHEN shop IN ('supermarket', 'bag', 'bakery', 'beauty', 'books', 'butcher', 'clothes', 'computer',
++                               'confectionery', 'fashion', 'convenience', 'department_store', 'doityourself', 'hardware', 'fishmonger', 'florist',
++                               'garden_centre', 'hairdresser', 'hifi', 'ice_cream', 'car', 'car_repair', 'bicycle', 'mall', 'pet',
++                               'photo', 'photo_studio', 'photography', 'seafood', 'shoes', 'alcohol', 'gift', 'furniture', 'kiosk',
++                               'mobile_phone', 'motorcycle', 'musical_instrument', 'newsagent', 'optician', 'jewelry', 'jewellery',
++                               'electronics', 'chemist', 'toys', 'travel_agency', 'car_parts', 'greengrocer', 'farm', 'stationery',
++                               'laundry', 'dry_cleaning', 'beverages', 'perfumery', 'cosmetics', 'variety_store', 'wine', 'outdoor',
+                                'copyshop', 'sports', 'deli', 'tobacco', 'art', 'tea', 'coffee') THEN shop
+                                ELSE 'other' END AS shop,
              NULL AS way_pixels
-           FROM planet_osm_point
-           -- The upcoming where clause is needed for performance only, as the CASE statements would end up doing the equivalent filtering
-@@ -1743,41 +1891,13 @@ Layer:
+@@ -1746,41 +1894,13 @@ Layer:
                             'dog_park')
              OR man_made IN ('mast', 'water_tower', 'lighthouse', 'windmill', 'cross', 'obelisk')
              OR "natural" IN ('peak', 'volcano', 'saddle', 'spring', 'cave_entrance')
@@ -2805,7 +2764,7 @@ index 0a3a3dc..1fca2f1 100644
    - id: roads-text-ref-low-zoom
      name: roads-text-ref-low-zoom
      geometry: linestring
-@@ -1953,7 +2073,6 @@ Layer:
+@@ -1956,7 +2076,6 @@ Layer:
              way,
              CASE WHEN substr(highway, length(highway)-3, 4) = 'link' THEN substr(highway, 0, length(highway)-4) ELSE highway END,
              CASE WHEN (tunnel = 'yes' OR tunnel = 'building_passage' OR covered = 'yes') THEN 'yes' ELSE 'no' END AS tunnel,
@@ -2813,7 +2772,7 @@ index 0a3a3dc..1fca2f1 100644
              name,
              CASE
                WHEN oneway IN ('yes', '-1') THEN oneway
-@@ -1979,12 +2098,11 @@ Layer:
+@@ -1982,12 +2101,11 @@ Layer:
                ('primary_link', 220),
                ('secondary_link', 210),
                ('tertiary_link', 200),
@@ -2828,7 +2787,7 @@ index 0a3a3dc..1fca2f1 100644
              AND (name IS NOT NULL
                OR oneway IN ('yes', '-1')
                OR junction IN ('roundabout'))
-@@ -2033,6 +2151,7 @@ Layer:
+@@ -2036,6 +2154,7 @@ Layer:
                'leisure_' || CASE WHEN leisure IN ('nature_reserve') THEN leisure ELSE NULL END
              ) AS feature,
              name,
@@ -2836,7 +2795,7 @@ index 0a3a3dc..1fca2f1 100644
              CASE WHEN building = 'no' OR building IS NULL THEN 'no' ELSE 'yes' END AS is_building -- always no with the where conditions
            FROM planet_osm_polygon
            WHERE (landuse IN ('forest', 'military')
-@@ -2088,13 +2207,13 @@ Layer:
+@@ -2091,13 +2210,13 @@ Layer:
                'landuse_' || CASE WHEN landuse IN ('reservoir', 'basin', 'recreation_ground', 'village_green', 'quarry', 'vineyard', 'orchard', 'cemetery', 
                                                    'residential', 'garages', 'meadow', 'grass', 'allotments', 'forest', 'farmyard', 'farmland', 
                                                    'greenhouse_horticulture', 'retail', 'industrial', 'railway', 'commercial', 'brownfield', 'landfill', 
@@ -2852,7 +2811,7 @@ index 0a3a3dc..1fca2f1 100644
                'highway_' || CASE WHEN highway IN ('services', 'rest_area', 'bus_stop', 'elevator', 'ford') THEN highway ELSE NULL END,
                'boundary_' || CASE WHEN boundary IN ('national_park') THEN boundary ELSE NULL END,
                'waterway_' || CASE WHEN waterway IN ('dam') THEN waterway ELSE NULL END,
-@@ -2105,6 +2224,7 @@ Layer:
+@@ -2108,6 +2227,7 @@ Layer:
              operator,
              ref,
              way_area,
@@ -2860,7 +2819,7 @@ index 0a3a3dc..1fca2f1 100644
              CASE WHEN building = 'no' OR building IS NULL THEN 'no' ELSE 'yes' END AS is_building
            FROM planet_osm_polygon
            -- The upcoming where clause is needed for performance only, as the CASE statements would end up doing the equivalent filtering
-@@ -2119,7 +2239,7 @@ Layer:
+@@ -2122,7 +2242,7 @@ Layer:
                OR "natural" IS NOT NULL
                OR place IN ('island', 'islet')
                OR military IN ('danger_area')
@@ -2869,7 +2828,7 @@ index 0a3a3dc..1fca2f1 100644
                OR highway IN ('services', 'rest_area', 'bus_stop', 'elevator', 'ford')
                OR power IN ('plant', 'station', 'generator', 'sub_station', 'substation')
                OR boundary IN ('national_park')
-@@ -2146,12 +2266,13 @@ Layer:
+@@ -2149,12 +2269,13 @@ Layer:
              name,
              operator,
              ref,
@@ -2884,7 +2843,7 @@ index 0a3a3dc..1fca2f1 100644
              AND name IS NOT NULL
          ) AS text_line
      properties:
-@@ -2183,6 +2304,7 @@ Layer:
+@@ -2186,6 +2307,7 @@ Layer:
              operator,
              ref,
              way_area,
@@ -2892,7 +2851,7 @@ index 0a3a3dc..1fca2f1 100644
              is_building
            FROM
              (SELECT
-@@ -2215,14 +2337,16 @@ Layer:
+@@ -2218,14 +2340,16 @@ Layer:
                    'landuse_' || CASE WHEN landuse IN ('reservoir', 'basin', 'recreation_ground', 'village_green', 'quarry', 'vineyard', 'orchard', 'cemetery', 
                                                        'residential', 'garages', 'meadow', 'grass', 'allotments', 'forest', 'farmyard', 'farmland', 
                                                        'greenhouse_horticulture', 'retail', 'industrial', 'railway', 'commercial', 'brownfield', 'landfill', 
@@ -2913,7 +2872,7 @@ index 0a3a3dc..1fca2f1 100644
                    'highway_' || CASE WHEN highway IN ('services', 'rest_area', 'bus_stop', 'elevator', 'ford') THEN highway ELSE NULL END,
                    'boundary_' || CASE WHEN boundary IN ('national_park') THEN boundary ELSE NULL END,
                    'waterway_' || CASE WHEN waterway IN ('dam', 'weir') THEN waterway ELSE NULL END,
-@@ -2244,6 +2368,7 @@ Layer:
+@@ -2247,6 +2371,7 @@ Layer:
                  operator,
                  ref,
                  NULL AS way_area,
@@ -2921,7 +2880,7 @@ index 0a3a3dc..1fca2f1 100644
                  CASE WHEN building = 'no' OR building IS NULL THEN 'no' ELSE 'yes' END AS is_building
                FROM planet_osm_point
                -- The upcoming where clause is needed for performance only, as the CASE statements would end up doing the equivalent filtering
-@@ -2254,13 +2379,13 @@ Layer:
+@@ -2257,13 +2382,13 @@ Layer:
                    OR shop IS NOT NULL
                    OR leisure IS NOT NULL
                    OR landuse IN ('reservoir', 'basin', 'recreation_ground', 'village_green', 'quarry', 'vineyard', 'orchard', 'cemetery', 'residential', 
@@ -2938,81 +2897,180 @@ index 0a3a3dc..1fca2f1 100644
                    OR highway IN ('bus_stop', 'services', 'rest_area', 'elevator', 'ford')
                    OR power IN ('plant', 'station', 'generator', 'sub_station', 'substation')
                    OR boundary IN ('national_park')
+diff --git a/road-colors-generated.mss b/road-colors-generated.mss
+index eb87f8b..2f6abaf 100644
+--- a/road-colors-generated.mss
++++ b/road-colors-generated.mss
+@@ -4,23 +4,27 @@
+ /*                                                                   */
+ /*   ./scripts/generate_road_colours.py > road-colors-generated.mss  */
+ /*                                                                   */
++@motorway-low-zoom: #cf3030;
++@trunk-low-zoom: #cf6868;
++@primary-low-zoom: #885f00;
++@secondary-low-zoom: #2f6f2f;
++
++@motorway-fill: @motorway-low-zoom;
++@trunk-fill: @motorway-fill;
++@primary-fill: #af7f00;
++@secondary-fill: #7fbf7f;
++
++@motorway-casing: darken(@motorway-fill, @darken-lighten);
++@trunk-casing: darken(@trunk-fill, @darken-lighten);
++@primary-casing: darken(@primary-fill, @darken-lighten);
++@secondary-casing: darken(@secondary-fill, @darken-lighten);
++
+ @motorway-low-zoom-casing: #c24e6b;
+ @trunk-low-zoom-casing: #cf6649;
+ @primary-low-zoom-casing: #c38a27;
+ @secondary-low-zoom-casing: #9eae23;
+-@motorway-casing: #dc2a67;
+-@trunk-casing: #c84e2f;
+-@primary-casing: #a06b00;
+-@secondary-casing: #707d05;
++
+ @motorway-shield: #620728;
+ @trunk-shield: #5d1b0b;
+ @primary-shield: #4c2e00;
+ @secondary-shield: #323b00;
+-@motorway-low-zoom: #e66e89;
+-@trunk-low-zoom: #f5977a;
+-@primary-low-zoom: #f3c380;
+-@secondary-low-zoom: #e8eda0;
+-@motorway-fill: #e892a2;
+-@trunk-fill: #f9b29c;
+-@primary-fill: #fcd6a4;
+-@secondary-fill: #f7fabf;
 diff --git a/roads.mss b/roads.mss
-index 08d6dd8..36a07f6 100644
+index c7f5fb2..e06192c 100644
 --- a/roads.mss
 +++ b/roads.mss
-@@ -216,15 +216,15 @@
- @secondary-casing-width-z16:      0.7;
- @major-casing-width-z16:          0.7;
+@@ -7,7 +7,9 @@
+ @pedestrian-fill: #dddde8;
+ @raceway-fill: pink;
+ @road-fill: #ddd;
+-@footway-fill: salmon;
++// @footway-fill: @track-fill;
++// @footway-fill: darken(@track-fill, 50%);
++@footway-fill: black;
+ @footway-fill-noaccess: #bbbbbb;
+ @steps-fill: @footway-fill;
+ @steps-fill-noaccess: #bbbbbb;
+@@ -15,7 +17,8 @@
+ @cycleway-fill-noaccess: #9999ff;
+ @bridleway-fill: green;
+ @bridleway-fill-noaccess: #aaddaa;
+-@track-fill: #996600;
++// @track-fill: #644200;
++@track-fill: black;
+ @track-fill-noaccess: #e2c5bb;
+ @aeroway-fill: #bbc;
+ @runway-fill: @aeroway-fill;
+@@ -24,10 +27,16 @@
+ @access-marking: #eaeaea;
+ @access-marking-living-street: #cccccc;
  
--@casing-width-z17:                0.8;
-+@casing-width-z17:                1.5;
++// TODO:
+ @default-casing: white;
++/*
+ @tertiary-casing: #8f8f8f;
++*/
++@tertiary-casing: #444;
+ @residential-casing: #bbb;
++// @residential-casing: #444;
+ @road-casing: @residential-casing;
++/*
+ @service-casing: @residential-casing;
+ @living-street-casing: @residential-casing;
+ @pedestrian-casing: #999;
+@@ -37,10 +46,27 @@
+ @cycleway-casing: @default-casing;
+ @bridleway-casing: @default-casing;
+ @track-casing: @default-casing;
++*/
++@service-casing: #999;
++@living-street-casing: @default-casing;
++@pedestrian-casing: grey;
++@path-casing: @default-casing;
++@footway-casing: @default-casing;
++@steps-casing: @default-casing;
++@cycleway-casing: @default-casing;
++@bridleway-casing: @default-casing;
++@track-casing: @default-casing;
+ 
+ @tertiary-shield: #3b3b3b;
+ 
+-@unimportant-road: @residential-casing;
++/*
++minor roads for different zoom levels
++tertiary    10-12
++residential 12-13
++road        10-
++service     13
++*/
++@unimportant-road: #bbb;
+ 
+ @residential-construction: #aaa;
+ @service-construction: #aaa;
+@@ -56,6 +82,13 @@
+ @trunk-tunnel-fill: lighten(@trunk-fill, 10%);
+ @primary-tunnel-fill: lighten(@primary-fill, 10%);
+ @secondary-tunnel-fill: lighten(@secondary-fill, 5%);
++/*
++TODO:
++@motorway-tunnel-fill: lighten(@motorway-fill, @darken-lighten);
++@trunk-tunnel-fill: lighten(@trunk-fill, @darken-lighten);
++@primary-tunnel-fill: lighten(@primary-fill, @darken-lighten);
++@secondary-tunnel-fill: lighten(@secondary-fill, @darken-lighten);
++*/
+ @tertiary-tunnel-fill: lighten(@tertiary-fill, 5%);
+ @residential-tunnel-fill: darken(@residential-fill, 5%);
+ @living-street-tunnel-fill: lighten(@living-street-fill, 10%);
+@@ -196,25 +229,25 @@
+ @major-casing-width-z11:          0.3;
+ 
+ @casing-width-z12:                0.1;
+-@secondary-casing-width-z12:      0.3;
++@secondary-casing-width-z12:      0;
+ @major-casing-width-z12:          0.5;
+ 
+ @casing-width-z13:                0.5;
+-@residential-casing-width-z13:    0.5;
+-@secondary-casing-width-z13:      0.35;
++@residential-casing-width-z13:    0.75;
++@secondary-casing-width-z13:      0.75;
+ @major-casing-width-z13:          0.5;
+ 
+ @casing-width-z14:                0.55;
+-@secondary-casing-width-z14:      0.35;
+-@major-casing-width-z14:          0.6;
++@secondary-casing-width-z14:      0.75;
++@major-casing-width-z14:          0.1;
+ 
+ @casing-width-z15:                0.6;
+-@secondary-casing-width-z15:      0.7;
+-@major-casing-width-z15:          0.7;
++@secondary-casing-width-z15:      1;
++@major-casing-width-z15:          1;
+ 
+ @casing-width-z16:                0.6;
+-@secondary-casing-width-z16:      0.7;
+-@major-casing-width-z16:          0.7;
++@secondary-casing-width-z16:      1;
++@major-casing-width-z16:          1;
+ 
+ @casing-width-z17:                0.8;
  @secondary-casing-width-z17:      1;
- @major-casing-width-z17:          1;
+@@ -243,7 +276,7 @@
+ @bridge-casing-width-z18:         0.8;
+ @major-bridge-casing-width-z18:   1;
+ @bridge-casing-width-z19:         0.8;
+-@major-bridge-casing-width-z19:   1;
++@major-bridge-casing-width-z19:   1.2;
  
--@casing-width-z18:                0.8;
-+@casing-width-z18:                1.5;
- @secondary-casing-width-z18:      1;
- @major-casing-width-z18:          1;
- 
--@casing-width-z19:                0.8;
-+@casing-width-z19:                1.5;
- @secondary-casing-width-z19:      1;
- @major-casing-width-z19:          1;
- 
-@@ -359,6 +359,50 @@
-         .roads-casing {
-           line-join: round;
-           line-cap: round;
-+          [int_surface = 'unpaved'] {
-+            line-dasharray: @primary-width-z12*2,@primary-width-z12;
-+            [zoom >= 13] { line-dasharray: @primary-width-z13*2,@primary-width-z13; }
-+            [zoom >= 15] { line-dasharray: @primary-width-z15*2,@primary-width-z15; }
-+            [zoom >= 17] { line-dasharray: @primary-width-z17*2,@primary-width-z17; }
-+            [zoom >= 18] { line-dasharray: @primary-width-z18*2,@primary-width-z18; }
-+            [zoom >= 19] { line-dasharray: @primary-width-z19*2,@primary-width-z19; }
-+          }
-+          [int_surface = 'unpaved'] {
-+            line-dasharray: @secondary-width-z12*2,@secondary-width-z12;
-+            [zoom >= 13] { line-dasharray: @secondary-width-z13*2,@secondary-width-z13; }
-+            [zoom >= 14] { line-dasharray: @secondary-width-z14*2,@secondary-width-z14; }
-+            [zoom >= 15] { line-dasharray: @secondary-width-z15*2,@secondary-width-z15; }
-+            [zoom >= 16] { line-dasharray: @secondary-width-z16*2,@secondary-width-z16; }
-+            [zoom >= 17] { line-dasharray: @secondary-width-z17*2,@secondary-width-z17; }
-+            [zoom >= 18] { line-dasharray: @secondary-width-z18*2,@secondary-width-z18; }
-+            [zoom >= 19] { line-dasharray: @secondary-width-z19*2,@secondary-width-z19; }
-+          }
-+          [int_surface = 'unpaved'] {
-+            line-dasharray: @tertiary-width-z12*2,@tertiary-width-z12;
-+            [zoom >= 13] { line-dasharray: @tertiary-width-z13*2,@tertiary-width-z13; }
-+            [zoom >= 14] { line-dasharray: @tertiary-width-z14*2,@tertiary-width-z14; }
-+            [zoom >= 15] { line-dasharray: @tertiary-width-z15*2,@tertiary-width-z15; }
-+            [zoom >= 16] { line-dasharray: @tertiary-width-z16*2,@tertiary-width-z16; }
-+            [zoom >= 17] { line-dasharray: @tertiary-width-z17*2,@tertiary-width-z17; }
-+            [zoom >= 18] { line-dasharray: @tertiary-width-z18*2,@tertiary-width-z18; }
-+            [zoom >= 19] { line-dasharray: @tertiary-width-z19*2,@tertiary-width-z19; }
-+          }
-+          [int_surface = 'unpaved'] {
-+            line-dasharray: @residential-width-z13*2,@residential-width-z13;
-+            [zoom >= 14] { line-dasharray: @residential-width-z14*2,@residential-width-z14; }
-+            [zoom >= 15] { line-dasharray: @residential-width-z15*2,@residential-width-z15; }
-+            [zoom >= 16] { line-dasharray: @residential-width-z16*2,@residential-width-z16; }
-+            [zoom >= 17] { line-dasharray: @residential-width-z17*2,@residential-width-z17; }
-+            [zoom >= 18] { line-dasharray: @residential-width-z18*2,@residential-width-z18; }
-+            [zoom >= 19] { line-dasharray: @residential-width-z19*2,@residential-width-z19; }
-+          }
-+          [int_surface = 'unpaved'] {
-+            line-dasharray: @road-width-z14*2,@road-width-z14;
-+            [zoom >= 16] { line-dasharray: @road-width-z16*2,@road-width-z16; }
-+            [zoom >= 17] { line-dasharray: @road-width-z17*2,@road-width-z17; }
-+            [zoom >= 18] { line-dasharray: @road-width-z18*2,@road-width-z18; }
-+            [zoom >= 19] { line-dasharray: @road-width-z19*2,@road-width-z19; }
-+          }
-         }
-         .tunnels-casing {
-           line-dasharray: 4,2;
-@@ -385,6 +429,14 @@
+ @paths-background-width:          1;
+ @paths-bridge-casing-width:       0.5;
+@@ -357,6 +390,14 @@
          .roads-casing {
            line-join: round;
            line-cap: round;
@@ -3027,24 +3085,61 @@ index 08d6dd8..36a07f6 100644
          }
          .tunnels-casing {
            line-dasharray: 4,2;
-@@ -413,6 +465,16 @@
+@@ -369,8 +410,8 @@
+     }
+ 
+     [feature = 'highway_secondary'] {
+-      [zoom >= 12] {
+-        line-color: @secondary-low-zoom-casing;
++      [zoom >= 13] {
++        line-color: @secondary-casing;
+         [zoom >= 13] {
+           line-color: @secondary-casing;
+         }
+@@ -385,6 +426,42 @@
          .roads-casing {
            line-join: round;
            line-cap: round;
 +          [int_surface = 'unpaved'] {
-+            line-dasharray: @secondary-width-z12*2,@secondary-width-z12;
-+            [zoom >= 13] { line-dasharray: @secondary-width-z13*2,@secondary-width-z13; }
-+            [zoom >= 14] { line-dasharray: @secondary-width-z14*2,@secondary-width-z14; }
-+            [zoom >= 15] { line-dasharray: @secondary-width-z15*2,@secondary-width-z15; }
-+            [zoom >= 16] { line-dasharray: @secondary-width-z16*2,@secondary-width-z16; }
-+            [zoom >= 17] { line-dasharray: @secondary-width-z17*2,@secondary-width-z17; }
-+            [zoom >= 18] { line-dasharray: @secondary-width-z18*2,@secondary-width-z18; }
-+            [zoom >= 19] { line-dasharray: @secondary-width-z19*2,@secondary-width-z19; }
++            unpaved/line-color: white;
++            unpaved/line-width: @secondary-width-z12;
++            // unpaved/line-dasharray: @secondary-width-z12,@secondary-width-z12*2;
++            unpaved/line-dasharray: 10,5;
++            [zoom >= 13] {
++              unpaved/line-width: @secondary-width-z13;
++              // unpaved/line-dasharray: @secondary-width-z13,@secondary-width-z13*2;
++              unpaved/line-dasharray: 6,12;
++              // unpaved/line-dasharray: @secondary-width-z14,@secondary-width-z14*2;
++            }
++            [zoom >= 14] {
++              unpaved/line-width: @secondary-width-z14;
++              unpaved/line-dasharray: @secondary-width-z14,@secondary-width-z14*2;
++            }
++            [zoom >= 15] {
++              unpaved/line-width: @secondary-width-z15;
++              unpaved/line-dasharray: @secondary-width-z15,@secondary-width-z15*2;
++            }
++            [zoom >= 16] {
++              unpaved/line-width: @secondary-width-z16;
++              unpaved/line-dasharray: @secondary-width-z16,@secondary-width-z16*2;
++            }
++            [zoom >= 17] {
++              unpaved/line-width: @secondary-width-z17;
++              // unpaved/line-dasharray: @secondary-width-z17,@secondary-width-z17*2;
++            }
++            [zoom >= 18] {
++              unpaved/line-width: @secondary-width-z18;
++              // unpaved/line-dasharray: @secondary-width-z18,@secondary-width-z18*2;
++            }
++            [zoom >= 19] {
++              unpaved/line-width: @secondary-width-z19;
++              unpaved/line-dasharray: @secondary-width-z17,@secondary-width-z17*2;
++            }
 +          }
          }
          .tunnels-casing {
            line-dasharray: 4,2;
-@@ -440,6 +502,16 @@
+@@ -412,6 +489,16 @@
          .roads-casing {
            line-join: round;
            line-cap: round;
@@ -3061,7 +3156,19 @@ index 08d6dd8..36a07f6 100644
          }
          .tunnels-casing {
            line-dasharray: 4,2;
-@@ -467,6 +539,15 @@
+@@ -430,7 +517,10 @@
+       [zoom >= 13] {
+         line-color: @residential-casing;
+         line-width: @residential-width-z13;
+-        [zoom >= 14] { line-width: @residential-width-z14; }
++        [zoom >= 14] {
++          line-width: @residential-width-z14;
++          line-color: @tertiary-casing;
++        }
+         [zoom >= 15] { line-width: @residential-width-z15; }
+         [zoom >= 16] { line-width: @residential-width-z16; }
+         [zoom >= 17] { line-width: @residential-width-z17; }
+@@ -439,6 +529,15 @@
          .roads-casing {
            line-join: round;
            line-cap: round;
@@ -3077,7 +3184,7 @@ index 08d6dd8..36a07f6 100644
          }
          .tunnels-casing {
            line-dasharray: 4,2;
-@@ -491,6 +572,13 @@
+@@ -463,6 +562,13 @@
          .roads-casing {
            line-join: round;
            line-cap: round;
@@ -3091,7 +3198,7 @@ index 08d6dd8..36a07f6 100644
          }
          .tunnels-casing {
            line-dasharray: 4,2;
-@@ -498,6 +586,15 @@
+@@ -470,6 +576,15 @@
          .bridges-casing {
            line-color: @bridge-casing;
            line-join: round;
@@ -3107,7 +3214,7 @@ index 08d6dd8..36a07f6 100644
          }
        }
      }
-@@ -512,12 +609,30 @@
+@@ -484,12 +599,30 @@
            [zoom >= 17] { line-width: @service-width-z17; }
            [zoom >= 18] { line-width: @service-width-z18; }
            [zoom >= 19] { line-width: @service-width-z19; }
@@ -3138,7 +3245,7 @@ index 08d6dd8..36a07f6 100644
          }
          .roads-casing {
            line-join: round;
-@@ -572,6 +687,15 @@
+@@ -544,6 +677,15 @@
          .roads-casing {
            line-cap: round;
            line-join: round;
@@ -3154,7 +3261,7 @@ index 08d6dd8..36a07f6 100644
          }
          .tunnels-casing {
            line-dasharray: 4,2;
-@@ -794,7 +918,9 @@
+@@ -766,7 +908,9 @@
      }
  
      [feature = 'railway_disused'][zoom >= 15],
@@ -3164,7 +3271,7 @@ index 08d6dd8..36a07f6 100644
      [feature = 'railway_miniature'][zoom >= 15],
      [feature = 'railway_INT-preserved-ssy'][zoom >= 14] {
        .bridges-casing {
-@@ -1008,8 +1134,10 @@
+@@ -980,8 +1124,10 @@
        }
      }
  
@@ -3175,7 +3282,7 @@ index 08d6dd8..36a07f6 100644
      [feature = 'railway_miniature'][zoom >= 15],
      [feature = 'railway_INT-preserved-ssy'][zoom >= 14] {
        .bridges-casing {
-@@ -1079,6 +1207,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -1081,6 +1227,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       * https://github.com/mapbox/carto/issues/235
       * https://github.com/mapbox/carto/issues/237
       */
@@ -3183,7 +3290,7 @@ index 08d6dd8..36a07f6 100644
      [feature = 'highway_construction'] {
        [zoom >= 12] {
          line-width: 2;
-@@ -1154,6 +1283,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -1156,6 +1303,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
          }
        }
      }
@@ -3191,7 +3298,7 @@ index 08d6dd8..36a07f6 100644
  
      [feature = 'highway_motorway'] {
        [zoom >= 5] {
-@@ -1215,6 +1345,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -1217,6 +1365,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        [zoom >= 9] { line-width: @trunk-width-z9; }
        [zoom >= 10] { line-width: @trunk-width-z10; }
        [zoom >= 11] { line-width: @trunk-width-z11; }
@@ -3201,7 +3308,7 @@ index 08d6dd8..36a07f6 100644
        [zoom >= 12] {
          line-color: @trunk-fill;
          line-width: @trunk-width-z12 - 2 * @major-casing-width-z12;
-@@ -1247,6 +1380,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -1249,6 +1400,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        [zoom >= 9] { line-width: @primary-width-z9; }
        [zoom >= 10] { line-width: @primary-width-z10; }
        [zoom >= 11] { line-width: @primary-width-z11; }
@@ -3211,7 +3318,7 @@ index 08d6dd8..36a07f6 100644
        [zoom >= 12] {
          line-color: @primary-fill;
          line-width: @primary-width-z12 - 2 * @major-casing-width-z12;
-@@ -1273,15 +1409,18 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -1275,16 +1429,15 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
  
      [feature = 'highway_secondary'] {
        [zoom >= 9] {
@@ -3219,21 +3326,30 @@ index 08d6dd8..36a07f6 100644
 +        line-color: @secondary-low-zoom;
          line-width: @secondary-width-z9;
        }
-       [zoom >=10] {
+-      [zoom >=10] {
 -        line-color: @unimportant-road;
-+        line-color: @secondary-low-zoom;
++      [zoom >= 10] {
          line-width: @secondary-width-z10;
        }
        [zoom >= 11] { line-width: @secondary-width-z11; }
 -      [zoom >= 12] { 
-+      [int_surface = 'unpaved'][zoom >= 9][zoom < 12] {
-+        line-dasharray: 8,2;
-+      }
+-        line-color: @secondary-fill;
 +      [zoom >= 12] {
-         line-color: @secondary-fill;
++        // line-color: @secondary-fill;
          line-width: @secondary-width-z12 - 2 * @secondary-casing-width-z12;
          line-cap: round;
-@@ -1354,6 +1493,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+         line-join: round;
+@@ -1311,6 +1464,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+           }
+         }
+       }
++      [int_surface = 'unpaved'][zoom >= 9][zoom < 13] {
++        line-dasharray: 10,5;
++      }
+     }
+ 
+     [feature = 'highway_tertiary'] {
+@@ -1356,6 +1512,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
          line-color: @unimportant-road;
          line-width: 1;
        }
@@ -3243,7 +3359,7 @@ index 08d6dd8..36a07f6 100644
        [zoom >= 13] {
          line-width: @residential-width-z13 - 2 * @residential-casing-width-z13;
          [zoom >= 14] { line-width: @residential-width-z14 - 2 * @casing-width-z14; }
-@@ -1417,6 +1559,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -1419,6 +1578,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
          line-color: @unimportant-road;
          line-join: round;
          line-cap: round;
@@ -3253,7 +3369,7 @@ index 08d6dd8..36a07f6 100644
        }
        [zoom >= 14] {
          line-width: @road-width-z14 - 2 * @casing-width-z14;
-@@ -1445,6 +1590,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -1447,6 +1609,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        [zoom >= 13][service = 'INT-normal'] {
          line-width: 1;
          line-color: @unimportant-road;
@@ -3263,7 +3379,7 @@ index 08d6dd8..36a07f6 100644
        }
        [zoom >= 14][service = 'INT-normal'],
        [zoom >= 16][service = 'INT-minor'] {
-@@ -1522,6 +1670,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -1524,6 +1689,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        [zoom >= 18] { line-width: 8; }
        [zoom >= 19] { line-width: 12; }
        [zoom >= 20] { line-width: 24; }
@@ -3273,7 +3389,7 @@ index 08d6dd8..36a07f6 100644
      }
  
      [feature = 'highway_platform'] {
-@@ -1807,13 +1958,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -1809,13 +1977,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        }
      }
  
@@ -3291,7 +3407,7 @@ index 08d6dd8..36a07f6 100644
          line-join: round;
          .roads_low_zoom[int_tunnel = 'yes'], .tunnels-fill {
            line-dasharray: 5,2;
-@@ -1996,6 +2147,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -1998,6 +2166,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        }
      }
  
@@ -3299,7 +3415,7 @@ index 08d6dd8..36a07f6 100644
      [feature = 'railway_construction'] {
        [zoom >= 13] {
          line-color: grey;
-@@ -2011,7 +2163,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -2013,7 +2182,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
          }
        }
      }
@@ -3309,7 +3425,7 @@ index 08d6dd8..36a07f6 100644
      [feature = 'railway_disused'] {
        [zoom >= 15] {
          line-color: #aaa;
-@@ -2020,6 +2174,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -2022,6 +2193,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
          line-join: round;
        }
      }
@@ -3317,7 +3433,7 @@ index 08d6dd8..36a07f6 100644
  
      [feature = 'railway_platform'] {
        [zoom >= 16] {
-@@ -2064,6 +2219,23 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -2066,6 +2238,26 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        }
      }
    }
@@ -3332,6 +3448,9 @@ index 08d6dd8..36a07f6 100644
 +        }
 +        [feature = 'highway_trunk'][link = 'no'] {
 +          line-color: white;
++          [int_surface = 'unpaved'] {
++            line-dasharray: 8,2;
++          }
 +        }
 +      }
 +      [zoom >= 14] { line-width: 1.5; }
@@ -3341,7 +3460,16 @@ index 08d6dd8..36a07f6 100644
  }
  
  #turning-circle-casing {
-@@ -2762,30 +2934,37 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -2445,7 +2637,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+   }
+ }
+ 
+-#bridge-text  {
++#bridge-text {
+   [man_made = 'bridge'] {
+     [zoom >= 12][way_pixels > 62.5] {
+       text-name: "[name]";
+@@ -2764,30 +2956,37 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
    [highway = 'motorway'],
    [highway = 'trunk'],
    [highway = 'primary'],
@@ -3381,7 +3509,7 @@ index 08d6dd8..36a07f6 100644
      [zoom >= 17] {
        text-size: 11;
      }
-@@ -2794,24 +2973,27 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -2796,24 +2995,27 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
      }
    }
    [highway = 'secondary'],
@@ -3412,7 +3540,7 @@ index 08d6dd8..36a07f6 100644
      [zoom >= 17] {
        text-size: 11;
      }
-@@ -2820,17 +3002,18 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -2822,17 +3024,18 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
      }
    }
    [highway = 'tertiary'],
@@ -3434,7 +3562,7 @@ index 08d6dd8..36a07f6 100644
      }
      [zoom >= 17] {
        text-size: 11;
-@@ -2839,6 +3022,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -2841,6 +3044,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        text-size: 12;
      }
    }
@@ -3442,7 +3570,7 @@ index 08d6dd8..36a07f6 100644
    [highway = 'construction'][construction = null][zoom >= 16] {
      text-name: "[name]";
      text-size: 9;
-@@ -2859,26 +3043,30 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -2861,26 +3065,30 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        text-spacing: 400;
      }
    }
@@ -3476,7 +3604,7 @@ index 08d6dd8..36a07f6 100644
      [zoom >= 17] {
        text-size: 11;
        text-spacing: 400;
-@@ -2891,8 +3079,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -2893,8 +3101,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
  
    [highway = 'raceway'],
    [highway = 'service'],
@@ -3487,7 +3615,7 @@ index 08d6dd8..36a07f6 100644
      [zoom >= 16] {
        text-name: "[name]";
        text-size: 9;
-@@ -2912,8 +3101,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -2914,8 +3123,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
  
    [highway = 'living_street'],
    [highway = 'pedestrian'],
@@ -3498,7 +3626,7 @@ index 08d6dd8..36a07f6 100644
      [zoom >= 15] {
        text-name: "[name]";
        text-size: 8;
-@@ -3029,7 +3219,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -3031,7 +3241,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        [oneway = 'yes'],
        [oneway = '-1'] {
          marker-placement: line;
@@ -3567,53 +3695,15 @@ index 6b9b226..4ea8ddf 100644
      marker-fill: @transportation-icon;
      marker-clip: false;
 diff --git a/style.mss b/style.mss
-index c9e3838..50180d8 100644
+index 426529e..c04e481 100644
 --- a/style.mss
 +++ b/style.mss
-@@ -1,5 +1,5 @@
+@@ -1,9 +1,187 @@
  Map {
 -  background-color: @water-color;
 +  background-color: @land-color;
  }
  
- /*
-@@ -114,11 +114,9 @@ A regular style.
- 
-                 "Noto Naskh Arabic UI Regular",
- 
--                "Noto Emoji Regular",
--
-                 "DejaVu Sans Book",
- 
--                "Unifont Medium", "unifont Medium", "Unifont Upper Medium";
-+                "Unifont Medium", "Unifont Upper Medium";
- 
- /*
- A bold style is available for almost all scripts. Bold text is heavier than
-@@ -193,11 +191,9 @@ regular text and can be used for emphasis. Fallback is a regular style.
- 
-                 "Noto Naskh Arabic UI Regular",
- 
--                "Noto Emoji Regular",
--
-                 "DejaVu Sans Bold", "DejaVu Sans Book",
- 
--                "Unifont Medium", "unifont Medium", "Unifont Upper Medium";
-+                "Unifont Medium", "Unifont Upper Medium";
- 
- /*
- Italics are only available for the base font, not the other scripts.
-@@ -266,14 +262,286 @@ For a considerable number of labels this style will make no difference to the re
- 
-                 "Noto Naskh Arabic UI Regular",
- 
--                "Noto Emoji Regular",
--
-                 "DejaVu Sans Oblique", "DejaVu Sans Book",
- 
--                "Unifont Medium", "unifont Medium", "Unifont Upper Medium";
-+                "Unifont Medium", "Unifont Upper Medium";
-+
 +// nice stuff is things that are not so common and that I like to see from far,
 +// like castles, viewpoints and such
 +@nice: 11;
@@ -3621,10 +3711,9 @@ index c9e3838..50180d8 100644
 +@emergency: 14;
 +// things that are useful and common enough to see in the near range
 +@useful: 16;
- 
++
  @water-color: #b5d0d0;
-+@water-dark: #5A5AA1;
-+@water-text: #5A5AA1;
++@water-dark: #5a5aa1;
  @land-color: #f2efe9;
  
 -@standard-halo-radius: 1;
@@ -3632,104 +3721,9 @@ index c9e3838..50180d8 100644
 +@standard-halo-radius: 1.5;
 +@standard-halo-fill: rgba(255,255,255,0.7);
 +
-+@glacier: #adbcec;
-+@glacier-line: #69f;
++@darken-lighten: 50%;
 +
-+@grass: @scrub;
-+@forest: @scrub;
-+@park: @scrub;
-+@orchard: @scrub;
-+
-+// admin
-+// @admin-boundaries: purple;
-+
-+// amenities
-+@attraction: #f2caea;
-+@barracks: #ff8f8f;
-+@transportation-icon: @water-dark;
-+
-+@darken-lighten: 15%;
-+
-+// roads
-+@oneway: #aaa;
-+
-+@motorway-casing: darken(@motorway-fill, @darken-lighten);
-+@motorway-low-zoom: @motorway-fill;
-+@motorway-fill: #cf3030;
-+@motorway-tunnel-fill: lighten(@motorway-fill, @darken-lighten);
-+
-+@trunk-casing: darken(@trunk-fill, @darken-lighten);
-+@trunk-low-zoom: #cf6868;
-+@trunk-fill: @motorway-fill;
-+@trunk-tunnel-fill: lighten(@trunk-fill, @darken-lighten);
-+
-+@primary-casing: darken(@primary-fill, @darken-lighten);
-+@primary-low-zoom: @primary-fill;
-+@primary-fill: #8a5c00;
-+@primary-tunnel-fill: lighten(@primary-fill, @darken-lighten);
-+
-+@secondary-casing: darken(@secondary-fill, @darken-lighten);
-+@secondary-low-zoom: @secondary-fill;
-+@secondary-fill: #2f6f2f;
-+@secondary-tunnel-fill: lighten(@secondary-fill, @darken-lighten);
-+
-+@tertiary-casing: #444;
-+@tertiary-fill: #ffffff;
-+@tertiary-tunnel-fill: lighten(@tertiary-fill, 5%);
-+
-+@residential-casing: #444;
-+@residential-fill: #ffffff;
-+@residential-tunnel-fill: lighten(@residential-fill, 10%);
-+
-+@living-street-casing: @default-casing;
-+@living-street-fill: #ededed;
-+
-+/*
-+minor roads for different zoom levels
-+tertiary    10-12
-+residential 12-13
-+road        10-
-+service     13
-+*/
-+@unimportant-road: #bbb;
-+
-+@service-casing: #999;
-+@service-fill: @residential-fill;
-+
-+@pedestrian-casing: grey;
-+@pedestrian-fill: #dddde8;
-+
-+@road-casing: @residential-casing;
-+@road-fill: #ddd;
-+
-+@path-casing: @default-casing;
-+@path-fill: black;
-+
-+@steps-casing: @default-casing;
-+@steps-fill: @footway-fill;
-+
-+@cycleway-casing: @default-casing;
-+@cycleway-fill: blue;
-+
-+@bridleway-casing: @default-casing;
-+@bridleway-fill: green;
-+
-+@byway-casing: @default-casing;
-+@byway-fill: #ffcc00;
-+
-+@track-casing: @default-casing;
-+@track-fill: #996600;
-+@track-grade1-fill: #b37700;
-+@track-grade2-fill: #a87000;
-+
-+@footway-casing: @default-casing;
-+@footway-fill: @track-fill;
-+
-+@aeroway-fill: #bbc;
-+@runway-fill: @aeroway-fill;
-+@taxiway-fill: @aeroway-fill;
-+@helipad-fill: @aeroway-fill;
-+
++// TODO:
 +@rail-fill: #404040;
 +
 +// terrain-small [0-6], terrain-medium [7-8], terrain-big [9-]
@@ -3896,13 +3890,17 @@ index c9e3838..50180d8 100644
 +  }
 +}
 diff --git a/water.mss b/water.mss
-index c3b26fe..c6b387e 100644
+index 3a766df..0e34243 100644
 --- a/water.mss
 +++ b/water.mss
-@@ -2,7 +2,47 @@
- @glacier: #ddecec;
- @glacier-line: #9cf;
- 
+@@ -1,8 +1,48 @@
+-@water-text: #6699cc;
+-@glacier: #ddecec;
+-@glacier-line: #9cf;
++@water-text: @water-dark;
++@glacier: #adbcec;
++@glacier-line: #69f;
++
 +// local
 +#water-areas::border {
 +  [natural = 'lake'][way_pixels >= 4],
@@ -3941,7 +3939,7 @@ index c3b26fe..c6b387e 100644
 +    }
 +  }
 +}
-+
+ 
  #water-areas {
 +  /*
    [natural = 'glacier']::natural {
@@ -4051,7 +4049,7 @@ index c3b26fe..c6b387e 100644
      [zoom >= 10] { line-width: 1.6; }
    }
  }
-@@ -277,7 +382,19 @@
+@@ -313,7 +418,19 @@
    }
  }
  
