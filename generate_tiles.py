@@ -14,6 +14,7 @@ import queue
 from random import randint, random
 from os import getpid
 import math
+from selectors import DefaultSelector, EVENT_READ, EVENT_WRITE
 
 import map_utils
 
@@ -113,8 +114,6 @@ class RenderStack:
                     self.ready.insert(0, self.first)
 
                 self.first = metatile
-            else:
-                info("%r: not rendering" % metatile)
 
 RenderChildren = Dict[map_utils.Tile, bool]
 class RenderThread:
@@ -392,80 +391,76 @@ class Master:
         tiles_to_render = first_tiles * pyramid_tile_count(opts.min_zoom, opts.max_zoom)
         tiles_rendered = tiles_skept = 0
 
-        # I wish I could get to the underlying pipes so I could select() on them
         # NOTE: work_out._writer, self.queues[1]._reader
+        selector = DefaultSelector()
+        selector.register(work_out._writer, EVENT_WRITE)
+        selector.register(work_in._reader, EVENT_READ)
+
         while self.work_stack.size() > 0:
-            # TODO: move this try outer
-            try:
-                while True:
-                    try:
-                        # pop from there,
-                        new_work = self.work_stack.pop()  # map_utils.MetaTile
-                    except IndexError:
-                        debug('out: timeout!')
-                        break
+            # the doc says this is unrealiable, but we don't care
+            # full() can be inconsistent only if when we test is false
+            # and when we put() is true, but only the master is writing
+            # so this cannot happen
+            while not work_out.full():
+                # pop from there,
+                new_work = self.work_stack.pop()  # map_utils.MetaTile
+                if new_work is not None:
+                    # push in the writer
+                    work_out.put(new_work, True, .1)  # 1/10s timeout
+                    self.work_stack.confirm()
+                    went_out += 1
+                    debug("--> %r" % (new_work, ))
+                else:
+                    break
+
+            # pop from the reader,
+            while not work_in.empty():
+                type, *data = work_in.get(True, .1)  # type: str, Any
+                debug("<-- %s: %r" % (type, data))
+                if type == 'new':
+                    tile, render = data
+                    if tile.z <= self.opts.max_zoom and tile in self.opts.bbox:
+                        self.work_stack.notify(tile, render)
                     else:
-                        if new_work is not None:
-                            try:
-                                # push in the writer
-                                work_out.put(new_work, True, .1)  # 1/10s timeout
-                            except queue.Full:
-                                # debug('work_out full, not confirm()ing.')
-                                break
-                            else:
-                                self.work_stack.confirm()
-                                went_out += 1
-                                debug("--> %r" % (new_work, ))
-                        else:
-                            break
+                        debug("out of bbox, out of mind")
+                        # do not render tiles out of the bbox
+                        self.work_stack.notify(tile, False)
+                        # we count this one and all it descendents as rendered
+                        tiles_skept += pyramid_tile_count(tile.z, opts.max_zoom)
 
-                # pop from the reader,
-                while True:
-                    try:
-                        # 1/10s timeout
-                        type, *data = work_in.get(True, .1)  # type: str, Any
-                        debug("<-- %s: %r" % (type, data))
-                    except queue.Empty:
-                        # debug('in: timeout!')
-                        break
-                    else:
-                        if type == 'new':
-                            tile, render = data
-                            if tile.z <= self.opts.max_zoom and tile in self.opts.bbox:
-                                self.work_stack.notify(tile, render)
-                            else:
-                                debug("out of bbox, out of mind")
-                                # do not render tiles out of the bbox
-                                self.work_stack.notify(tile, False)
-                                # we count this one and all it descendents as rendered
-                                tiles_skept += ( pyramid_tile_count(tile.z, opts.max_zoom) *
-                                                 self.tiles_per_metatile(tile.z) )
-                                info("[%d+%d/%d: %6.2f%%]", tiles_rendered,
-                                     tiles_skept, tiles_to_render,
-                                     (tiles_rendered + tiles_skept) / tiles_to_render * 100)
+                        info("[%d+%d/%d: %6.2f%%] %r: not rendered",
+                             tiles_rendered, tiles_skept, tiles_to_render,
+                             (tiles_rendered + tiles_skept) / tiles_to_render * 100,
+                             tile)
 
-                            came_back += 1
-                        elif type == 'old':
-                            tile, render_time, saving_time = data
-                            tiles_rendered += self.tiles_per_metatile(tile.z)
+                    came_back += 1
+                elif type == 'old':
+                    tile, render_time, saving_time = data
+                    tiles_rendered += self.tiles_per_metatile(tile.z)
 
-                            info("[%d+%d/%d: %6.2f%%] %r: %8.3f,  %8.3f",
-                                 tiles_rendered, tiles_skept, tiles_to_render,
-                                 (tiles_rendered + tiles_skept) / tiles_to_render * 100,
-                                 tile, render_time, saving_time)
-
-            except KeyboardInterrupt as e:
-                debug(e)
-                self.finish()
-                raise SystemExit("Ctrl-c detected, exiting...")
+                    info("[%d+%d/%d: %6.2f%%] %r: %8.3f,  %8.3f",
+                            tiles_rendered, tiles_skept, tiles_to_render,
+                            (tiles_rendered + tiles_skept) / tiles_to_render * 100,
+                            tile, render_time, saving_time)
 
         # the weird - 3* thing is because low ZLs don't have 4 children
         # for metatile sizes > 1
         # for instance, metatile_size==8 -> Zls 1, 2, 3 have only one metatile
         while went_out*4 - 3*math.log2(self.opts.metatile_size) > came_back:
             debug("%d <-> %d", went_out*4, came_back)
-            data = work_in.get(True)
+            type, *data = work_in.get(True)
             debug("<-- %r", data)
+
+            # TODO: do it properly with above ^^^^
+            if type == 'old':
+                tile, render_time, saving_time = data
+                tiles_rendered += self.tiles_per_metatile(tile.z)
+
+                info("[%d+%d/%d: %6.2f%%] %r: %8.3f,  %8.3f",
+                        tiles_rendered, tiles_skept, tiles_to_render,
+                        (tiles_rendered + tiles_skept) / tiles_to_render * 100,
+                        tile, render_time, saving_time)
+
             came_back += 1
 
         info("[%d+%d/%d: %6.2f%%]", tiles_rendered,
