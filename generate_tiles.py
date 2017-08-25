@@ -115,6 +115,17 @@ class RenderStack:
 
                 self.first = metatile
 
+
+class WorkFilter:
+    def __init__(self, opts, queues):
+        self.opts = opts
+        self.queues = queues
+
+
+    def loop(self):
+        pass
+
+
 RenderChildren = Dict[map_utils.Tile, bool]
 class RenderThread:
     def __init__(self, opts, backend, queues) -> None:
@@ -185,10 +196,7 @@ class RenderThread:
                     if not is_empty or self.opts.empty == 'write':
                         self.backend.store(tile)
 
-                        # at least something to render. note that if we're
-                        # rendering only one tile (either metatile_size == 1
-                        # or z == 0), i, j can only be == 0. this matches
-                        # the situation further down
+                        # at least something to render
                         render_children[metatile.child(tile)] = True
                     else:
                         if self.opts.empty == 'skip':
@@ -275,10 +283,7 @@ class RenderThread:
             if not skip:
                 render_children = self.render_metatile(t)
             else:
-                if self.opts.skip_existing:
-                    info("[%s] %r: present, skipping" % (getpid(), t, ))
-                else:
-                    info("[%s] %r: too new, skipping" % (getpid(), t, ))
+                self.queues[1].put(('skept', t))
 
                 # but notify the children, so they get a chance to be rendered
                 for child in t.children():
@@ -302,7 +307,10 @@ class Master:
         if self.opts.parallel == 'fork':
             debug('forks, using mp.Queue()')
 
+            # work_out queue is size 1, so higher zoom level tiles don't pile up
+            # there if there are lower ZL tiles ready in the work_stack.
             self.queues = (multiprocessing.Queue(1),
+                           # multiprocessing.Queue(1),
                            multiprocessing.Queue(4*self.opts.threads))
         else:
             debug('threads or single, using queue.Queue()')
@@ -322,10 +330,7 @@ class Master:
             mbtiles=map_utils.MBTilesBackend,
             )
 
-        try:
-            backend = backends[self.opts.format](self.opts.tile_dir, self.opts.bbox)
-        except KeyError:
-            raise
+        backend = backends[self.opts.format](self.opts.tile_dir, self.opts.bbox)
 
         # Launch rendering threads
         for i in range(self.opts.threads):
@@ -352,43 +357,48 @@ class Master:
             debug("creating dir %s", self.opts.tile_dir)
             os.makedirs(self.opts.tile_dir, exist_ok=True)
 
+        initial_metatiles = []
         if self.opts.tiles is None:
             debug('rendering bbox %s:%s', self.opts.bbox_name, self.opts.bbox)
-            self.render_bbox()
+
+            for x in range(0, 2**self.opts.min_zoom, self.opts.metatile_size):
+                for y in range(0, 2**self.opts.min_zoom, self.opts.metatile_size):
+                    t = map_utils.MetaTile(self.opts.min_zoom, x, y,
+                                        self.opts.metatile_size)
+
+                    if t in self.opts.bbox:
+                        initial_metatiles.append(t)
         else:
             # TODO: if possible, order them in depth first/proximity? fashion.
             debug('rendering individual tiles')
             for i in self.opts.tiles:
                 z, x, y = map(int, i.split(','))
-                self.queues[0].put((z, x, y))
-                # TODO: either pop from work_in or add param to not render children
+                t = map_utils.MetaTile(z, x, y, self.opts.metatile_size)
+                initial_metatiles.append(t)
 
-        if self.opts.parallel == 'single':
-            self.queues[0].put(None)
-            renderer.loop()
-
+        self.loop(initial_metatiles)
         self.finish()
 
 
-    def render_bbox(self) -> None:
+    def loop(self, initial_metatiles) -> None:
         work_out, work_in = self.queues
         # for each tile that was sent to be worked on, 4 should return
         # this will be important later on
-        went_out, came_back, first_tiles = 0, 0, 0
+        went_out, came_back = 0, 0
 
-        for x in range(0, 2**self.opts.min_zoom, self.opts.metatile_size):
-            for y in range(0, 2**self.opts.min_zoom, self.opts.metatile_size):
-                t = map_utils.MetaTile(self.opts.min_zoom, x, y,
-                                       self.opts.metatile_size)
+        for t in initial_metatiles:
+            debug("... %r" % (t, ))
+            self.work_stack.push(t)
+            # make sure they're rendered!
+            self.work_stack.notify(t, True)
 
-                if t in self.opts.bbox:
-                    debug("... %r" % (t, ))
-                    self.work_stack.push(t)
-                    # make sure they're rendered!
-                    self.work_stack.notify(t, True)
-                    first_tiles += 1
+        first_tiles = len(initial_metatiles)
 
-        tiles_to_render = first_tiles * pyramid_tile_count(opts.min_zoom, opts.max_zoom)
+        if self.opts.tiles is None:
+            tiles_to_render = first_tiles * pyramid_tile_count(opts.min_zoom, opts.max_zoom)
+        else:
+            tiles_to_render = first_tiles
+
         tiles_rendered = tiles_skept = 0
 
         # NOTE: work_out._writer, self.queues[1]._reader
@@ -396,10 +406,19 @@ class Master:
         selector.register(work_out._writer, EVENT_WRITE)
         selector.register(work_in._reader, EVENT_READ)
 
-        while self.work_stack.size() > 0:
+        # the weird - 3* thing is because low ZLs don't have 4 children
+        # for metatile sizes > 1
+        # for instance, metatile_size==8 -> Zls 1, 2, 3 have only one metatile
+        while ( self.work_stack.size() > 0 or
+                went_out*4 - 3*math.log2(self.opts.metatile_size) > came_back ):
+
+            debug('se...')
+            evts = selector.select()  # I don't care much about the result
+            debug('...lect! %s', evts)
+
             # the doc says this is unrealiable, but we don't care
-            # full() can be inconsistent only if when we test is false
-            # and when we put() is true, but only the master is writing
+            # full() can be inconsistent only if when we test it's false
+            # and when we put() it's true, but only the master is writing
             # so this cannot happen
             while not work_out.full():
                 # pop from there,
@@ -419,29 +438,47 @@ class Master:
                 debug("<-- %s: %r" % (type, data))
                 if type == 'new':
                     tile, render = data
-                    if tile.z <= self.opts.max_zoom and tile in self.opts.bbox:
-                        self.work_stack.notify(tile, render)
-                    else:
-                        debug("out of bbox, out of mind")
-                        # do not render tiles out of the bbox
-                        self.work_stack.notify(tile, False)
-                        # we count this one and all it descendents as rendered
-                        tiles_skept += pyramid_tile_count(tile.z, opts.max_zoom)
+                    if tile.z <= self.opts.max_zoom:
+                        if tile in self.opts.bbox:
+                            self.work_stack.notify(tile, render)
+                            if not render:
+                                tiles_skept += 1
+                        else:
+                            # do not render tiles out of the bbox
+                            debug("out of bbox, out of mind")
+                            self.work_stack.notify(tile, False)
+                            # we count this one and all it descendents as rendered
+                            tiles_skept += pyramid_tile_count(tile.z, opts.max_zoom)
 
-                        info("[%d+%d/%d: %6.2f%%] %r: not rendered",
-                             tiles_rendered, tiles_skept, tiles_to_render,
-                             (tiles_rendered + tiles_skept) / tiles_to_render * 100,
-                             tile)
+                            info("[%d+%d/%d: %7.3f%%] %r: not rendered",
+                                 tiles_rendered, tiles_skept, tiles_to_render,
+                                 (tiles_rendered + tiles_skept) / tiles_to_render * 100,
+                                 tile)
 
                     came_back += 1
                 elif type == 'old':
                     tile, render_time, saving_time = data
                     tiles_rendered += self.tiles_per_metatile(tile.z)
 
-                    info("[%d+%d/%d: %6.2f%%] %r: %8.3f,  %8.3f",
+                    info("[%d+%d/%d: %7.3f%%] %r: %8.3f,  %8.3f",
                             tiles_rendered, tiles_skept, tiles_to_render,
                             (tiles_rendered + tiles_skept) / tiles_to_render * 100,
                             tile, render_time, saving_time)
+
+                elif type == 'skept':
+                    tile, = data
+                    tiles_skept += self.tiles_per_metatile(tile.z)
+
+                    if self.opts.skip_existing:
+                        message = "present, skipping"
+                    else:
+                        message = "too new, skipping"
+
+                    info("[%d+%d/%d: %7.3f%%] %r: %s",
+                            tiles_rendered, tiles_skept, tiles_to_render,
+                            (tiles_rendered + tiles_skept) / tiles_to_render * 100,
+                            tile, message)
+
 
         # the weird - 3* thing is because low ZLs don't have 4 children
         # for metatile sizes > 1
@@ -456,14 +493,14 @@ class Master:
                 tile, render_time, saving_time = data
                 tiles_rendered += self.tiles_per_metatile(tile.z)
 
-                info("[%d+%d/%d: %6.2f%%] %r: %8.3f,  %8.3f",
+                info("[%d+%d/%d: %7.3f%%] %r: %8.3f,  %8.3f",
                         tiles_rendered, tiles_skept, tiles_to_render,
                         (tiles_rendered + tiles_skept) / tiles_to_render * 100,
                         tile, render_time, saving_time)
 
             came_back += 1
 
-        info("[%d+%d/%d: %6.2f%%]", tiles_rendered,
+        info("[%d+%d/%d: %7.3f%%]", tiles_rendered,
              tiles_skept, tiles_to_render,
              (tiles_rendered + tiles_skept) / tiles_to_render * 100)
         debug('out!')
