@@ -406,12 +406,7 @@ class Master:
         selector.register(work_out._writer, EVENT_WRITE)
         selector.register(work_in._reader, EVENT_READ)
 
-        # the weird - 3* thing is because low ZLs don't have 4 children
-        # for metatile sizes > 1
-        # for instance, metatile_size==8 -> Zls 1, 2, 3 have only one metatile
-        while ( self.work_stack.size() > 0 or
-                went_out*4 - 3*math.log2(self.opts.metatile_size) > came_back ):
-
+        while self.work_stack.size() > 0 or went_out > came_back:
             debug('se...')
             evts = selector.select()  # I don't care much about the result
             debug('...lect! %s', evts)
@@ -455,7 +450,6 @@ class Master:
                                  (tiles_rendered + tiles_skept) / tiles_to_render * 100,
                                  tile)
 
-                    came_back += 1
                 elif type == 'old':
                     tile, render_time, saving_time = data
                     tiles_rendered += self.tiles_per_metatile(tile.z)
@@ -464,6 +458,7 @@ class Master:
                             tiles_rendered, tiles_skept, tiles_to_render,
                             (tiles_rendered + tiles_skept) / tiles_to_render * 100,
                             tile, render_time, saving_time)
+                    came_back += 1
 
                 elif type == 'skept':
                     tile, = data
@@ -479,6 +474,7 @@ class Master:
                             (tiles_rendered + tiles_skept) / tiles_to_render * 100,
                             tile, message)
 
+                    came_back += 1
 
         # the weird - 3* thing is because low ZLs don't have 4 children
         # for metatile sizes > 1
