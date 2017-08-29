@@ -3,7 +3,7 @@
 2000 207 127 127
 1000 255 255 127
    0 102 204 141
--450  78 157 108
+-450  58 118  80
 # The lowest (from sea level) artificially made point with open sky
 # might be the Hambach surface mine, Germany, 293 m (961 feet) below sea level.
 # The lowest point on dry land

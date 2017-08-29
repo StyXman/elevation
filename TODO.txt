@@ -1,15 +1,16 @@
-* split landcovers into shaded and not
-* move glaciers to shaded landcover/split in its own layer
-  *ZL8?
-* thicker for phone?
+* calculate casing colors so they're not calculated all the time
 * paved/unpaved
+  * 127.0.0.1:6789/osm-carto/#12/42.8505/11.9554
+    * z12:
+      * tertiary et al can't be seen
+      * dashed line close to Poggiovalle?
+    * z13:
+      * paths still brown
+* thicker for phone?
 * lowzooms: specific rivers/lakes for rendering
-  * ZLs 7-8
+  * natural earth vs imagico
 * sync riverbanks thickness with river casing
 * osm.de.org for style ideas (highways)
-* finish applying local.diff
 * find out city pattern in old maps, apply to populated places.
-* fix (again) terrain in low zooms
 * contour lines as darken or similar.
-* ice at low ZLs
 * farmland, vineyeard, orchard

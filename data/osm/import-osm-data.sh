@@ -17,8 +17,9 @@ case "$1" in
     shift 2
 esac
 
+# --flat-nodes /home/mdione/src/projects/osm/nodes.cache
 common_opts="--username $USER --database "$db" --cache 8192 --number-processes 2 \
-    --verbose --slim --flat-nodes /home/mdione/src/projects/osm/nodes.cache \
+    --verbose --slim  \
     --style import.style --drop"
 
 command=$1

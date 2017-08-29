@@ -24,4 +24,5 @@ if [ -f $file ]; then
 else
     time_cond=""
 fi
-curl $time_cond --location --output $file http://download.geofabrik.de/$path
+# $time_cond
+curl --location --output $file --continue - --verbose http://download.geofabrik.de/$path

@@ -16,7 +16,7 @@
 #
 # Flags: Flags that indicate what table the OSM object is moved into.
 #
-# There are 5 possible flags. These flags are used both to indicate if a column
+# There are 6 possible flags. These flags are used both to indicate if a column
 # should be created, and if ways with the tag are assumed to be areas. The area
 # assumptions can be overridden with an area=yes/no tag
 #
@@ -24,7 +24,10 @@
 #
 # linear - Create a column for this tag
 #
-# phstore - Don't create a column for this tag, but objects with the tag are areas
+# nocolumn - Override the above and don't create a column for the tag, but do
+# include objects with this tag
+#
+# phstore - Same as polygon,nocolumn for backward compatibility
 #
 # delete - Drop this tag completely and don't create a column for it. This also
 # prevents the tag from being added to hstore columns
@@ -68,10 +71,14 @@
 # way_area - datatype real. The area of the way, in the units of the projection
 # (e.g. square mercator meters). Only applies to areas
 #
-# osm_user, osm_uid, osm_version, osm_timestamp - datatype text. Used with the
-# --extra-attributes option to include metadata in the database. If importing
-# with both --hstore and --extra-attributes the meta-data will end up in the
-# tags hstore column regardless of the style file.
+# osm_user - datatype text
+# osm_uid - datatype integer
+# osm_version - datatype integer
+# osm_changeset - datatype integer
+# osm_timestamp - datatype timestamptz(0).
+# Used with the --extra-attributes option to include metadata in the database.
+# If importing with both --hstore and --extra-attributes the meta-data will
+# end up in the tags hstore column regardless of the style file.
 
 # OsmType  Tag          DataType     Flags
 node,way   access       text         linear
@@ -82,14 +89,15 @@ node,way   admin_level  text         linear
 node,way   aerialway    text         linear
 node,way   aeroway      text         polygon
 node,way   amenity      text         polygon
-node,way   area         text         # hard coded support for area=1/yes => polygon is in osm2pgsql
+node,way   area         text         polygon # hard coded support for area=1/yes => polygon is in osm2pgsql
 node,way   barrier      text         linear
-node,way   bicycle      text
+node,way   bicycle      text         linear
 node,way   brand        text         linear
 node,way   bridge       text         linear
 node,way   boundary     text         linear
 node,way   building     text         polygon
 node       capital      text         linear
+node,way   castle_type  text         polygon
 node,way   construction text         linear
 node,way   covered      text         linear
 node,way   culvert      text         linear
@@ -121,15 +129,16 @@ node,way   operator     text         linear
 node,way   piste:type   text         linear
 node,way   piste:difficulty text     linear
 node,way   place        text         polygon
-node       poi          text
+node       poi          text         linear
 node,way   population   text         linear
 node,way   power        text         polygon
 node,way   power_source text         linear
 node,way   public_transport text     polygon
 node,way   railway      text         linear
 node,way   ref          text         linear
-node,way   religion     text         nocache
+node,way   religion     text         linear
 node,way   route        text         linear
+node,way   ruins        text         polygon
 node,way   service      text         linear
 node,way   shop         text         polygon
 node,way   sport        text         polygon
@@ -145,17 +154,17 @@ node,way   wetland      text         polygon
 node,way   width        text         linear
 node,way   wood         text         linear
 node,way   z_order      int4         linear # This is calculated during import
-way        way_area     real                # This is calculated during import
+way        way_area     real         linear # This is calculated during import
 
 # Area tags
 # We don't make columns for these tags, but objects with them are areas.
 # Mainly for use with hstore
-way         abandoned:aeroway       text    phstore
-way         abandoned:amenity       text    phstore
-way         abandoned:building      text    phstore
-way         abandoned:landuse       text    phstore
-way         abandoned:power         text    phstore
-way         area:highway            text    phstore
+way         abandoned:aeroway       text    polygon,nocolumn
+way         abandoned:amenity       text    polygon,nocolumn
+way         abandoned:building      text    polygon,nocolumn
+way         abandoned:landuse       text    polygon,nocolumn
+way         abandoned:power         text    polygon,nocolumn
+way         area:highway            text    polygon,nocolumn
 
 # Deleted tags
 # These are tags that are generally regarded as useless for most rendering.

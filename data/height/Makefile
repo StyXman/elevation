@@ -1,7 +1,10 @@
 # kate: replace-tabs: off; indent-width 8
 
+# data/height/Make
+
 # options used everywhere
-gopts = -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZMA -co LZMA_PRESET=9
+gopts = -co BIGTIFF=YES
+# -co TILED=YES -co COMPRESS=LZMA -co LZMA_PRESET=9
 # options used in final filkes because of
 # Cannot open TIFF file due to missing codec
 # see: https://gis.stackexchange.com/questions/72463/qgis-2-0-cannot-open-tiff
@@ -15,23 +18,30 @@ all:
 	make -C datafiles -j 4 all_single
 	make main
 
-# this Makefile has two goals:
+# this Makefile is multipurposse, to be used at the root of the height data dir
+# (data/height) and on each provider's dir
+
+# but minor goals first
+prepare:
+
 
 #############
 # FIRST GOAL
 # the first goal is to processes the original DEM files and produces 3 or 4 files:
 # * an optional corrected version, for those DEMs that are not in the proper scale.
 # * final terrain, slopeshade and hillshade versions.
+# this is used on the provider's dirs
 
-height_files = $(wildcard *1arc_v3.tif) $(wildcard *.hgt)
-corrected_files = $(foreach height_file,$(height_files),$(subst .tif,-corrected.tif, $(height_file)))
+height_files = $(wildcard *1arc_v3.tif) $(wildcard *.hgt *5deg*5.tif  *5deg*0.tif)
+# corrected_files = $(foreach height_file,$(height_files),$(subst .tif,-corrected.tif, $(height_file)))
+corrected_files = $(foreach column,000 001 002 003 004 005 006 007 008 009 010 011 012 013 014 015 016 017,)
 terrain_files =   $(foreach height_file,$(height_files),$(subst .tif,-terrain.tif,   $(height_file))) \
                   $(foreach height_file,$(height_files),$(subst .hgt,-terrain.tif,   $(height_file)))
 hill_files =      $(foreach height_file,$(height_files),$(subst .tif,-hillshade.tif, $(height_file))) \
                   $(foreach height_file,$(height_files),$(subst .hgt,-hillshade.tif, $(height_file)))
 slope_files =     $(foreach height_file,$(height_files),$(subst .tif,-slopeshade.tif,$(height_file))) \
                   $(foreach height_file,$(height_files),$(subst .hgt,-slopeshade.tif,$(height_file)))
-all_files = $(sort $(terrain_files) $(hill_files) $(slope_files))
+all_files = $(sort $(corrected_files) $(terrain_files) $(hill_files) $(slope_files))
 
 # do not remove these intermediate files
 .SECONDARY: $(corrected_files)
@@ -43,7 +53,7 @@ all_single: $(all_files)
 
 # deFerrantis haves some of the polar files at 1801 pixels instead of the 3601
 # so we have to 'correct' them
-# unit is degree (math.pi/180)
+# unit is degree (2*math.pi / 360)
 # units/pixel= 1 deg/3600 (1 arc sec) = 0.000277777777778
 WebMerc = "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
 m_per_pixel=30.92208077590933
@@ -62,6 +72,9 @@ m_per_pixel=30.92208077590933
 	gdaldem hillshade -alg Horn $(scale_option) -compute_edges $(final_gopts) $< $@
 
 %-slopeshade.tif: %-corrected.tif slope.txt
+# %-slopeshade.tif: %.tif slope.txt
+# %-slopeshade.tif: %.hgt slope.txt
+# %-slopeshade.tif: %.dem slope.txt
 	gdaldem slope -alg Horn $(scale_option) -compute_edges $(gopts) $< $(subst -slopeshade,-slope,$@)
 	gdaldem color-relief $(final_gopts) $(subst -slopeshade,-slope,$@) slope.txt $@
 	rm $(subst -slopeshade,-slope,$@)
@@ -71,6 +84,10 @@ m_per_pixel=30.92208077590933
 	for ext in dbf prj shp shx; do \
 		mv -v contour.$$ext $(basename $@).$$ext; \
 	done
+
+
+terrain.vrt: *-terrain.tif
+	# gdalbuildvrt $@
 
 # TODO: readd the .sql files with the contour lines
 

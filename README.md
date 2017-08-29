@@ -46,3 +46,12 @@ tuning this thing lead to have none yet.
 * Get all the needed shapefiles.
 
 (TBF)
+
+# Setup
+
+I tried to automatize everything, but some things are still done by hand. This is
+a description of all the things that are put around the origina `openstreetmap-carto`
+code (from now on, `osm-carto`).
+
+The modifications to the original `osm-carto` code is maintained as a `quilt`
+repository.
