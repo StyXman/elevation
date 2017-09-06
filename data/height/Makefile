@@ -79,17 +79,29 @@ m_per_pixel=30.92208077590933
 	gdaldem color-relief $(final_gopts) $(subst -slopeshade,-slope,$@) slope.txt $@
 	rm $(subst -slopeshade,-slope,$@)
 
-%-corrected.shp: %-corrected.tif
-	gdal_contour -i 50 -a height $< .
-	for ext in dbf prj shp shx; do \
-		mv -v contour.$$ext $(basename $@).$$ext; \
-	done
+# %-corrected.shp/contour.shp: %-corrected.tif
+# 	mkdir -pv $(dir $@)
+# 	gdal_contour -i 50 -a height $< $(dir $@)
+# 	for ext in dbf prj shp shx; do \
+# 		mv -v contour.$$ext .$$ext; \
+# 	done
 
+# %-corrected.sql: %-corrected.shp/contour.shp
+# 	shp2pgsql -c -I -g way $(basename $<) contours > $@
+# 	rm -rfv $(dir $<)
+
+%-corrected.sql.xz: %-corrected.sql
+	xz -9 $<
+
+%-corrected.sql: %-corrected.tif
+	mkdir -pv $(basename $<).shp
+	gdal_contour -i 50 -a height $< $(basename $<).shp
+	shp2pgsql -c -I -g way $(basename $<).shp/contour contours > $@
+	rm -rfv $(basename $<).shp
 
 terrain.vrt: *-terrain.tif
 	# gdalbuildvrt $@
 
-# TODO: readd the .sql files with the contour lines
 
 ##############
 # SECOND GOAL
@@ -139,38 +151,38 @@ relief = mixed-terrain.tif
 # mixed_contour.sql
 # $(shapefiles)
 
-define gdal-contour
-gdal_contour -i 50 -a height $< .
-shapeindex $(basename )
-endef
+# define gdal-contour
+# gdal_contour -i 10 -a height $< .
+# shapeindex $(basename )
+# endef
 
-define shp2pgsql
-shp2pgsql -c -I -g way $(basename $<) contours > $@
-endef
+# define shp2pgsql
+# shp2pgsql -c -I -g way $(basename $<) contours > $@
+# endef
 
-$(master): $(height_files)
-	gdal_merge.py -o $@ -v $^
-
-mixed_contour.sql: contour.shp
-	$(shp2pgsql)
-
-contour.shp: $(master)
-	$(gdal-contour)
-
-contour1000.shp: contour.shp
-	ogr2ogr -f "ESRI Shapefile" -overwrite -where "height >0 and height % 1000 = 0" contour1000.shp contour.shp
-
-contour500.shp: contour.shp
-	ogr2ogr -f "ESRI Shapefile" -overwrite -where "height >0 and height % 500 = 0 and height % 1000 != 0" contour500.shp contour.shp
-
-contour100.shp: contour.shp
-	ogr2ogr -f "ESRI Shapefile" -overwrite -where "height >0 and height % 100 = 0 and height % 500 != 0 and height % 1000 != 0" contour100.shp contour.shp
-
-contour10.shp: contour.shp
-	ogr2ogr -f "ESRI Shapefile" -overwrite -where "height >0 and height % 100 != 0 and height % 500 != 0 and height % 1000 != 0" contour10.shp contour.shp
+# $(master): $(height_files)
+# 	gdal_merge.py -o $@ -v $^
+#
+# mixed_contour.sql: contour.shp
+# 	$(shp2pgsql)
+#
+# contour.shp: $(master)
+# 	$(gdal-contour)
+#
+# contour1000.shp: contour.shp
+# 	ogr2ogr -f "ESRI Shapefile" -overwrite -where "height >0 and height % 1000 = 0" contour1000.shp contour.shp
+#
+# contour500.shp: contour.shp
+# 	ogr2ogr -f "ESRI Shapefile" -overwrite -where "height >0 and height % 500 = 0 and height % 1000 != 0" contour500.shp contour.shp
+#
+# contour100.shp: contour.shp
+# 	ogr2ogr -f "ESRI Shapefile" -overwrite -where "height >0 and height % 100 = 0 and height % 500 != 0 and height % 1000 != 0" contour100.shp contour.shp
+#
+# contour10.shp: contour.shp
+# 	ogr2ogr -f "ESRI Shapefile" -overwrite -where "height >0 and height % 100 != 0 and height % 500 != 0 and height % 1000 != 0" contour10.shp contour.shp
 
 # %.sql: %.shp
 # 	$(shp2pgsql)
-
-# %.shp: %.hgt
+#
+# %.shp: %.tif
 # 	$(gdal-contour)
