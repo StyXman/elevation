@@ -2170,7 +2170,7 @@
 <Style name="hillshade-big" filter-mode="first" comp-op="hard-light">
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <RasterSymbolizer opacity="0.6" />
+    <RasterSymbolizer scaling="lanczos" opacity="0.6" />
   </Rule>
 </Style>
 <Layer name="hillshade-big"
