@@ -79,9 +79,9 @@ m_per_pixel=30.92208077590933
 	gdaldem color-relief $(final_gopts) $(subst -slopeshade,-slope,$@) slope.txt $@
 	rm $(subst -slopeshade,-slope,$@)
 
-# %-corrected.shp/contour.shp: %-corrected.tif
-# 	mkdir -pv $(dir $@)
-# 	gdal_contour -i 50 -a height $< $(dir $@)
+%-corrected.shp/contour.shp: %-corrected.tif
+	mkdir -pv $(dir $@)
+	gdal_contour -i 50 -a height $< $(dir $@)
 # 	for ext in dbf prj shp shx; do \
 # 		mv -v contour.$$ext .$$ext; \
 # 	done

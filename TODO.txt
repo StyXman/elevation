@@ -1,3 +1,4 @@
+* simpiify coastline for ZL <= 6
 * calculate casing colors so they're not calculated all the time
 * paved/unpaved
   * 127.0.0.1:6789/osm-carto/#12/42.8505/11.9554
@@ -14,3 +15,5 @@
 * find out city pattern in old maps, apply to populated places.
 * contour lines as darken or similar.
 * farmland, vineyeard, orchard
+
+* split tile saving to another thread
