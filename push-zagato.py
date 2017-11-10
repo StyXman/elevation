@@ -54,16 +54,45 @@ parser.add_argument ('-o', '--overwrite', dest='overwrite', action='store_true')
 parser.add_argument ('-k', '--keep', action='store_true')
 parser.add_argument ('-n', '--dry-run', action='store_true')
 parser.add_argument ('-u', '--update', action='store_true', help='implies --keep')
+parser.add_argument ('-s', '--size', action='store_true')
 parser.add_argument ('src', metavar='SRC')
 parser.add_argument ('dst', metavar='DST')
 parser.add_argument ('maps', metavar='MAP', nargs='+')
 opts= parser.parse_args ()
 
+atlas = map_utils.Atlas(opts.maps)
+
+# TODO: other backends
+src = map_utils.DiskBackend(opts.src)
+
+if opts.size:
+    dirs = 0
+    files = 0
+    total_bytes = 0
+
+    for z in range(atlas.minZoom, atlas.maxZoom + 1):
+        # the zoom_level dir counts
+        dirs += 1
+
+        for x in atlas.iterate_x(z):
+            # this one too
+            dirs += 1
+
+            for y in atlas.iterate_y(z, x):
+                tile = map_utils.Tile(z, x, y)
+
+                if src.exists(tile):
+                    files += 1
+                    total_bytes += src.size(tile)
+
+    print("dirs: %s; files: %d; total bytes: %d" % (dirs, files, total_bytes))
+
+    sys.exit(0)
+
 if opts.update:
     # to avoid (not opts.keep or opts.update)
     opts.keep= True
 
-atlas= map_utils.Atlas (opts.maps)
 
 # I assume I will want all the zoom levels
 # so I don't have to check for dir contents
