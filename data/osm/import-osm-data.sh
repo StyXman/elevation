@@ -36,13 +36,10 @@ case "$command" in
   restart)
     sudo --user postgres dropdb --if-exists "$db"
     sudo --user postgres createdb --encoding UTF8 --owner $USER "$db"
-    # sudo --user postgres createlang plpgsql "$db"
     sudo --user postgres psql --dbname "$db" --command "CREATE EXTENSION postgis;"
-    sudo --user postgres psql --dbname "$db" --command "CREATE EXTENSION postgis_sfcgal;"
     sudo --user postgres psql --dbname "$db" --command "CREATE EXTENSION hstore;"
     sudo --user postgres psql --dbname "$db" --command "ALTER TABLE geometry_columns OWNER TO $USER;"
     sudo --user postgres psql --dbname "$db" --command "ALTER TABLE spatial_ref_sys  OWNER TO $USER;"
-    # sudo --user postgres psql --dbname "$db" --file /usr/share/osm2pgsql/900913.sql
     ;;
 
   import)
