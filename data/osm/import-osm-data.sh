@@ -17,10 +17,12 @@ case "$1" in
     shift 2
 esac
 
-# --flat-nodes /home/mdione/src/projects/osm/nodes.cache
-common_opts="--username $USER --database "$db" --cache 8192 --number-processes 2 \
-    --verbose --slim  \
-    --style import.style --drop"
+osm_carto='../../osm-carto'
+
+common_opts="--username $USER --database "$db" --cache 1024 --number-processes 4 --verbose \
+    --slim --flat-nodes /home/mdione/src/projects/osm/nodes.cache --hstore \
+    --multi-geometry --style $osm_carto/openstreetmap-carto.style --tag-transform-script $osm_carto/openstreetmap-carto.lua \
+    --drop"
 
 command=$1
 shift
