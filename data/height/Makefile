@@ -27,21 +27,39 @@ prepare:
 
 #############
 # FIRST GOAL
-# the first goal is to processes the original DEM files and produces 3 or 4 files:
+# the first goal is to processes the original DEM files and produce 3 or 4 files:
 # * an optional corrected version, for those DEMs that are not in the proper scale.
 # * final terrain, slopeshade and hillshade versions.
 # this is used on the provider's dirs
 
-height_files = $(wildcard *1arc_v3.tif) $(wildcard *.hgt *5deg*5.tif  *5deg*0.tif)
+# height_files = $(wildcard *1arc_v3.tif) $(wildcard *.hgt *5deg*5.tif  *5deg*0.tif)
+height_files = $(wildcard *-corrected.tif)
 # corrected_files = $(foreach height_file,$(height_files),$(subst .tif,-corrected.tif, $(height_file)))
-corrected_files = $(foreach column,000 001 002 003 004 005 006 007 008 009 010 011 012 013 014 015 016 017,)
-terrain_files =   $(foreach height_file,$(height_files),$(subst .tif,-terrain.tif,   $(height_file))) \
-                  $(foreach height_file,$(height_files),$(subst .hgt,-terrain.tif,   $(height_file)))
-hill_files =      $(foreach height_file,$(height_files),$(subst .tif,-hillshade.tif, $(height_file))) \
-                  $(foreach height_file,$(height_files),$(subst .hgt,-hillshade.tif, $(height_file)))
-slope_files =     $(foreach height_file,$(height_files),$(subst .tif,-slopeshade.tif,$(height_file))) \
-                  $(foreach height_file,$(height_files),$(subst .hgt,-slopeshade.tif,$(height_file)))
-all_files = $(sort $(corrected_files) $(terrain_files) $(hill_files) $(slope_files))
+# Size is 295201, 187201 vs Size is 295202, 435429
+corrected_files = $(foreach column,\
+                    000 001 002 003 004 005 006 007 008 009 010 011 012 013 014 015 016 017,\
+                        $(foreach line,\
+                        000 001 002 003 004 005 006 007 008 009 010 011 012\
+                        013 014 015 016 017 018 019 020 021 022 023 024 025,\
+				$(column)x$(line)-corrected.tif))
+# terrain_files =   $(foreach height_file,$(height_files),$(subst .tif,-terrain.tif,   $(height_file))) \
+#                   $(foreach height_file,$(height_files),$(subst .hgt,-terrain.tif,   $(height_file)))
+# hill_files =      $(foreach height_file,$(height_files),$(subst .tif,-hillshade.tif, $(height_file))) \
+#                   $(foreach height_file,$(height_files),$(subst .hgt,-hillshade.tif, $(height_file)))
+# slope_files =     $(foreach height_file,$(height_files),$(subst .tif,-slopeshade.tif,$(height_file))) \
+#                   $(foreach height_file,$(height_files),$(subst .hgt,-slopeshade.tif,$(height_file)))
+# all_files = $(sort $(corrected_files) $(terrain_files) $(hill_files) $(slope_files))
+terrain_files =   $(foreach height_file,$(height_files),$(subst -corrected.tif,-terrain.tif,   $(height_file)))
+hill_files =      $(foreach height_file,$(height_files),$(subst -corrected.tif,-hillshade.tif, $(height_file)))
+slope_files =     $(foreach height_file,$(height_files),$(subst -corrected.tif,-slopeshade.tif,$(height_file)))
+contour_files =   $(foreach height_file,$(height_files),$(subst -corrected.tif,-contour.sql.xz,$(height_file)))
+# combined_files =  $(foreach height_file,$(height_files),$(subst -corrected.tif,-combined.tif,  $(height_file)))
+# all_files = $(sort $(terrain_files) $(hill_files) $(slope_files) $(combined_files))
+all_files = $(sort $(terrain_files) $(hill_files) $(slope_files) $(contour_files))
+
+echo:
+	echo $(corrected_files)
+	echo $(all_files)
 
 # do not remove these intermediate files
 .SECONDARY: $(corrected_files)
@@ -51,33 +69,38 @@ all_files = $(sort $(corrected_files) $(terrain_files) $(hill_files) $(slope_fil
 
 all_single: $(all_files)
 
-# deFerrantis haves some of the polar files at 1801 pixels instead of the 3601
+# deFerrantis has some of the polar files at 1801 pixels instead of the 3601
 # so we have to 'correct' them
 # unit is degree (2*math.pi / 360)
 # units/pixel= 1 deg/3600 (1 arc sec) = 0.000277777777778
 WebMerc = "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
 m_per_pixel=30.92208077590933
-%-corrected.tif: %.tif
-	gdalwarp $(gopts) -t_srs $(WebMerc) -r lanczos \
-		-tr $(m_per_pixel) -$(m_per_pixel) $< $@; \
+# %-corrected.tif: %.tif
+# 	gdalwarp $(gopts) -t_srs $(WebMerc) -r lanczos \
+# 		-tr $(m_per_pixel) -$(m_per_pixel) $< $@; \
 
 %-corrected.tif: %.hgt
-	gdalwarp $(gopts) -t_srs $(WebMerc) -r lanczos \
-		-tr $(m_per_pixel) -$(m_per_pixel) $< $@; \
+	gdalwarp $(gopts) -t_srs $(WebMerc) -r lanczos -tr $(m_per_pixel) -$(m_per_pixel) $< $@;
 
 %-terrain.tif: %-corrected.tif color-relief.txt
-	gdaldem color-relief -alpha $(final_gopts) $< color-relief.txt $@
+	gdaldem color-relief -alpha $(gopts) $< color-relief.txt /vsistdout/ | \
+	    gdal_translate $(final_gopts) -b 1 -b 2 -b 3 /vsistdin/ $@
 
 %-hillshade.tif: %-corrected.tif
 	gdaldem hillshade -alg Horn $(scale_option) -compute_edges $(final_gopts) $< $@
 
-%-slopeshade.tif: %-corrected.tif slope.txt
+%-combined.tif: %-corrected.tif
+	gdaldem hillshade -combined -alg Horn $(scale_option) -compute_edges $(final_gopts) $< $@
+
 # %-slopeshade.tif: %.tif slope.txt
 # %-slopeshade.tif: %.hgt slope.txt
 # %-slopeshade.tif: %.dem slope.txt
-	gdaldem slope -alg Horn $(scale_option) -compute_edges $(gopts) $< $(subst -slopeshade,-slope,$@)
-	gdaldem color-relief $(final_gopts) $(subst -slopeshade,-slope,$@) slope.txt $@
-	rm $(subst -slopeshade,-slope,$@)
+
+%-slopeshade.tif: %-corrected.tif slope.txt
+	gdaldem slope -alg Horn $(scale_option) -compute_edges $(gopts) $< /vsistdout/ | \
+	    gdaldem color-relief $(gopts) /vsistdin/ slope.txt /vsistdout/ | \
+	    gdal_translate $(final_gopts) -b 1 /vsistdin/ $@
+	$(HOME)/local/bin/gdal_edit.py -colorinterp_1 gray $@
 
 %-corrected.shp/contour.shp: %-corrected.tif
 	mkdir -pv $(dir $@)
@@ -90,10 +113,10 @@ m_per_pixel=30.92208077590933
 # 	shp2pgsql -c -I -g way $(basename $<) contours > $@
 # 	rm -rfv $(dir $<)
 
-%-corrected.sql.xz: %-corrected.sql
+%-contour.sql.xz: %-contour.sql
 	xz -9 $<
 
-%-corrected.sql: %-corrected.tif
+%-contour.sql: %-corrected.tif
 	mkdir -pv $(basename $<).shp
 	gdal_contour -i 50 -a height $< $(basename $<).shp
 	shp2pgsql -c -I -g way $(basename $<).shp/contour contours > $@
