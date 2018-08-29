@@ -11,7 +11,7 @@ Elevation.diff: osm-carto/project.mml osm-carto/*.mss
 
 Elevation.xml: osm-carto/project.mml osm-carto/*.mss
 	make -C osm-carto
-	./node_modules/.bin/carto $< > $@
+	time ./node_modules/.bin/carto $< > $@
 
 # it works like this
 # git clone complaints when you try to checkout to an exiting directory

@@ -25,7 +25,7 @@ p, li { white-space: pre-wrap; }
                 <texture name="map" expire="31536000">
                     <sourcedir format="png" expire="31536000">earth/Elevation</sourcedir>
                     <storageLayout maximumTileLevel="20" levelZeroColumns="1" levelZeroRows="1" mode="Custom"/>
-                    <downloadUrl protocol="http" host="grulicueva.homenet.org" path="/~mdione/Elevation/{zoomLevel}/{x}/{y}.png" query=""/>
+                    <downloadUrl protocol="http" host="dionecanali.hd.free.fr" path="/~mdione/Elevation/{zoomLevel}/{x}/{y}.png" query=""/>
                     <downloadPolicy usage="Browse" maximumConnections="20"/>
                     <downloadPolicy usage="Bulk" maximumConnections="2"/>
                     <projection name="Mercator"/>

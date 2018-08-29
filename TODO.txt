@@ -1,12 +1,7 @@
+* less prominent place names halos.
+  * no way, no halo opacity.
 * simpiify coastline for ZL <= 6
 * calculate casing colors so they're not calculated all the time
-* paved/unpaved
-  * 127.0.0.1:6789/osm-carto/#12/42.8505/11.9554
-    * z12:
-      * tertiary et al can't be seen
-      * dashed line close to Poggiovalle?
-    * z13:
-      * paths still brown
 * thicker for phone?
 * lowzooms: specific rivers/lakes for rendering
   * natural earth vs imagico
@@ -15,5 +10,34 @@
 * find out city pattern in old maps, apply to populated places.
 * contour lines as darken or similar.
 * farmland, vineyeard, orchard
+* intermitent waterways too prominent, make casing intremitent too
 
-* split tile saving to another thread
+* split tile saving to another thread: DONE?
+
+* fix roads as line too dark: DONE?
+
+* review names for stupid things like picnic_table
+* comment more the tags that are removed so I can resolve conflicts more easily
+
+             line-casing
+Mayor roads
+motorway
+trunk
+primary         8-12
+secondary       9-12
+minor roads for different zoom levels
+tertiary       10-12
+road           10-14  # also unclassified
+residential    12-13
+service        13-14
+living_street    -13
+
+unpaved
+               8    9    10   11   12   13   14    15    16
+* primary      done done done done done done done  done  done
+* secondary         done done done done done done  done  done
+* tertiary               done done done done done  done  done
+* road                   done done done done weird weird done  # GREY
+* residential/unclassified         done done done  done  done
+* service                               done weird wierd done
+* living street                         done done  done  done  # GREY
