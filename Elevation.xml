@@ -42564,7 +42564,7 @@ WHERE railway IN ('station', 'halt', 'tram_stop')
     tags->'recycling_type' as recycling_type,
     tags->'tower:construction' as "tower:construction",
     tags->'tower:type' as "tower:type",
-    CASE WHEN tags->'castle_type' IS NOT NULL then tags->castle_type ELSE 'unknown' END AS castle_type
+    CASE WHEN tags->'castle_type' IS NOT NULL then tags->castle_type ELSE 'unknown' END AS castle_type,
     tags->'ruins' as ruins,
     tags->'information' as information,
     CASE WHEN shop IN ('supermarket', 'bag', 'bakery', 'beauty', 'bed', 'books', 'butcher', 'clothes', 'computer',
@@ -45305,7 +45305,7 @@ WHERE railway IN ('station', 'halt', 'tram_stop')
     tags->'recycling_type' as recycling_type,
     tags->'tower:construction' as "tower:construction",
     tags->'tower:type' as "tower:type",
-    CASE WHEN tags->'castle_type' IS NOT NULL then tags->castle_type ELSE 'unknown' END AS castle_type
+    CASE WHEN tags->'castle_type' IS NOT NULL then tags->castle_type ELSE 'unknown' END AS castle_type,
     tags->'ruins' as ruins,
     tags->'information' as information,
     CASE WHEN shop IN ('supermarket', 'bag', 'bakery', 'beauty', 'bed', 'books', 'butcher', 'clothes', 'computer',
