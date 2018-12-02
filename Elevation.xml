@@ -48886,19 +48886,19 @@ UNION ALL
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <Filter>([highway] = 'construction') and ([construction] = 'tertiary')</Filter>
-    <TextSymbolizer size="12" fill="#ffffff" spacing="300" clip="false" placement="line" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff" repeat-distance="50"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="12" fill="#000000" spacing="300" clip="false" placement="line" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff" repeat-distance="50"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
     <Filter>([highway] = 'construction') and ([construction] = 'tertiary')</Filter>
-    <TextSymbolizer size="11" fill="#ffffff" spacing="300" clip="false" placement="line" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff" repeat-distance="50"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="11" fill="#000000" spacing="300" clip="false" placement="line" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff" repeat-distance="50"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([highway] = 'construction') and ([construction] = 'tertiary')</Filter>
-    <TextSymbolizer size="10" fill="#ffffff" spacing="300" clip="false" placement="line" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff" repeat-distance="50"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="10" fill="#000000" spacing="300" clip="false" placement="line" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff" repeat-distance="50"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
@@ -49056,19 +49056,19 @@ UNION ALL
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <Filter>([highway] = 'tertiary')</Filter>
-    <TextSymbolizer size="12" fill="#ffffff" spacing="300" clip="false" placement="line" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff" repeat-distance="50"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="12" fill="#000000" spacing="300" clip="false" placement="line" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff" repeat-distance="50"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
     <Filter>([highway] = 'tertiary')</Filter>
-    <TextSymbolizer size="11" fill="#ffffff" spacing="300" clip="false" placement="line" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff" repeat-distance="50"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="11" fill="#000000" spacing="300" clip="false" placement="line" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff" repeat-distance="50"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([highway] = 'tertiary')</Filter>
-    <TextSymbolizer size="10" fill="#ffffff" spacing="300" clip="false" placement="line" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff" repeat-distance="50"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="10" fill="#000000" spacing="300" clip="false" placement="line" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff" repeat-distance="50"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
