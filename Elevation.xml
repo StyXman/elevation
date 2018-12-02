@@ -44754,56 +44754,56 @@ WHERE railway IN ('station', 'halt', 'tram_stop')
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <Filter>([feature] = 'attraction_water_slide')</Filter>
-    <LineSymbolizer stroke-width="5" stroke="#000000" stroke-linejoin="round" smooth="1" />
-    <LineSymbolizer stroke-width="4" stroke="#aae0cb" stroke-linejoin="round" stroke-linecap="round" smooth="1" />
+    <LineSymbolizer stroke-width="5" stroke="#000000" stroke-linejoin="round" />
+    <LineSymbolizer stroke-width="4" stroke="#aae0cb" stroke-linejoin="round" stroke-linecap="round" />
     <TextSymbolizer size="10" fontset-name="fontset-0" fill="#338b69" halo-radius="2.5" halo-fill="#ffffff" placement="line" vertical-alignment="middle" repeat-distance="200" dy="8"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
     <Filter>([feature] = 'attraction_water_slide')</Filter>
-    <LineSymbolizer stroke-width="2.5" stroke="#000000" stroke-linejoin="round" smooth="1" />
-    <LineSymbolizer stroke-width="2" stroke="#aae0cb" stroke-linejoin="round" stroke-linecap="round" smooth="1" />
+    <LineSymbolizer stroke-width="2.5" stroke="#000000" stroke-linejoin="round" />
+    <LineSymbolizer stroke-width="2" stroke="#aae0cb" stroke-linejoin="round" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([feature] = 'attraction_water_slide')</Filter>
-    <LineSymbolizer stroke="#000000" stroke-linejoin="round" smooth="1" stroke-width="1.25" />
-    <LineSymbolizer stroke="#aae0cb" stroke-linejoin="round" stroke-linecap="round" smooth="1" stroke-width="1" />
+    <LineSymbolizer stroke="#000000" stroke-linejoin="round" stroke-width="1.25" />
+    <LineSymbolizer stroke="#aae0cb" stroke-linejoin="round" stroke-linecap="round" stroke-width="1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([feature] = 'attraction_water_slide')</Filter>
-    <LineSymbolizer stroke="#aae0cb" stroke-linejoin="round" stroke-linecap="round" smooth="1" stroke-width="1" />
+    <LineSymbolizer stroke="#aae0cb" stroke-linejoin="round" stroke-linecap="round" stroke-width="1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <Filter>([feature] = 'leisure_track')</Filter>
-    <LineSymbolizer stroke-width="5" stroke="#28c98a" stroke-linejoin="round" smooth="1" />
-    <LineSymbolizer stroke-width="4" stroke="#aae0cb" stroke-linejoin="round" stroke-linecap="round" smooth="1" />
+    <LineSymbolizer stroke-width="5" stroke="#28c98a" stroke-linejoin="round" />
+    <LineSymbolizer stroke-width="4" stroke="#aae0cb" stroke-linejoin="round" stroke-linecap="round" />
     <TextSymbolizer size="10" fontset-name="fontset-0" fill="#338b69" halo-radius="2.5" halo-fill="#ffffff" placement="line" vertical-alignment="middle" repeat-distance="200" dy="8"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
     <Filter>([feature] = 'leisure_track')</Filter>
-    <LineSymbolizer stroke-width="2.5" stroke="#28c98a" stroke-linejoin="round" smooth="1" />
-    <LineSymbolizer stroke-width="2" stroke="#aae0cb" stroke-linejoin="round" stroke-linecap="round" smooth="1" />
+    <LineSymbolizer stroke-width="2.5" stroke="#28c98a" stroke-linejoin="round" />
+    <LineSymbolizer stroke-width="2" stroke="#aae0cb" stroke-linejoin="round" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([feature] = 'leisure_track')</Filter>
-    <LineSymbolizer stroke="#28c98a" stroke-linejoin="round" smooth="1" stroke-width="1.25" />
-    <LineSymbolizer stroke="#aae0cb" stroke-linejoin="round" stroke-linecap="round" smooth="1" stroke-width="1" />
+    <LineSymbolizer stroke="#28c98a" stroke-linejoin="round" stroke-width="1.25" />
+    <LineSymbolizer stroke="#aae0cb" stroke-linejoin="round" stroke-linecap="round" stroke-width="1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([feature] = 'leisure_track')</Filter>
-    <LineSymbolizer stroke="#aae0cb" stroke-linejoin="round" stroke-linecap="round" smooth="1" stroke-width="1" />
+    <LineSymbolizer stroke="#aae0cb" stroke-linejoin="round" stroke-linecap="round" stroke-width="1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -55015,7 +55015,7 @@ UNION ALL
     <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" dy="10" fill="#734a08" halo-radius="2.5" halo-fill="#ffffff" placement="interior" fontset-name="fontset-1"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>1500</MaxScaleDenominator>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'amenity_atm')</Filter>
     <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" dy="10" fill="#734a08" halo-radius="2.5" halo-fill="#ffffff" placement="interior" fontset-name="fontset-1"><![CDATA[[operator]]]></TextSymbolizer>
   </Rule>
@@ -63026,7 +63026,7 @@ UNION ALL
     <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" dy="10" fill="#734a08" halo-radius="2.5" halo-fill="#ffffff" placement="interior" fontset-name="fontset-1"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>1500</MaxScaleDenominator>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'amenity_atm')</Filter>
     <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" dy="10" fill="#734a08" halo-radius="2.5" halo-fill="#ffffff" placement="interior" fontset-name="fontset-1"><![CDATA[[operator]]]></TextSymbolizer>
   </Rule>
