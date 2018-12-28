@@ -8,6 +8,7 @@ import math
 
 option ('-e')
 
+
 def deFerrantis_1as (lat, lon):
     # TODO
     # NOR
@@ -35,6 +36,7 @@ def deFerrantis_1as (lat, lon):
     return ("%s%02d%s%03d.hgt" % (nsl, nsd, ewl, ewd),
             "http://www.viewfinderpanoramas.org/dem1/",
             "%s%02d%s%03d.zip" % (nsl, nsd, ewl, ewd))
+
 
 def deFerrantis_3as (lat, lon):
     # 4x6!!!
@@ -72,6 +74,7 @@ def deFerrantis_3as (lat, lon):
             "http://www.viewfinderpanoramas.org/dem3/",
             "%s.zip" % code)
 
+
 def SRTM_3as_v41 (lat, lon):
     # we have 5x5 degrees squares
     #  1, 1 for -180,+59,-179,+60
@@ -92,6 +95,7 @@ def SRTM_3as_v41 (lat, lon):
             # "http://srtm.csi.cgiar.org/SRT-ZIP/SRTM_V41/SRTM_Data_GeoTiff"
             "ftp://srtm.csi.cgiar.org/SRTM_v41/SRTM_Data_GeoTIFF",
             "srtm_%02d_%02d.zip" % (srtm_v41_w, srtm_v41_n))
+
 
 def SRTM_1as (lat, lon):
     # TODO: URL?
@@ -117,11 +121,13 @@ def SRTM_1as (lat, lon):
             "http://dds.cr.usgs.gov/ltaauth//hsm/lta1/srtm_v3/tif/1arcsec/e046/n53_e046_1arc_v3.tif?id=rmui4p494bcknp5gfmsj5ivfd3&iid=SRTM1N53E046V3&did=88512880&ver=production",
             "%s%02d_%s%03d_1arc_v3.tif" % (nsc, n, ewc, w))
 
+
 def ASTER_GDEM_v002 (lat, lon):
     # TODO:
     # ASTGMT2_N42E008.zip
     # URL?
     pass
+
 
 def SRTMGL1v003 (lat, lon):
     # http://e4ftl01.cr.usgs.gov//MODV6_Dal_D/SRTM/SRTMGL1.003/2000.02.11/N{3{5,6,7,8,9},{4,5}{0,0,1,2,3,4,5,6,7,8,9}}{W00{1,2,3,4,5,6,7},E0{{0,2,3}{0,1,2,3,4,5,6,7,8,9},4{0,1,2,3,4,5,6,7}}}.SRTMGL1.hgt.zip
