@@ -1,7 +1,7 @@
 #! /bin/bash
 
-dst="$1.dst"
-dst_corrected="$1-corrected.dst"
+dst="$1.vrt"
+dst_corrected="$1-corrected.vrt"
 shift
 
 gdalbuildvrt "$dst" "$@"
