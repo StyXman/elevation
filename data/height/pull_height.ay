@@ -153,6 +153,44 @@ def SRTMGL1v003 (lat, lon):
             "https://e4ftl01.cr.usgs.gov:40521/TEST/SRTM/SRTMGL1.003/2000.02.11/",
             "%s%02d%s%03d.SRTMGL1.hgt.zip" % (nsc, n, ewc, w))
 
+
+def mapzen_local(lat, lon):
+    if lat < 0:
+        nsl = "S"
+    else:
+        nsl = "N"
+
+    if lon < 0:
+        ewl = "W"
+    else:
+        ewl = "E"
+
+    nsd = abs(lat)
+    ewd = abs(lon)
+
+    return( "%s%02d%s%03d.hgt" % (nsl, nsd, ewl, ewd),
+            "http://mustang/~mdione/data/",
+            "%s%02d%s%03d.hgt.gz" % (nsl, nsd, ewl, ewd) )
+
+def mapzen_remote(lat, lon):
+    if lat < 0:
+        nsl = "S"
+    else:
+        nsl = "N"
+
+    if lon < 0:
+        ewl = "W"
+    else:
+        ewl = "E"
+
+    nsd = abs(lat)
+    ewd = abs(lon)
+
+    return( "%s%02d%s%03d.hgt" % (nsl, nsd, ewl, ewd),
+            "http://dionecanali.hd.free.fr/~mdione/data/",
+            "%s%02d%s%03d.hgt.gz" % (nsl, nsd, ewl, ewd) )
+
+
 def main ():
     download= True
     if argv[1] in ('-n', '--dry-run'):
