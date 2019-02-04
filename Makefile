@@ -7,7 +7,7 @@ all: Elevation.xml Elevation.diff
 diff: Elevation.diff
 
 Elevation.diff: osm-carto/project.mml osm-carto/*.mss
-	cd osm-carto; git diff > ../Elevation.diff
+	cd osm-carto; git diff -w v4.19.0 > ../Elevation.diff
 
 Elevation.xml: osm-carto/project.mml osm-carto/*.mss
 	make -C osm-carto
