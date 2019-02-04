@@ -211,10 +211,10 @@ def download(zip_file, url, dry_run=False):
 
 
 def main ():
-    download= True
+    dry_run = False
     if argv[1] in ('-n', '--dry-run'):
-        download= False
-        shift ()
+        dry_run = True
+        shift()
 
     pbf_file= argv[1]
     extent= osmpbf_outline (pbf_file, _fails=True) | head (-n=100) | grep ('bbox', _out=Capture, _fails=True)
