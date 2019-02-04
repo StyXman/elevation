@@ -5,6 +5,7 @@
 
 import re
 from math import floor
+import os
 
 option ('-e')
 
@@ -256,7 +257,13 @@ def main ():
                 print ("%s not found, downloading" % file)
                 download(zip_file, url, dry_run)
             else:
-                print ("%s found, skipping" % f)
+                # check size
+                size = curl(--head=True, --silent=True, url) | awk('/Content-Length:/ { print $2 }', _out=Capture)
+                if os.stat(zip_file).st_size < int(str(size)):
+                    # this will automatically continue
+                    download(zip_file, url, dry_run)
+                else:
+                    print ("%s found, skipping" % file)
 
             if -f(zip_file):
                 try:
