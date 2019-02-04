@@ -635,7 +635,7 @@
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
        <Parameter name="table"><![CDATA[(SELECT
-    way, way_pixels,
+    way, way_pixels, name,
     COALESCE(wetland, landuse, "natural") AS feature
   FROM (SELECT
       way,
