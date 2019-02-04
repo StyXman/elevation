@@ -172,15 +172,19 @@ def main ():
         print ("cannot find the extent of %s [%s]; bailing out" % (pbf_file, e))
         exit (1)
 
-    if not download:
-        exit (0)
+    west = floor(west)
+    south = floor(south)
+    east = floor(east) + 1
+    north = floor(north) + 1
+    print((west, south, east, north))
 
     not_found= set ()
 
     # +1 so they're proper bounds for range
-    for lat in range (math.floor (north), math.floor (south)+1, -1):
-        for lon in range (math.floor (west), math.floor (east)+1):
-            data= SRTMGL1v003 (lat, lon)
+    for lat in range(north, south - 1, -1):
+        for lon in range(west, east + 1):
+            # HACK BUG TODO
+            data= mapzen_remote (lat, lon)
             if data is not None:
                 file, u, zip_file= data
             else:
