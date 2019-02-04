@@ -193,17 +193,20 @@ def main ():
             if not -f (file) and not -f(zip_file) and zip_file not in not_found:
                 print ("%s not found, downloading" % file)
                 url= "%s/%s" % (u, zip_file)
-                try:
-                    wget (--verbose=True, --progress='bar', -c=True,  # continue is a reserved word
-                          --output-document=zip_file, url, _out_bufsize=0)
-                except CommandFailed as e:
-                    if e.command.exit_code ()==8:
-                        # most probably 404
-                        # TODO: use curl instead
-                        not_found.add (zip_file)
+                if download:
+                    try:
+                        wget(--verbose=True, --progress='bar', -c=True,  # continue is a reserved word
+                             --output-document=zip_file, url, _out_bufsize=0)
+                    except CommandFailed as e:
+                        if e.command.exit_code () == 8:
+                            # most probably 404
+                            # TODO: use curl instead
+                            not_found.add(zip_file)
 
-                    # wget leaves an empty file if the download failed!
-                    rm (-v=True, zip_file)
+                        # wget leaves an empty file if the download failed!
+                        rm (-v=True, zip_file)
+                else:
+                    print(url)
 
                 sleep (1)
             else:
