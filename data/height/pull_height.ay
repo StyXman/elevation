@@ -4,7 +4,7 @@
 # for licensing details see the file LICENSE.txt
 
 import re
-import math
+from math import floor
 
 option ('-e')
 
@@ -20,18 +20,18 @@ def deFerrantis_1as (lat, lon):
     # P29-1,31..36
     # Q32..36
     # R33..36
-    if lon<0:
-        nsl= "S"
+    if lat < 0:
+        nsl = "S"
     else:
-        nsl= "N"
+        nsl = "N"
 
-    if lat<0:
-        ewl= "W"
+    if lon < 0:
+        ewl = "W"
     else:
-        ewl= "E"
+        ewl = "E"
 
-    nsd= abs (lat)
-    ewd= abs (lon)
+    nsd = abs (lat)
+    ewd = abs (lon)
 
     return ("%s%02d%s%03d.hgt" % (nsl, nsd, ewl, ewd),
             "http://www.viewfinderpanoramas.org/dem1/",
@@ -51,15 +51,15 @@ def deFerrantis_3as (lat, lon):
     #  45 ->  L
     #  -1 -> SA
     # -45 -> SL
-    nsl= chr (65+int (math.floor (alat/4)))
+    nsl= chr (65+int (floor (alat/4)))
 
-    if lat<0:
+    if lat < 0:
         nsl= "S"+nsl
 
     # -180 -> 01
     # 0    -> 31
     # 179  -> 60
-    ewd= math.floor ((lon+180)/6)+1
+    ewd= floor ((lon+180)/6)+1
 
     code= "%s%02d" % (nsl, ewd)
 
@@ -86,10 +86,10 @@ def SRTM_3as_v41 (lat, lon):
     # -34 -> -35/-30 -> 30
     #  30 ->  30/ 35 ->  7
 
-    srtm_v41_n= math.floor (-north/5)+13
+    srtm_v41_n= floor (-north/5)+13
     if srtm_v41_n<1:
         srtm_v41_n= 1
-    srtm_v41_w= math.floor (west/5)+37
+    srtm_v41_w= floor (west/5)+37
 
     return ("srtm_%02d_%02d.hdr" % (srtm_v41_w, srtm_v41_n),
             # "http://srtm.csi.cgiar.org/SRT-ZIP/SRTM_V41/SRTM_Data_GeoTiff"
@@ -165,7 +165,8 @@ def main ():
     # bbox: 9.5267800,46.3685100,17.1627300,49.0240300
     # bbox: -34.4929600,30.8165900,45.0000000,81.4729900
     try:
-        west, south, east, north= [ float (x) for x in re.split ("[:,]", str (extent))[1:] ]
+        # BUG in ayrton: TypeError: required field "is_async" missing from comprehension
+        west, south, east, north = map(float, re.split ("[:,]", str (extent))[1:])
         # -34.49296 30.81659 46.75348 81.47299
     except (ValueError, AttributeError) as e:
         print ("cannot find the extent of %s [%s]; bailing out" % (pbf_file, e))
