@@ -85,7 +85,7 @@ m_per_pixel=30.92208077590933
 	gdaldem slope -alg Horn $(scale_option) -compute_edges $(gopts) $< /vsistdout/ | \
 	    gdaldem color-relief $(gopts) /vsistdin/ slope.txt /vsistdout/ | \
 	    gdal_translate $(final_gopts) -b 1 /vsistdin/ $@
-	$(HOME)/local/bin/gdal_edit.py -colorinterp_1 gray $@
+	gdal_edit.py -colorinterp_1 gray $@
 
 %-corrected.shp/contour.shp: %-corrected.tif
 	mkdir -pv $(dir $@)
