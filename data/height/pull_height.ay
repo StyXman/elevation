@@ -249,7 +249,10 @@ def main ():
 
             url = "%s/%s" % (u, zip_file)
 
-            if not -f (file) and not -f(zip_file) and zip_file not in not_found:
+            if -f(file):
+                continue
+
+            if not -f(zip_file) and zip_file not in not_found:
                 print ("%s not found, downloading" % file)
                 download(zip_file, url, dry_run)
             else:
