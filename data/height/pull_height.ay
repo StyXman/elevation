@@ -191,6 +191,25 @@ def mapzen_remote(lat, lon):
             "%s%02d%s%03d.hgt.gz" % (nsl, nsd, ewl, ewd) )
 
 
+def download(zip_file, url, dry_run=False):
+    if not dry_run:
+        try:
+            wget(--verbose=True, --progress='bar', -c=True,  # continue is a reserved word
+                 --output-document=zip_file, url, _out_bufsize=0)
+            sleep (1)
+        except CommandFailed as e:
+            if e.command.exit_code () == 8:
+                # most probably 404
+                # TODO: use curl instead
+                not_found.add(zip_file)
+
+            # wget leaves an empty file if the download failed!
+            rm (-v=True, zip_file)
+    else:
+        print(url)
+
+
+
 def main ():
     download= True
     if argv[1] in ('-n', '--dry-run'):
@@ -228,25 +247,11 @@ def main ():
             else:
                 continue
 
+            url = "%s/%s" % (u, zip_file)
+
             if not -f (file) and not -f(zip_file) and zip_file not in not_found:
                 print ("%s not found, downloading" % file)
-                url= "%s/%s" % (u, zip_file)
-                if download:
-                    try:
-                        wget(--verbose=True, --progress='bar', -c=True,  # continue is a reserved word
-                             --output-document=zip_file, url, _out_bufsize=0)
-                    except CommandFailed as e:
-                        if e.command.exit_code () == 8:
-                            # most probably 404
-                            # TODO: use curl instead
-                            not_found.add(zip_file)
-
-                        # wget leaves an empty file if the download failed!
-                        rm (-v=True, zip_file)
-                else:
-                    print(url)
-
-                sleep (1)
+                download(zip_file, url, dry_run)
             else:
                 print ("%s found, skipping" % f)
 
