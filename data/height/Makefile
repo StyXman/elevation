@@ -4,12 +4,17 @@
 
 # options used everywhere
 gopts = -co BIGTIFF=YES
-# -co TILED=YES -co COMPRESS=LZMA -co LZMA_PRESET=9
-# options used in final filkes because of
+
+# options used in final files because of
 # Cannot open TIFF file due to missing codec
 # see: https://gis.stackexchange.com/questions/72463/qgis-2-0-cannot-open-tiff
+# -co TILED=YES -co COMPRESS=LZMA -co LZMA_PRESET=9
 final_gopts = -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW
+
 # apply to slope (not slopeshade) and hillshade processing
+# the ratio of vertical units to horizontal
+# if data is in WGS84 projection (standard latitude/longitude), h=1°
+# 1° == 111120m at 0,0
 # scale_option = -s 111120
 scale_option = -s 1
 
