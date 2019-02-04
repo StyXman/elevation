@@ -1,23 +1,25 @@
-* less prominent place names halos.
-  * no way, no halo opacity.
-* simpiify coastline for ZL <= 6
+* contour lines as darken or similar.
+* review landcover-flat, make it terrain aware again
+* simplify coastline for ZL <= 6
 * calculate casing colors so they're not calculated all the time
 * thicker for phone?
 * lowzooms: specific rivers/lakes for rendering
   * natural earth vs imagico
 * sync riverbanks thickness with river casing
-* osm.de.org for style ideas (highways)
 * find out city pattern in old maps, apply to populated places.
-* contour lines as darken or similar.
 * farmland, vineyeard, orchard
-* intermitent waterways too prominent, make casing intremitent too
-
-* split tile saving to another thread: DONE?
+* intermittent waterways too prominent, make casing intermittent too
+* borders for lakes in z0-z8
+* pines grow up to 5000m. check terrain colors against forest or similar.
 
 * fix roads as line too dark: DONE?
 
 * review names for stupid things like picnic_table
+* partially revert b066af54f61b02685edb5db4191c5fbc3617eb5d
 * comment more the tags that are removed so I can resolve conflicts more easily
+
+* less prominent place names halos.
+  * no way, no halo opacity.
 
              line-casing
 Mayor roads
@@ -41,3 +43,11 @@ unpaved
 * residential/unclassified         done done done  done  done
 * service                               done weird wierd done
 * living street                         done done  done  done  # GREY
+
+
+map_utils:
+* implement geopackage
+  http://www.geopackage.org/spec/
+* optimize pngs
+* read metadata.json
+
