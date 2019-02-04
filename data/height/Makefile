@@ -52,8 +52,8 @@ contour_files =   $(foreach height_file,$(height_files),$(subst -corrected.tif,-
 all_files = $(sort $(terrain_files) $(hill_files) $(slope_files) $(contour_files))
 
 echo:
-	echo $(corrected_files)
-	echo $(all_files)
+#	@echo $(corrected_files)
+	@echo $(all_files)
 
 # do not remove these intermediate files
 .SECONDARY: $(corrected_files)
