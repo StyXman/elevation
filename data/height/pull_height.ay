@@ -267,8 +267,9 @@ def main ():
 
             if -f(zip_file):
                 try:
-                    unzip (-o=True, -f=True, -v=True, zip_file)
-                    rm (-v=True, zip_file)
+                    # unzip (-o=True, -f=True, -v=True, zip_file)
+                    # rm (-v=True, zip_file)
+                    gunzip (-d=True, -f=True, -v=True, zip_file)
                 except CommandFailed as e:
                     print ("unzipping %s failed[%s]; keeping..." % (zip_file, e))
 
