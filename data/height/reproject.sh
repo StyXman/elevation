@@ -28,3 +28,5 @@ for i in $(seq 0 5); do
         wait;
     done;
 done
+
+make all_single
