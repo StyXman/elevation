@@ -639,6 +639,7 @@
     COALESCE(wetland, landuse, "natural") AS feature
   FROM (SELECT
       way,
+      name,
       ('landuse_' || (CASE WHEN landuse IN ('forest', 'farmland', 'residential', 'commercial', 'retail', 'industrial',
                                             'meadow', 'vineyard', 'orchard') THEN landuse ELSE NULL END)) AS landuse,
       ('natural_' || (CASE WHEN "natural" IN ('wood', 'sand', 'scree', 'shingle', 'bare_rock', 'heath', 'grassland', 'scrub') THEN "natural" ELSE NULL END)) AS "natural",
@@ -3516,7 +3517,7 @@
   maximum-scale-denominator="3000000"
   minimum-scale-denominator="1500000"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-
+    
     <Datasource>
        <Parameter name="file"><![CDATA[data/height/mixed-hillshade-medium.tif]]></Parameter>
        <Parameter name="type"><![CDATA[gdal]]></Parameter>
@@ -41727,7 +41728,7 @@ AS entrances]]></Parameter>
   maximum-scale-denominator="12500"
   status="off"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-
+    
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="dbname"><![CDATA[rd]]></Parameter>
@@ -42021,7 +42022,7 @@ SELECT
 <Layer name="state-names"
   maximum-scale-denominator="50000000"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-
+    
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="dbname"><![CDATA[rd]]></Parameter>
@@ -66543,7 +66544,7 @@ SELECT
   maximum-scale-denominator="12500"
   status="off"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-
+    
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="dbname"><![CDATA[rd]]></Parameter>
