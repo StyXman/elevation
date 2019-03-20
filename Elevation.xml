@@ -44899,7 +44899,7 @@ WHERE railway IN ('station', 'halt', 'tram_stop')
     <MarkersSymbolizer opacity="0.33" file="symbols/tourism/picnic.svg" fill="#0c8416" placement="interior" clip="false" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([feature] = 'leisure_playground') and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')</Filter>
     <MarkersSymbolizer opacity="0.33" file="symbols/leisure/playground.svg" width="10" height="10" fill="#0c8416" placement="interior" clip="false" />
   </Rule>
@@ -46150,7 +46150,7 @@ WHERE railway IN ('station', 'halt', 'tram_stop')
     <MarkersSymbolizer file="symbols/leisure/miniature_golf.svg" width="8" height="8" fill="#0c8416" placement="interior" clip="false" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([feature] = 'leisure_playground')</Filter>
     <MarkersSymbolizer file="symbols/leisure/playground.svg" width="10" height="10" fill="#0c8416" placement="interior" clip="false" />
   </Rule>
@@ -48341,7 +48341,7 @@ WHERE railway IN ('station', 'halt', 'tram_stop')
     <MarkersSymbolizer opacity="0.33" file="symbols/tourism/picnic.svg" fill="#0c8416" placement="interior" clip="false" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([feature] = 'leisure_playground') and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')</Filter>
     <MarkersSymbolizer opacity="0.33" file="symbols/leisure/playground.svg" width="10" height="10" fill="#0c8416" placement="interior" clip="false" />
   </Rule>
@@ -49597,7 +49597,7 @@ WHERE railway IN ('station', 'halt', 'tram_stop')
     <MarkersSymbolizer file="symbols/leisure/miniature_golf.svg" width="8" height="8" fill="#0c8416" placement="interior" clip="false" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([feature] = 'leisure_playground')</Filter>
     <MarkersSymbolizer file="symbols/leisure/playground.svg" width="10" height="10" fill="#0c8416" placement="interior" clip="false" />
   </Rule>
