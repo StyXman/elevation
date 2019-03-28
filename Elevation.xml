@@ -3624,7 +3624,7 @@
     <StyleName>contour-50</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="dbname"><![CDATA[fr]]></Parameter>
+       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
@@ -3662,7 +3662,7 @@
     <StyleName>contour-100</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="dbname"><![CDATA[fr]]></Parameter>
+       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
@@ -3686,7 +3686,7 @@
     <StyleName>contour-250</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="dbname"><![CDATA[fr]]></Parameter>
+       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
@@ -3729,7 +3729,7 @@
     <StyleName>contour-500</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="dbname"><![CDATA[fr]]></Parameter>
+       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
@@ -3772,7 +3772,7 @@
     <StyleName>contour-1000</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="dbname"><![CDATA[fr]]></Parameter>
+       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
