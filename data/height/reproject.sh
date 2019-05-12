@@ -1,8 +1,18 @@
 #! /bin/bash
 
+if [ $# -eq 0 -o "$1" == "-h" -o "$1" == "--help" ]; then
+    echo "$0 <region> <cols> <rows> file..."
+    exit 0
+fi
+
 dst="$1.vrt"
 dst_corrected="$1-corrected.vrt"
 shift
+
+# TODO: use gdalinfo rd-corrected.vrt | grep '^Size' to calculate extents
+cols=$1
+rows=$2
+shift 2
 
 gdalbuildvrt "$dst" "$@"
 gdalwarp -t_srs "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 \
@@ -12,9 +22,8 @@ gdalwarp -t_srs "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 \
 
 tile_size=$((2**14))
 
-# TODO: use gdalinfo rd-corrected.vrt | grep '^Size' to calculate extents
-for i in $(seq 0 5); do
-    for j in $(seq 0 5); do
+for i in $(seq 0 $cols); do
+    for j in $( seq 0 $(($rows / 4)) ); do
         for k in $(seq 0 3); do
             l=$((4 * $j + $k));
             # -eco to ignore
@@ -22,8 +31,7 @@ for i in $(seq 0 5); do
                 -eco \
                 -srcwin $(($tile_size * $i)) $(($tile_size * $l)) \
                     $(($tile_size + 1)) $(($tile_size + 1)) \
-                -of GTiff "$dst_corrected" \
-                $(printf "%03dx%03d-corrected.tif" $i $l) &
+                -of GTiff "$dst_corrected" "$(printf "%03dx%03d-corrected.tif" $i $l)" &
         done;
         wait;
     done;
