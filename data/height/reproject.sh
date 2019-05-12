@@ -26,12 +26,15 @@ for i in $(seq 0 $cols); do
     for j in $( seq 0 $(($rows / 4)) ); do
         for k in $(seq 0 3); do
             l=$((4 * $j + $k));
-            # -eco to ignore
-            gdal_translate -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZMA -co LZMA_PRESET=9 \
-                -eco \
-                -srcwin $(($tile_size * $i)) $(($tile_size * $l)) \
-                    $(($tile_size + 1)) $(($tile_size + 1)) \
-                -of GTiff "$dst_corrected" "$(printf "%03dx%03d-corrected.tif" $i $l)" &
+            file="$(printf "%03dx%03d-corrected.tif" $i $l)"
+            if ! [ -f "$file" ]; then
+                # -eco to ignore
+                gdal_translate -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZMA -co LZMA_PRESET=9 \
+                    -eco \
+                    -srcwin $(($tile_size * $i)) $(($tile_size * $l)) \
+                        $(($tile_size + 1)) $(($tile_size + 1)) \
+                    -of GTiff "$dst_corrected" "$file" &
+            fi
         done;
         wait;
     done;
