@@ -73,7 +73,8 @@ WebMerc = "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0
 m_per_pixel=30.92208077590933
 
 %-corrected.tif: %.hgt
-	gdalwarp $(gopts) -t_srs $(WebMerc) -r lanczos -tr $(m_per_pixel) -$(m_per_pixel) $< $@;
+	gdalwarp $(gopts) -t_srs $(WebMerc) -r lanczos -tr $(m_per_pixel) -$(m_per_pixel) \
+	    $< $@;
 
 %-terrain.tif: %-corrected.tif color-relief.txt
 	gdaldem color-relief -alpha $(gopts) $< color-relief.txt /vsistdout/ | \
@@ -83,7 +84,8 @@ m_per_pixel=30.92208077590933
 	gdaldem hillshade -alg Horn $(scale_option) -compute_edges $(final_gopts) $< $@
 
 %-combined.tif: %-corrected.tif
-	gdaldem hillshade -combined -alg Horn $(scale_option) -compute_edges $(final_gopts) $< $@
+	gdaldem hillshade -combined -alg Horn $(scale_option) -compute_edges $(final_gopts) \
+	    $< $@
 
 %-slopeshade.orig.tif: %-corrected.tif slope.txt
 	gdaldem slope -alg Horn $(scale_option) -compute_edges $(gopts) $< /vsistdout/ | \
@@ -119,7 +121,8 @@ terrain.vrt: *-terrain.tif
 # SECOND GOAL
 # the second goal is to combine these versions in three .vrt files,
 # so it can be used directly by the rendering engine
-# and also a small version so it can be used for rendering low zoom levels (currently 7 and below)
+# and also a small version so it can be used for rendering low zoom levels
+# (currently 7 and below)
 
 # iterate first over the suffixes, then the datafiles
 # so .vrt are built first and small later
@@ -134,13 +137,15 @@ main: $(main_files)
 	rm -f $@
 # 4 times less resolute than the original
 # units/pixel= 1 deg/900 (4 arc sec) = 0.001111111111111
-	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 123.68832310363732 -123.68832310363732 $< $@
+	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW \
+	    -tr 123.68832310363732 -123.68832310363732 $< $@
 
 %-small.tif: %.vrt
 	rm -f $@
 # 8 times less resolute than the original
 # units/pixel= 1 deg/450 (8 arc sec) = 0.002222222222222
-	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 247.37664620727463 -247.37664620727463 $< $@
+	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW \
+	    -tr 247.37664620727463 -247.37664620727463 $< $@
 
 tiny: mixed-terrain-tiny.tif mixed-hillshade-tiny.tif mixed-slopeshade-tiny.tif
 
@@ -148,4 +153,5 @@ tiny: mixed-terrain-tiny.tif mixed-hillshade-tiny.tif mixed-slopeshade-tiny.tif
 	rm -f $@
 # 8 times less resolute than -small (64 times the original)
 # units/pixel= 1 deg/56.25 (64 arc sec) = 0.017777777777778
-	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 1979.013169658197 -1979.013169658197 $< $@
+	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW \
+	    -tr 1979.013169658197 -1979.013169658197 $< $@
