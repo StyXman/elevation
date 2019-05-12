@@ -45,10 +45,13 @@ corrected_files = $(foreach column,\
                         000 001 002 003 004 005 006 007 008 009 010 011 012\
                         013 014 015 016 017 018 019 020 021 022 023 024 025,\
 				$(column)x$(line)-corrected.tif))
-terrain_files =   $(foreach height_file,$(height_files),$(subst -corrected.tif,-terrain.tif,   $(height_file)))
-hill_files =      $(foreach height_file,$(height_files),$(subst -corrected.tif,-hillshade.tif, $(height_file)))
-slope_files =     $(foreach height_file,$(height_files),$(subst -corrected.tif,-slopeshade.tif,$(height_file)))
-contour_files =   $(foreach height_file,$(height_files),$(subst -corrected.tif,-contour.sql.xz,$(height_file)))
+
+terrain_files =    $(foreach height_file,$(height_files),$(subst -corrected.tif,-terrain.tif,   $(height_file)))
+hill_files =       $(foreach height_file,$(height_files),$(subst -corrected.tif,-hillshade.tif, $(height_file)))
+slope_orig_files = $(foreach height_file,$(height_files),$(subst -corrected.tif,-slopeshade.orig.tif,$(height_file)))
+slope_files =      $(foreach height_file,$(height_files),$(subst -corrected.tif,-slopeshade.tif,$(height_file)))
+contour_files =    $(foreach height_file,$(height_files),$(subst -corrected.tif,-contour.sql.xz,$(height_file)))
+
 all_files = $(sort $(terrain_files) $(hill_files) $(slope_files) $(contour_files))
 
 echo:
@@ -57,6 +60,7 @@ echo:
 
 # do not remove these intermediate files
 .SECONDARY: $(corrected_files)
+.SECONDARY: $(slope_orig_files)
 
 # but removed failed ones
 .DELETE_ON_ERROR:
@@ -81,11 +85,18 @@ m_per_pixel=30.92208077590933
 %-combined.tif: %-corrected.tif
 	gdaldem hillshade -combined -alg Horn $(scale_option) -compute_edges $(final_gopts) $< $@
 
-%-slopeshade.tif: %-corrected.tif slope.txt
+%-slopeshade.orig.tif: %-corrected.tif slope.txt
 	gdaldem slope -alg Horn $(scale_option) -compute_edges $(gopts) $< /vsistdout/ | \
 	    gdaldem color-relief $(gopts) /vsistdin/ slope.txt /vsistdout/ | \
 	    gdal_translate $(final_gopts) -b 1 /vsistdin/ $@
 	gdal_edit.py -colorinterp_1 gray $@
+
+%-slopeshade.tif: %-slopeshade.orig.tif
+	gdal_calc.py -A $< --outfile $@ --calc 'A-20' --co BIGTIFF=YES --co TILED=YES \
+	    --co COMPRESS=LZW
+# TODO:
+# 	gdal_translate $(final_gopts) -b 1 /vsistdin/ $@
+# 	gdal_edit.py -colorinterp_1 gray $@
 
 %-corrected.shp/contour.shp: %-corrected.tif
 	mkdir -pv $(dir $@)
