@@ -188,7 +188,7 @@ def mapzen_remote(lat, lon):
     ewd = abs(lon)
 
     return( "%s%02d%s%03d.hgt" % (nsl, nsd, ewl, ewd),
-            "http://dionecanali.hd.free.fr/~mdione/data/",
+            "http://dionecanali.hd.free.fr/~mdione/mapzen/",
             "%s%02d%s%03d.hgt.gz" % (nsl, nsd, ewl, ewd) )
 
 
