@@ -40,4 +40,4 @@ for i in $(seq 0 $cols); do
     done;
 done
 
-make all_single
+make -j 4 all_single
