@@ -45,7 +45,7 @@ case "$command" in
   import)
     opts="--create --unlogged"
     nice -n 19 $bin $opts $common_opts "$@"
-    # psql --dbname "$db" --command "create index planet_osm_point_population_index on planet_osm_point (cast (population as int) desc nulls last);"
+    time psql --dbname "$db" ../../osm-carto/indexes.sql
     ;;
 
   append)
