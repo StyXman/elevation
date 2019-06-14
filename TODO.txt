@@ -1,19 +1,77 @@
-* simpiify coastline for ZL <= 6
+* ZL 8
+* ocean
+* contours
+*
+* finish places texts
+* fix tunnel road names
+* vallons/bois names too prominent.
+* contour lines as darken or similar.
+* review landcover-flat, make it terrain aware again
+* simplify coastline for ZL <= 6
 * calculate casing colors so they're not calculated all the time
-* paved/unpaved
-  * 127.0.0.1:6789/osm-carto/#12/42.8505/11.9554
-    * z12:
-      * tertiary et al can't be seen
-      * dashed line close to Poggiovalle?
-    * z13:
-      * paths still brown
 * thicker for phone?
 * lowzooms: specific rivers/lakes for rendering
   * natural earth vs imagico
 * sync riverbanks thickness with river casing
-* osm.de.org for style ideas (highways)
 * find out city pattern in old maps, apply to populated places.
-* contour lines as darken or similar.
 * farmland, vineyeard, orchard
+* intermittent waterways too prominent, make casing intermittent too
+* borders for lakes in z0-z8
+* pines grow up to 5000m. check terrain colors against forest or similar.
 
-* split tile saving to another thread
+* fix roads as line too dark: DONE? Nope ZL12
+ * ZL12, make tertiary more prominent by just enthicken the line, no white center
+ * ZL13-14: residential, etc are still lines, if possible less prominent
+
+* review names for stupid things like picnic_table
+* partially revert b066af54f61b02685edb5db4191c5fbc3617eb5d
+* comment more the tags that are removed so I can resolve conflicts more easily
+
+* https://api.mapbox.com/styles/v1/mapbox/outdoors-v9.html?title=true&access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA#6/43.045/5.811
+  * label density
+
+* http://mtbmap.cz/#zoom=15&lat=49.27364&lon=16.54532 private road
+* ski https://www.xctrails.org/map/map.html?type=xc
+* canal tunnels
+* climbing sites
+
+* ocean border ZL3
+
+
+             line-casing
+Mayor roads
+motorway
+trunk
+primary         8-12
+secondary       9-12
+minor roads for different zoom levels
+tertiary       10-12
+road           10-14  # also unclassified
+residential    12-13
+service        13-14
+living_street    -13
+
+unpaved
+               8    9    10   11   12   13   14    15    16
+* primary      done done done done done done done  done  done
+* secondary         done done done done done done  done  done
+* tertiary               done done done done done  done  done
+* road                   done done done done weird weird done  # GREY
+* residential/unclassified         done done done  done  done
+* service                               done weird wierd done
+* living street                         done done  done  done  # GREY
+
+jeisenbe <42757252+jeisenbe@users.noreply.github.com>  2019-02-06 02:26:48
+jeisenbe <joseph.eisenberg@gmail.com>  2019-01-22 13:28:09
+jeisenbe <42757252+jeisenbe@users.noreply.github.com>  2019-01-12 12:31:11
+Adamant36 <amendenhall@live.com>  2019-01-02 23:13:53
+Paul Norman <penorman@mac.com>  2016-02-28 13:12:38
+imagico <git@imagico.de>  2015-08-26 15:09:24
+ocean outline math1985 <info@matthijsmelissen.nl>  2018-02-11 20:57:13
+
+map_utils:
+* implement geopackage
+  http://www.geopackage.org/spec/
+* optimize pngs
+* read metadata.json
+

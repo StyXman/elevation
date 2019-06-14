@@ -1,40 +1,23 @@
-diff --git a/INSTALL.md b/INSTALL.md
-index afb19d2..c617b83 100644
---- a/INSTALL.md
-+++ b/INSTALL.md
-@@ -34,7 +34,9 @@ This script generates and populates the *data* directory with all needed shapefi
- You can also download them manually at the following paths:
- 
- * [`simplified-land-polygons.shp`](http://data.openstreetmapdata.com/simplified-land-polygons-complete-3857.zip) (updated daily)
-+* [`simplified-water-polygons.shp`](http://data.openstreetmapdata.com/simplified-water-polygons-complete-3857.zip) (updated daily)
- * [`land-polygon.shp`](http://data.openstreetmapdata.com/land-polygons-split-3857.zip) (updated daily)
-+* [`water-polygon.shp`](http://data.openstreetmapdata.com/water-polygons-split-3857.zip) (updated daily)
- * [`builtup_area.shp`](http://planet.openstreetmap.org/historical-shapefiles/world_boundaries-spherical.tgz)
- * [`ne_110m_admin_0_boundary_lines_land.shp`](http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_boundary_lines_land.zip)
- 
 diff --git a/admin.mss b/admin.mss
-index 5090845..77e4452 100644
+index 1fad3dc..db4a9ea 100644
 --- a/admin.mss
 +++ b/admin.mss
-@@ -6,57 +6,74 @@ For each zoomlevel, all borders come from a single attachment, to handle
- overlapping borders correctly.
- */
- 
--#admin-low-zoom[zoom < 11],
-+#admin-low-zoom/*[zoom < 11],
- #admin-mid-zoom[zoom >= 11][zoom < 13],
--#admin-high-zoom[zoom >= 13] {
-+#admin-high-zoom[zoom >= 13]*/ {
+@@ -14,11 +14,13 @@ overlapping borders correctly.
+ #admin-high-zoom[zoom >= 13] {
    [admin_level = '2'] {
      [zoom >= 4] {
 +      /*
        background/line-join: bevel;
        background/line-color: white;
        background/line-width: 1.2;
+       background/line-simplify: @admin-simplify;
+       background/line-simplify-algorithm: @admin-simplify-algorithm;
 +      */
        line-join: bevel;
        line-color: @admin-boundaries;
        line-width: 1.2;
+@@ -26,15 +28,21 @@ overlapping borders correctly.
+       line-simplify-algorithm: @admin-simplify-algorithm;
      }
      [zoom >= 5] {
 +      /*
@@ -54,6 +37,10 @@ index 5090845..77e4452 100644
 +      */
        line-width: 2;
      }
+     [zoom >= 8] {
+@@ -46,18 +54,22 @@ overlapping borders correctly.
+       line-width: 3.2;
+     }
      [zoom >= 10] {
 +      /*
        background/line-width: 6;
@@ -68,10 +55,14 @@ index 5090845..77e4452 100644
        background/line-join: bevel;
        background/line-color: white;
        background/line-width: 0.6;
+       background/line-simplify: @admin-simplify;
+       background/line-simplify-algorithm: @admin-simplify-algorithm;
 +      */
        line-join: bevel;
        line-color: @admin-boundaries;
        line-width: 0.6;
+@@ -65,11 +77,15 @@ overlapping borders correctly.
+       line-simplify-algorithm: @admin-simplify-algorithm;
      }
      [zoom >= 7] {
 +      /*
@@ -86,30 +77,71 @@ index 5090845..77e4452 100644
        line-width: 4;
        line-dasharray: 4,2;
        line-clip: false;
-     }
-   }
+@@ -78,11 +94,13 @@ overlapping borders correctly.
  
-+  /*
    [admin_level = '4'] {
      [zoom >= 4] {
++      /*
        background/line-join: bevel;
-@@ -93,6 +110,7 @@ overlapping borders correctly.
+       background/line-color: white;
+       background/line-width: 0.4;
+       background/line-simplify: @admin-simplify;
+       background/line-simplify-algorithm: @admin-simplify-algorithm;
++      */
+       line-color: @admin-boundaries;
+       line-join: bevel;
+       line-width: 0.4;
+@@ -91,31 +109,44 @@ overlapping borders correctly.
+       line-clip: false;
+     }
+     [zoom >= 5] {
++      /*
+       background/line-width: 0.5;
+       line-width: 0.5;
++      */
+     }
+     [zoom >= 6] {
++      /*
+       background/line-width: 0.6;
++      */
+       line-width: 0.6;
+     }
+     [zoom >= 7] {
++      /*
+       background/line-width: 1;
++      */
+       line-dasharray: 4,3;
+       line-width: 1;
+     }
+     [zoom >= 9] {
++      /*
+       background/line-width: 1.8;
++      */
+       line-width: 1.8;
+     }
+     [zoom >= 10] {
++      /*
+       background/line-width: 2.5;
++      */
+       line-width: 2.5;
+     }
+     [zoom >= 12] {
++      /*
+       background/line-width: 3;
++      */
        line-width: 3;
      }
    }
-+  */
++
    /*
    The following code prevents admin boundaries from being rendered on top of
    each other. Comp-op works on the entire attachment, not on the individual
-@@ -104,10 +122,14 @@ overlapping borders correctly.
+@@ -127,10 +158,11 @@ overlapping borders correctly.
    The SQL has `ORDER BY admin_level`, so the boundary with the lowest
    admin_level is rendered on top, and therefore the only visible boundary.
    */
 -  opacity: 0.4;
 +  opacity: 0.8;
-+  [zoom >= 10] {
-+    opacity: 0.8;
-+  }
    comp-op: darken;
  }
  
@@ -117,7 +149,7 @@ index 5090845..77e4452 100644
  #admin-mid-zoom[zoom >= 11][zoom < 13],
  #admin-high-zoom[zoom >= 13] {
    [admin_level = '5'][zoom >= 11] {
-@@ -146,7 +168,9 @@ overlapping borders correctly.
+@@ -181,7 +213,9 @@ overlapping borders correctly.
    opacity: 0.5;
    comp-op: darken;
  }
@@ -127,7 +159,7 @@ index 5090845..77e4452 100644
  #admin-high-zoom[zoom >= 13] {
    [admin_level = '9'],
    [admin_level = '10'] {
-@@ -161,10 +185,12 @@ overlapping borders correctly.
+@@ -200,10 +234,11 @@ overlapping borders correctly.
        line-clip: false;
      }
    }
@@ -135,13 +167,12 @@ index 5090845..77e4452 100644
 +  opacity: 0.7;
    comp-op: darken;
  }
-+*/
  
 +/*
  #admin-text[zoom >= 16] {
    text-name: "[name]";
    text-face-name: @book-fonts;
-@@ -176,6 +202,7 @@ overlapping borders correctly.
+@@ -215,6 +250,7 @@ overlapping borders correctly.
    text-vertical-alignment: middle;
    text-dy: -10;
  }
@@ -149,805 +180,1309 @@ index 5090845..77e4452 100644
  
  #nature-reserve-text[zoom >= 13][way_pixels > 192000] {
    text-name: "[name]";
-@@ -191,12 +218,12 @@ overlapping borders correctly.
+@@ -230,7 +266,7 @@ overlapping borders correctly.
  
  #nature-reserve-boundaries {
-   [way_pixels > 100][zoom >= 7] {
--    [zoom < 10] {
-+    // [zoom < 10] {
+   [way_pixels > 3000] {
+-    [zoom >= 8][zoom < 10] {
++    [zoom >= 8]/*[zoom < 10]*/ {
        ::fill {
          opacity: 0.05;
          polygon-fill: green;
-       }
--    }
-+    // }
-     a/line-width: 1;
-     a/line-offset: -0.5;
-     a/line-color: green;
 diff --git a/amenity-points.mss b/amenity-points.mss
-index bcbe74e..43b09fb 100644
+index 9832152..9b5af81 100644
 --- a/amenity-points.mss
 +++ b/amenity-points.mss
-@@ -2,7 +2,8 @@
+@@ -2,10 +2,10 @@
  @wetland-text: darken(#4aa5fa, 25%); /* Also for marsh and mud */
  @shop-icon: #ac39ac;
  @shop-text: #939;
 -@transportation-icon: #0092da;
-+@transportation-icon: @water-dark;
-+// TODO:
- @transportation-text: #0066ff;
- @airtransport: #8461C4;
- @health-color: #da0092;
-@@ -40,7 +41,7 @@
-     marker-clip: false;
+-@transportation-text: #0066ff;
+-@accommodation-icon: @transportation-icon;
+-@accommodation-text: @transportation-text;
++@transportation-icon: #c00000;
++@transportation-text: #800000;
++@accommodation-icon: @water-dark;
++@accommodation-text: @water-dark;
+ @airtransport: #8461C4; //also ferry_terminal
+ @health-color: #BF0000;
+ @amenity-brown: #734a08;
+@@ -14,6 +14,7 @@
+ @memorials: @amenity-brown;
+ @culture: @amenity-brown;
+ @public-service: @amenity-brown;
++@ruin: #9f8762;
+ @office: #4863A0;
+ @man-made-icon: #666666;
+ @advertising-grey: @man-made-icon;
+@@ -50,6 +51,8 @@
+     [feature = 'tourism_alpine_hut'] {
+       marker-file: url('symbols/tourism/alpinehut.svg');
+     }
++    marker-width: 10;
++    marker-height: 10;
+     [feature = 'amenity_shelter'] {
+       marker-fill: @man-made-icon;
+     }
+@@ -61,7 +64,7 @@
+     }
    }
  
--  [feature = 'amenity_atm'][zoom >= 17] {
+-  [feature = 'amenity_atm'][zoom >= 19] {
 +  [feature = 'amenity_atm'][zoom >= @useful] {
-     marker-file: url('symbols/atm.svg');
+     marker-file: url('symbols/amenity/atm.svg');
      marker-fill: @amenity-brown;
      marker-placement: interior;
-@@ -56,6 +57,8 @@
+@@ -93,6 +96,8 @@
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @gastronomy-icon;
++    marker-width: 10;
++    marker-height: 10;
+     [feature != 'amenity_food_court'][zoom = 17] {
+       marker-width: 4;
+       marker-line-width: 0;
+@@ -130,6 +135,8 @@
  
-   [feature = 'amenity_bar'][zoom >= 17] {
-     marker-file: url('symbols/bar.svg');
+   [feature = 'amenity_bbq'][zoom >= 17] {
+     marker-file: url('symbols/amenity/bbq.svg');
 +    marker-width: 10;
 +    marker-height: 10;
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
-@@ -63,6 +66,8 @@
+@@ -140,6 +147,8 @@
  
-   [feature = 'amenity_bicycle_rental'][zoom >= 17] {
-     marker-file: url('symbols/rental_bicycle.svg');
+   [feature = 'amenity_public_bookcase'][zoom >= 19] {
+     marker-file: url('symbols/amenity/public_bookcase.svg');
 +    marker-width: 10;
 +    marker-height: 10;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -147,6 +156,10 @@
+ 
+   [feature = 'amenity_bicycle_rental'][zoom >= 17] {
+     marker-file: url('symbols/amenity/rental_bicycle.svg');
++    /*
++    marker-width: 10;
++    marker-height: 10;
++    */
      marker-fill: @transportation-icon;
      marker-placement: interior;
      marker-clip: false;
-@@ -71,14 +76,14 @@
-   [feature = 'highway_bus_stop'] {
-     [zoom >= 16] {
-       marker-file: url('symbols/square.svg');
--      marker-fill: @transportation-icon;
-+      marker-fill: black;
-       marker-placement: interior;
-       marker-width: 6;
-       marker-clip: false;
+@@ -162,7 +175,7 @@
      }
      [zoom >= 17] {
-       marker-file: url('symbols/bus_stop.12.svg');
+       marker-file: url('symbols/highway/bus_stop.12.svg');
 -      marker-width: 12;
 +      marker-width: 14;
      }
    }
  
-@@ -112,6 +117,8 @@
+@@ -170,6 +183,8 @@
+     [access = null],
+     [access = 'yes'] {
+       marker-file: url('symbols/highway/elevator.12.svg');
++      marker-width: 8;
++      marker-height: 8;
+       marker-fill: @transportation-icon;
+       marker-placement: interior;
+     }
+@@ -206,7 +221,8 @@
  
-   [feature = 'amenity_cafe'][zoom >= 17] {
-     marker-file: url('symbols/cafe.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @amenity-brown;
+   [feature = 'highway_traffic_signals'][zoom >= 17] {
+     marker-file: url('symbols/highway/traffic_light.13.svg');
+-    marker-fill: #545454;
++    // make it darker
++    marker-fill: #0a0a0a;
      marker-placement: interior;
      marker-clip: false;
-@@ -119,6 +126,8 @@
- 
-   [feature = 'tourism_artwork'][zoom >= 17] {
-     marker-file: url('symbols/artwork.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @amenity-brown;
-     marker-placement: interior;
-     marker-clip: false;
-@@ -126,6 +135,8 @@
- 
-   [feature = 'tourism_camp_site'][zoom >= 16] {
-     marker-file: url('symbols/camping.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @transportation-icon;
-     marker-placement: interior;
-     marker-clip: false;
-@@ -140,6 +151,8 @@
- 
-   [feature = 'tourism_caravan_site'][zoom >= 16] {
-     marker-file: url('symbols/caravan_park.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-placement: interior;
-     marker-clip: false;
-     marker-fill: @transportation-icon;
-@@ -147,6 +160,8 @@
- 
-   [feature = 'amenity_car_rental'][zoom >= 17] {
-     marker-file: url('symbols/rental_car.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @transportation-icon;
-     marker-placement: interior;
-     marker-clip: false;
-@@ -154,6 +169,8 @@
- 
-   [feature = 'amenity_car_wash'][zoom >= 17] {
-     marker-file: url('symbols/car_wash.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @amenity-brown;
-     marker-placement: interior;
-     marker-clip: false;
-@@ -161,11 +178,15 @@
- 
-   [feature = 'tourism_chalet'][zoom >= 17] {
-     point-file: url('symbols/chalet.p.16.png');
-+    marker-width: 10;
-+    marker-height: 10;
-     point-placement: interior;
+   }
+@@ -219,6 +235,8 @@
    }
  
-   [feature = 'amenity_cinema'][zoom >= 16] {
-     marker-file: url('symbols/cinema.svg');
+   [feature = 'tourism_artwork'][zoom >= 17] {
 +    marker-width: 10;
 +    marker-height: 10;
-     marker-fill: @amenity-brown;
-     marker-placement: interior;
-     marker-clip: false;
-@@ -173,6 +194,8 @@
+     [artwork_type != 'statue'] {
+       marker-file: url('symbols/tourism/artwork.svg');
+     }
+@@ -234,6 +252,8 @@
  
-   [feature = 'amenity_nightclub'][zoom >= 17] {
-     marker-file: url('symbols/nightclub.svg');
+   [feature = 'tourism_camp_site'][zoom >= 16] {
+     marker-file: url('symbols/tourism/camping.svg');
 +    marker-width: 10;
 +    marker-height: 10;
-     marker-fill: @amenity-brown;
+     marker-fill: @accommodation-icon;
      marker-placement: interior;
      marker-clip: false;
-@@ -214,13 +237,17 @@
+@@ -249,6 +269,8 @@
  
-   [feature = 'amenity_charging_station'][zoom >= 17] {
-     marker-file: url('symbols/charging_station.svg');
+   [feature = 'tourism_caravan_site'][zoom >= 16] {
+     marker-file: url('symbols/tourism/caravan_park.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-placement: interior;
+     marker-clip: false;
+     marker-fill: @accommodation-icon;
+@@ -256,6 +278,8 @@
+ 
+   [feature = 'amenity_car_rental'][zoom >= 17] {
+     marker-file: url('symbols/amenity/rental_car.svg');
 +    marker-width: 10;
 +    marker-height: 10;
      marker-fill: @transportation-icon;
      marker-placement: interior;
      marker-clip: false;
+@@ -263,6 +287,8 @@
+ 
+   [feature = 'amenity_car_wash'][zoom >= 17] {
+     marker-file: url('symbols/amenity/car_wash.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -270,6 +296,8 @@
+ 
+   [feature = 'tourism_chalet'][zoom >= 17] {
+     marker-file: url('symbols/tourism/chalet.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @accommodation-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -277,6 +305,8 @@
+ 
+   [feature = 'amenity_cinema'][zoom >= 16] {
+     marker-file: url('symbols/amenity/cinema.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @culture;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -291,6 +321,8 @@
+ 
+   [feature = 'amenity_nightclub'][zoom >= 17] {
+     marker-file: url('symbols/amenity/nightclub.svg');
++    marker-width: 8;
++    marker-height: 8;
+     marker-fill: @amenity-brown;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -332,6 +364,8 @@
+ 
+   [feature = 'amenity_charging_station'][zoom >= 17] {
+     marker-file: url('symbols/amenity/charging_station.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @transportation-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -340,8 +374,11 @@
+     }
    }
  
 -  [feature = 'amenity_fuel'][zoom >= 17] {
--    marker-file: url('symbols/fuel.svg');
 +  [feature = 'amenity_fuel'][zoom >= @useful] {
-+    // too small
-+    // marker-file: url('symbols/fuel.svg');
-+    marker-file: url('symbols/fuel-24.png');
++    // marker-file: url('symbols/fuel-24.png');
+     marker-file: url('symbols/amenity/fuel.svg');
++    marker-width: 24;
++    marker-height: 24;
      marker-fill: @transportation-icon;
      marker-placement: interior;
      marker-clip: false;
-@@ -231,7 +258,7 @@
-     point-placement: interior;
+@@ -349,6 +386,8 @@
+ 
+   [feature = 'tourism_guest_house'][zoom >= 17] {
+     marker-file: url('symbols/tourism/guest_house.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @accommodation-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -356,6 +395,8 @@
+ 
+   [feature = 'tourism_apartment'][zoom >= 18] {
+     marker-file: url('symbols/tourism/apartment.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @accommodation-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -371,8 +412,17 @@
+     }
    }
  
--  [feature = 'amenity_hospital'][zoom >= 15] {
 +  [feature = 'amenity_hospital'][zoom >= @useful] {
-     marker-file: url('symbols/hospital.svg');
-     marker-fill: @health-color;
++    marker-file: url('symbols/amenity/hospital.svg');
++    marker-fill: @health-color;
++    marker-placement: interior;
++    marker-clip: false;
++  }
++
+   [feature = 'amenity_casino'][zoom >= 17] {
+     marker-file: url('symbols/amenity/casino.svg');
++    marker-width: 8;
++    marker-height: 8;
+     marker-fill: @amenity-brown;
      marker-placement: interior;
-@@ -275,6 +302,8 @@
+     marker-clip: false;
+@@ -406,8 +456,8 @@
+     marker-fill: @accommodation-icon;
+   }
+ 
+-  [feature = 'tourism_information'][zoom >= 19],
+-  [feature = 'tourism_information']["information"='office'][zoom >= 17] {
++  [feature = 'tourism_information'][zoom >= 19], // TODO: see if I want emergency here too
++  [feature = 'tourism_information']["information"='office'][zoom >= @emergency] {
+     marker-file: url('symbols/tourism/information.svg');
+     [information = 'audioguide'] {
+       marker-file: url('symbols/tourism/audioguide.svg');
+@@ -416,7 +466,8 @@
+       marker-file: url('symbols/tourism/board.svg');
+     }
+     [information = 'guidepost'] {
+-      marker-file: url('symbols/tourism/guidepost.svg');
++      // marker-file: url('symbols/tourism/guidepost.svg');
++      marker-file: url('symbols/guidepost-14.svg');
+     }
+     [information = 'office'] {
+       marker-file: url('symbols/tourism/office.svg');
+@@ -437,6 +488,8 @@
  
    [feature = 'amenity_embassy'][zoom >= 17] {
-     marker-file: url('symbols/embassy.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @transportation-icon;
+     marker-file: url('symbols/amenity/embassy.svg');
++    marker-width: 8;
++    marker-height: 8;
+     marker-fill: @public-service;
      marker-placement: interior;
      marker-clip: false;
-@@ -282,6 +311,8 @@
+@@ -444,6 +497,8 @@
  
    [feature = 'amenity_library'][zoom >= 16] {
-     marker-file: url('symbols/library.svg');
+     marker-file: url('symbols/amenity/library.svg');
 +    marker-width: 10;
 +    marker-height: 10;
-     marker-fill: @amenity-brown;
+     marker-fill: @culture;
      marker-placement: interior;
      marker-clip: false;
-@@ -289,6 +320,8 @@
+@@ -451,6 +506,8 @@
  
    [feature = 'amenity_courthouse'][zoom >= 16] {
-     marker-file: url('symbols/courthouse.svg');
+     marker-file: url('symbols/amenity/courthouse.svg');
 +    marker-width: 10;
 +    marker-height: 10;
      marker-placement: interior;
-     marker-fill: @amenity-brown;
+     marker-fill: @public-service;
      marker-clip: false;
-@@ -296,6 +329,8 @@
+@@ -458,6 +515,8 @@
  
    [feature = 'amenity_community_centre'][zoom >= 17] {
-     marker-file: url('symbols/community_centre.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @amenity-brown;
+     marker-file: url('symbols/amenity/community_centre.svg');
++    marker-width: 8;
++    marker-height: 8;
+     marker-fill: @culture;
      marker-placement: interior;
      marker-clip: false;
-@@ -303,6 +338,8 @@
+@@ -475,6 +534,8 @@
  
    [feature = 'amenity_social_facility'][zoom >= 17] {
-     marker-file: url('symbols/social_facility.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @amenity-brown;
+     marker-file: url('symbols/amenity/social_facility.svg');
++    marker-width: 8;
++    marker-height: 8;
+     marker-fill: @public-service;
      marker-placement: interior;
      marker-clip: false;
-@@ -333,7 +370,9 @@
-   [feature = 'amenity_bicycle_parking'][way_pixels > 900],
-   [feature = 'amenity_motorcycle_parking'][way_pixels > 900] {
+@@ -615,9 +676,10 @@
+     }
+   }
+ 
+-  [feature = 'historic_city_gate'][zoom >= 17] {
++  [feature = 'historic_city_gate'][zoom >= @nice] {
+     marker-file: url('symbols/historic/city_gate.svg');
+-    marker-fill: @man-made-icon;
++    marker-fill: @culture;
++    // marker-fill: @man-made-icon;
+     marker-placement: interior;
+     marker-clip: false;
+   }
+@@ -633,8 +695,13 @@
+   [feature = 'amenity_bicycle_parking'][way_pixels > 900][zoom >= 14],
+   [feature = 'amenity_motorcycle_parking'][way_pixels > 900][zoom >= 14],
+   [feature = 'amenity_parking_entrance'][zoom >= 18] {
++    marker-width: 10;
++    marker-height: 10;
      [feature = 'amenity_parking'] {
--      marker-file: url('symbols/parking.svg');
-+      // the color is too light, size too small
-+      // marker-file: url('symbols/parking.svg');
-+      marker-file: url('symbols/parking-24.png');
++      // marker-file: url('symbols/parking-24.png');
+       marker-file: url('symbols/amenity/parking.svg');
++      marker-width: 24;
++      marker-height: 24;
      }
      [feature = 'amenity_bicycle_parking'] {
-       marker-file: url('symbols/bicycle_parking.svg');
-@@ -349,7 +388,7 @@
+       marker-file: url('symbols/amenity/bicycle_parking.svg');
+@@ -644,6 +711,8 @@
      }
+     [feature = 'amenity_parking_entrance'] {
+       marker-file: url('symbols/amenity/parking_entrance.svg');
++      marker-width: 24;
++      marker-height: 24;
+     }
+     marker-placement: interior;
+     marker-clip: false;
+@@ -655,16 +724,20 @@
+ 
+   [feature = 'amenity_clinic'][zoom >= 17],
+   [feature = 'healthcare_clinic'][zoom >= 17],
+-  [feature = 'amenity_doctors'][zoom >= 17],
+-  [feature = 'healthcare_centre'][zoom >= 17] {
++  [feature = 'amenity_doctors'][zoom >= @useful],
++  [feature = 'healthcare_centre'][zoom >= @useful] {
+     marker-file: url('symbols/amenity/doctors.svg');
+     marker-fill: @health-color;
+     marker-placement: interior;
+     marker-clip: false;
++    /*
++    marker-width: 10;
++    marker-height: 10;
++    */
+   }
+ 
+-  [feature = 'healthcare_doctor'][zoom >= 17] {
+-    [zoom >= 17][zoom < 18] {
++  [feature = 'healthcare_doctor'][zoom >= @useful] {
++    [zoom >= @useful][zoom < 18] {
+       marker-width: 4;
+       marker-line-width: 0;
+     }
+@@ -678,6 +751,8 @@
+ 
+   [feature = 'amenity_dentist'][zoom >= 17],
+   [feature = 'healthcare_dentist'][zoom >= 17] {
++    marker-width: 8;
++    marker-height: 8;
+     [zoom >= 17][zoom < 18] {
+       marker-width: 4;
+       marker-line-width: 0;
+@@ -690,15 +765,15 @@
+     marker-clip: false;
+   }
+ 
+-  [feature = 'amenity_hospital'][zoom >= 15],
+-  [feature = 'healthcare_hospital'][zoom >= 15] {
++  [feature = 'amenity_hospital'][zoom >= @useful],
++  [feature = 'healthcare_hospital'][zoom >= @useful] {
+     marker-file: url('symbols/amenity/hospital.svg');
+     marker-fill: @health-color;
+     marker-placement: interior;
+     marker-clip: false;
    }
  
 -  [feature = 'amenity_pharmacy'][zoom >= 17] {
 +  [feature = 'amenity_pharmacy'][zoom >= @useful] {
-     marker-file: url('symbols/pharmacy.svg');
+     marker-file: url('symbols/amenity/pharmacy.svg');
      marker-fill: @health-color;
      marker-placement: interior;
-@@ -359,6 +398,8 @@
-   [feature = 'amenity_clinic'][zoom >= 16],
-   [feature = 'amenity_doctors'][zoom >= 17] {
-     marker-file: url('symbols/doctors.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @health-color;
-     marker-placement: interior;
-     marker-clip: false;
-@@ -366,6 +407,8 @@
- 
-   [feature = 'amenity_dentist'][zoom >= 17] {
-     marker-file: url('symbols/dentist.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @health-color;
-     marker-placement: interior;
-     marker-clip: false;
-@@ -373,6 +416,8 @@
+@@ -707,6 +782,8 @@
  
    [feature = 'amenity_veterinary'][zoom >= 17] {
-     marker-file: url('symbols/veterinary.svg');
-+    marker-width: 10;
-+    marker-height: 10;
+     marker-file: url('symbols/amenity/veterinary.svg');
++    marker-width: 8;
++    marker-height: 8;
      marker-fill: @health-color;
      marker-placement: interior;
      marker-clip: false;
-@@ -420,7 +465,7 @@
+@@ -790,27 +867,22 @@
      marker-clip: false;
    }
  
+-  [feature = 'historic_wayside_shrine'][zoom >= 17] {
++  /*
++//   [feature = 'historic_wayside_shrine'][zoom >= 17] {
+     marker-file: url('symbols/historic/shrine.svg');
+     marker-fill: @man-made-icon;
+     marker-placement: interior;
+     marker-clip: false;
+   }
++  */
+ 
 -  [feature = 'amenity_police'][zoom >= 16] {
 +  [feature = 'amenity_police'][zoom >= @useful] {
-     marker-file: url('symbols/police.svg');
-     marker-fill: @amenity-brown;
+     marker-file: url('symbols/amenity/police.svg');
+     marker-fill: @public-service;
      marker-placement: interior;
-@@ -434,7 +479,7 @@
+     marker-clip: false;
+   }
+ 
+-  [feature = 'amenity_vehicle_inspection'][zoom >= 17] {
+-    marker-file: url('symbols/amenity/vehicle_inspection.svg');
+-    marker-fill: @public-service;
+-    marker-placement: interior;
+-    marker-clip: false;
+-  }
+-
+   [feature = 'amenity_post_box'][zoom >= 19] {
+     marker-file: url('symbols/amenity/post_box.svg');
+     marker-fill: @amenity-brown;
+@@ -818,7 +890,7 @@
      marker-clip: false;
    }
  
 -  [feature = 'amenity_post_office'][zoom >= 17] {
 +  [feature = 'amenity_post_office'][zoom >= @useful] {
-     marker-file: url('symbols/post_office.svg');
-     marker-fill: @amenity-brown;
+     marker-file: url('symbols/amenity/post_office.svg');
+     marker-fill: @public-service;
      marker-placement: interior;
-@@ -443,6 +488,8 @@
+@@ -838,6 +910,8 @@
  
-   [feature = 'amenity_pub'][zoom >= 17] {
-     marker-file: url('symbols/pub.svg');
-+    marker-width: 10;
-+    marker-height: 10;
+   [feature = 'amenity_telephone'][zoom >= 17] {
+     marker-file: url('symbols/amenity/telephone.svg');
++    marker-width: 8;
++    marker-height: 8;
      marker-fill: @amenity-brown;
      marker-placement: interior;
      marker-clip: false;
-@@ -450,6 +497,8 @@
- 
-   [feature = 'amenity_biergarten'][zoom >= 17] {
-     marker-file: url('symbols/biergarten.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @amenity-brown;
-     marker-placement: interior;
-     marker-clip: false;
-@@ -468,6 +517,10 @@
-   [feature = 'amenity_restaurant'][zoom >= 17],
-   [feature = 'amenity_food_court'][zoom >= 17] {
-     marker-file: url('symbols/restaurant.svg');
-+    // making them smaller means we can see more,
-+    // but not their names :(
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @amenity-brown;
-     marker-placement: interior;
-     marker-clip: false;
-@@ -475,6 +528,8 @@
- 
-   [feature = 'amenity_fast_food'][zoom >= 17] {
-     marker-file: url('symbols/fast_food.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @amenity-brown;
-     marker-placement: interior;
-     marker-clip: false;
-@@ -496,6 +551,8 @@
+@@ -852,6 +926,8 @@
  
    [feature = 'amenity_theatre'][zoom >= 16] {
-     marker-file: url('symbols/theatre.svg');
+     marker-file: url('symbols/amenity/theatre.svg');
 +    marker-width: 10;
 +    marker-height: 10;
-     marker-fill: @amenity-brown;
+     marker-fill: @culture;
      marker-placement: interior;
      marker-clip: false;
-@@ -503,12 +560,14 @@
+@@ -859,13 +935,15 @@
  
    [feature = 'amenity_arts_centre'][zoom >= 17] {
-     marker-file: url('symbols/shop/art.svg');
+     marker-file: url('symbols/amenity/arts_centre.svg');
 +    marker-width: 10;
 +    marker-height: 10;
-     marker-fill: @amenity-brown;
+     marker-fill: @culture;
      marker-placement: interior;
      marker-clip: false;
    }
  
--  [feature = 'amenity_toilets'][zoom >= 17] {
-+  [feature = 'amenity_toilets'][zoom >= @useful] {
-     marker-file: url('symbols/toilets.svg');
-     marker-fill: @amenity-brown;
-     marker-placement: interior;
-@@ -524,12 +583,14 @@
+   [feature = 'amenity_toilets'] {
+-    [access = 'yes'][zoom >= 18],
++    [access = 'yes'][zoom >= @useful],
+     [zoom >= 19] {
+       marker-file: url('symbols/amenity/toilets.svg');
+       marker-fill: @amenity-brown;
+@@ -889,6 +967,8 @@
  
    [feature = 'amenity_prison'][zoom >= 17] {
-     marker-file: url('symbols/prison.svg');
-+    marker-width: 10;
-+    marker-height: 10;
-     marker-fill: @amenity-brown;
+     marker-file: url('symbols/amenity/prison.svg');
++    marker-width: 8;
++    marker-height: 8;
+     marker-fill: @public-service;
      marker-placement: interior;
      marker-clip: false;
+@@ -919,7 +999,7 @@
+     marker-fill: @shop-icon;
    }
  
 -  [feature = 'tourism_viewpoint'][zoom >= 16] {
 +  [feature = 'tourism_viewpoint'][zoom >= @nice] {
-     marker-file: url('symbols/viewpoint.svg');
+     marker-file: url('symbols/tourism/viewpoint.svg');
      marker-placement: interior;
      marker-fill: @amenity-brown;
-@@ -558,16 +619,59 @@
+@@ -928,6 +1008,8 @@
+ 
+   [feature = 'man_made_water_tower'][zoom >= 17] {
+     marker-file: url('symbols/man_made/water_tower.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @man-made-icon;
+     marker-placement: interior;
      marker-clip: false;
+@@ -962,6 +1044,8 @@
+ 
+   [feature = 'man_made_obelisk'][zoom >= 17] {
+     marker-file: url('symbols/historic/obelisk.svg');
++    marker-width: 10;
++    marker-height: 10;
+     marker-fill: @memorials;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -974,39 +1058,52 @@
+     marker-clip: false;
+   }
+ 
+-  [feature = 'historic_fort'][zoom >= 16] {
++  [feature = 'historic_fort'][zoom >= @nice] {
+     marker-file: url('symbols/historic/fort.svg');
+-    marker-fill: @memorials;
++    marker-width: 14;
+     marker-placement: interior;
+-    marker-clip: false;
++    [ruins = 'yes'] {
++      marker-fill: @ruin;
++    }
+   }
+ 
+-  [feature = 'historic_castle'][castle_type != 'stately'][castle_type != 'manor'][zoom >= 15],
++  /*
++  the original code had this, but I prefer a more fine grained version below
++  [feature = 'historic_castle'][castle_type != 'stately'][zoom >= @nice],
+   [feature = 'historic_castle'][castle_type = 'stately'][zoom >= 16],
+-  [feature = 'historic_castle'][castle_type = 'manor'][zoom >= 16],
+-  [feature = 'historic_manor'][zoom >= 16] {
++  [feature = 'historic_manor'][zoom >= 15] {
++  */
++  [feature = 'historic_castle'][zoom >= @nice] {
+     marker-file: url('symbols/historic/castle.svg');
++    marker-width: 14;
+     marker-fill: @memorials;
++    [ruins = 'yes'] {
++      marker-fill: @ruin;
++    }
+     marker-placement: interior;
+     marker-clip: false;
++    [zoom >= 15] {
+       [castle_type = 'palace'],
+-    [castle_type = 'stately'] {
++      [castle_type = 'stately'][zoom >= 16] {
+         marker-file: url('symbols/historic/palace.svg');
+       }
+-    [castle_type = 'manor'],
+-    [feature = 'historic_manor'] {
++
++      [castle_type = 'manor'][zoom >= 16],
++      [feature = 'historic_manor'][zoom >= 16] {
+         marker-file: url('symbols/historic/manor.svg');
+       }
++    }
+     [castle_type = 'fortress'],
+     [castle_type = 'defensive'],
+     [castle_type = 'castrum'],
+     [castle_type = 'shiro'],
+     [castle_type = 'kremlin'] {
++      marker-width: 14;
+       marker-file: url('symbols/historic/fortress.svg');
+     }
    }
  
 -  [feature = 'historic_archaeological_site'][zoom >= 16] {
 +  [feature = 'historic_archaeological_site'][zoom >= @nice] {
-     marker-file: url('symbols/archaeological_site.svg');
-     marker-fill: @amenity-brown;
+     marker-file: url('symbols/historic/archaeological_site.svg');
+     marker-fill: @culture;
      marker-placement: interior;
-     marker-clip: false;
-   }
- 
-+  // local
-+  [feature = 'historic_castle'][zoom >= @nice] {
-+    marker-file: url('symbols/castle.svg');
-+    marker-width: 14;
-+    marker-fill: @amenity-brown;
-+    marker-placement: interior;
-+    marker-clip: false;
-+    [castle_type = 'defensive'][zoom >= @nice] {
-+      marker-file: url('symbols/castle-defensive-14.svg');
-+    }
-+    [castle_type = 'fortress'][zoom >= @nice] {
-+      marker-file: url('symbols/castle-fortress-14.svg');
-+    }
-+    [castle_type = 'manor'][zoom >= @nice] {
-+      marker-file: url('symbols/castle-manor-14.svg');
-+    }
-+    [castle_type = 'palace'][zoom >= @nice] {
-+      marker-file: url('symbols/castle-palace-14.svg');
-+    }
-+    [castle_type = 'stately'][zoom >= @nice] {
-+      marker-file: url('symbols/castle-stately-14.svg');
-+    }
-+    // ruins is not imported yet :(
-+    /*
-+    [ruins = 'yes'] {
-+      marker-fill: grey;
-+    }
-+    */
-+  }
-+
-+  // local
-+  [feature = 'historic_fort'][zoom >= @nice] {
-+    marker-file: url('symbols/fort.svg');
-+    marker-width: 14;
-+    marker-placement: interior;
-+    // ruins is not imported yet :(
-+    /*
-+    [ruins = 'yes'] {
-+      marker-fill: grey;
-+    }
-+    */
-+  }
-+
-   [feature = 'shop'] {
-     [zoom >= 17],
--    [shop = 'supermarket'][zoom >= 16],
-+    [shop = 'supermarket'][zoom >= @useful],
-     [shop = 'department_store'][zoom >= 16] {
-       marker-placement: interior;
-       marker-clip: false;
-@@ -593,10 +697,14 @@
+@@ -1045,10 +1142,14 @@
+     }
  
      [shop = 'art'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/art.svg');
-+      marker-width: 10;
-+      marker-height: 10;
      }
  
      [shop = 'bag'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/bag.svg');
-+      marker-width: 10;
-+      marker-height: 10;
      }
  
-     [shop = 'bakery'][zoom >= 18] {
-@@ -605,6 +713,8 @@
+@@ -1057,14 +1158,20 @@
+     }
  
      [shop = 'beauty'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/beauty.svg');
-+      marker-width: 10;
-+      marker-height: 10;
+     }
+ 
+     [shop = 'bed'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
+       marker-file: url('symbols/shop/bed.svg');
      }
  
      [shop = 'beverages'][zoom >= 18] {
-@@ -613,6 +723,8 @@
++      marker-width: 10;
++      marker-height: 10;
+       marker-file: url('symbols/shop/beverages.svg');
+     }
+ 
+@@ -1074,6 +1181,8 @@
  
      [shop = 'books'][zoom >= 18] {
-       marker-file: url('symbols/library.svg');
+       marker-file: url('symbols/amenity/library.svg');
 +      marker-width: 10;
 +      marker-height: 10;
      }
  
      [shop = 'butcher'][zoom >= 18] {
-@@ -627,6 +739,8 @@
+@@ -1085,6 +1194,8 @@
+     }
+ 
+     [shop = 'charity'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
+       marker-file: url('symbols/shop/charity.svg');
+     }
+ 
+@@ -1095,15 +1206,21 @@
+     [shop = 'clothes'],
      [shop = 'fashion'] {
        [zoom >= 18] {
++        marker-width: 8;
++        marker-height: 8;
          marker-file: url('symbols/shop/clothes.svg');
-+        marker-width: 10;
-+        marker-height: 10;
        }
      }
  
-@@ -636,6 +750,8 @@
- 
-     [shop = 'computer'][zoom >= 18] {
-       marker-file: url('symbols/shop/computer.svg');
+     [shop = 'coffee'][zoom >= 18] {
 +      marker-width: 10;
 +      marker-height: 10;
+       marker-file: url('symbols/shop/coffee.svg');
      }
  
-     [shop = 'convenience'][zoom >= 18] {
-@@ -644,16 +760,22 @@
- 
-     [shop = 'confectionery'][zoom >= 18] {
-       marker-file: url('symbols/shop/confectionery.svg');
+     [shop = 'computer'][zoom >= 18] {
 +      marker-width: 10;
 +      marker-height: 10;
+       marker-file: url('symbols/shop/computer.svg');
+     }
+ 
+@@ -1114,16 +1231,22 @@
+     [shop = 'chocolate'][zoom >= 18],
+     [shop = 'confectionery'][zoom >= 18],
+     [shop = 'pastry'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
+       marker-file: url('symbols/shop/confectionery.svg');
      }
  
      [shop = 'copyshop'][zoom >= 18] {
-       marker-file: url('symbols/shop/copyshop.svg');
 +      marker-width: 10;
 +      marker-height: 10;
+       marker-file: url('symbols/shop/copyshop.svg');
      }
  
      [shop = 'cosmetics'],
      [shop = 'perfumery'] {
        [zoom >= 18] {
++        marker-width: 8;
++        marker-height: 8;
          marker-file: url('symbols/shop/perfumery.svg');
-+        marker-width: 10;
-+        marker-height: 10;
        }
      }
- 
-@@ -665,12 +787,16 @@
- 
-     [shop = 'department_store'][zoom >= 16] {
-       marker-file: url('symbols/shop/department_store.svg');
-+      marker-width: 10;
-+      marker-height: 10;
-     }
- 
+@@ -1141,6 +1264,8 @@
      [shop = 'doityourself'],
      [shop = 'hardware'] {
        [zoom >= 18] {
-         marker-file: url('symbols/shop/diy.svg');
 +        marker-width: 10;
 +        marker-height: 10;
+         marker-file: url('symbols/shop/diy.svg');
        }
      }
- 
-@@ -678,6 +804,8 @@
+@@ -1148,7 +1273,8 @@
+     [shop = 'dry_cleaning'],
      [shop = 'laundry'] {
        [zoom >= 18] {
-         marker-file: url('symbols/shop/laundry.svg');
+-        marker-file: url('symbols/shop/laundry.svg');
 +        marker-width: 10;
 +        marker-height: 10;
        }
      }
  
-@@ -690,10 +818,14 @@
+@@ -1159,30 +1285,42 @@
+     [shop = 'fishmonger'],
+     [shop = 'seafood'] {
+       [zoom >= 18] {
++        marker-width: 10;
++        marker-height: 10;
+         marker-file: url('symbols/shop/seafood.svg');
+       }
+     }
  
      [shop = 'florist'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/florist.svg');
-+      marker-width: 10;
-+      marker-height: 10;
      }
  
      [shop = 'garden_centre'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/garden_centre.svg');
-+      marker-width: 10;
-+      marker-height: 10;
      }
  
      [shop = 'greengrocer'],
-@@ -705,10 +837,14 @@
+     [shop = 'farm'] {
+       [zoom >= 18] {
++        marker-width: 10;
++        marker-height: 10;
+         marker-file: url('symbols/shop/greengrocer.svg');
+       }
+     }
  
      [shop = 'hairdresser'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/hairdresser.svg');
-+      marker-width: 10;
-+      marker-height: 10;
      }
  
      [shop = 'hifi'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/hifi.svg');
-+      marker-width: 10;
-+      marker-height: 10;
      }
  
-     [shop = 'ice_cream'][zoom >= 18] {
-@@ -717,10 +853,14 @@
+@@ -1195,27 +1333,39 @@
+     }
  
      [shop = 'car'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/car.svg');
-+      marker-width: 10;
-+      marker-height: 10;
      }
  
      [shop = 'car_parts'][zoom >= 18] {
-       marker-file: url('symbols/shop/car_parts.svg');
 +      marker-width: 10;
 +      marker-height: 10;
+       marker-file: url('symbols/shop/car_parts.svg');
      }
  
-     [shop = 'car_repair'][zoom >= 18] {
-@@ -734,6 +874,8 @@
+-    [shop = 'car_repair'][zoom >= 18] {
++    [shop = 'car_repair'][zoom >= @useful] {
++      marker-width: 10;
++      marker-height: 10;
+       marker-file: url('symbols/shop/car_repair.svg');
+       marker-fill: @amenity-brown;
+     }
+ 
+     [shop = 'dairy'][zoom >= 18] {
++      marker-width: 10;
++      marker-height: 10;
+       marker-file: url('symbols/shop/dairy.svg');
+     }
+ 
+     [shop = 'bicycle'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
+       marker-file: url('symbols/shop/bicycle.svg');
+     }
  
      [shop = 'pet'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/pet.svg');
-+      marker-width: 10;
-+      marker-height: 10;
      }
  
-     [shop = 'photo'],
-@@ -746,45 +888,65 @@
+@@ -1223,6 +1373,8 @@
+     [shop = 'photo_studio'],
+     [shop = 'photography'] {
+       [zoom >= 18] {
++        marker-width: 10;
++        marker-height: 10;
+         marker-file: url('symbols/shop/photo.svg');
+       }
+     }
+@@ -1232,37 +1384,53 @@
+     }
  
      [shop = 'shoes'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/shoes.svg');
-+      marker-width: 10;
-+      marker-height: 10;
      }
  
      [shop = 'gift'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/gift.svg');
-+      marker-width: 10;
-+      marker-height: 10;
      }
-     
+ 
      [shop = 'electronics'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/electronics.svg');
-+      marker-width: 10;
-+      marker-height: 10;
      }
-     
+ 
      [shop = 'alcohol'],
      [shop = 'wine'] {
        [zoom >= 18] {
-         marker-file: url('symbols/shop/alcohol.svg');
 +        marker-width: 10;
 +        marker-height: 10;
+         marker-file: url('symbols/shop/alcohol.svg');
        }
      }
-     
+ 
      [shop = 'optician'][zoom >= 18] {
++      marker-width: 10;
++      marker-height: 10;
        marker-file: url('symbols/shop/optician.svg');
-+      marker-width: 10;
-+      marker-height: 10;
      }
-     
+ 
      [shop = 'outdoor'][zoom >= 18] {
++      marker-width: 10;
++      marker-height: 10;
        marker-file: url('symbols/shop/outdoor.svg');
-+      marker-width: 10;
-+      marker-height: 10;
      }
-     
+ 
      [shop = 'furniture'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/furniture.svg');
-+      marker-width: 10;
-+      marker-height: 10;
      }
-     
+ 
+     [shop = 'interior_decoration'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
+       marker-file: url('symbols/shop/interior_decoration.svg');
+     }
+ 
+@@ -1276,24 +1444,34 @@
+     }
+ 
      [shop = 'mobile_phone'][zoom >= 18] {
-       marker-file: url('symbols/shop/mobile_phone.svg');
 +      marker-width: 10;
 +      marker-height: 10;
+       marker-file: url('symbols/shop/mobile_phone.svg');
      }
  
      [shop = 'motorcycle'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/motorcycle.svg');
-+      marker-width: 10;
-+      marker-height: 10;
+     }
+ 
+     [shop = 'music'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
+       marker-file: url('symbols/shop/music.svg');
      }
  
      [shop = 'musical_instrument'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/musical_instrument.svg');
-+      marker-width: 10;
-+      marker-height: 10;
      }
  
      [shop = 'kiosk'],
-@@ -798,40 +960,58 @@
+     [shop = 'newsagent'] {
+       [zoom >= 18] {
++        marker-width: 8;
++        marker-height: 8;
+         marker-file: url('symbols/shop/newsagent.svg');
+       }
+     }
+@@ -1301,39 +1479,57 @@
+     [shop = 'jewelry'],
      [shop = 'jewellery'] {
        [zoom >= 18] {
++        marker-width: 8;
++        marker-height: 8;
          marker-file: url('symbols/shop/jewelry.svg');
-+        marker-width: 10;
-+        marker-height: 10;
        }
      }
  
      [shop = 'toys'][zoom >= 18] {
-       marker-file: url('symbols/shop/toys.svg');
 +      marker-width: 10;
 +      marker-height: 10;
+       marker-file: url('symbols/shop/toys.svg');
      }
  
      [shop = 'travel_agency'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/travel_agency.svg');
+     }
+ 
+     [shop = 'second_hand'][zoom >= 18] {
 +      marker-width: 10;
 +      marker-height: 10;
+       marker-file: url('symbols/shop/second_hand.svg');
      }
  
      [shop = 'sports'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/sports.svg');
-+      marker-width: 10;
-+      marker-height: 10;
      }
  
      [shop = 'stationery'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/stationery.svg');
-+      marker-width: 10;
-+      marker-height: 10;
      }
  
      [shop = 'tobacco'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/tobacco.svg');
-+      marker-width: 10;
-+      marker-height: 10;
      }
  
      [shop = 'tea'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/tea.svg');
+     }
+ 
+     [shop = 'ticket'][zoom >= 18] {
 +      marker-width: 10;
 +      marker-height: 10;
+       marker-file: url('symbols/shop/ticket.svg');
+     }
+ 
+@@ -1346,10 +1542,14 @@
+     }
+ 
+     [shop = 'tyres'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
+       marker-file: url('symbols/shop/tyres.svg');
      }
  
      [shop = 'variety_store'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
        marker-file: url('symbols/shop/variety_store.svg');
-+      marker-width: 10;
-+      marker-height: 10;
+     }
+ 
+@@ -1358,11 +1558,15 @@
+     }
+ 
+     [shop = 'video_games'][zoom >= 18] {
++      marker-width: 8;
++      marker-height: 8;
+       marker-file: url('symbols/shop/video_games.svg');
      }
    }
  
-   [feature = 'leisure_water_park'][zoom >= 17] {
-     marker-file: url('symbols/water_park.svg');
+   [feature = 'advertising_column'][zoom >= 19]{
++    marker-width: 8;
++    marker-height: 8;
+     marker-file: url('symbols/advertising_column.svg');
+     marker-fill: @advertising-grey;
+     marker-placement: interior;
+@@ -1385,6 +1589,8 @@
+   [feature = 'leisure_sports_centre'][sport = 'swimming'][zoom >= 17],
+   [feature = 'leisure_swimming_area'][zoom >= 17] {
+     marker-file: url('symbols/leisure/water_park.svg');
 +    marker-width: 10;
 +    marker-height: 10;
      marker-placement: interior;
-     marker-fill: @amenity-brown;
+     marker-fill: @leisure-green;
      marker-clip: false;
-@@ -839,6 +1019,8 @@
+@@ -1393,6 +1599,8 @@
+   [feature = 'leisure_fitness_centre'][zoom >= 17],
+   [feature = 'leisure_fitness_station'][zoom >= 17] {
+     marker-file: url('symbols/leisure/fitness.svg');
++    marker-width: 8;
++    marker-height: 8;
+     marker-placement: interior;
+     marker-fill: @leisure-green;
+     marker-clip: false;
+@@ -1403,6 +1611,8 @@
  
    [feature = 'leisure_dog_park'][zoom >= 17] {
      marker-file: url('symbols/shop/pet.svg');
 +    marker-width: 10;
 +    marker-height: 10;
      marker-placement: interior;
-     marker-fill: @amenity-brown;
+     marker-fill: @leisure-green;
      marker-clip: false;
-@@ -846,6 +1028,8 @@
+@@ -1410,6 +1620,8 @@
  
    [feature = 'leisure_playground'][zoom >= 17] {
-     marker-file: url('symbols/playground.svg');
+     marker-file: url('symbols/leisure/playground.svg');
 +    marker-width: 10;
 +    marker-height: 10;
-     marker-fill: @amenity-brown;
+     marker-fill: @leisure-green;
      marker-placement: interior;
      marker-clip: false;
-@@ -856,11 +1040,15 @@
+@@ -1420,6 +1632,8 @@
  
    [feature = 'leisure_miniature_golf'][zoom >= 17] {
-     point-file: url('symbols/miniature_golf.p.20.png');
-+    marker-width: 10;
-+    marker-height: 10;
-     point-placement: interior;
-   }
+     marker-file: url('symbols/leisure/miniature_golf.svg');
++    marker-width: 8;
++    marker-height: 8;
+     marker-fill: @leisure-green;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -1427,6 +1641,8 @@
  
    [feature = 'leisure_golf_course'][zoom >= 15] {
-     point-file: url('symbols/golf.p.20.png');
-+    marker-width: 10;
-+    marker-height: 10;
-     point-placement: interior;
-   }
- 
-@@ -880,6 +1068,8 @@
- 
-   [feature = 'leisure_slipway'][zoom >= 17] {
-     point-file: url('symbols/transport_slipway.p.20.png');
-+    marker-width: 10;
-+    marker-height: 10;
-     point-placement: interior;
-   }
- 
-@@ -1242,7 +1432,9 @@
-   [feature = 'historic_memorial'][zoom >= 17],
-   [feature = 'man_made_obelisk'][zoom >= 16],
-   [feature = 'historic_monument'][zoom >= 16],
--  [feature = 'historic_archaeological_site'][zoom >= 17] {
-+  [feature = 'historic_castle'][zoom >= @nice],
-+  [feature = 'historic_fort'][zoom >= @nice],
-+  [feature = 'historic_archaeological_site'][zoom >= @nice] {
-     text-name: "[name]";
-     text-size: @standard-text-size;
-     text-fill: @amenity-brown;
-@@ -2064,6 +2256,7 @@
-     text-wrap-width: @standard-wrap-width;
+     marker-file: url('symbols/leisure/golf.svg');
++    marker-width: 8;
++    marker-height: 8;
+     marker-fill: @leisure-green;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -1462,6 +1678,7 @@
+     }
    }
  
 +  /*
-   [feature = 'natural_tree'][zoom >= 17] {
-     text-name: "[name]";
-     text-size: @standard-text-size;
-@@ -2078,8 +2271,10 @@
+   [feature = 'leisure_sauna'][zoom >= 17] {
+      marker-file: url('symbols/leisure/sauna.svg');
+      marker-fill: @leisure-green;
+@@ -1482,6 +1699,7 @@
+      marker-placement: interior;
+      marker-clip: false;
+    }
++  */
+ 
+   [feature = 'leisure_outdoor_seating'][zoom >= 19] {
+      marker-file: url('symbols/leisure/outdoor_seating.svg');
+@@ -1490,6 +1708,7 @@
+      marker-clip: false;
+    }
+ 
++  /*
+   [feature = 'leisure_bird_hide'][zoom >= 17] {
+      marker-file: url('symbols/leisure/bird_hide.svg');
+      marker-fill: @leisure-green;
+@@ -1503,6 +1722,7 @@
+      marker-placement: interior;
+      marker-clip: false;
+    }
++  */
+ 
+   [feature = 'leisure_fishing'][zoom >= 17] {
+      marker-file: url('symbols/leisure/fishing.svg');
+@@ -1513,7 +1733,10 @@
+ 
+   // Slipway tagging on points - slipway on lines is defined later
+   [feature = 'leisure_slipway'][zoom >= 17] {
++    // marker-file: url('symbols/transport_slipway.p.20.svg');
+     marker-file: url('symbols/leisure/slipway.svg');
++    marker-width: 8;
++    marker-height: 8;
+     marker-fill: @transportation-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -1552,7 +1775,7 @@
+     marker-file: url('symbols/man_made/lighthouse.svg');
+     marker-placement: interior;
+     marker-clip: false;
+-    marker-fill: @man-made-icon;
++    marker-fill: @water-dark;
+   }
+ 
+   [feature = 'natural_peak'][zoom >= 11] {
+@@ -1576,25 +1799,52 @@
+     marker-clip: false;
+   }
+ 
+-  [feature = 'natural_cave_entrance'][zoom >= 15] {
++  [feature = 'natural_cave_entrance'][zoom >= @nice] {
+     marker-file: url('symbols/natural/cave.svg');
+     marker-placement: interior;
+     marker-clip: false;
+   }
+ 
++  [feature = 'military_bunker'][zoom >= @nice] {
++    marker-file: url('symbols/bunker.svg');
++    marker-fill: @man-made-icon;
++    marker-placement: interior;
++    marker-clip: false;
++  }
++
++  /*
++  [feature = 'natural_spring'][zoom >= 14] {
++    marker-file: url('symbols/spring-14.svg');
++    marker-fill: @water-dark;
++    marker-placement: interior;
++    marker-clip: false;
++  }
++  */
++
+   [feature = 'waterway_waterfall'] {
+-    [zoom >= 13][height > 20],
+-    [zoom >= 14][height > 10],
++    [zoom >= @nice][height > 20],
++    [zoom >= @nice][height > 10],
+     [zoom >= 15][name != null],
+     [zoom >= 16] {
+       marker-file: url('symbols/waterfall.svg');
++      marker-width: 16;
++      marker-height: 16;
+       marker-placement: interior;
+       marker-clip: false;
+-      marker-fill: @water-text;
++      marker-fill: @amenity-brown;
+     }
+   }
+ 
+-  [feature = 'military_bunker'][zoom >= 17] {
++  /*
++  [feature = 'natural_spring'][zoom >= 14] {
++    marker-file: url('symbols/spring-14.svg');
++    marker-fill: @water-dark;
++    marker-placement: interior;
++    marker-clip: false;
++  }
++  */
++
++  [feature = 'military_bunker'][zoom >= @nice] {
+     marker-file: url('symbols/bunker.svg');
+     marker-fill: @man-made-icon;
+     marker-placement: interior;
+@@ -1617,10 +1867,15 @@
+     marker-placement: interior;
+     marker-fill: @man-made-icon;
+     marker-clip: false;
++    [ruins = 'yes'] {
++      marker-fill: @ruin;
++    }
+   }
+ 
+   [feature = 'amenity_hunting_stand'][zoom >= 16] {
+     marker-file: url('symbols/amenity/hunting_stand.svg');
++    marker-width: 8;
++    marker-height: 8;
+     marker-fill: @man-made-icon;
+     marker-placement: interior;
+     marker-clip: false;
+@@ -1816,6 +2071,8 @@
      text-placement: interior;
-     text-wrap-width: @standard-wrap-width;
+   }
+ 
++  // TODO: sea and ocean
++
+   [feature = 'amenity_pub'][zoom >= 18],
+   [feature = 'amenity_restaurant'][zoom >= 18],
+   [feature = 'amenity_food_court'][zoom >= 17],
+@@ -1878,6 +2135,7 @@
+     text-placement: interior;
+   }
+ 
++  /*
+   [feature = 'leisure_sauna'][zoom >= 17] {
+     text-name: "[name]";
+     text-size: @standard-font-size;
+@@ -1890,6 +2148,7 @@
+     text-halo-fill: @standard-halo-fill;
+     text-placement: interior;
    }
 +  */
+ 
+   [feature = 'amenity_car_rental'][zoom >= 17],
+   [feature = 'amenity_bicycle_rental'][zoom >= 17],
+@@ -2115,8 +2374,8 @@
+   [feature = 'power_generator'][zoom >= 19],
+   [feature = 'historic_wayside_cross'][zoom >= 17],
+   [feature = 'historic_wayside_shrine'][zoom >= 17],
+-  [feature = 'historic_city_gate'][zoom >= 17],
+-  [feature = 'natural_cave_entrance'][zoom >= 15],
++  [feature = 'historic_city_gate'][zoom >= @nice],
++  [feature = 'natural_cave_entrance'][zoom >= @nice],
+   [feature = 'man_made_mast'][zoom >= 18],
+   [feature = 'man_made_tower'][zoom >= 17],
+   [feature = 'man_made_storage_tank'][zoom >= 18],
+@@ -2159,6 +2418,21 @@
+     text-placement: interior;
+   }
+ 
++  // local
++  [feature = 'tourism_information'][zoom >= @emergency] {
++    [information = 'guidepost'] {
++      text-name: "[ref]";
++      text-size: @standard-font-size;
++      text-wrap-width: @standard-wrap-width;
++      text-line-spacing: @standard-line-spacing-size;
++      text-fill: @amenity-brown;
++      text-face-name: @standard-font;
++      text-halo-radius: @standard-halo-radius;
++      text-halo-fill: @standard-halo-fill;
++      text-placement: interior;
++    }
++  }
++
+   [feature = 'tourism_artwork'][zoom >= 17],
+   [feature = 'historic_memorial'][memorial = null][zoom >= 17],
+   [feature = 'historic_memorial'][memorial != null][memorial != 'blue_plaque'][memorial != 'bust'][memorial != 'plaque'][memorial != 'stele'][memorial != 'stone'][zoom >= 17],
+@@ -2170,8 +2444,8 @@
+   [feature = 'historic_memorial'][memorial = 'plaque'][zoom >= 19],
+   [feature = 'man_made_obelisk'][zoom >= 17],
+   [feature = 'historic_monument'][zoom >= 16],
+-  [feature = 'historic_fort'][zoom >= 16],
+-  [feature = 'historic_castle'][zoom >= 16],
++  [feature = 'historic_fort'][zoom >= @nice],
++  [feature = 'historic_castle'][zoom >= @nice],
+   [feature = 'historic_manor'][zoom >= 16] {
+     text-name: "[name]";
+     text-size: @standard-font-size;
+@@ -2185,7 +2459,7 @@
+     text-placement: interior;
+   }
+ 
+-  [feature = 'military_bunker'][zoom >= 17],
++  [feature = 'military_bunker'][zoom >= @nice],
+   [feature = 'historic_wayside_shrine'][zoom >= 17] {
+     text-name: "[name]";
+     text-size: @standard-font-size;
+@@ -2585,7 +2859,7 @@
+     }
+   }
+ 
+-  [feature = 'amenity_atm'][zoom >= 19],
++  [feature = 'amenity_atm'][zoom >= @useful],
+   [feature = 'amenity_vending_machine'][zoom >= 19] {
+     text-name: "[operator]";
+     text-size: @standard-font-size;
+@@ -3041,7 +3315,7 @@
+ 
+   [feature = 'shop_supermarket'],
+   [feature = 'shop_department_store'] {
+-    [zoom >= 16] {
++    [zoom >= @useful] {
+       text-name: "[name]";
+       text-size: @standard-font-size;
+       text-wrap-width: @standard-wrap-width;
+@@ -3236,6 +3510,7 @@
+     text-placement: interior;
+   }
+ 
++  /*
+   [feature = 'amenity_hunting_stand'][zoom >= 17] {
+     text-name: "[name]";
+     text-size: @standard-font-size;
+@@ -3264,6 +3539,7 @@
+     text-halo-fill: @standard-halo-fill;
+     text-placement: interior;
+   }
++  */
+ 
+   [feature = 'amenity_casino'][zoom >= 17] {
+     text-name: "[name]";
+@@ -3366,6 +3642,7 @@
+   }
  }
  
 +/*
  #trees [zoom >= 16] {
    ::canopy {
      opacity: 0.3;
-@@ -2144,3 +2339,4 @@
+@@ -3405,6 +3682,7 @@
+       }
+     }
+   }
++
+   [natural = 'tree']::trunk {
+     [zoom >= 18] {
+       trunk/marker-fill: #b27f36;
+@@ -3424,3 +3702,4 @@
      }
    }
  }
 +*/
 diff --git a/fonts.mss b/fonts.mss
-index 55f125d..0755dee 100644
+index 3a5cda5..39581ac 100644
 --- a/fonts.mss
 +++ b/fonts.mss
-@@ -110,12 +110,10 @@ A regular style.
+@@ -128,14 +128,12 @@ A regular style.
  
-                 "Noto Naskh Arabic UI Regular",
+                 "Noto Sans Arabic UI Regular",
  
 -                "Noto Emoji Regular",
 -
+                 "Noto Naskh Arabic UI Regular",
+ 
                  "DejaVu Sans Book",
  
                  "HanaMinA Regular", "HanaMinB Regular",
@@ -956,56 +1491,13 @@ index 55f125d..0755dee 100644
  
  /*
  A bold style is available for almost all scripts. Bold text is heavier than
-@@ -190,12 +188,10 @@ regular text and can be used for emphasis. Fallback is a regular style.
- 
-                 "Noto Naskh Arabic UI Regular",
- 
--                "Noto Emoji Regular",
--
-                 "DejaVu Sans Bold", "DejaVu Sans Book",
- 
-                 "HanaMinA Regular", "HanaMinB Regular",
--                "Unifont Medium", "unifont Medium", "Unifont Upper Medium";
-+                "Unifont Medium", "Unifont Upper Medium";
- 
- /*
- Italics are only available for the base font, not the other scripts.
-@@ -264,9 +260,7 @@ For a considerable number of labels this style will make no difference to the re
- 
-                 "Noto Naskh Arabic UI Regular",
- 
--                "Noto Emoji Regular",
--
-                 "DejaVu Sans Oblique", "DejaVu Sans Book",
- 
-                 "HanaMinA Regular", "HanaMinB Regular",
--                "Unifont Medium", "unifont Medium", "Unifont Upper Medium";
-\ No newline at end of file
-+                "Unifont Medium", "Unifont Upper Medium";
 diff --git a/landcover.mss b/landcover.mss
-index 79875f5..cd32e97 100644
+index e45f1c6..91d19aa 100644
 --- a/landcover.mss
 +++ b/landcover.mss
-@@ -1,11 +1,11 @@
- // --- Parks, woods, other green things ---
- 
--@grass: #cdebb0; // also meadow, common, garden, village_green
--@scrub: #b5e3b5;
--@forest: #add19e;       // Lch(80,30,135)
-+@grass: #b5e3b5; // also meadow, common, garden, village_green
-+@scrub: @grass;
-+@forest: @grass;
- @forest-text: #46673b;  // Lch(40,30,135)
--@park: #c8facc;         // Lch(94,30,145) also recreation_ground
--@orchard: #aedfa3; // also vineyard, plant_nursery
-+@park: @grass;          // also recreation_ground
-+@orchard: @grass; // also vineyard, plant_nursery
- 
- // --- "Base" landuses ---
- 
-@@ -55,6 +55,19 @@
- @military: #f55;
- @beach: #fff1ba;
+@@ -61,6 +61,19 @@
+ @water_works: @industrial;
+ @water_works-line: @industrial-line;
  
 +// --- Reliefs --
 +
@@ -1023,55 +1515,71 @@ index 79875f5..cd32e97 100644
  // --- Sports ---
  
  @pitch: #aae0cb; // also track
-@@ -76,6 +89,7 @@
+@@ -93,6 +106,7 @@
      }
    }
  
 +  /*
    [feature = 'leisure_swimming_pool'][zoom >= 14] {
      polygon-fill: @water-color;
-     line-color: saturate(darken(@water-color, 40%), 30%);
-@@ -83,6 +97,7 @@
+     [zoom >= 17] {
+@@ -102,7 +116,9 @@
      [way_pixels >= 4]  { polygon-gamma: 0.75; }
      [way_pixels >= 64] { polygon-gamma: 0.3;  }
    }
 +  */
  
-   [feature = 'leisure_playground'][zoom >= 13] {
-     polygon-fill: @playground;
-@@ -118,25 +133,31 @@
++  /*
+   [feature = 'leisure_recreation_ground'][zoom >= 10],
+   [feature = 'landuse_recreation_ground'][zoom >= 10],
+   [feature = 'leisure_playground'][zoom >= 13],
+@@ -115,7 +131,9 @@
+     [way_pixels >= 4]  { polygon-gamma: 0.75; }
+     [way_pixels >= 64] { polygon-gamma: 0.3;  }
+   }
++  */
+ 
++  /*
+   [feature = 'tourism_camp_site'],
+   [feature = 'tourism_caravan_site'],
+   [feature = 'tourism_picnic_site'] {
+@@ -129,6 +147,7 @@
+       [way_pixels >= 64] { polygon-gamma: 0.3;  }
+     }
+   }
++  */
+ 
+   [feature = 'landuse_quarry'][zoom >= 10] {
+     polygon-fill: @quarry;
+@@ -142,11 +161,13 @@
    }
  
    [feature = 'landuse_vineyard'] {
 +    /*
-     [zoom >= 10] {
+     [zoom >= 5] {
        polygon-fill: @orchard;
        [way_pixels >= 4]  { polygon-gamma: 0.75; }
        [way_pixels >= 64] { polygon-gamma: 0.3;  }
      }
 +    */
-     [zoom >= 14] {
+     [zoom >= 13] {
        polygon-pattern-file: url('symbols/vineyard.png');
        polygon-pattern-alignment: global;
-+      /*
-       [way_pixels >= 4]  { polygon-pattern-gamma: 0.75; }
-       [way_pixels >= 64] { polygon-pattern-gamma: 0.3;  }
-+      */
-     }
+@@ -156,11 +177,13 @@
    }
  
    [feature = 'landuse_orchard'] {
 +    /*
-     [zoom >= 10] {
+     [zoom >= 5] {
        polygon-fill: @orchard;
        [way_pixels >= 4]  { polygon-gamma: 0.75; }
        [way_pixels >= 64] { polygon-gamma: 0.3;  }
      }
 +    */
-     [zoom >= 14] {
+     [zoom >= 13] {
        polygon-pattern-file: url('symbols/orchard.png');
        polygon-pattern-alignment: global;
-@@ -146,11 +167,13 @@
+@@ -185,10 +208,12 @@
    }
  
    [feature = 'landuse_plant_nursery'] {
@@ -1080,54 +1588,11 @@ index 79875f5..cd32e97 100644
        polygon-fill: @orchard;
        [way_pixels >= 4]  { polygon-gamma: 0.75; }
        [way_pixels >= 64] { polygon-gamma: 0.3;  }
-     }
 +    */
-     [zoom >= 14] {
+     }
+     [zoom >= 13] {
        polygon-pattern-file: url('symbols/plant_nursery.png');
-       polygon-pattern-alignment: global;
-@@ -159,6 +182,7 @@
-     }
-   }
- 
-+  /*
-   [feature = 'landuse_cemetery'],
-   [feature = 'amenity_grave_yard'] {
-     [zoom >= 10] {
-@@ -178,6 +202,7 @@
-       }
-     }
-   }
-+  */
- 
-   [feature = 'amenity_place_of_worship'][zoom >= 13] {
-     polygon-fill: @place_of_worship;
-@@ -230,6 +255,7 @@
-     }
-   }
- 
-+  /*
-   [feature = 'leisure_park'],
-   [feature = 'leisure_recreation_ground'] {
-     [zoom >= 10] {
-@@ -238,7 +264,9 @@
-       [way_pixels >= 64] { polygon-gamma: 0.3;  }
-     }
-   }
-+  */
- 
-+  /*
-   [feature = 'leisure_dog_park'] {
-     [zoom >= 10] {
-       polygon-fill: @playground;
-@@ -252,6 +280,7 @@
-       [way_pixels >= 64] { polygon-pattern-gamma: 0.3;  }
-     }
-   }
-+  */
- 
-   [feature = 'leisure_golf_course'][zoom >= 10],
-   [feature = 'leisure_miniature_golf'][zoom >= 15] {
-@@ -261,11 +290,13 @@
+@@ -301,11 +326,13 @@
    }
  
    [feature = 'landuse_allotments'] {
@@ -1138,18 +1603,19 @@ index 79875f5..cd32e97 100644
        [way_pixels >= 64] { polygon-gamma: 0.3;  }
      }
 +    */
-     [zoom >= 14] {
+     [zoom >= 13] {
        polygon-pattern-file: url('symbols/allotments.png');
        polygon-pattern-alignment: global;
-@@ -274,6 +305,7 @@
+@@ -321,6 +348,8 @@
      }
    }
  
 +  /*
++  TODO:
    [feature = 'landuse_forest'],
    [feature = 'natural_wood'] {
-     [zoom >= 8] {
-@@ -282,7 +314,10 @@
+     [zoom >= 5] {
+@@ -329,7 +358,10 @@
        [way_pixels >= 64] { polygon-gamma: 0.3;  }
      }
    }
@@ -1160,7 +1626,7 @@ index 79875f5..cd32e97 100644
    [feature = 'landuse_farmyard'][zoom >= 10] {
      polygon-fill: @farmyard;
        [zoom >= 16] {
-@@ -295,7 +330,10 @@
+@@ -342,7 +374,10 @@
      [way_pixels >= 4]  { polygon-gamma: 0.75; }
      [way_pixels >= 64] { polygon-gamma: 0.3;  }
    }
@@ -1170,57 +1636,49 @@ index 79875f5..cd32e97 100644
 +  /*
    [feature = 'landuse_farmland'],
    [feature = 'landuse_greenhouse_horticulture'] {
-     [zoom >= 10] {
-@@ -308,21 +346,28 @@
+     [zoom >= 5] {
+@@ -355,17 +390,22 @@
        [way_pixels >= 64] { polygon-gamma: 0.3;  }
      }
    }
 +  */
  
-   [feature = 'landuse_meadow'],
--  [feature = 'natural_grassland'],
-+  [feature = 'natural_grassland'] {
-+  /*
-   [feature = 'landuse_grass'],
-   [feature = 'landuse_recreation_ground'],
-   [feature = 'landuse_village_green'],
-   [feature = 'leisure_common'],
-   [feature = 'leisure_garden'] {
--    [zoom >= 10] {
-+  */
-+    [zoom >= 13] {
-+      /*
-       polygon-fill: @grass;
-       [way_pixels >= 4]  { polygon-gamma: 0.75; }
-       [way_pixels >= 64] { polygon-gamma: 0.3;  }
-+      */
-+      polygon-pattern-file: url('symbols/grass2.png');
-     }
+   [feature = 'natural_grassland'][zoom >= 5],
+   [feature = 'landuse_meadow'][zoom >= 5],
+   [feature = 'landuse_grass'][zoom >= 10],
+   [feature = 'landuse_village_green'][zoom >= 10],
+   [feature = 'leisure_common'][zoom >= 10] {
++    /*
+     polygon-fill: @grass;
+     [way_pixels >= 4]  { polygon-gamma: 0.75; }
+     [way_pixels >= 64] { polygon-gamma: 0.3;  }
++    */
++    polygon-pattern-file: url('symbols/grass2.png');
    }
  
 +  /*
-   [feature = 'landuse_retail'][zoom >= 10] {
-     polygon-fill: @retail;
-     [zoom >= 16] {
-@@ -335,7 +380,9 @@
-       [way_pixels >= 64] { polygon-gamma: 0.3;  }
+   [feature = 'landuse_retail'],
+   [feature = 'amenity_marketplace'] {
+     [zoom >= 8] {
+@@ -384,7 +424,9 @@
+       }
      }
    }
 +  */
  
 +  /*
-   [feature = 'landuse_industrial'][zoom >= 10] {
-     polygon-fill: @industrial;
-     [zoom >= 16] {
-@@ -348,6 +395,7 @@
+   [feature = 'landuse_industrial'][zoom >= 8] {
+     polygon-fill: @built-up-lowzoom;
+     [zoom >= 11] { polygon-fill: @built-up-z11; }
+@@ -400,6 +442,7 @@
      [way_pixels >= 4]  { polygon-gamma: 0.75; }
      [way_pixels >= 64] { polygon-gamma: 0.3;  }
    }
 +  */
  
-   [feature = 'landuse_railway'][zoom >= 10] {
-     polygon-fill: @railway;
-@@ -359,6 +407,7 @@
+   [feature = 'man_made_works'][zoom >= 16] {
+     line-width: .5;
+@@ -447,6 +490,7 @@
      [way_pixels >= 64] { polygon-gamma: 0.3;  }
    }
  
@@ -1228,15 +1686,15 @@ index 79875f5..cd32e97 100644
    [feature = 'power_station'][zoom >= 10],
    [feature = 'power_generator'][zoom >= 10],
    [feature = 'power_sub_station'][zoom >= 13],
-@@ -377,6 +426,7 @@
+@@ -465,6 +509,7 @@
      [way_pixels >= 4]  { polygon-gamma: 0.75; }
      [way_pixels >= 64] { polygon-gamma: 0.3;  }
    }
 +  */
  
-   [feature = 'landuse_commercial'][zoom >= 10] {
-     polygon-fill: @commercial;
-@@ -391,6 +441,7 @@
+   [feature = 'landuse_commercial'][zoom >= 8] {
+     polygon-fill: @built-up-lowzoom;
+@@ -482,6 +527,7 @@
      [way_pixels >= 64] { polygon-gamma: 0.3;  }
    }
  
@@ -1244,25 +1702,44 @@ index 79875f5..cd32e97 100644
    [feature = 'landuse_brownfield'],
    [feature = 'landuse_construction'] {
      [zoom >= 10] {
-@@ -407,11 +458,14 @@
+@@ -490,7 +536,9 @@
        [way_pixels >= 64] { polygon-gamma: 0.3;  }
      }
    }
 +  */
  
-   [feature = 'natural_bare_rock'][zoom >= 9] {
++  /*
+   [feature = 'landuse_landfill'] {
+     [zoom >= 10] {
+       polygon-fill: #b6b592;
+@@ -498,16 +546,23 @@
+       [way_pixels >= 64] { polygon-gamma: 0.3;  }
+     }
+   }
++  */
+ 
+   [feature = 'natural_bare_rock'][zoom >= 5] {
 +    /*
      polygon-fill: @bare_ground;
-     [way_pixels >= 4]  { polygon-gamma: 0.75; }
-     [way_pixels >= 64] { polygon-gamma: 0.3;  }
 +    */
-     [zoom >= 13] {
-       polygon-pattern-file: url('symbols/rock_overlay.png');
-       [way_pixels >= 4]  { polygon-pattern-gamma: 0.75; }
-@@ -422,9 +476,11 @@
+     polygon-pattern-file: url('symbols/rock_overlay.png');
+     [way_pixels >= 4] {
++      /*
+       polygon-gamma: 0.75;
++      */
+       polygon-pattern-gamma: 0.75;
+     }
+     [way_pixels >= 64] {
++      /*
+       polygon-gamma: 0.3;
++      */
+       polygon-pattern-gamma: 0.3;
+     }
+   }
+@@ -515,9 +570,11 @@
    [feature = 'natural_scree'],
    [feature = 'natural_shingle'] {
-     [zoom >= 9] {
+     [zoom >= 5] {
 +      /*
        polygon-fill: @bare_ground;
        [way_pixels >= 4]  { polygon-gamma: 0.75; }
@@ -1271,12 +1748,20 @@ index 79875f5..cd32e97 100644
        [zoom >= 13] {
          polygon-pattern-file: url('symbols/scree_overlay.png');
          [way_pixels >= 4]  { polygon-pattern-gamma: 0.75; }
-@@ -439,17 +495,21 @@
-     [way_pixels >= 64] { polygon-gamma: 0.3;  }
+@@ -526,23 +583,29 @@
+     }
    }
  
 +  /*
-   [feature = 'natural_heath'][zoom >= 10] {
+   [feature = 'natural_sand'][zoom >= 5] {
+     polygon-fill: @sand;
+     [way_pixels >= 4]  { polygon-gamma: 0.75; }
+     [way_pixels >= 64] { polygon-gamma: 0.3;  }
+   }
++  */
+ 
++  /*
+   [feature = 'natural_heath'][zoom >= 5] {
      polygon-fill: @heath;
      [way_pixels >= 4]  { polygon-gamma: 0.75; }
      [way_pixels >= 64] { polygon-gamma: 0.3;  }
@@ -1284,49 +1769,24 @@ index 79875f5..cd32e97 100644
 +  */
  
 +  /*
-   [feature = 'natural_scrub'][zoom >= 10] {
+   [feature = 'natural_scrub'][zoom >= 5] {
      polygon-fill: @scrub;
      [way_pixels >= 4]  { polygon-gamma: 0.75; }
      [way_pixels >= 64] { polygon-gamma: 0.3;  }
    }
 +  */
-  
-   [feature = 'wetland_swamp'][zoom >= 8] {
+ 
+   [feature = 'wetland_swamp'][zoom >= 5] {
      polygon-fill: @forest;
-@@ -522,12 +582,14 @@
+@@ -700,6 +763,87 @@
      [way_pixels >= 64] { polygon-gamma: 0.3;  }
    }
- 
-+  /*
-   [feature = 'natural_beach'][zoom >= 10],
-   [feature = 'natural_shoal'][zoom >= 10] {
-     polygon-fill: @beach;
-     [way_pixels >= 4]  { polygon-gamma: 0.75; }
-     [way_pixels >= 64] { polygon-gamma: 0.3;  }
-   }
-+  */
- 
-   [feature = 'highway_services'],
-   [feature = 'highway_rest_area'] {
-@@ -542,6 +604,7 @@
-     polygon-fill: @station;
-   }
- 
-+  /*
-   [feature = 'leisure_fitness_centre'],
-   [feature = 'leisure_sports_centre'],
-   [feature = 'leisure_stadium'] {
-@@ -575,6 +638,89 @@
-     [way_pixels >= 4]  { polygon-gamma: 0.75; }
-     [way_pixels >= 64] { polygon-gamma: 0.3;  }
-   }
-+  */
-+}
+ }
 +
 +#landcover-flat[zoom >= 10] {
 +  [feature = 'leisure_playground'][zoom >= 13] {
-+    polygon-fill: @playground;
-+    line-color: darken(@playground, 60%);
++    polygon-fill: @leisure;
++    line-color: darken(@leisure, 60%);
 +    line-width: 0.3;
 +    [way_pixels >= 4]  { polygon-gamma: 0.75; }
 +    [way_pixels >= 64] { polygon-gamma: 0.3;  }
@@ -1343,7 +1803,7 @@ index 79875f5..cd32e97 100644
 +
 +  [feature = 'leisure_dog_park'] {
 +    [zoom >= 10] {
-+      polygon-fill: @playground;
++      polygon-fill: @leisure;
 +      [way_pixels >= 4]  { polygon-gamma: 0.75; }
 +      [way_pixels >= 64] { polygon-gamma: 0.3;  }
 +    }
@@ -1392,9 +1852,9 @@ index 79875f5..cd32e97 100644
 +      [way_pixels >= 64] { polygon-gamma: 0.3;  }
 +    }
 +    [zoom >= 14] {
-+      [religion = 'jewish'] { polygon-pattern-file: url('symbols/grave_yard_jewish.png'); }
-+      [religion = 'christian'] { polygon-pattern-file: url('symbols/grave_yard_christian.png'); }
-+      [religion = 'INT-generic'] { polygon-pattern-file: url('symbols/grave_yard_generic.png'); }
++      [religion = 'jewish'] { polygon-pattern-file: url('symbols/grave_yard_jewish.svg'); }
++      [religion = 'christian'] { polygon-pattern-file: url('symbols/grave_yard_christian.svg'); }
++      [religion = 'INT-generic'] { polygon-pattern-file: url('symbols/grave_yard_generic.svg'); }
 +      [religion = 'jewish'],
 +      [religion = 'christian'],
 +      [religion = 'INT-generic'] {
@@ -1406,34 +1866,35 @@ index 79875f5..cd32e97 100644
  }
  
  /* man_made=cutline */
-@@ -644,15 +790,18 @@
+@@ -773,7 +917,8 @@
          polygon-pattern-alignment: global;
        }
      }
 -    [natural = 'scrub'] {
--      polygon-pattern-file: url('symbols/scrub.png');
 +    [natural = 'scrub'],
 +    [natural = 'heath'] {
-+      polygon-pattern-file: url('symbols/scrub_mdione.png');
+       polygon-pattern-file: url('symbols/scrub.png');
        polygon-pattern-alignment: global;
-+      opacity: 0.4; // The entire layer has opacity to handle overlapping forests
      }
-   }
- 
+@@ -782,9 +927,9 @@
    //Also landuse = forest, converted in the SQL
    [natural = 'wood'][zoom >= 13]::wood {
--    polygon-pattern-file: url('symbols/forest.png'); // Lch(55,30,135)
-+    // polygon-pattern-file: url('symbols/forest.png'); // Lch(55,30,135)
-+    polygon-pattern-file: url('symbols/forest-mixed.png');
+     polygon-pattern-file: url('symbols/leaftype_unknown.svg'); // Lch(55,30,135)
+-    [leaf_type = "broadleaved"] { polygon-pattern-file: url('symbols/leaftype_broadleaved.svg'); }
+-    [leaf_type = "needleleaved"] { polygon-pattern-file: url('symbols/leaftype_needleleaved.svg'); }
+-    [leaf_type = "mixed"] { polygon-pattern-file: url('symbols/leaftype_mixed.svg'); }
++    [leaf_type = "broadleaved"] { polygon-pattern-file: url('symbols/forest-broad.png'); }
++    [leaf_type = "needleleaved"] { polygon-pattern-file: url('symbols/forest-needle.png'); }
++    [leaf_type = "mixed"] { polygon-pattern-file: url('symbols/forest-mixed.png'); }
+     [leaf_type = "leafless"] { polygon-pattern-file: url('symbols/leaftype_leafless.svg'); }
      polygon-pattern-alignment: global;
      opacity: 0.4; // The entire layer has opacity to handle overlapping forests
-   }
-@@ -670,11 +819,40 @@
+@@ -812,11 +957,37 @@
    }
  }
  
 -#cliffs {
-+#reliefsymbols {
++#relief-symbols {
 +  [natural = 'arete'][zoom >= 12] {
 +    line-pattern-smooth: 0.3;
 +    /*
@@ -1462,17 +1923,14 @@ index 79875f5..cd32e97 100644
 +  }
    [natural = 'cliff'][zoom >= 13] {
 -    line-pattern-file: url('symbols/cliff.svg');
-+    // -color: #262626;
-+    // line-pattern-file: url('symbols/cliff.svg');
 +    line-pattern-file: url('symbols/cliff_mdione.png');
      [zoom >= 15] {
 -      line-pattern-file: url('symbols/cliff2.svg');
-+      // line-pattern-file: url('symbols/cliff2.svg');
 +      line-pattern-file: url('symbols/cliff2_mdione.png');
      }
    }
    [man_made = 'embankment'][zoom >= 15]::man_made {
-@@ -747,18 +925,214 @@
+@@ -891,18 +1062,214 @@
    }
  }
  
@@ -1691,78 +2149,39 @@ index 79875f5..cd32e97 100644
    }
  }
 diff --git a/placenames.mss b/placenames.mss
-index 4b84e4b..6d2d9cc 100644
+index 851c379..817e1f5 100644
 --- a/placenames.mss
 +++ b/placenames.mss
-@@ -6,35 +6,47 @@
- .country {
-   [zoom >= 3][way_pixels > 1000][way_pixels < 360000] {
-     text-name: "[name]";
--    text-size: 10;
--    text-wrap-width: 35; // 3.5 em
--    text-line-spacing: -1.5; // -0.15 em
--    text-margin: 7.0; // 0.7 em
-+    text-size: 9;
-+    text-wrap-width: 30; // 3.5 em
-+    text-line-spacing: -1.9; // -0.15 em
-+    text-margin: 5.6; // 0.7 em
-     [zoom >= 4] {
-+      text-size: 10;
-+      text-wrap-width: 35; // 3.6 em
-+      text-line-spacing: -1.7; // -0.13 em
-+      text-margin: 6.3; // 0.7 em
-+    }
-+    [zoom >= 5] {
-       text-size: 11;
--      text-wrap-width: 40; // 3.6 em
-+      text-wrap-width: 40; // 3.7 em
-+      text-line-spacing: -1.5; // -0.10 em
-+      text-margin: 7.0; // 0.7 em
-+    }
-+    [zoom >= 6] {
-+      text-size: 12;
-+      text-wrap-width: 45; // 3.7 em
-       text-line-spacing: -1.4; // -0.13 em
-       text-margin: 7.7; // 0.7 em
-     }
--    [zoom >= 5] {
--      text-size: 12;
--      text-wrap-width: 45; // 3.8 em
-+    [zoom >= 7] {
-+      text-size: 13;
-+      text-wrap-width: 50; // 3.8 em
-       text-line-spacing: -1.2; // -0.10 em
-       text-margin: 8.4; // 0.7 em
-     }
--    [zoom >= 7] {
--      text-size: 13;
-+    [zoom >= 8] {
-+      text-size: 14;
-       text-wrap-width: 50; // 3.8 em
+@@ -29,13 +29,18 @@
        text-line-spacing: -1.0; // -0.08 em
        text-margin: 9.1; // 0.7 em
      }
-     [zoom >= 10] {
--      text-size: 14;
-+      text-size: 15;
+-    [zoom >= 10] {
++    [zoom >= 8] {
+       text-size: 14;
        text-wrap-width: 55; // 3.9 em
        text-line-spacing: -0.7; // -0.05 em
      }
++    [zoom >= 10] {
++      text-size: 15;
++      text-wrap-width: 58.5; // 3.9 em
++      text-line-spacing: -0.75; // -0.05 em
++    }
      text-fill: @country-labels;
 -    text-face-name: @book-fonts;
 +    text-face-name: @bold-fonts;
      text-halo-fill: @standard-halo-fill;
      text-halo-radius: @standard-halo-radius * 1.5;
      text-placement: interior;
-@@ -42,6 +54,7 @@
+@@ -43,6 +48,7 @@
    }
  }
  
 +/*
  .state {
-   [zoom >= 5][way_pixels > 3000][way_pixels < 196000] {
-     text-name: "[name]";
-@@ -62,6 +75,7 @@
+   [zoom >= 5][zoom < 7][way_pixels > 3000],
+   [zoom >= 7][way_pixels > 3000][way_pixels < 196000] {
+@@ -64,6 +70,7 @@
      }
    }
  }
@@ -1770,7 +2189,7 @@ index 4b84e4b..6d2d9cc 100644
  
  #capital-names {
    [zoom >= 4][zoom < 8][population > 600000],
-@@ -70,7 +84,7 @@
+@@ -72,7 +79,7 @@
      shield-text-dx: 6;
      shield-text-dy: 6;
      shield-name: '[name]';
@@ -1779,16 +2198,7 @@ index 4b84e4b..6d2d9cc 100644
      shield-fill: @placenames;
      shield-size: 11;
      shield-wrap-width: 30; // 2.7 em
-@@ -103,7 +117,7 @@
-   }
-   [zoom >= 8] {
-     text-name: '[name]';
--    text-face-name: @book-fonts;
-+    text-face-name: @bold-fonts;
-     text-fill: @placenames;
-     text-size: 13;
-     text-wrap-width: 65; // 5.0 em
-@@ -124,6 +138,12 @@
+@@ -126,6 +133,12 @@
        text-line-spacing: -0.75; // -0.05 em
        text-margin: 10.5; // 0.7 em
      }
@@ -1801,7 +2211,16 @@ index 4b84e4b..6d2d9cc 100644
    }
  }
  
-@@ -170,7 +190,7 @@
+@@ -137,7 +150,7 @@
+       shield-text-dx: 4;
+       shield-text-dy: 4;
+       shield-name: '[name]';
+-      shield-face-name: @book-fonts;
++      shield-face-name: @bold-fonts;
+       shield-fill: @placenames;
+       shield-size: 11;
+       shield-wrap-width: 30; // 2.7 em
+@@ -172,7 +185,7 @@
      }
      [zoom >= 8][score >= 400000] {
        text-name: '[name]';
@@ -1810,7 +2229,7 @@ index 4b84e4b..6d2d9cc 100644
        text-fill: @placenames;
        text-size: 13;
        text-wrap-width: 65; // 5.0 em
-@@ -191,6 +211,12 @@
+@@ -193,6 +206,12 @@
          text-line-spacing: -0.75; // -0.05 em
          text-margin: 10.5; // 0.7 em
        }
@@ -1823,9 +2242,12 @@ index 4b84e4b..6d2d9cc 100644
      }
    }
  }
-@@ -207,10 +233,11 @@
+@@ -207,12 +226,13 @@
+       shield-name: "[name]";
+       shield-size: 10;
        shield-fill: @placenames;
-       shield-face-name: @book-fonts;
+-      shield-face-name: @book-fonts;
++      shield-face-name: @bold-fonts;
        shield-halo-fill: @standard-halo-fill;
 -      shield-halo-radius: @standard-halo-radius * 1.5;
 +      shield-halo-radius: @standard-halo-radius;
@@ -1836,16 +2258,16 @@ index 4b84e4b..6d2d9cc 100644
        shield-placement-type: simple;
        shield-placements: 'S,N,E,W';
        [dir = 1] {
-@@ -300,7 +327,7 @@
-     text-fill: @placenames;
-     text-face-name: @book-fonts;
-     text-halo-fill: @standard-halo-fill;
--    text-halo-radius: @standard-halo-radius * 1.5;
-+    text-halo-radius: @standard-halo-radius;
-     text-wrap-width: 55; // 5.0 em
-     text-line-spacing: -0.55; // -0.05 em
-     text-margin: 7.7; // 0.7 em
-@@ -329,13 +356,13 @@
+@@ -229,7 +249,7 @@
+       text-fill: @placenames;
+       text-face-name: @book-fonts;
+       text-halo-fill: @standard-halo-fill;
+-      text-halo-radius: @standard-halo-radius * 1.5;
++      text-halo-radius: @standard-halo-radius;
+       text-wrap-width: 40; // 4.0 em
+       text-line-spacing: -1.0; // -0.10 em
+       text-margin: 7.0; // 0.7 em
+@@ -331,13 +351,13 @@
  
  #placenames-small::village {
    [place = 'village'] {
@@ -1861,7 +2283,7 @@ index 4b84e4b..6d2d9cc 100644
        text-wrap-width: 50; // 5.0 em
        text-line-spacing: -0.50; // -0.05 em
        text-margin: 7.0; // 0.7 em
-@@ -381,7 +408,7 @@
+@@ -445,7 +465,7 @@
        text-fill: @placenames;
        text-face-name: @book-fonts;
        text-halo-fill: @standard-halo-fill;
@@ -1870,29 +2292,8 @@ index 4b84e4b..6d2d9cc 100644
        text-wrap-width: 45; // 4.5 em
        text-line-spacing: -0.8; // -0.08 em
        text-margin: 7.0; // 0.7 em
-@@ -396,4 +423,3 @@
-     }
-   }
- }
--
-diff --git a/power.mss b/power.mss
-index 065f6d7..f3d11ba 100644
---- a/power.mss
-+++ b/power.mss
-@@ -1,5 +1,6 @@
- @power-line-color: #888;
- 
-+/*
- #power-line {
-   [zoom >= 14] {
-     line-width: 0.5;
-@@ -53,3 +54,4 @@
-     marker-width: 3;
-   }
- }
-+*/
 diff --git a/project.mml b/project.mml
-index f986ca1..6a0a34b 100644
+index 344d861..5209445 100644
 --- a/project.mml
 +++ b/project.mml
 @@ -1,16 +1,16 @@
@@ -1917,114 +2318,89 @@ index f986ca1..6a0a34b 100644
  format: png
  interactivity: false
  minzoom: 0
-@@ -31,6 +31,7 @@ _parts:
-   osm2pgsql: &osm2pgsql
-     type: "postgis"
-     dbname: "gis"
-+    # dbname: "gis-dev"
-     key_field: ""
-     geometry_field: "way"
-     extent: "-20037508,-20037508,20037508,20037508"
-@@ -54,24 +55,40 @@ Stylesheet:
+@@ -54,22 +54,37 @@ Stylesheet:
    - admin.mss
    - addressing.mss
  Layer:
 -  - id: world
--    name: world
 -    geometry: polygon
-+  - id: "terrain-small"
-+    name: "terrain-small"
-+    class: "terrain"
-+    geometry: "raster"
++  - id: terrain-small
++    class: terrain
++    geometry: raster
      <<: *extents
      Datasource:
 -      file: data/simplified-land-polygons-complete-3857/simplified_land_polygons.shp
 -      type: shape
-+      file: "data/height/mixed-terrain-small.tif"
-+      type: "gdal"
++      file: data/height/mixed-terrain-small.tif
++      type: gdal
 +    advanced: {}
      properties:
 -      maxzoom: 9
 -  - id: coast-poly
--    name: coast-poly
 -    geometry: polygon
 +      maxzoom: 6
-+  - id: "terrain-medium"
-+    name: "terrain-medium"
-+    class: "terrain"
-+    geometry: "raster"
++  - id: terrain-medium
++    class: terrain
++    geometry: raster
      <<: *extents
      Datasource:
 -      file: data/land-polygons-split-3857/land_polygons.shp
 -      type: shape
-+      file: "data/height/mixed-terrain-medium.tif"
-+      type: "gdal"
++      file: data/height/mixed-terrain-medium.tif
++      type: gdal
 +    advanced: {}
      properties:
 -      minzoom: 10
 +      minzoom: 7
 +      maxzoom: 8
-+  - id: "terrain-big"
-+    name: "terrain-big"
-+    class: "terrain"
-+    geometry: "raster"
++  - id: terrain-big
++    class: terrain
++    geometry: raster
 +    <<: *extents
 +    Datasource:
-+      file: "data/height/mixed-terrain.vrt"
-+      type: "gdal"
++      file: data/height/mixed-terrain.vrt
++      type: gdal
 +    advanced: {}
 +    properties:
-+      minzoom: 9
-   - id: builtup
-     name: builtup
-     geometry: polygon
-@@ -82,7 +99,7 @@ Layer:
-       file: data/world_boundaries/builtup_area.shp
-       type: shape
-     properties:
--      minzoom: 8
-+      minzoom: 6
-       maxzoom: 9
++      minzoom: 8
    - id: necountries
-     name: necountries
-@@ -135,15 +152,14 @@ Layer:
+     geometry: linestring
+     <<: *extents84
+@@ -119,19 +134,23 @@ Layer:
+           FROM (SELECT
                way, COALESCE(name, '') AS name,
                ('aeroway_' || (CASE WHEN aeroway IN ('apron', 'aerodrome') THEN aeroway ELSE NULL END)) AS aeroway,
-               ('amenity_' || (CASE WHEN amenity IN ('parking', 'bicycle_parking', 'motorcycle_parking', 'university', 'college', 'school', 
--                                                    'hospital', 'kindergarten', 'grave_yard', 'prison', 'place_of_worship', 'clinic') 
-+                                                    'hospital', 'kindergarten', 'prison', 'place_of_worship', 'clinic')
-                                                     THEN amenity ELSE NULL END)) AS amenity,
--              ('landuse_' || (CASE WHEN landuse IN ('quarry', 'vineyard', 'orchard', 'cemetery', 'residential', 'garages', 'meadow', 'grass', 
--                                                    'allotments', 'forest', 'farmyard', 'farmland', 'greenhouse_horticulture', 
--                                                    'recreation_ground', 'village_green', 'retail', 'industrial', 'railway', 'commercial', 
--                                                    'brownfield', 'landfill', 'construction', 'plant_nursery') THEN landuse ELSE NULL END)) AS landuse,
--              ('leisure_' || (CASE WHEN leisure IN ('swimming_pool', 'playground', 'park', 'recreation_ground', 'common', 'garden', 
--                                                    'golf_course', 'miniature_golf', 'picnic_table', 'fitness_centre', 'sports_centre', 'stadium', 'pitch', 
--                                                    'track', 'dog_park') THEN leisure ELSE NULL END)) AS leisure,
+-              ('amenity_' || (CASE WHEN amenity IN ('bicycle_parking', 'motorcycle_parking', 'university', 'college', 'school', 'taxi',
+-                                                    'hospital', 'kindergarten', 'grave_yard', 'prison', 'place_of_worship', 'clinic', 'ferry_terminal',
++              ('amenity_' || (CASE WHEN amenity IN ('parking', 'bicycle_parking', 'motorcycle_parking', 'university', 'college', 'school', 'taxi',
++                                                    -- grave_yard gone to landcover-flat
++                                                    'hospital', 'kindergarten', 'prison', 'place_of_worship', 'clinic', 'ferry_terminal',
+                                                     'marketplace', 'community_centre', 'social_facility', 'arts_centre', 'parking_space', 'bus_station',
+                                                     'fire_station', 'police')
+                               OR amenity IN ('parking') AND (tags->'parking' NOT IN ('underground') OR (tags->'parking') IS NULL) THEN amenity ELSE NULL END)) AS amenity,
+               ('healthcare_' || (CASE WHEN tags->'healthcare' IN ('clinic' ,'hospital') THEN tags->'healthcare' ELSE NULL END)) AS healthcare,
+-              ('landuse_' || (CASE WHEN landuse IN ('quarry', 'vineyard', 'orchard', 'cemetery', 'residential', 'garages', 'meadow', 'grass',
++                                                    -- cemetery gone to landcover-flat
 +              ('landuse_' || (CASE WHEN landuse IN ('quarry', 'vineyard', 'orchard', 'residential', 'garages', 'meadow', 'grass',
-+                                                    'allotments', 'forest', 'farmyard', 'farmland', 'greenhouse_horticulture',
-+                                                    'retail', 'industrial', 'railway', 'commercial',
-+                                                    'brownfield', 'landfill', 'plant_nursery') THEN landuse ELSE NULL END)) AS landuse,
-+              ('leisure_' || (CASE WHEN leisure IN ('swimming_pool',
-+                                                    'golf_course', 'miniature_golf', 'picnic_table', 'fitness_centre') THEN leisure ELSE NULL END)) AS leisure,
-               ('military_' || (CASE WHEN military IN ('danger_area') THEN military ELSE NULL END)) AS military,
+                                                     'allotments', 'forest', 'farmyard', 'farmland', 'greenhouse_horticulture',
+                                                     'recreation_ground', 'village_green', 'retail', 'industrial', 'railway', 'commercial',
+                                                     'brownfield', 'landfill', 'construction', 'plant_nursery', 'religious') THEN landuse ELSE NULL END)) AS landuse,
+-              ('leisure_' || (CASE WHEN leisure IN ('swimming_pool', 'playground', 'park', 'recreation_ground', 'common', 'garden',
+-                                                    'golf_course', 'miniature_golf', 'sports_centre', 'stadium', 'pitch', 'ice_rink',
+-                                                    'track', 'dog_park', 'fitness_station') THEN leisure ELSE NULL END)) AS leisure,
++                                                 -- 'swimming_pool is not rendered
++                                                 --                  'playground', 'park', 'recreation_ground', 'common', 'garden' gone to landcover-flat
++                                                 --                                                   'stadium', 'pitch' gone to landcover-flat
++                                                 -- 'track', 'dog_park' gone to landcover-flat
++                                                    'fitness_station') THEN leisure ELSE NULL END)) AS leisure,
+               ('man_made_' || (CASE WHEN man_made IN ('works', 'wastewater_plant', 'water_works') THEN man_made ELSE NULL END)) AS man_made,
                ('natural_' || (CASE WHEN "natural" IN ('beach', 'shoal', 'heath', 'grassland', 'wood', 'sand', 'scree', 'shingle', 'bare_rock', 'scrub') THEN "natural" ELSE NULL END)) AS "natural",
-               ('wetland_' || (CASE WHEN "natural" IN ('wetland', 'marsh', 'mud') THEN (CASE WHEN "natural" IN ('marsh', 'mud') THEN "natural" ELSE wetland END) ELSE NULL END)) AS wetland,
-@@ -160,7 +176,7 @@ Layer:
-               OR amenity IN ('parking', 'bicycle_parking', 'motorcycle_parking', 'university', 'college', 'school', 'hospital', 'kindergarten', 
-                              'grave_yard', 'place_of_worship', 'prison', 'clinic')
-               OR military IN ('danger_area')
--              OR "natural" IN ('beach', 'shoal', 'heath', 'mud', 'marsh', 'wetland', 'grassland', 'wood', 'sand', 'scree', 'shingle', 'bare_rock', 'scrub')
-+              OR "natural" IN ('shoal', 'heath', 'mud', 'marsh', 'wetland', 'grassland', 'wood', 'sand', 'scree', 'shingle', 'bare_rock', 'scrub')
-               OR power IN ('station', 'sub_station', 'substation', 'generator')
-               OR tourism IN ('attraction', 'camp_site', 'caravan_site', 'picnic_site')
-               OR highway IN ('services', 'rest_area')
-@@ -185,6 +201,201 @@ Layer:
+               ('wetland_' || (CASE WHEN "natural" IN ('wetland', 'marsh', 'mud') THEN (CASE WHEN "natural" IN ('marsh', 'mud') THEN "natural" ELSE tags->'wetland' END) ELSE NULL END)) AS wetland,
+@@ -176,6 +195,221 @@ Layer:
          ) AS landcover_line
      properties:
        minzoom: 14
 +  - id: glacier
-+    name: glacier
 +    geometry: polygon
 +    <<: *extents
 +    Datasource:
@@ -2044,77 +2420,158 @@ index f986ca1..6a0a34b 100644
 +        ) AS water_areas
 +    properties:
 +      minzoom: 4
-+  - id: "slopeshade-small"
-+    name: "slopeshade-small"
-+    class: "slopeshade-over"
-+    geometry: "raster"
++  - id: hillshade-small
++    class: hillshade-over
++    geometry: raster
 +    <<: *extents
 +    Datasource:
-+      file: "data/height/mixed-slopeshade-small.tif"
-+      type: "gdal"
++      file: data/height/mixed-hillshade-small.tif
++      type: gdal
++    advanced: {}
++    properties:
++      maxzoom: 6
++  - id: hillshade-medium-over
++    class: hillshade-over
++    geometry: raster
++    <<: *extents
++    Datasource:
++      file: data/height/mixed-hillshade-medium.tif
++      type: gdal
++    advanced: {}
++    properties:
++      minzoom: 7
++      maxzoom: 8
++  - id: hillshade-medium-overlay
++    class: hillshade-overlay
++    geometry: raster
++    <<: *extents
++    Datasource:
++      file: data/height/mixed-hillshade-medium.tif
++      type: gdal
++    advanced: {}
++    properties:
++      minzoom: 8
++      maxzoom: 8
++  - id: hillshade-big
++    class: hillshade-overlay
++    geometry: raster
++    <<: *extents
++    Datasource:
++      file: data/height/mixed-hillshade.vrt
++      type: gdal
++    advanced: {}
++    properties:
++      minzoom: 9
++  - id: slopeshade-small
++    class: slopeshade-over
++    geometry: raster
++    <<: *extents
++    Datasource:
++      file: data/height/mixed-slopeshade-small.tif
++      type: gdal
 +    advanced: {}
 +    properties:
 +      maxzoom: 6
 +    # status: off
-+  - id: "slopeshade-medium-over"
-+    name: "slopeshade-medium-over"
-+    class: "slopeshade-over"
-+    geometry: "raster"
++  - id: slopeshade-medium-over
++    class: slopeshade-over
++    geometry: raster
 +    <<: *extents
 +    Datasource:
-+      file: "data/height/mixed-slopeshade-medium.tif"
-+      type: "gdal"
++      file: data/height/mixed-slopeshade-medium.tif
++      type: gdal
 +    advanced: {}
 +    properties:
 +      minzoom: 7
-+      maxzoom: 8
-+  - id: "slopeshade-big"
-+    name: "slopeshade-big"
-+    class: "slopeshade-overlay"
-+    geometry: "raster"
++      maxzoom: 7
++    # status: off
++  - id: slopeshade-medium-overlay
++    class: slopeshade-overlay
++    geometry: raster
 +    <<: *extents
 +    Datasource:
-+      file: "data/height/mixed-slopeshade.vrt"
-+      type: "gdal"
++      file: data/height/mixed-slopeshade-medium.tif
++      type: gdal
++    advanced: {}
++    properties:
++      minzoom: 8
++      maxzoom: 8
++  - id: slopeshade-big
++    class: slopeshade-overlay
++    geometry: raster
++    <<: *extents
++    Datasource:
++      file: data/height/mixed-slopeshade.vrt
++      type: gdal
 +    advanced: {}
 +    properties:
 +      minzoom: 9
-+  - id: "hillshade-small"
-+    name: "hillshade-small"
-+    class: "hillshade-over"
-+    geometry: "raster"
++  - id: contour-50
++    geometry: linestring
 +    <<: *extents
 +    Datasource:
-+      file: "data/height/mixed-hillshade-small.tif"
-+      type: "gdal"
++      <<: *osm2pgsql
++      table: |-
++        (SELECT height, way
++         FROM contours
++         WHERE height::int%100 = 50
++        ) as c50
 +    advanced: {}
 +    properties:
-+      maxzoom: 6
-+  - id: "hillshade-medium-over"
-+    name: "hillshade-medium-over"
-+    class: "hillshade-over"
-+    geometry: "raster"
++      minzoom: 13
++  - id: contour-100
++    geometry: linestring
 +    <<: *extents
 +    Datasource:
-+      file: "data/height/mixed-hillshade-medium.tif"
-+      type: "gdal"
++      <<: *osm2pgsql
++      table: |-
++        (SELECT height, way
++         FROM contours
++         WHERE height::int%1000 in (100, 200, 300, 400, 600, 700, 800, 900)
++        ) as c100
 +    advanced: {}
 +    properties:
-+      minzoom: 7
-+      maxzoom: 8
-+  - id: "hillshade-big"
-+    name: "hillshade-big"
-+    class: "hillshade-overlay"
-+    geometry: "raster"
++      minzoom: 11
++  - id: contour-250
++    geometry: linestring
 +    <<: *extents
 +    Datasource:
-+      file: "data/height/mixed-hillshade.vrt"
-+      type: "gdal"
++      <<: *osm2pgsql
++      table: |-
++        (SELECT height, way
++         FROM contours
++         WHERE height::int%1000 in (250, 750)
++        ) as c250
++    advanced: {}
++    properties:
++      minzoom: 10
++  - id: contour-500
++    geometry: linestring
++    <<: *extents
++    Datasource:
++      <<: *osm2pgsql
++      table: |-
++        (SELECT height, way
++         FROM contours
++         WHERE height::int%1000 = 500
++        ) as c500
 +    advanced: {}
 +    properties:
 +      minzoom: 9
++  - id: contour-1000
++    geometry: linestring
++    <<: *extents
++    Datasource:
++      <<: *osm2pgsql
++      table: |-
++        (SELECT height, way
++         FROM contours
++         WHERE height::int%1000 = 0
++        ) as c1000
++    advanced: {}
++    properties:
++      minzoom: 8
 +  - id: landcover-flat
-+    name: landcover-flat
 +    class: landcover-flat
 +    geometry: polygon
 +    <<: *extents
@@ -2138,91 +2595,31 @@ index f986ca1..6a0a34b 100644
 +              OR leisure IS NOT NULL
 +              OR "natural" IN ('beach', 'shoal'))
 +              AND way_area > 0.01*!pixel_width!::real*!pixel_height!::real
-+            ORDER BY CASE WHEN layer~E'^-?\\d+$' AND length(layer)<10 THEN layer::integer ELSE 0 END, way_area DESC
++            ORDER BY layer, way_area DESC
 +          ) AS landcover
 +        ) AS features
 +    properties:
 +      minzoom: 10
-+  - id: "contour-50"
-+    name: "contour-50"
-+    class: ""
-+    geometry: "linestring"
++  - id: springs-casing
++    geometry: point
 +    <<: *extents
 +    Datasource:
 +      <<: *osm2pgsql
 +      table: |-
-+        (SELECT height, way
-+         FROM contours
-+         WHERE height::int%100 = 50
-+        ) as c50
-+    advanced: {}
++        (SELECT
++            way,
++            "natural"
++          FROM planet_osm_point
++          WHERE "natural" = 'spring'
++        ) AS springs_casing
 +    properties:
-+      minzoom: 13
-+  - id: "contour-100"
-+    name: "contour-100"
-+    class: "contour-text"
-+    geometry: "linestring"
-+    <<: *extents
-+    Datasource:
-+      <<: *osm2pgsql
-+      table: |-
-+        (SELECT height, way
-+         FROM contours
-+         WHERE height::int%1000 in (100, 200, 300, 400, 600, 700, 800, 900)
-+        ) as c100
-+    advanced: {}
-+    properties:
-+      minzoom: 11
-+  - id: "contour-250"
-+    name: "contour-250"
-+    class: "contour-text"
-+    geometry: "linestring"
-+    <<: *extents
-+    Datasource:
-+      <<: *osm2pgsql
-+      table: |-
-+        (SELECT height, way
-+         FROM contours
-+         WHERE height::int%1000 in (250, 750)
-+        ) as c250
-+    advanced: {}
-+    properties:
-+      minzoom: 10
-+  - id: "contour-500"
-+    name: "contour-500"
-+    class: "contour-text"
-+    geometry: "linestring"
-+    <<: *extents
-+    Datasource:
-+      <<: *osm2pgsql
-+      table: |-
-+        (SELECT height, way
-+         FROM contours
-+         WHERE height::int%1000 = 500
-+        ) as c500
-+    advanced: {}
-+    properties:
-+      minzoom: 9
-+  - id: "contour-1000"
-+    name: "contour-1000"
-+    class: "contour-text"
-+    geometry: "linestring"
-+    <<: *extents
-+    Datasource:
-+      <<: *osm2pgsql
-+      table: |-
-+        (SELECT height, way
-+         FROM contours
-+         WHERE height::int%1000 = 0
-+        ) as c1000
-+    advanced: {}
-+    properties:
-+      minzoom: 8
++      minzoom: 14
++    # status: 'off'
    - id: water-lines-casing
-     name: water-lines-casing
      geometry: linestring
-@@ -196,10 +407,11 @@ Layer:
-             way, waterway, intermittent,
+     <<: *extents
+@@ -190,10 +424,10 @@ Layer:
+               THEN 'yes' ELSE 'no' END AS int_intermittent,
              CASE WHEN tunnel IN ('yes', 'culvert') THEN 'yes' ELSE 'no' END AS int_tunnel
            FROM planet_osm_line
 -          WHERE waterway IN ('stream', 'drain', 'ditch')
@@ -2231,17 +2628,14 @@ index f986ca1..6a0a34b 100644
      properties:
 -      minzoom: 13
 +      minzoom: 6
-+    # status: off
    - id: water-lines-low-zoom
-     name: water-lines-low-zoom
      geometry: linestring
-@@ -217,6 +429,27 @@ Layer:
+     <<: *extents
+@@ -212,6 +446,24 @@ Layer:
      properties:
        minzoom: 8
        maxzoom: 11
-+    # status: off
 +  - id: ocean-lz
-+    name: ocean-lz
 +    class: ocean
 +    geometry: polygon
 +    <<: *extents
@@ -2251,7 +2645,6 @@ index f986ca1..6a0a34b 100644
 +    properties:
 +      maxzoom: 9
 +  - id: ocean
-+    name: ocean
 +    class: ocean
 +    geometry: polygon
 +    <<: *extents
@@ -2261,23 +2654,27 @@ index f986ca1..6a0a34b 100644
 +    properties:
 +      minzoom: 10
    - id: icesheet-poly
-     name: icesheet-poly
      geometry: polygon
-@@ -244,7 +477,7 @@ Layer:
-           WHERE
-             (waterway IN ('dock', 'riverbank')
-               OR landuse IN ('reservoir', 'basin')
--              OR "natural" IN ('water', 'glacier'))
-+              OR "natural" = 'water')
-             AND building IS NULL
-             AND way_area > 0.01*!pixel_width!::real*!pixel_height!::real
-           ORDER BY z_order, way_area DESC
-@@ -353,6 +586,25 @@ Layer:
+     <<: *extents
+@@ -342,9 +594,11 @@ Layer:
+         (SELECT
+             way,
+             waterway,
++            "natural",
+             name
+           FROM planet_osm_line
+-          WHERE waterway IN ('dam', 'weir', 'lock_gate')
++          WHERE waterway IN ('dam', 'weir', 'lock_gate', 'waterfall')
++             OR "natural" = 'waterfall'
+         ) AS water_barriers_line
+     properties:
+       minzoom: 13
+@@ -376,6 +630,27 @@ Layer:
          ) AS marinas_area
      properties:
        minzoom: 14
++  # moved here
 +  - id: nature-reserve-boundaries
-+    name: nature-reserve-boundaries
 +    geometry: polygon
 +    <<: *extents
 +    Datasource:
@@ -2289,66 +2686,43 @@ index f986ca1..6a0a34b 100644
 +            boundary,
 +            way_area/NULLIF(!pixel_width!::real*!pixel_height!::real,0) AS way_pixels
 +          FROM planet_osm_polygon
-+          WHERE (boundary = 'national_park' OR leisure = 'nature_reserve')
++          WHERE (boundary = 'national_park'
++                 OR leisure = 'nature_reserve'
++                 OR (boundary = 'protected_area' AND tags->'protect_class' IN ('1','1a','1b','2','3','4','5','6','7','97','98','99')))
 +            AND building IS NULL
-+            AND way_area > 0.01*!pixel_width!::real*!pixel_height!::real
++            AND way_area > 1*!pixel_width!::real*!pixel_height!::real
 +        ) AS national_park_boundaries
 +    properties:
-+      minzoom: 7
++      minzoom: 8
    - id: piers-poly
-     name: piers-poly
      geometry: polygon
-@@ -475,7 +727,6 @@ Layer:
-             tracktype,
-             int_surface,
-             access,
--            construction,
-             service,
-             link,
-             layernotnull
-@@ -497,7 +748,6 @@ Layer:
-                   WHEN access IN ('no', 'private') THEN 'no'::text
-                   ELSE NULL
-                 END AS access,
--                construction,
-                 CASE
-                   WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text
-                   ELSE 'INT-normal'::text
-@@ -529,7 +779,6 @@ Layer:
-                   WHEN access IN ('no', 'private') THEN 'no'::text
-                   ELSE NULL
-                 END AS access,
--                construction,
-                 CASE WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text ELSE 'INT-normal'::text END AS service,
-                 'no' AS link,
-                 CASE WHEN layer~E'^-?\\d+$' AND length(layer)<10 THEN layer::integer ELSE 0 END AS layernotnull
-@@ -551,8 +800,6 @@ Layer:
-               ('railway_turntable', 420),
-               ('railway_tram', 410),
-               ('railway_tram-service', 405),
--              ('railway_disused', 400),
--              ('railway_construction', 400),
-               ('highway_motorway', 380),
-               ('highway_trunk', 370),
-               ('highway_primary', 360),
-@@ -579,8 +826,7 @@ Layer:
-               ('highway_platform', 90),
-               ('railway_platform', 90),
-               ('aeroway_runway', 60),
--              ('aeroway_taxiway', 50),
--              ('highway_construction', 10)
-+              ('aeroway_taxiway', 50)
-             ) AS ordertable (feature, prio)
-             USING (feature)
-           ORDER BY
-@@ -632,20 +878,20 @@ Layer:
+     <<: *extents
+@@ -409,12 +684,16 @@ Layer:
+       <<: *osm2pgsql
+       table: |-
+         (SELECT
+-            way, waterway
++            way,
++            waterway,
++            "natural",
++            name
+           FROM planet_osm_point
+-          WHERE waterway IN ('dam', 'weir', 'lock_gate')
++          WHERE waterway IN ('dam', 'weir', 'lock_gate', 'waterfall')
++             OR "natural" = 'waterfall'
+         ) AS water_barriers_points
+     properties:
+-      minzoom: 17
++      minzoom: 13
+   - id: bridge
+     geometry: polygon
+     <<: *extents
+@@ -600,19 +879,20 @@ Layer:
          ) AS line_barriers
      properties:
        minzoom: 14
 -  - id: cliffs
--    name: cliffs
-+  - id: reliefsymbols
-+    name: reliefsymbols
++  - id: relief-symbols
      geometry: linestring
      <<: *extents
      Datasource:
@@ -2356,174 +2730,70 @@ index f986ca1..6a0a34b 100644
        table: |-
          (SELECT
 -            way, "natural", man_made
-+            way, "natural", name, ST_Length(way)/NULLIF(SQRT(!pixel_width!::real*!pixel_width!::real),0) AS pixel_length, man_made
++            way, "natural", man_made, name,
++            ST_Length(way)/NULLIF(SQRT(!pixel_width!::real*!pixel_width!::real),0) AS pixel_length
            FROM planet_osm_line
 -          WHERE "natural" = 'cliff' OR man_made = 'embankment'
 -        ) AS cliffs
 +          WHERE "natural" in ('cliff', 'arete', 'ridge') OR man_made = 'embankment'
-+        ) AS reliefsymbols
++        ) AS relief_symbols
      properties:
 -      minzoom: 13
 +      minzoom: 10
    - id: area-barriers
-     name: area-barriers
      class: barriers
-@@ -744,7 +990,6 @@ Layer:
-             tracktype,
-             int_surface,
-             access,
--            construction,
+     geometry: polygon
+@@ -840,7 +1120,8 @@ Layer:
+             construction,
              service,
              link,
-             layernotnull
-@@ -766,7 +1011,6 @@ Layer:
-                   WHEN access IN ('no', 'private') THEN 'no'::text
-                   ELSE NULL
-                 END AS access,
--                construction,
-                 CASE
-                   WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text
-                   ELSE 'INT-normal'::text
-@@ -800,7 +1044,6 @@ Layer:
-                   WHEN access IN ('no', 'private') THEN 'no'::text
-                   ELSE NULL
-                 END AS access,
--                construction,
-                 CASE WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text ELSE 'INT-normal'::text END AS service,
+-            layernotnull
++            layernotnull,
++            sac_scale
+           FROM ( -- begin "features" subselect that contains both roads and rail/aero
+             SELECT
+                 way,
+@@ -869,6 +1150,7 @@ Layer:
+                   ELSE 'no'
+                 END AS link,
+                 COALESCE(layer,0) AS layernotnull,
++                tags->'sac_scale' as sac_scale,
+                 z_order
+               FROM planet_osm_line
+               WHERE (tunnel IS NULL OR NOT tunnel IN ('yes', 'building_passage'))
+@@ -897,6 +1179,7 @@ Layer:
+                   ELSE 'INT-normal'::text END AS service,
                  'no' AS link,
-                 CASE WHEN layer~E'^-?\\d+$' AND length(layer)<10 THEN layer::integer ELSE 0 END AS layernotnull
-@@ -824,8 +1067,6 @@ Layer:
-               ('railway_turntable', 420),
-               ('railway_tram', 410),
-               ('railway_tram-service', 405),
--              ('railway_disused', 400),
--              ('railway_construction', 400),
-               ('highway_motorway', 380),
-               ('highway_trunk', 370),
-               ('highway_primary', 360),
-@@ -852,8 +1093,7 @@ Layer:
-               ('highway_platform', 90),
-               ('railway_platform', 90),
-               ('aeroway_runway', 60),
--              ('aeroway_taxiway', 50),
--              ('highway_construction', 10)
-+              ('aeroway_taxiway', 50)
-             ) AS ordertable (feature, prio)
-             USING (feature)
-           ORDER BY
-@@ -909,7 +1149,6 @@ Layer:
-             tracktype,
-             int_surface,
-             access,
--            construction,
-             service,
-             link,
-             layernotnull
-@@ -931,7 +1170,6 @@ Layer:
-                   WHEN access IN ('no', 'private') THEN 'no'::text
-                   ELSE NULL
-                 END AS access,
--                construction,
-                 CASE
-                   WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text
-                   ELSE 'INT-normal'::text
-@@ -965,7 +1203,6 @@ Layer:
-                   WHEN access IN ('no', 'private') THEN 'no'::text
-                   ELSE NULL
-                 END AS access,
--                construction,
-                 CASE WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text ELSE 'INT-normal'::text END AS service,
-                 'no' AS link,
-                 CASE WHEN layer~E'^-?\\d+$' AND length(layer)<10 THEN layer::integer ELSE 0 END AS layernotnull
-@@ -989,8 +1226,6 @@ Layer:
-               ('railway_turntable', 420),
-               ('railway_tram', 410),
-               ('railway_tram-service', 405),
--              ('railway_disused', 400),
--              ('railway_construction', 400),
-               ('highway_motorway', 380),
-               ('highway_trunk', 370),
-               ('highway_primary', 360),
-@@ -1017,8 +1252,7 @@ Layer:
-               ('highway_platform', 90),
-               ('railway_platform', 90),
-               ('aeroway_runway', 60),
--              ('aeroway_taxiway', 50),
--              ('highway_construction', 10)
-+              ('aeroway_taxiway', 50)
-             ) AS ordertable (feature, prio)
-             USING (feature)
-           ORDER BY
-@@ -1029,6 +1263,25 @@ Layer:
+                 COALESCE(layer,0) AS layernotnull,
++                NULL as sac_scale,
+                 z_order
+               FROM planet_osm_line
+               WHERE (tunnel IS NULL OR NOT tunnel IN ('yes', 'building_passage'))
+@@ -914,6 +1197,23 @@ Layer:
          ) AS roads_fill
      properties:
        minzoom: 10
-+  - id: "pistes"
-+    name: "pistes"
-+    class: ""
-+    geometry: "linestring"
++  - id: pistes
++    geometry: linestring
 +    <<: *extents
 +    Datasource:
 +      <<: *osm2pgsql
 +      table: |-
 +        (SELECT way,
-+          ('piste_' || "piste:type") AS feature,
-+          "piste:difficulty" AS grade,
++          tags->'piste:difficulty' AS grade,
 +          name
 +        FROM planet_osm_line
 +        WHERE
-+          "piste:type" IN ('downhill')
++          tags->'piste:type' IN ('downhill')
 +        ) AS pistes
 +    advanced: {}
 +    properties:
-+      minzoom: 12
++      minzoom: 14
++    # status: off
    - id: turning-circle-fill
-     name: turning-circle-fill
      geometry: point
-@@ -1143,7 +1396,6 @@ Layer:
-             tracktype,
-             int_surface,
-             access,
--            construction,
-             service,
-             link,
-             layernotnull
-@@ -1165,7 +1417,6 @@ Layer:
-                   WHEN access IN ('no', 'private') THEN 'no'::text
-                   ELSE NULL
-                 END AS access,
--                construction,
-                 CASE
-                   WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text
-                   ELSE 'INT-normal'::text
-@@ -1197,7 +1448,6 @@ Layer:
-                   WHEN access IN ('no', 'private') THEN 'no'::text
-                   ELSE NULL
-                 END AS access,
--                construction,
-                 CASE WHEN service IN ('parking_aisle', 'drive-through', 'driveway') THEN 'INT-minor'::text ELSE 'INT-normal'::text END AS service,
-                 'no' AS link,
-                 CASE WHEN layer~E'^-?\\d+$' AND length(layer)<10 THEN layer::integer ELSE 0 END AS layernotnull
-@@ -1219,8 +1469,6 @@ Layer:
-               ('railway_turntable', 420),
-               ('railway_tram', 410),
-               ('railway_tram-service', 405),
--              ('railway_disused', 400),
--              ('railway_construction', 400),
-               ('highway_motorway', 380),
-               ('highway_trunk', 370),
-               ('highway_primary', 360),
-@@ -1247,8 +1495,7 @@ Layer:
-               ('highway_platform', 90),
-               ('railway_platform', 90),
-               ('aeroway_runway', 60),
--              ('aeroway_taxiway', 50),
--              ('highway_construction', 10)
-+              ('aeroway_taxiway', 50)
-             ) AS ordertable (feature, prio)
-             USING (feature)
-           ORDER BY
-@@ -1286,97 +1533,12 @@ Layer:
+     <<: *extents
+@@ -1159,13 +1459,12 @@ Layer:
              admin_level
            FROM planet_osm_roads
            WHERE boundary = 'administrative'
@@ -2535,73 +2805,30 @@ index f986ca1..6a0a34b 100644
      properties:
        minzoom: 4
 -      maxzoom: 10
--  - id: admin-mid-zoom
--    name: admin-mid-zoom
--    geometry: linestring
--    <<: *extents
--    Datasource:
--      <<: *osm2pgsql
--      table: |-
--        (SELECT
--            way,
--            admin_level
--          FROM planet_osm_roads
--          WHERE boundary = 'administrative'
--            AND admin_level IN ('0', '1', '2', '3', '4', '5', '6', '7', '8')
--            AND osm_id < 0
--          ORDER BY admin_level DESC
--        ) AS admin_mid_zoom
--    properties:
--      minzoom: 11
--      maxzoom: 12
--  - id: admin-high-zoom
--    name: admin-high-zoom
--    geometry: linestring
--    <<: *extents
--    Datasource:
--      <<: *osm2pgsql
--      table: |-
--        (SELECT
--            way,
--            admin_level
--          FROM planet_osm_roads
--          WHERE boundary = 'administrative'
--            AND admin_level IN ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10')
--            AND osm_id < 0
--          ORDER BY admin_level::integer DESC -- With 10 as a valid value, we need to do a numeric ordering, not a text ordering
--        ) AS admin_high_zoom
--    properties:
--      minzoom: 13
--  - id: power-minorline
--    name: power-minorline
--    geometry: linestring
--    <<: *extents
--    Datasource:
--      <<: *osm2pgsql
--      table: |-
--        (SELECT
--            way
--          FROM planet_osm_line
--          WHERE power = 'minor_line'
--        ) AS power_minorline
--    properties:
--      minzoom: 16
--  - id: power-line
--    name: power-line
--    geometry: linestring
--    <<: *extents
--    Datasource:
--      <<: *osm2pgsql
--      table: |-
--        (SELECT
--            way
--          FROM planet_osm_line
--          WHERE power = 'line'
--        ) AS power_line
--    properties:
--      minzoom: 14
+   - id: admin-mid-zoom
+     geometry: linestring
+     <<: *extents
+@@ -1184,6 +1483,7 @@ Layer:
+     properties:
+       minzoom: 11
+       maxzoom: 12
++    staus: off
+   - id: admin-high-zoom
+     geometry: linestring
+     <<: *extents
+@@ -1201,6 +1501,7 @@ Layer:
+         ) AS admin_high_zoom
+     properties:
+       minzoom: 13
++    staus: off
+   - id: power-minorline
+     geometry: linestring
+     <<: *extents
+@@ -1228,26 +1529,7 @@ Layer:
+         ) AS power_line
+     properties:
+       minzoom: 14
 -  - id: nature-reserve-boundaries
--    name: nature-reserve-boundaries
 -    geometry: polygon
 -    <<: *extents
 -    Datasource:
@@ -2613,229 +2840,76 @@ index f986ca1..6a0a34b 100644
 -            boundary,
 -            way_area/NULLIF(!pixel_width!::real*!pixel_height!::real,0) AS way_pixels
 -          FROM planet_osm_polygon
--          WHERE (boundary = 'national_park' OR leisure = 'nature_reserve')
+-          WHERE (boundary = 'national_park'
+-                 OR leisure = 'nature_reserve'
+-                 OR (boundary = 'protected_area' AND tags->'protect_class' IN ('1','1a','1b','2','3','4','5','6','7','97','98','99')))
 -            AND building IS NULL
--            AND way_area > 0.01*!pixel_width!::real*!pixel_height!::real
+-            AND way_area > 1*!pixel_width!::real*!pixel_height!::real
 -        ) AS national_park_boundaries
 -    properties:
--      minzoom: 7
-   - id: tourism-boundary
-     name: tourism-boundary
+-      minzoom: 8
++  # moved - id: nature-reserve-boundaries
+   - id: trees
      geometry: polygon
-@@ -1395,25 +1557,6 @@ Layer:
-         ) AS tourism_boundary
+     <<: *extents
+@@ -1266,6 +1548,7 @@ Layer:
+         ) AS trees
      properties:
-       minzoom: 10
--  - id: trees
--    name: trees
--    geometry: polygon
--    <<: *extents
--    Datasource:
--      <<: *osm2pgsql
--      table: |-
--        (SELECT
--            way, "natural"
--          FROM planet_osm_point
--          WHERE "natural" = 'tree'
--        UNION ALL
--        SELECT
--            way, "natural"
--          FROM planet_osm_line
--          WHERE "natural" = 'tree_row'
--        ) AS trees
--    properties:
--      minzoom: 16
+       minzoom: 16
++    status: off
    - id: country-names
-     name: country-names
      class: country
-@@ -1626,8 +1769,8 @@ Layer:
-               'shop' || CASE WHEN shop IN ('no', 'vacant', 'closed', 'disused', 'empty') OR shop IS NULL THEN NULL ELSE '' END,
-               'leisure_' || CASE WHEN leisure IN ('water_park', 'playground', 'miniature_golf', 'golf_course', 'picnic_table') THEN leisure ELSE NULL END,
-               'man_made_' || CASE WHEN man_made IN ('mast', 'water_tower', 'lighthouse', 'windmill', 'obelisk') THEN man_made ELSE NULL END,
+     geometry: point
+@@ -1490,7 +1773,8 @@ Layer:
+                                                   THEN leisure ELSE NULL END,
+               'man_made_' || CASE WHEN (man_made IN ('mast', 'tower', 'water_tower', 'lighthouse', 'windmill', 'obelisk', 'communications_tower', 'telescope', 'chimney', 'crane', 'storage_tank', 'silo')
+                                         AND (tags->'location' NOT IN ('roof', 'rooftop') OR (tags->'location') IS NULL)) THEN man_made ELSE NULL END,
 -              'natural_' || CASE WHEN "natural" IN ('spring') THEN "natural" ELSE NULL END,
--              'historic_' || CASE WHEN historic IN ('memorial', 'monument', 'archaeological_site') THEN historic ELSE NULL END,
-+              'natural_' || CASE WHEN "natural" IN ('spring', 'valley', 'ridge', 'cliff', 'arete', 'dale', 'gorge', 'couloir', 'mountain_range', 'massif') THEN "natural" ELSE NULL END,
-+              'historic_' || CASE WHEN historic IN ('memorial', 'monument', 'archaeological_site', 'castle', 'fort') THEN historic ELSE NULL END,
-               'highway_'|| CASE WHEN highway IN ('bus_stop', 'elevator', 'traffic_signals') THEN highway ELSE NULL END,
-               'power_' || CASE WHEN power IN ('generator') THEN power ELSE NULL END,
-               'tourism_' || CASE WHEN tourism IN ('viewpoint') THEN tourism ELSE NULL END
-@@ -1637,13 +1780,16 @@ Layer:
-             denomination,
-             "generator:source",
-             power_source,
--            CASE WHEN shop IN ('supermarket', 'bag', 'bakery', 'beauty', 'books', 'butcher', 'clothes', 'computer', 
--                               'confectionery', 'fashion', 'convenience', 'department_store', 'doityourself', 'hardware', 'fishmonger', 'florist', 
--                               'garden_centre', 'hairdresser', 'hifi', 'ice_cream', 'car', 'car_repair', 'bicycle', 'mall', 'pet', 
--                               'photo', 'photo_studio', 'photography', 'seafood', 'shoes', 'alcohol', 'gift', 'furniture', 'kiosk', 
--                               'mobile_phone', 'motorcycle', 'musical_instrument', 'newsagent', 'optician', 'jewelry', 'jewellery', 
--                               'electronics', 'chemist', 'toys', 'travel_agency', 'car_parts', 'greengrocer', 'farm', 'stationery', 
--                               'laundry', 'dry_cleaning', 'beverages', 'perfumery', 'cosmetics', 'variety_store', 'wine', 'outdoor', 
-+            name,
-+            castle_type,
-+            -- ruins,
-+            CASE WHEN shop IN ('supermarket', 'bag', 'bakery', 'beauty', 'books', 'butcher', 'clothes', 'computer',
-+                               'confectionery', 'fashion', 'convenience', 'department_store', 'doityourself', 'hardware', 'fishmonger', 'florist',
-+                               'garden_centre', 'hairdresser', 'hifi', 'ice_cream', 'car', 'car_repair', 'bicycle', 'mall', 'pet',
-+                               'photo', 'photo_studio', 'photography', 'seafood', 'shoes', 'alcohol', 'gift', 'furniture', 'kiosk',
-+                               'mobile_phone', 'motorcycle', 'musical_instrument', 'newsagent', 'optician', 'jewelry', 'jewellery',
-+                               'electronics', 'chemist', 'toys', 'travel_agency', 'car_parts', 'greengrocer', 'farm', 'stationery',
-+                               'laundry', 'dry_cleaning', 'beverages', 'perfumery', 'cosmetics', 'variety_store', 'wine', 'outdoor',
-                                'copyshop', 'sports', 'deli', 'tobacco', 'art', 'tea', 'coffee') THEN shop
-                                ELSE 'other' END AS shop,
-             way_area/NULLIF(!pixel_width!::real*!pixel_height!::real,0) AS way_pixels
-@@ -1663,8 +1809,8 @@ Layer:
-             OR shop IS NOT NULL -- skip checking a huge list and use a null check
-             OR leisure IN ('water_park', 'playground', 'miniature_golf', 'golf_course', 'picnic_table')
-             OR man_made IN ('mast', 'water_tower', 'lighthouse', 'windmill', 'obelisk')
++              'natural_' || CASE WHEN "natural" IN ('spring', 'valley', 'ridge', 'cliff', 'arete', 'dale', 'gorge', 'couloir', 'mountain_range',
++                                                    'massif') THEN "natural" ELSE NULL END,
+               'historic_' || CASE WHEN historic IN ('memorial', 'monument', 'archaeological_site', 'fort', 'castle', 'manor', 'city_gate')
+                              THEN historic ELSE NULL END,
+               'military_'|| CASE WHEN military IN ('bunker') THEN military ELSE NULL END,
+@@ -1526,7 +1810,8 @@ Layer:
+                 END
+               ELSE NULL
+             END AS "telescope:diameter",
+-            tags->'castle_type' as castle_type,
++            CASE WHEN tags->'castle_type' IS NOT NULL then tags->'castle_type' ELSE 'unknown' END AS castle_type,
++            tags->'ruins' as ruins,
+             tags->'sport' as sport,
+             tags->'information' as information,
+             tags->'healthcare' as healthcare,
+@@ -1560,7 +1845,7 @@ Layer:
+                            'amusement_arcade', 'sports_centre', 'swimming_area', 'fishing')
+             OR (man_made IN ('mast', 'tower', 'water_tower', 'lighthouse', 'windmill', 'obelisk', 'communications_tower', 'telescope', 'chimney', 'crane', 'storage_tank', 'silo')
+                 AND (tags->'location' NOT IN ('roof', 'rooftop') OR (tags->'location') IS NULL))
 -            OR "natural" IN ('spring')
--            OR historic IN ('memorial', 'monument', 'archaeological_site')
 +            OR "natural" IN ('spring', 'valley', 'ridge', 'cliff', 'arete', 'dale', 'gorge', 'couloir', 'mountain_range', 'massif')
-+            OR historic IN ('memorial', 'monument', 'archaeological_site', 'castle', 'fort')
+             OR historic IN ('memorial', 'monument', 'archaeological_site', 'fort', 'castle', 'manor', 'city_gate')
+             OR military IN ('bunker')
              OR highway IN ('bus_stop', 'elevator', 'traffic_signals')
-             OR (power = 'generator' AND ("generator:source" = 'wind' OR power_source = 'wind'))
-           ORDER BY way_area desc
-@@ -1698,7 +1844,7 @@ Layer:
-                                                   'dog_park') THEN leisure ELSE NULL END,
-               'man_made_' || CASE WHEN man_made IN ('mast', 'water_tower', 'lighthouse', 'windmill', 'obelisk') THEN man_made ELSE NULL END,
-               'natural_' || CASE WHEN "natural" IN ('peak', 'volcano', 'saddle', 'spring', 'cave_entrance') THEN "natural" ELSE NULL END,
--              'historic_' || CASE WHEN historic IN ('memorial', 'monument', 'archaeological_site') THEN historic ELSE NULL END,
-+              'historic_' || CASE WHEN historic IN ('memorial', 'monument', 'archaeological_site', 'castle', 'fort') THEN historic ELSE NULL END,
-               'highway_'|| CASE WHEN highway IN ('bus_stop', 'elevator', 'traffic_signals', 'ford') THEN highway ELSE NULL END,
-               'power_' || CASE WHEN power IN ('generator') THEN power ELSE NULL END,
-               'tourism_' || CASE WHEN tourism IN ('viewpoint') THEN tourism ELSE NULL END,
-@@ -1718,13 +1864,15 @@ Layer:
-             denomination,
-             "generator:source",
-             power_source,
--            CASE WHEN shop IN ('supermarket', 'bag', 'bakery', 'beauty', 'books', 'butcher', 'clothes', 'computer', 
--                               'confectionery', 'fashion', 'convenience', 'department_store', 'doityourself', 'hardware', 'fishmonger', 'florist', 
--                               'garden_centre', 'hairdresser', 'hifi', 'ice_cream', 'car', 'car_repair', 'bicycle', 'mall', 'pet', 
--                               'photo', 'photo_studio', 'photography', 'seafood', 'shoes', 'alcohol', 'gift', 'furniture', 'kiosk', 
--                               'mobile_phone', 'motorcycle', 'musical_instrument', 'newsagent', 'optician', 'jewelry', 'jewellery', 
--                               'electronics', 'chemist', 'toys', 'travel_agency', 'car_parts', 'greengrocer', 'farm', 'stationery', 
--                               'laundry', 'dry_cleaning', 'beverages', 'perfumery', 'cosmetics', 'variety_store', 'wine', 'outdoor', 
-+            castle_type,
-+            -- ruins,
-+            CASE WHEN shop IN ('supermarket', 'bag', 'bakery', 'beauty', 'books', 'butcher', 'clothes', 'computer',
-+                               'confectionery', 'fashion', 'convenience', 'department_store', 'doityourself', 'hardware', 'fishmonger', 'florist',
-+                               'garden_centre', 'hairdresser', 'hifi', 'ice_cream', 'car', 'car_repair', 'bicycle', 'mall', 'pet',
-+                               'photo', 'photo_studio', 'photography', 'seafood', 'shoes', 'alcohol', 'gift', 'furniture', 'kiosk',
-+                               'mobile_phone', 'motorcycle', 'musical_instrument', 'newsagent', 'optician', 'jewelry', 'jewellery',
-+                               'electronics', 'chemist', 'toys', 'travel_agency', 'car_parts', 'greengrocer', 'farm', 'stationery',
-+                               'laundry', 'dry_cleaning', 'beverages', 'perfumery', 'cosmetics', 'variety_store', 'wine', 'outdoor',
-                                'copyshop', 'sports', 'deli', 'tobacco', 'art', 'tea', 'coffee') THEN shop
-                                ELSE 'other' END AS shop,
-             NULL AS way_pixels
-@@ -1746,41 +1894,13 @@ Layer:
-                            'dog_park')
-             OR man_made IN ('mast', 'water_tower', 'lighthouse', 'windmill', 'cross', 'obelisk')
-             OR "natural" IN ('peak', 'volcano', 'saddle', 'spring', 'cave_entrance')
--            OR historic IN ('memorial', 'monument', 'archaeological_site', 'wayside_cross')
-+            OR historic IN ('memorial', 'monument', 'archaeological_site', 'castle', 'fort', 'wayside_cross')
-             OR highway IN ('bus_stop', 'elevator', 'traffic_signals', 'ford')
-             OR (power = 'generator' AND ("generator:source" = 'wind' OR power_source = 'wind'))
-           ORDER BY score DESC NULLS LAST
-           ) AS amenity_points
-     properties:
-       minzoom: 10
--  - id: power-towers
--    name: power-towers
--    geometry: point
--    <<: *extents
--    Datasource:
--      <<: *osm2pgsql
--      table: |-
--        (SELECT
--            way
--          FROM planet_osm_point
--          WHERE power = 'tower'
--        ) AS power_towers
--    properties:
--      minzoom: 14
--  - id: power-poles
--    name: power-poles
--    geometry: point
--    <<: *extents
--    Datasource:
--      <<: *osm2pgsql
--      table: |-
--        (SELECT
--            way
--          FROM planet_osm_point
--          WHERE power = 'pole'
--        ) AS power_poles
--    properties:
--      minzoom: 16
-   - id: roads-text-ref-low-zoom
-     name: roads-text-ref-low-zoom
-     geometry: linestring
-@@ -1956,7 +2076,6 @@ Layer:
-             way,
-             CASE WHEN substr(highway, length(highway)-3, 4) = 'link' THEN substr(highway, 0, length(highway)-4) ELSE highway END,
-             CASE WHEN (tunnel = 'yes' OR tunnel = 'building_passage' OR covered = 'yes') THEN 'yes' ELSE 'no' END AS tunnel,
--            construction,
+@@ -1688,7 +1973,8 @@ Layer:
+                 END
+               ELSE NULL
+             END AS "telescope:diameter",
+-            tags->'castle_type' as castle_type,
++            CASE WHEN tags->'castle_type' IS NOT NULL then tags->'castle_type' ELSE 'unknown' END AS castle_type,
++            tags->'ruins' as ruins,
+             tags->'sport' as sport,
+             tags->'information' as information,
+             tags->'healthcare' as healthcare,
+@@ -2168,6 +2454,7 @@ Layer:
+               ELSE NULL
+             END AS height,
+             tags->'operator' as operator,
++            tags->'ruins' as ruins,
+             tags->'generator:source' as "generator:source",
+             tags->'location' as location,
+             tags->'icao' as icao,
+@@ -2238,12 +2525,13 @@ Layer:
              name,
-             CASE
-               WHEN oneway IN ('yes', '-1') THEN oneway
-@@ -1982,12 +2101,11 @@ Layer:
-               ('primary_link', 220),
-               ('secondary_link', 210),
-               ('tertiary_link', 200),
--              ('service', 150),
--              ('construction', 10)
-+              ('service', 150)
-             ) AS ordertable (highway, prio)
-             USING (highway)
-           WHERE highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 
--                            'tertiary_link', 'residential', 'unclassified', 'road', 'service', 'pedestrian', 'raceway', 'living_street', 'construction')
-+                            'tertiary_link', 'residential', 'unclassified', 'road', 'service', 'pedestrian', 'raceway', 'living_street')
-             AND (name IS NOT NULL
-               OR oneway IN ('yes', '-1')
-               OR junction IN ('roundabout'))
-@@ -2036,6 +2154,7 @@ Layer:
-               'leisure_' || CASE WHEN leisure IN ('nature_reserve') THEN leisure ELSE NULL END
-             ) AS feature,
-             name,
-+            castle_type,
-             CASE WHEN building = 'no' OR building IS NULL THEN 'no' ELSE 'yes' END AS is_building -- always no with the where conditions
-           FROM planet_osm_polygon
-           WHERE (landuse IN ('forest', 'military')
-@@ -2091,13 +2210,13 @@ Layer:
-               'landuse_' || CASE WHEN landuse IN ('reservoir', 'basin', 'recreation_ground', 'village_green', 'quarry', 'vineyard', 'orchard', 'cemetery', 
-                                                   'residential', 'garages', 'meadow', 'grass', 'allotments', 'forest', 'farmyard', 'farmland', 
-                                                   'greenhouse_horticulture', 'retail', 'industrial', 'railway', 'commercial', 'brownfield', 'landfill', 
--                                                  'construction', 'military', 'plant_nursery') THEN landuse ELSE NULL END,
-+                                                  'military', 'plant_nursery') THEN landuse ELSE NULL END,
-               'man_made_' || CASE WHEN man_made IN ('lighthouse', 'windmill', 'mast', 'water_tower', 'pier', 'breakwater', 'groyne', 'obelisk') THEN man_made ELSE NULL END,
-               'natural_' || CASE WHEN "natural" IN ('wood', 'water', 'mud', 'wetland', 'marsh', 'bay', 'spring', 'scree', 'shingle', 'bare_rock', 'sand', 'heath', 
-                                                     'grassland', 'scrub', 'beach', 'shoal', 'reef', 'glacier') THEN "natural" ELSE NULL END,
-               'place_' || CASE WHEN place IN ('island', 'islet') THEN place ELSE NULL END,
-               'military_' || CASE WHEN military IN ('danger_area') THEN military ELSE NULL END,
--              'historic_' || CASE WHEN historic IN ('memorial', 'monument', 'archaeological_site') THEN historic ELSE NULL END,
-+              'historic_' || CASE WHEN historic IN ('memorial', 'monument', 'archaeological_site', 'castle', 'fort') THEN historic ELSE NULL END,
-               'highway_' || CASE WHEN highway IN ('services', 'rest_area', 'bus_stop', 'elevator', 'ford') THEN highway ELSE NULL END,
-               'boundary_' || CASE WHEN boundary IN ('national_park') THEN boundary ELSE NULL END,
-               'waterway_' || CASE WHEN waterway IN ('dam') THEN waterway ELSE NULL END,
-@@ -2108,6 +2227,7 @@ Layer:
-             operator,
-             ref,
-             way_area,
-+            castle_type,
-             CASE WHEN building = 'no' OR building IS NULL THEN 'no' ELSE 'yes' END AS is_building
-           FROM planet_osm_polygon
-           -- The upcoming where clause is needed for performance only, as the CASE statements would end up doing the equivalent filtering
-@@ -2122,7 +2242,7 @@ Layer:
-               OR "natural" IS NOT NULL
-               OR place IN ('island', 'islet')
-               OR military IN ('danger_area')
--              OR historic IN ('memorial', 'monument', 'archaeological_site')
-+              OR historic IN ('memorial', 'monument', 'archaeological_site', 'castle', 'fort')
-               OR highway IN ('services', 'rest_area', 'bus_stop', 'elevator', 'ford')
-               OR power IN ('plant', 'station', 'generator', 'sub_station', 'substation')
-               OR boundary IN ('national_park')
-@@ -2149,12 +2269,13 @@ Layer:
-             name,
-             operator,
+             tags->'operator' as operator,
              ref,
 +            ST_Length(way)/NULLIF(SQRT(!pixel_width!::real*!pixel_width!::real),0) AS pixel_length,
              NULL AS way_area,
@@ -2848,62 +2922,46 @@ index f986ca1..6a0a34b 100644
              AND name IS NOT NULL
          ) AS text_line
      properties:
-@@ -2186,6 +2307,7 @@ Layer:
+@@ -2275,6 +2563,7 @@ Layer:
+             END AS score,
+             height,
              operator,
-             ref,
-             way_area,
-+            castle_type,
-             is_building
-           FROM
-             (SELECT
-@@ -2218,14 +2340,16 @@ Layer:
-                   'landuse_' || CASE WHEN landuse IN ('reservoir', 'basin', 'recreation_ground', 'village_green', 'quarry', 'vineyard', 'orchard', 'cemetery', 
-                                                       'residential', 'garages', 'meadow', 'grass', 'allotments', 'forest', 'farmyard', 'farmland', 
-                                                       'greenhouse_horticulture', 'retail', 'industrial', 'railway', 'commercial', 'brownfield', 'landfill', 
--                                                      'construction', 'military', 'plant_nursery') THEN landuse ELSE NULL END,
-+                                                      'military', 'plant_nursery') THEN landuse ELSE NULL END,
-                   'man_made_' || CASE WHEN man_made IN ('lighthouse', 'windmill', 'mast', 'water_tower', 'obelisk') THEN man_made ELSE NULL END,
-                   'natural_' || CASE WHEN "natural" IN ('wood', 'peak', 'volcano', 'saddle', 'cave_entrance', 'water', 'mud', 'wetland', 'marsh', 'bay', 'spring', 
--                                                        'scree', 'shingle', 'bare_rock', 'sand', 'heath', 'grassland', 'scrub', 'beach', 'glacier', 'tree') 
-+                                                        'scree', 'shingle', 'bare_rock', 'sand', 'heath', 'grassland', 'scrub', 'beach', 'cliff', 'valley',
-+                                                        'ridge', 'arete', 'dale', 'gorge', 'couloir', 'mountain_range', 'massif', 'glacier', 'tree')
++            ruins,
+             icao,
+             iata,
+             office,
+@@ -2338,10 +2627,11 @@ Layer:
+                                                          'telescope', 'chimney', 'crane', 'storage_tank', 'silo', 'wastewater_plant', 'water_works')
+                                             AND (tags->'location' NOT IN ('roof', 'rooftop') OR (tags->'location') IS NULL)) THEN man_made ELSE NULL END,
+                   'natural_' || CASE WHEN "natural" IN ('wood', 'peak', 'volcano', 'saddle', 'cave_entrance', 'water', 'mud', 'wetland', 'marsh', 'bay', 'spring',
+-                                                        'scree', 'shingle', 'bare_rock', 'sand', 'heath', 'grassland', 'scrub', 'beach', 'glacier', 'tree', 'strait', 'cape')
++                                                        'scree', 'shingle', 'bare_rock', 'sand', 'heath', 'grassland', 'scrub', 'beach', 'glacier', 'tree', 'strait', 'cape',
++                                                        'cliff', 'valley', 'ridge', 'arete', 'dale', 'gorge', 'couloir', 'mountain_range', 'massif')
                                                          THEN "natural" ELSE NULL END,
+                   'waterway_' || CASE WHEN waterway IN ('waterfall') THEN waterway ELSE NULL END,
 -                  'place_' || CASE WHEN place IN ('island', 'islet') THEN place ELSE NULL END,
-+                  'place_' || CASE WHEN place IN ('island', 'islet', 'ocean', 'sea') THEN place
-+                                  ELSE NULL END,
-                   'military_' || CASE WHEN military IN ('danger_area') THEN military ELSE NULL END,
--                  'historic_' || CASE WHEN historic IN ('memorial', 'monument', 'archaeological_site') THEN historic ELSE NULL END,
-+                  'historic_' || CASE WHEN historic IN ('memorial', 'monument', 'archaeological_site', 'castle', 'fort') THEN historic ELSE NULL END,
-                   'highway_' || CASE WHEN highway IN ('services', 'rest_area', 'bus_stop', 'elevator', 'ford') THEN highway ELSE NULL END,
-                   'boundary_' || CASE WHEN boundary IN ('national_park') THEN boundary ELSE NULL END,
-                   'waterway_' || CASE WHEN waterway IN ('dam', 'weir') THEN waterway ELSE NULL END,
-@@ -2247,6 +2371,7 @@ Layer:
-                 operator,
-                 ref,
-                 NULL AS way_area,
-+                castle_type,
-                 CASE WHEN building = 'no' OR building IS NULL THEN 'no' ELSE 'yes' END AS is_building
-               FROM planet_osm_point
-               -- The upcoming where clause is needed for performance only, as the CASE statements would end up doing the equivalent filtering
-@@ -2257,13 +2382,13 @@ Layer:
-                   OR shop IS NOT NULL
-                   OR leisure IS NOT NULL
-                   OR landuse IN ('reservoir', 'basin', 'recreation_ground', 'village_green', 'quarry', 'vineyard', 'orchard', 'cemetery', 'residential', 
--                                 'garages', 'meadow', 'grass', 'allotments', 'forest', 'farmyard', 'farmland', 'greenhouse_horticulture', 
--                                 'retail', 'industrial', 'railway', 'commercial', 'brownfield', 'landfill', 'construction', 'military', 'plant_nursery')
-+                                 'garages', 'meadow', 'grass', 'allotments', 'forest', 'farmyard', 'farmland', 'greenhouse_horticulture',
-+                                 'retail', 'industrial', 'railway', 'commercial', 'brownfield', 'landfill', 'military', 'plant_nursery')
-                   OR man_made IN ('lighthouse', 'windmill', 'mast', 'water_tower', 'cross', 'obelisk')
-                   OR "natural" IS NOT NULL
-                   OR place IN ('island', 'islet')
-                   OR military IN ('danger_area')
--                  OR historic IN ('memorial', 'monument', 'archaeological_site', 'wayside_cross')
-+                  OR historic IN ('memorial', 'monument', 'archaeological_site', 'castle', 'fort', 'wayside_cross')
-                   OR highway IN ('bus_stop', 'services', 'rest_area', 'elevator', 'ford')
-                   OR power IN ('plant', 'station', 'generator', 'sub_station', 'substation')
-                   OR boundary IN ('national_park')
++                  'place_' || CASE WHEN place IN ('island', 'islet', 'ocean', 'sea') THEN place ELSE NULL END,
+                   'barrier_' || CASE WHEN barrier IN ('toll_booth') THEN barrier ELSE NULL END,
+                   'military_' || CASE WHEN military IN ('danger_area', 'bunker') THEN military ELSE NULL END,
+                   'historic_' || CASE WHEN historic IN ('memorial', 'monument', 'archaeological_site', 'fort', 'castle', 'manor', 'city_gate')
+@@ -2378,6 +2668,7 @@ Layer:
+                 "natural",
+                 waterway,
+                 tags->'operator' as operator,
++                tags->'ruins' as ruins,
+                 tags->'location' as location,
+                 tags->'generator:source' as "generator:source",
+                 tags->'icao' as icao,
+@@ -2551,6 +2842,7 @@ Layer:
+         ) AS admin_text
+     properties:
+       minzoom: 16
++    status: off
+   - id: nature-reserve-text
+     geometry: linestring
+     <<: *extents
 diff --git a/road-colors-generated.mss b/road-colors-generated.mss
-index eb87f8b..2f6abaf 100644
+index eb87f8b..ec76c4b 100644
 --- a/road-colors-generated.mss
 +++ b/road-colors-generated.mss
 @@ -4,23 +4,27 @@
@@ -2912,13 +2970,13 @@ index eb87f8b..2f6abaf 100644
  /*                                                                   */
 +@motorway-low-zoom: #cf3030;
 +@trunk-low-zoom: #cf6868;
-+@primary-low-zoom: #885f00;
++@primary-low-zoom: #8a5c00;
 +@secondary-low-zoom: #2f6f2f;
 +
 +@motorway-fill: @motorway-low-zoom;
 +@trunk-fill: @motorway-fill;
-+@primary-fill: #af7f00;
-+@secondary-fill: #7fbf7f;
++@primary-fill: @primary-low-zoom;
++@secondary-fill: @secondary-low-zoom;
 +
 +@motorway-casing: darken(@motorway-fill, @darken-lighten);
 +@trunk-casing: darken(@trunk-fill, @darken-lighten);
@@ -2947,89 +3005,109 @@ index eb87f8b..2f6abaf 100644
 -@primary-fill: #fcd6a4;
 -@secondary-fill: #f7fabf;
 diff --git a/roads.mss b/roads.mss
-index c7f5fb2..a25e32c 100644
+index 29c5f26..e3a44ce 100644
 --- a/roads.mss
 +++ b/roads.mss
-@@ -7,7 +7,9 @@
+@@ -7,7 +7,7 @@
  @pedestrian-fill: #dddde8;
  @raceway-fill: pink;
  @road-fill: #ddd;
 -@footway-fill: salmon;
-+// @footway-fill: @track-fill;
-+// @footway-fill: darken(@track-fill, 50%);
 +@footway-fill: black;
  @footway-fill-noaccess: #bbbbbb;
  @steps-fill: @footway-fill;
  @steps-fill-noaccess: #bbbbbb;
-@@ -15,7 +17,8 @@
+@@ -15,7 +15,7 @@
  @cycleway-fill-noaccess: #9999ff;
  @bridleway-fill: green;
  @bridleway-fill-noaccess: #aaddaa;
 -@track-fill: #996600;
-+// @track-fill: #644200;
-+@track-fill: black;
++@track-fill: #402a00;
  @track-fill-noaccess: #e2c5bb;
  @aeroway-fill: #bbc;
  @runway-fill: @aeroway-fill;
-@@ -25,8 +28,8 @@
+@@ -24,13 +24,23 @@
+ @access-marking: #eaeaea;
  @access-marking-living-street: #cccccc;
  
++// TODO: dupes!
  @default-casing: white;
 -@tertiary-casing: #8f8f8f;
 -@residential-casing: #bbb;
-+@tertiary-casing: #000;
-+@residential-casing: #888;
++@tertiary-casing: #444;
++@residential-casing: #444;
  @road-casing: @residential-casing;
- @service-casing: @residential-casing;
- @living-street-casing: @residential-casing;
-@@ -37,10 +40,27 @@
- @cycleway-casing: @default-casing;
- @bridleway-casing: @default-casing;
- @track-casing: @default-casing;
+-@service-casing: @residential-casing;
 +@service-casing: #999;
-+@living-street-casing: @default-casing;
-+@pedestrian-casing: grey;
+ @living-street-casing: @residential-casing;
+-@pedestrian-casing: #999;
++@pedestrian-casing: gray;
 +@path-casing: @default-casing;
 +@footway-casing: @default-casing;
 +@steps-casing: @default-casing;
 +@cycleway-casing: @default-casing;
 +@bridleway-casing: @default-casing;
 +@track-casing: @default-casing;
++@service-casing: #999;
++@living-street-casing: @default-casing;
++@pedestrian-casing: grey;
+ @path-casing: @default-casing;
+ @footway-casing: @default-casing;
+ @steps-casing: @default-casing;
+@@ -40,7 +50,22 @@
  
  @tertiary-shield: #3b3b3b;
  
 -@unimportant-road: @residential-casing;
 +/*
++               line-casing
++Mayor roads
++motorway
++trunk
++primary         8-12
++secondary       9-12
 +minor roads for different zoom levels
-+tertiary    10-12
-+residential 12-13
-+road        10-
-+service     13
++tertiary       10-12
++road           10-14  # also unclassified
++residential    12-13
++service        13-14
++living_street    -13
 +*/
 +@unimportant-road: @tertiary-casing;
-+@unimportant-minor-road: #666;
++@unimportant-minor-road: #bbb;
  
- @residential-construction: #aaa;
+ @minor-construction: #aaa;
  @service-construction: #aaa;
-@@ -56,6 +76,13 @@
- @trunk-tunnel-fill: lighten(@trunk-fill, 10%);
- @primary-tunnel-fill: lighten(@primary-fill, 10%);
- @secondary-tunnel-fill: lighten(@secondary-fill, 5%);
-+/*
-+TODO:
+@@ -52,11 +77,16 @@
+ @tunnel-casing: grey;
+ @bridge-casing: black;
+ 
+-@motorway-tunnel-fill: lighten(@motorway-fill, 10%);
+-@trunk-tunnel-fill: lighten(@trunk-fill, 10%);
+-@primary-tunnel-fill: lighten(@primary-fill, 10%);
+-@secondary-tunnel-fill: lighten(@secondary-fill, 5%);
 +@motorway-tunnel-fill: lighten(@motorway-fill, @darken-lighten);
 +@trunk-tunnel-fill: lighten(@trunk-fill, @darken-lighten);
 +@primary-tunnel-fill: lighten(@primary-fill, @darken-lighten);
 +@secondary-tunnel-fill: lighten(@secondary-fill, @darken-lighten);
-+*/
  @tertiary-tunnel-fill: lighten(@tertiary-fill, 5%);
++/*
++local
++@residential-tunnel-fill: darken(@residential-fill, 10%);
++@living-street-tunnel-fill: lighten(@living-street-fill, 10%);
++*/
  @residential-tunnel-fill: darken(@residential-fill, 5%);
- @living-street-tunnel-fill: lighten(@living-street-fill, 10%);
-@@ -195,26 +222,26 @@
+ @living-street-tunnel-fill: lighten(@living-street-fill, 3%);
  
+@@ -217,39 +247,39 @@
+ @footway-width-z19:               1.6;
+ @cycleway-width-z19:              1.3;
+ 
+-
++// major: motorway, trunk, primary, secondary for bridges, aeroways!
  @major-casing-width-z11:          0.3;
  
--@casing-width-z12:                0.1;
+-@casing-width-z12:                0.3;
 -@secondary-casing-width-z12:      0.3;
 +@casing-width-z12:                0.5;
 +@secondary-casing-width-z12:      0;
@@ -3046,7 +3124,7 @@ index c7f5fb2..a25e32c 100644
 -@secondary-casing-width-z14:      0.35;
 -@major-casing-width-z14:          0.6;
 +@secondary-casing-width-z14:      0.75;
-+@major-casing-width-z14:          0.1;
++@major-casing-width-z14:          1;
  
  @casing-width-z15:                0.6;
 -@secondary-casing-width-z15:      0.7;
@@ -3060,9 +3138,22 @@ index c7f5fb2..a25e32c 100644
 +@secondary-casing-width-z16:      1;
 +@major-casing-width-z16:          1;
  
- @casing-width-z17:                0.8;
+-@casing-width-z17:                0.8;
++@casing-width-z17:                1.5;
  @secondary-casing-width-z17:      1;
-@@ -243,7 +270,7 @@
+ @major-casing-width-z17:          1;
+ 
+-@casing-width-z18:                0.8;
++@casing-width-z18:                1.5;
+ @secondary-casing-width-z18:      1;
+ @major-casing-width-z18:          1;
+ 
+-@casing-width-z19:                0.8;
++@casing-width-z19:                1.5;
+ @secondary-casing-width-z19:      1;
+ @major-casing-width-z19:          1;
+ 
+@@ -268,7 +298,7 @@
  @bridge-casing-width-z18:         0.8;
  @major-bridge-casing-width-z18:   1;
  @bridge-casing-width-z19:         0.8;
@@ -3071,8 +3162,8 @@ index c7f5fb2..a25e32c 100644
  
  @paths-background-width:          1;
  @paths-bridge-casing-width:       0.5;
-@@ -357,6 +384,14 @@
-         .roads-casing {
+@@ -406,6 +436,14 @@
+         #roads-casing {
            line-join: round;
            line-cap: round;
 +          [int_surface = 'unpaved'] {
@@ -3084,68 +3175,57 @@ index c7f5fb2..a25e32c 100644
 +            [zoom >= 19] { line-dasharray: @primary-width-z19*2,@primary-width-z19; }
 +          }
          }
-         .tunnels-casing {
+         #tunnels {
            line-dasharray: 4,2;
-@@ -369,8 +404,8 @@
-     }
+@@ -419,10 +457,7 @@
  
      [feature = 'highway_secondary'] {
--      [zoom >= 12] {
+       [zoom >= 12] {
 -        line-color: @secondary-low-zoom-casing;
-+      [zoom >= 13] {
-+        line-color: @secondary-casing;
-         [zoom >= 13] {
-           line-color: @secondary-casing;
-         }
-@@ -385,6 +420,42 @@
-         .roads-casing {
+-        [zoom >= 13] {
+         line-color: @secondary-casing;
+-        }
+         line-width: @secondary-width-z12;
+         [zoom >= 13] { line-width: @secondary-width-z13; }
+         [zoom >= 14] { line-width: @secondary-width-z14; }
+@@ -442,6 +477,14 @@
+         #roads-casing {
            line-join: round;
            line-cap: round;
 +          [int_surface = 'unpaved'] {
-+            unpaved/line-color: white;
-+            unpaved/line-width: @secondary-width-z12;
-+            // unpaved/line-dasharray: @secondary-width-z12,@secondary-width-z12*2;
-+            unpaved/line-dasharray: 10,5;
-+            [zoom >= 13] {
-+              unpaved/line-width: @secondary-width-z13;
-+              // unpaved/line-dasharray: @secondary-width-z13,@secondary-width-z13*2;
-+              unpaved/line-dasharray: 6,12;
-+              // unpaved/line-dasharray: @secondary-width-z14,@secondary-width-z14*2;
-+            }
-+            [zoom >= 14] {
-+              unpaved/line-width: @secondary-width-z14;
-+              unpaved/line-dasharray: @secondary-width-z14,@secondary-width-z14*2;
-+            }
-+            [zoom >= 15] {
-+              unpaved/line-width: @secondary-width-z15;
-+              unpaved/line-dasharray: @secondary-width-z15,@secondary-width-z15*2;
-+            }
-+            [zoom >= 16] {
-+              unpaved/line-width: @secondary-width-z16;
-+              unpaved/line-dasharray: @secondary-width-z16,@secondary-width-z16*2;
-+            }
-+            [zoom >= 17] {
-+              unpaved/line-width: @secondary-width-z17;
-+              // unpaved/line-dasharray: @secondary-width-z17,@secondary-width-z17*2;
-+            }
-+            [zoom >= 18] {
-+              unpaved/line-width: @secondary-width-z18;
-+              // unpaved/line-dasharray: @secondary-width-z18,@secondary-width-z18*2;
-+            }
-+            [zoom >= 19] {
-+              unpaved/line-width: @secondary-width-z19;
-+              unpaved/line-dasharray: @secondary-width-z17,@secondary-width-z17*2;
-+            }
++            line-dasharray: @secondary-width-z12*2,@secondary-width-z12;
++            [zoom >= 13] { line-dasharray: @secondary-width-z13*2,@secondary-width-z13; }
++            [zoom >= 15] { line-dasharray: @secondary-width-z15*2,@secondary-width-z15; }
++            [zoom >= 17] { line-dasharray: @secondary-width-z17*2,@secondary-width-z17; }
++            [zoom >= 18] { line-dasharray: @secondary-width-z18*2,@secondary-width-z18; }
++            [zoom >= 19] { line-dasharray: @secondary-width-z19*2,@secondary-width-z19; }
 +          }
          }
-         .tunnels-casing {
+         #tunnels {
            line-dasharray: 4,2;
-@@ -412,6 +483,16 @@
-         .roads-casing {
+@@ -477,6 +520,16 @@
+         #roads-casing {
            line-join: round;
            line-cap: round;
 +          [int_surface = 'unpaved'] {
-+            line-dasharray: 8,4;
++            line-dasharray: @secondary-width-z12*2,@secondary-width-z12;
++            [zoom >= 13] { line-dasharray: @secondary-width-z13*2,@secondary-width-z13; }
++            [zoom >= 14] { line-dasharray: @secondary-width-z14*2,@secondary-width-z14; }
++            [zoom >= 15] { line-dasharray: @secondary-width-z15*2,@secondary-width-z15; }
++            [zoom >= 16] { line-dasharray: @secondary-width-z16*2,@secondary-width-z16; }
++            [zoom >= 17] { line-dasharray: @secondary-width-z17*2,@secondary-width-z17; }
++            [zoom >= 18] { line-dasharray: @secondary-width-z18*2,@secondary-width-z18; }
++            [zoom >= 19] { line-dasharray: @secondary-width-z19*2,@secondary-width-z19; }
++          }
+         }
+         #tunnels {
+           line-dasharray: 4,2;
+@@ -504,6 +557,16 @@
+         #roads-casing {
+           line-join: round;
+           line-cap: round;
++          [int_surface = 'unpaved'] {
++            line-dasharray: @tertiary-width-z12*2,@tertiary-width-z12;
 +            [zoom >= 13] { line-dasharray: @tertiary-width-z13*2,@tertiary-width-z13; }
 +            [zoom >= 14] { line-dasharray: @tertiary-width-z14*2,@tertiary-width-z14; }
 +            [zoom >= 15] { line-dasharray: @tertiary-width-z15*2,@tertiary-width-z15; }
@@ -3155,22 +3235,10 @@ index c7f5fb2..a25e32c 100644
 +            [zoom >= 19] { line-dasharray: @tertiary-width-z19*2,@tertiary-width-z19; }
 +          }
          }
-         .tunnels-casing {
+         #tunnels {
            line-dasharray: 4,2;
-@@ -430,7 +511,10 @@
-       [zoom >= 13] {
-         line-color: @residential-casing;
-         line-width: @residential-width-z13;
--        [zoom >= 14] { line-width: @residential-width-z14; }
-+        [zoom >= 14] {
-+          line-width: @residential-width-z14;
-+          line-color: @tertiary-casing;
-+        }
-         [zoom >= 15] { line-width: @residential-width-z15; }
-         [zoom >= 16] { line-width: @residential-width-z16; }
-         [zoom >= 17] { line-width: @residential-width-z17; }
-@@ -439,6 +523,15 @@
-         .roads-casing {
+@@ -528,6 +591,15 @@
+         #roads-casing {
            line-join: round;
            line-cap: round;
 +          [int_surface = 'unpaved'] {
@@ -3183,10 +3251,10 @@ index c7f5fb2..a25e32c 100644
 +            [zoom >= 19] { line-dasharray: @residential-width-z19*2,@residential-width-z19; }
 +          }
          }
-         .tunnels-casing {
+         #tunnels {
            line-dasharray: 4,2;
-@@ -463,6 +556,13 @@
-         .roads-casing {
+@@ -559,6 +631,13 @@
+         #roads-casing {
            line-join: round;
            line-cap: round;
 +          [int_surface = 'unpaved'] {
@@ -3197,10 +3265,25 @@ index c7f5fb2..a25e32c 100644
 +            [zoom >= 19] { line-dasharray: @road-width-z19*2,@road-width-z19; }
 +          }
          }
-         .tunnels-casing {
+         #tunnels {
            line-dasharray: 4,2;
-@@ -470,6 +570,15 @@
-         .bridges-casing {
+@@ -609,6 +688,14 @@
+         #roads-casing {
+           line-cap: round;
+           line-join: round;
++          [int_surface = 'unpaved'] {
++            line-dasharray: @living-street-width-z13*2,@living-street-width-z13;
++            [zoom >= 13] { line-dasharray: @living-street-width-z14*2,@living-street-width-z14; }
++            [zoom >= 15] { line-dasharray: @living-street-width-z15*2,@living-street-width-z15; }
++            [zoom >= 17] { line-dasharray: @living-street-width-z17*2,@living-street-width-z17; }
++            [zoom >= 18] { line-dasharray: @living-street-width-z18*2,@living-street-width-z18; }
++            [zoom >= 19] { line-dasharray: @living-street-width-z19*2,@living-street-width-z19; }
++          }
+         }
+         #tunnels {
+           line-dasharray: 4,2;
+@@ -630,6 +717,15 @@
+           [zoom >= 15] { line-width: @steps-width-z15 + 2 * (@paths-background-width + @paths-bridge-casing-width); }
            line-color: @bridge-casing;
            line-join: round;
 +          [int_surface = 'unpaved'] {
@@ -3214,145 +3297,61 @@ index c7f5fb2..a25e32c 100644
 +          }
          }
        }
-     }
-@@ -484,12 +593,30 @@
-           [zoom >= 17] { line-width: @service-width-z17; }
-           [zoom >= 18] { line-width: @service-width-z18; }
-           [zoom >= 19] { line-width: @service-width-z19; }
-+          .roads-casing {
-+            [int_surface = 'unpaved'] {
-+              line-dasharray: @service-width-z14*2,@service-width-z14;
-+              [zoom >= 16] { line-dasharray: @service-width-z16*2,@service-width-z16; }
-+              [zoom >= 17] { line-dasharray: @service-width-z17*2,@service-width-z17; }
-+              [zoom >= 18] { line-dasharray: @service-width-z18*2,@service-width-z18; }
-+              [zoom >= 19] { line-dasharray: @service-width-z19*2,@service-width-z19; }
-+            }
+       #tunnels {
+@@ -1403,6 +1499,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+         [zoom >= 9] { line-width: @trunk-width-z9; }
+         [zoom >= 10] { line-width: @trunk-width-z10; }
+         [zoom >= 11] { line-width: @trunk-width-z11; }
++        [int_surface = 'unpaved'][zoom >= 5][zoom < 12] {
++          line-dasharray: 8,2;
++        }
+         [zoom >= 12] {
+           line-color: @trunk-fill;
+           line-width: @trunk-width-z12 - 2 * @major-casing-width-z12;
+@@ -1452,6 +1551,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+         [zoom >= 9] { line-width: @primary-width-z9; }
+         [zoom >= 10] { line-width: @primary-width-z10; }
+         [zoom >= 11] { line-width: @primary-width-z11; }
++        [int_surface = 'unpaved'][zoom >= 8][zoom < 13] {
++          line-dasharray: 8,2;
++          [zoom = 12] {
++            line-dasharray: @primary-width-z12*2,@primary-width-z12;
 +          }
-         }
-         [service = 'INT-minor'] {
-           line-width: @minor-service-width-z16;
-           [zoom >= 17] { line-width: @minor-service-width-z17; }
-           [zoom >= 18] { line-width: @minor-service-width-z18; }
-           [zoom >= 19] { line-width: @minor-service-width-z19; }
-+          .roads-casing {
-+            [int_surface = 'unpaved'] {
-+              line-dasharray: @minor-service-width-z14*2,@minor-service-width-z14;
-+              [zoom >= 16] { line-dasharray: @minor-service-width-z16*2,@minor-service-width-z16; }
-+              [zoom >= 17] { line-dasharray: @minor-service-width-z17*2,@minor-service-width-z17; }
-+              [zoom >= 18] { line-dasharray: @minor-service-width-z18*2,@minor-service-width-z18; }
-+              [zoom >= 19] { line-dasharray: @minor-service-width-z19*2,@minor-service-width-z19; }
-+            }
-+          }
-         }
-         .roads-casing {
-           line-join: round;
-@@ -544,6 +671,15 @@
-         .roads-casing {
-           line-cap: round;
-           line-join: round;
-+          [int_surface = 'unpaved'] {
-+            line-dasharray: @living-street-width-z13*2,@living-street-width-z13;
-+            [zoom >= 14] { line-dasharray: @living-street-width-z14*2,@living-street-width-z14; }
-+            [zoom >= 15] { line-dasharray: @living-street-width-z15*2,@living-street-width-z15; }
-+            [zoom >= 16] { line-dasharray: @living-street-width-z16*2,@living-street-width-z16; }
-+            [zoom >= 17] { line-dasharray: @living-street-width-z17*2,@living-street-width-z17; }
-+            [zoom >= 18] { line-dasharray: @living-street-width-z18*2,@living-street-width-z18; }
-+            [zoom >= 19] { line-dasharray: @living-street-width-z19*2,@living-street-width-z19; }
-+          }
-         }
-         .tunnels-casing {
-           line-dasharray: 4,2;
-@@ -766,7 +902,9 @@
-     }
- 
-     [feature = 'railway_disused'][zoom >= 15],
-+    /*
-     [feature = 'railway_construction'],
-+    */
-     [feature = 'railway_miniature'][zoom >= 15],
-     [feature = 'railway_INT-preserved-ssy'][zoom >= 14] {
-       .bridges-casing {
-@@ -980,8 +1118,10 @@
-       }
-     }
- 
-+    /*
-     [feature = 'railway_disused'][zoom >= 15],
-     [feature = 'railway_construction'],
-+    */
-     [feature = 'railway_miniature'][zoom >= 15],
-     [feature = 'railway_INT-preserved-ssy'][zoom >= 14] {
-       .bridges-casing {
-@@ -1081,6 +1221,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-      * https://github.com/mapbox/carto/issues/235
-      * https://github.com/mapbox/carto/issues/237
-      */
-+    /*
-     [feature = 'highway_construction'] {
-       [zoom >= 12] {
-         line-width: 2;
-@@ -1156,6 +1297,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-         }
-       }
-     }
-+    */
- 
-     [feature = 'highway_motorway'] {
-       [zoom >= 5] {
-@@ -1217,6 +1359,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-       [zoom >= 9] { line-width: @trunk-width-z9; }
-       [zoom >= 10] { line-width: @trunk-width-z10; }
-       [zoom >= 11] { line-width: @trunk-width-z11; }
-+      [int_surface = 'unpaved'][zoom >= 5][zoom < 12] {
-+        line-dasharray: 8,2;
-+      }
-       [zoom >= 12] {
-         line-color: @trunk-fill;
-         line-width: @trunk-width-z12 - 2 * @major-casing-width-z12;
-@@ -1249,6 +1394,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-       [zoom >= 9] { line-width: @primary-width-z9; }
-       [zoom >= 10] { line-width: @primary-width-z10; }
-       [zoom >= 11] { line-width: @primary-width-z11; }
-+      [int_surface = 'unpaved'][zoom >= 8][zoom < 12] {
-+        line-dasharray: 8,2;
-+      }
-       [zoom >= 12] {
-         line-color: @primary-fill;
-         line-width: @primary-width-z12 - 2 * @major-casing-width-z12;
-@@ -1275,16 +1423,15 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
- 
++        }
+         [zoom >= 12] {
+           line-color: @primary-fill;
+           line-width: @primary-width-z12 - 2 * @major-casing-width-z12;
+@@ -1496,10 +1601,16 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
      [feature = 'highway_secondary'] {
-       [zoom >= 9] {
+       [zoom >= 9][link != 'yes'],
+       [zoom >= 10] {
 -        line-color: @unimportant-road;
 +        line-color: @secondary-low-zoom;
          line-width: @secondary-width-z9;
-       }
--      [zoom >=10] {
--        line-color: @unimportant-road;
-+      [zoom >= 10] {
-         line-width: @secondary-width-z10;
-       }
-       [zoom >= 11] { line-width: @secondary-width-z11; }
--      [zoom >= 12] { 
--        line-color: @secondary-fill;
-+      [zoom >= 12] {
-+        // line-color: @secondary-fill;
-         line-width: @secondary-width-z12 - 2 * @secondary-casing-width-z12;
-         line-cap: round;
-         line-join: round;
-@@ -1311,6 +1458,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-           }
+         [zoom >= 10] { line-width: @secondary-width-z10; }
+         [zoom >= 11] { line-width: @secondary-width-z11; }
++        [int_surface = 'unpaved'][zoom >= 9][zoom < 13] {
++          line-dasharray: 8,2;
++          [zoom = 12] {
++            line-dasharray: @secondary-width-z12*2,@secondary-width-z12;
++          }
++        }
+         [zoom >= 12] {
+           line-color: @secondary-fill;
+           line-width: @secondary-width-z12 - 2 * @secondary-casing-width-z12;
+@@ -1554,6 +1665,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+         [zoom >= 11] {
+           line-width: @tertiary-width-z11;
          }
-       }
-+      [int_surface = 'unpaved'][zoom >= 9][zoom < 13] {
-+        line-dasharray: 10,5;
-+      }
-     }
- 
-     [feature = 'highway_tertiary'] {
-@@ -1356,6 +1506,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
++        [int_surface = 'unpaved'][zoom >= 10][zoom < 12] {
++          line-dasharray: 8,2;
++        }
+         [zoom >= 12] {
+           line-color: @tertiary-fill;
+           line-width: @tertiary-width-z12 - 2 * @casing-width-z12;
+@@ -1609,6 +1723,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
          line-color: @unimportant-road;
-         line-width: 1;
+         line-width: @unclassified-width-z12;
        }
 +      [int_surface = 'unpaved'][zoom = 12] {
 +        line-dasharray: 8,2;
@@ -3360,7 +3359,7 @@ index c7f5fb2..a25e32c 100644
        [zoom >= 13] {
          line-width: @residential-width-z13 - 2 * @residential-casing-width-z13;
          [zoom >= 14] { line-width: @residential-width-z14 - 2 * @casing-width-z14; }
-@@ -1419,6 +1572,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -1672,6 +1789,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
          line-color: @unimportant-road;
          line-join: round;
          line-cap: round;
@@ -3370,19 +3369,15 @@ index c7f5fb2..a25e32c 100644
        }
        [zoom >= 14] {
          line-width: @road-width-z14 - 2 * @casing-width-z14;
-@@ -1446,7 +1602,10 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -1699,6 +1819,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
      [feature = 'highway_service'] {
-       [zoom >= 13][service = 'INT-normal'] {
-         line-width: 1;
--        line-color: @unimportant-road;
-+        line-color: @unimportant-minor-road;
-+        [int_surface = 'unpaved'] {
-+          line-dasharray: 8,2;
-+        }
-       }
        [zoom >= 14][service = 'INT-normal'],
        [zoom >= 16][service = 'INT-minor'] {
-@@ -1524,6 +1683,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
++        // line-color: @unimportant-road;
+         line-color: @service-fill;
+         [service = 'INT-normal'] {
+           line-width: @service-width-z14 - 2 * @casing-width-z14;
+@@ -1771,6 +1892,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        [zoom >= 18] { line-width: 8; }
        [zoom >= 19] { line-width: 12; }
        [zoom >= 20] { line-width: 24; }
@@ -3392,11 +3387,125 @@ index c7f5fb2..a25e32c 100644
      }
  
      [feature = 'highway_platform'] {
-@@ -1809,13 +1971,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -1831,8 +1955,32 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+     [feature = 'highway_path'][bicycle != 'designated'][horse != 'designated'] {
+       [zoom >= 14][access != 'no'],
+       [zoom >= 15] {
+-        #roads-fill[zoom >= 15] {
++        #roads-fill[zoom >= 13] {
+           background/line-color: @footway-casing;
++          [sac_scale = 'hiking'] {
++            background/line-color: @hiking;
++            background/line-opacity: 0.2;
++          }
++          [sac_scale = 'mountain_hiking'] {
++            background/line-color: @mountain_hiking;
++            background/line-opacity: 0.2;
++          }
++          [sac_scale = 'demanding_mountain_hiking'] {
++            background/line-color: @demanding_mountain_hiking;
++            background/line-opacity: 0.2;
++          }
++          [sac_scale = 'alpine_hiking'] {
++            background/line-color: @alpine_hiking;
++            background/line-opacity: 0.2;
++          }
++          [sac_scale = 'demanding_alpine_hiking'] {
++            background/line-color: @demanding_alpine_hiking;
++            background/line-opacity: 0.2;
++          }
++          [sac_scale = 'difficult_alpine_hiking'] {
++            background/line-color: @difficult_alpine_hiking;
++            background/line-opacity: 0.2;
++          }
+           background/line-cap: round;
+           background/line-join: round;
+           background/line-width: @footway-width-z15 + 2 * @paths-background-width;
+@@ -1996,6 +2144,30 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+         #roads-fill[zoom >= 15] {
+           background/line-opacity: 0.4;
+           background/line-color: @track-casing;
++          [sac_scale = 'hiking'] {
++            background/line-color: @hiking;
++            background/line-opacity: 0.2;
++          }
++          [sac_scale = 'mountain_hiking'] {
++            background/line-color: @mountain_hiking;
++            background/line-opacity: 0.2;
++          }
++          [sac_scale = 'demanding_mountain_hiking'] {
++            background/line-color: @demanding_mountain_hiking;
++            background/line-opacity: 0.2;
++          }
++          [sac_scale = 'alpine_hiking'] {
++            background/line-color: @alpine_hiking;
++            background/line-opacity: 0.2;
++          }
++          [sac_scale = 'demanding_alpine_hiking'] {
++            background/line-color: @demanding_alpine_hiking;
++            background/line-opacity: 0.2;
++          }
++          [sac_scale = 'difficult_alpine_hiking'] {
++            background/line-color: @difficult_alpine_hiking;
++            background/line-opacity: 0.2;
++          }
+           background/line-join: round;
+           background/line-cap: round;
+           background/line-width: @track-width-z15 + 2 * @paths-background-width;
+@@ -2009,9 +2181,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+         }
+ 
+         /* Set the properties of the brown inside */
++        line/line-color: @footway-fill;
++        [zoom >= 15] {
+           line/line-color: @track-fill;
++        }
+         [access = 'no'] { line/line-color: @track-fill-noaccess; }
+-        line/line-dasharray: 5,4,2,4;
++        line/line-dasharray: 8,3;
+         line/line-cap: round;
+         line/line-join: round;
+         line/line-opacity: 0.8;
+@@ -2020,23 +2195,24 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+         line/line-width: @track-width-z13;
+ 
+         [tracktype = 'grade1'] {
+-          line/line-dasharray: 100,0;
++          line/line-dasharray: 8,3,2,3;
+         }
+         [tracktype = 'grade2'] {
+-          line/line-dasharray: 8.8,3.2;
++          line/line-dasharray: 8,3,2,3,2,3;
+         }
+         [tracktype = 'grade3'] {
+-          line/line-dasharray: 5.6,4.0;
++          line/line-dasharray: 8,3,2,3,2,3,2,3;
+         }
+         [tracktype = 'grade4'] {
+-          line/line-dasharray: 3.2,4.8;
++          line/line-dasharray: 8,3,2,3,2,3,2,3,2,3;
+         }
+         [tracktype = 'grade5'] {
+-          line/line-dasharray: 1.6,6.4;
++          line/line-dasharray: 8,3,2,3,2,3,2,3,2,3,2,3;
+         }
+ 
+         [zoom >= 15] {
+           line/line-width: @track-width-z15;
++          /*
+           [tracktype = 'grade1'] {
+             line/line-dasharray: 100,0;
+           }
+@@ -2052,17 +2228,18 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+           [tracktype = 'grade5'] {
+             line/line-dasharray: 2,8;
+           }
++          */
+         }
        }
      }
  
--    [feature = 'railway_rail'][zoom >= 7],
+-    [feature = 'railway_rail'][zoom >= 8],
 +    [feature = 'railway_rail'][zoom >= 5],
      [feature = 'railway_INT-spur-siding-yard'][zoom >= 13] {
        [zoom < 13] {
@@ -3405,38 +3514,12 @@ index c7f5fb2..a25e32c 100644
          line-width: 0.5;
 -        [zoom >= 8] { line-width: 0.8; }
 -        [zoom >= 12] { line-width: 0.9; }
-+        [zoom >= 7] { line-width: 1.0; }
-+        [zoom >= 9] { line-width: 2.0; }
++        [zoom >= 8] { line-width: 1.0; }
++        [zoom >= 12] { line-width: 2.0; }
          line-join: round;
-         .roads_low_zoom[int_tunnel = 'yes'], .tunnels-fill {
+         .roads_low_zoom[int_tunnel = 'yes'], #tunnels {
            line-dasharray: 5,2;
-@@ -1998,6 +2160,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-       }
-     }
- 
-+    /*
-     [feature = 'railway_construction'] {
-       [zoom >= 13] {
-         line-color: grey;
-@@ -2013,7 +2176,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-         }
-       }
-     }
-+    */
- 
-+    /*
-     [feature = 'railway_disused'] {
-       [zoom >= 15] {
-         line-color: #aaa;
-@@ -2022,6 +2187,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-         line-join: round;
-       }
-     }
-+    */
- 
-     [feature = 'railway_platform'] {
-       [zoom >= 16] {
-@@ -2066,6 +2232,26 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -2291,6 +2468,23 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        }
      }
    }
@@ -3451,9 +3534,6 @@ index c7f5fb2..a25e32c 100644
 +        }
 +        [feature = 'highway_trunk'][link = 'no'] {
 +          line-color: white;
-+          [int_surface = 'unpaved'] {
-+            line-dasharray: 8,2;
-+          }
 +        }
 +      }
 +      [zoom >= 14] { line-width: 1.5; }
@@ -3463,44 +3543,42 @@ index c7f5fb2..a25e32c 100644
  }
  
  #turning-circle-casing {
-@@ -2445,7 +2631,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-   }
- }
- 
--#bridge-text  {
-+#bridge-text {
-   [man_made = 'bridge'] {
-     [zoom >= 12][way_pixels > 62.5] {
-       text-name: "[name]";
-@@ -2764,30 +2950,37 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-   [highway = 'motorway'],
-   [highway = 'trunk'],
-   [highway = 'primary'],
-+  /*
-   [highway = 'construction'][construction = 'motorway'],
-   [highway = 'construction'][construction = 'trunk'],
--  [highway = 'construction'][construction = 'primary'] {
-+  [highway = 'construction'][construction = 'primary']*/ {
+@@ -3054,26 +3248,44 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+   [highway = 'construction'][construction = 'primary'] {
      [zoom >= 13] {
        text-name: "[name]";
 -      text-size: 8;
+-      text-fill: black;
 +      text-size: 10;
-       text-fill: black;
++      text-fill: white;
++      [tunnel = 'yes'] {
++        text-fill: gray;
++      }
        text-spacing: 300;
        text-clip: false;
        text-placement: line;
        text-face-name: @book-fonts;
+       text-repeat-distance: @major-highway-text-repeat-distance;
++      /*
        [tunnel = 'no'] {
-+        /*
          text-halo-radius: @standard-halo-radius;
          [highway = 'motorway'] { text-halo-fill: @motorway-fill; }
          [highway = 'trunk'] { text-halo-fill: @trunk-fill; }
          [highway = 'primary'] { text-halo-fill: @primary-fill; }
-+        */
-+        text-halo-radius: 1.5;
-+        text-halo-fill: white;
        }
-     }
++      */
++      text-halo-radius: @standard-halo-radius;
++      [highway = 'motorway'],
++      [highway = 'construction'][construction = 'motorway'],
++      [highway = 'trunk'],
++      [highway = 'construction'][construction = 'trunk'] {
++        text-halo-fill: @motorway-fill;
+       }
++      [highway = 'primary'],
++      [highway = 'construction'][construction = 'primary'] {
++        text-halo-fill: @primary-fill;
++      }
++    }
 +    /*
      [zoom >= 14] {
        text-size: 9;
@@ -3512,25 +3590,20 @@ index c7f5fb2..a25e32c 100644
      [zoom >= 17] {
        text-size: 11;
      }
-@@ -2796,24 +2989,27 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-     }
-   }
-   [highway = 'secondary'],
--  [highway = 'construction'][construction = 'secondary'] {
-+  /*
-+  [highway = 'construction'][construction = 'secondary']*/ {
+@@ -3085,8 +3297,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+   [highway = 'construction'][construction = 'secondary'] {
      [zoom >= 13] {
        text-name: "[name]";
 -      text-size: 8;
+-      text-fill: black;
 +      text-size: 10;
-       text-fill: black;
++      text-fill: white;
        text-spacing: 300;
        text-clip: false;
        text-placement: line;
-       text-face-name: @book-fonts;
-       text-halo-radius: @standard-halo-radius;
--      text-halo-fill: @secondary-fill;
-+      text-halo-fill: white;
+@@ -3095,12 +3307,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+       text-halo-fill: @secondary-fill;
+       text-repeat-distance: @major-highway-text-repeat-distance;
      }
 +    /*
      [zoom >= 14] {
@@ -3543,13 +3616,8 @@ index c7f5fb2..a25e32c 100644
      [zoom >= 17] {
        text-size: 11;
      }
-@@ -2822,17 +3018,18 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-     }
-   }
-   [highway = 'tertiary'],
--  [highway = 'construction'][construction = 'tertiary'] {
-+  /*
-+  [highway = 'construction'][construction = 'tertiary']*/ {
+@@ -3112,7 +3326,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+   [highway = 'construction'][construction = 'tertiary'] {
      [zoom >= 14] {
        text-name: "[name]";
 -      text-size: 9;
@@ -3557,35 +3625,8 @@ index c7f5fb2..a25e32c 100644
        text-fill: black;
        text-spacing: 300;
        text-clip: false;
-       text-placement: line;
-       text-face-name: @book-fonts;
-       text-halo-radius: @standard-halo-radius;
--      text-halo-fill: @tertiary-fill;
-+      text-halo-fill: white;
-     }
-     [zoom >= 17] {
-       text-size: 11;
-@@ -2841,6 +3038,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-       text-size: 12;
-     }
-   }
-+  /*
-   [highway = 'construction'][construction = null][zoom >= 16] {
-     text-name: "[name]";
-     text-size: 9;
-@@ -2861,26 +3059,30 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
-       text-spacing: 400;
-     }
-   }
-+  */
-   [highway = 'residential'],
-   [highway = 'unclassified'],
-   [highway = 'road'],
-+  /*
-   [highway = 'construction'][construction = 'residential'],
-   [highway = 'construction'][construction = 'unclassified'],
--  [highway = 'construction'][construction = 'road'] {
-+  [highway = 'construction'][construction = 'road']*/ {
+@@ -3159,20 +3373,22 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+   [highway = 'construction'][construction = 'road'] {
      [zoom >= 15] {
        text-name: "[name]";
 -      text-size: 8;
@@ -3598,6 +3639,8 @@ index c7f5fb2..a25e32c 100644
 -      text-halo-fill: @residential-fill;
 +      text-halo-fill: white;
        text-face-name: @book-fonts;
+       text-repeat-distance: @minor-highway-text-repeat-distance;
+       [highway = 'unclassified'] { text-repeat-distance: @major-highway-text-repeat-distance;}
      }
 +    /*
      [zoom >= 16] {
@@ -3607,29 +3650,7 @@ index c7f5fb2..a25e32c 100644
      [zoom >= 17] {
        text-size: 11;
        text-spacing: 400;
-@@ -2893,8 +3095,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
- 
-   [highway = 'raceway'],
-   [highway = 'service'],
-+  /*
-   [highway = 'construction'][construction = 'raceway'],
--  [highway = 'construction'][construction = 'service'] {
-+  [highway = 'construction'][construction = 'service']*/ {
-     [zoom >= 16] {
-       text-name: "[name]";
-       text-size: 9;
-@@ -2914,8 +3117,9 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
- 
-   [highway = 'living_street'],
-   [highway = 'pedestrian'],
-+  /*
-   [highway = 'construction'][construction = 'living_street'],
--  [highway = 'construction'][construction = 'pedestrian'] {
-+  [highway = 'construction'][construction = 'pedestrian']*/ {
-     [zoom >= 15] {
-       text-name: "[name]";
-       text-size: 8;
-@@ -3031,7 +3235,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -3337,7 +3553,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        [oneway = 'yes'],
        [oneway = '-1'] {
          marker-placement: line;
@@ -3639,12 +3660,12 @@ index c7f5fb2..a25e32c 100644
  
          marker-file: url('symbols/oneway.svg');
 diff --git a/scripts/get-shapefiles.py b/scripts/get-shapefiles.py
-index 32862f3..6443a9c 100755
+index 46de8c9..97fea19 100755
 --- a/scripts/get-shapefiles.py
 +++ b/scripts/get-shapefiles.py
-@@ -82,7 +82,24 @@ settings = {
+@@ -84,7 +84,24 @@ settings = {
          'type': 'zip',
-         'index': ['icesheet_outlines.shp'],
+         'shp_basename': ['icesheet_outlines'],
          'long_opt': '--icesheet-outlines'
 -    }
 +    },
@@ -3668,40 +3689,76 @@ index 32862f3..6443a9c 100755
  }
  
  u_prompt = True
-diff --git a/shapefiles.mss b/shapefiles.mss
-index 1274b57..a91283f 100644
---- a/shapefiles.mss
-+++ b/shapefiles.mss
-@@ -47,7 +47,8 @@
- }
- 
- #builtup {
--  [zoom >= 8][zoom < 10] {
-+  [zoom >= 6][zoom < 10] {
-     polygon-fill: #ddd;
-+    polygon-opacity: 0.5;
-   }
- }
 diff --git a/stations.mss b/stations.mss
-index 6b9b226..4ea8ddf 100644
+index a6339c4..966d888 100644
 --- a/stations.mss
 +++ b/stations.mss
-@@ -2,8 +2,8 @@
- @station-text: darken(saturate(@station-color, 15%), 10%);
+@@ -1,17 +1,17 @@
+-@station-color: #7981b0;
+-@station-text: darken(saturate(@station-color, 15%), 10%);
++@station-color: @transportation-icon;
++@station-text: @transportation-text;
  
  .stations {
 -  [railway = 'subway_entrance'][zoom >= 18] {
 -    marker-file: url('symbols/entrance.10.svg');
-+  [railway = 'subway_entrance'][zoom >= 14] {
++  [railway = 'subway_entrance'][zoom >= @emergency] {
 +    marker-file: url('symbols/london-underground-18.png');
      marker-placement: interior;
-     marker-fill: @transportation-icon;
+-    marker-fill: @transportation-icon;
++    marker-fill: @station-color;
      marker-clip: false;
+     [zoom >= 19] {
+       text-name: [ref];
+       text-face-name: @book-fonts;
+       text-size: 10;
+-      text-fill: @transportation-icon;
++      text-fill: @station-text;
+       text-dy: 10;
+       text-halo-radius: @standard-halo-radius * 1.5;
+       text-halo-fill: @standard-halo-fill;
+@@ -24,6 +24,7 @@
+     marker-file: url('symbols/square.svg');
+     marker-placement: interior;
+     marker-fill: @station-color;
++    marker-width: 4;
+     marker-clip: false;
+     [station != 'subway'] {
+       marker-width: 4;
+@@ -34,11 +35,11 @@
+     }
+     [zoom >= 14] {
+       text-name: "[name]";
+-      text-face-name: @bold-fonts;
++      text-face-name: @book-fonts;
+       text-size: 10;
+       text-fill: @station-text;
+       text-dy: 9;
+-      text-halo-radius: @standard-halo-radius * 1.5;
++      text-halo-radius: @standard-halo-radius;
+       text-halo-fill: @standard-halo-fill;
+       text-wrap-width: 30; // 3 em
+       text-line-spacing: -1.5; // -0.15 em
+@@ -46,10 +47,14 @@
+     }
+     [zoom >= 15] {
+       marker-width: 9;
++      marker-fill: @station-color;
++
++      text-face-name: @bold-fonts;
+       text-size: 11;
+       text-wrap-width: 33; // 3 em
+       text-line-spacing: -1.65; // -0.15 em
+       text-dy: 10;
++      text-halo-radius: @standard-halo-radius * 1.5;
+     }
+   }
+ 
 diff --git a/style.mss b/style.mss
-index 426529e..0c710c5 100644
+index 2eb24ea..c3661f7 100644
 --- a/style.mss
 +++ b/style.mss
-@@ -1,9 +1,193 @@
+@@ -1,9 +1,236 @@
  Map {
 -  background-color: @water-color;
 +  background-color: @land-color;
@@ -3715,23 +3772,31 @@ index 426529e..0c710c5 100644
 +// things that are useful and common enough to see in the near range
 +@useful: 16;
 +
- @water-color: #b5d0d0;
+ @water-color: #aad3df;
 +@water-dark: #5a5aa1;
  @land-color: #f2efe9;
  
 -@standard-halo-radius: 1;
 -@standard-halo-fill: rgba(255,255,255,0.6);
 +@contour-op: minus;
-+@contour-color: #404040;
++@contour-color-light: #404040;
++@contour-color-dark:  #606060;
 +@contour-text: #404040;  // negated
 +@contour-halo: black;
 +
 +@standard-halo-radius: 2.5;
 +@standard-halo-fill: white;
 +
-+@darken-lighten: 50%;
++@darken-lighten: 15%;
 +
-+@rail-fill: #222;
++@rail-fill: #404040;
++
++@hiking: yellow;
++@mountain_hiking: red;
++@demanding_mountain_hiking: violet;
++@alpine_hiking: blue;
++@demanding_alpine_hiking: gray;
++@difficult_alpine_hiking: black;
 +
 +// terrain-small [0-6], terrain-medium [7-8], terrain-big [9-]
 +.terrain {
@@ -3742,7 +3807,7 @@ index 426529e..0c710c5 100644
 +  }
 +}
 +
-+// slopeshade-small [0-6], slopeshade-medium [7]
++// slopeshade-small [0-6], slopeshade-medium [7-8]
 +.slopeshade-over {
 +  comp-op: multiply;
 +  raster-scaling: lanczos;
@@ -3753,7 +3818,7 @@ index 426529e..0c710c5 100644
 +.slopeshade-overlay {
 +  raster-scaling: lanczos;
 +  comp-op: overlay;
-+  // raster-opacity: 0.8;
++  // raster-opacity: 0.5;
 +}
 +
 +// hillshade-small [0-6], hillshade-big [7-8]
@@ -3766,6 +3831,7 @@ index 426529e..0c710c5 100644
 +// hillshade-big [9-]
 +.hillshade-overlay {
 +  [zoom >= 9] {
++    raster-scaling: lanczos;
 +    /* this has its beauty too
 +    // comp-op: overlay;
 +    raster-opacity: 0.5;
@@ -3778,27 +3844,43 @@ index 426529e..0c710c5 100644
 +#contour-50 {
 +  [zoom >= 13] {
 +    comp-op: @contour-op;
-+    line-color: @contour-color;
++    line-color: @contour-color-light;
 +    line-width: 0.5;
 +    line-smooth: 0.8;
-+    line-opacity: 0.2;
++    line-opacity: 0.6;
++  }
++
++  [zoom >= 14] {
++    line-color: @contour-color-dark;
 +  }
 +}
 +
 +#contour-100 {
 +  [zoom >= 11] {
 +    comp-op: @contour-op;
-+    line-color: @contour-color;
++    line-color: @contour-color-light;
 +    line-width: 0.5;
 +    line-smooth: 0.8;
 +    line-opacity: 0.6;
++  }
++
++  [zoom >= 12] {
++    line-opacity: 0.8;
++  }
++
++  [zoom >= 13] {
++    line-opacity: 1.0;
++  }
++
++  [zoom >= 14] {
++    line-color: @contour-color-dark;
 +  }
 +}
 +
 +#contour-250 {
 +  [zoom = 10] {
 +    comp-op: @contour-op;
-+    line-color: @contour-color;
++    line-color: @contour-color-light;
 +    line-width: 0.5;
 +    line-smooth: 0.8;
 +    line-opacity: 0.6;
@@ -3806,9 +3888,9 @@ index 426529e..0c710c5 100644
 +}
 +
 +#contour-500 {
-+  [zoom >= 8] {
++  [zoom >= 9] {
 +    comp-op: @contour-op;
-+    line-color: @contour-color;
++    line-color: @contour-color-light;
 +    line-width: 0.5;
 +    line-smooth: 0.8;
 +    line-opacity: 0.6;
@@ -3820,25 +3902,42 @@ index 426529e..0c710c5 100644
 +
 +  [zoom >= 12] {
 +    line-width: 1;
++    line-opacity: 0.8;
++  }
++
++  [zoom >= 13] {
++    line-opacity: 1.0;
++  }
++
++  [zoom >= 14] {
++    line-color: @contour-color-dark;
 +  }
 +}
 +
 +#contour-1000 {
 +  [zoom >= 8] {
 +    comp-op: @contour-op;
-+    line-color: @contour-color;
++    line-color: @contour-color-light;
 +    line-width: 0.5;
 +    line-smooth: 0.8;
++    line-opacity: 0.6;
 +  }
 +
 +  [zoom >= 10] {
-+    comp-op: @contour-op;
-+    line-width: 1;
++    line-width: 1.0;
 +  }
 +
 +  [zoom >= 12] {
-+    comp-op: @contour-op;
 +    // line-width: 1.5;
++    line-opacity: 0.8;
++  }
++
++  [zoom >= 13] {
++    line-opacity: 1.0;
++  }
++
++  [zoom >= 14] {
++    line-color: @contour-color-dark;
 +  }
 +}
 +
@@ -3882,6 +3981,7 @@ index 426529e..0c710c5 100644
 +    }
 +  }
 +
++
 +  [zoom >= 14] {
 +    line-width: 2;
 +    line-opacity: 0.6;
@@ -3898,18 +3998,79 @@ index 426529e..0c710c5 100644
 +    text-placement: line;
 +  }
 +}
+diff --git a/water-features.mss b/water-features.mss
+index 97efe0a..69320a2 100644
+--- a/water-features.mss
++++ b/water-features.mss
+@@ -5,6 +5,20 @@
+ @lock-gate: #aaa;
+ @lock-gate-line: #aaa;
+ 
++#springs-casing {
++  [natural = 'spring'] {
++    marker-width: 6;
++    [zoom >= 17] {
++      marker-width: 6.5;
++    }
++    marker-fill: @water-dark;
++    marker-line-width: 0;
++    marker-allow-overlap: true;
++  }
++}
++
++
++
+ #water-barriers-point, #water-barriers-line, #water-barriers-poly {
+   [waterway = 'dam'] {
+     #water-barriers-poly[zoom >= 13] {
+@@ -64,6 +78,15 @@
+   }
+ }
+ 
++// local
++// see amenity-points.mss for the point symbol
++#water-barriers-line[zoom >= 13] {
++  [waterway = 'waterfall'],
++  [natural  = 'waterfall'] {
++    line-pattern-file: url('symbols/big_waterfall.svg');
++  }
++}
++
+ #piers-poly, #piers-line {
+   [man_made = 'pier'][zoom >= 12] {
+     #piers-poly {
+@@ -168,7 +191,16 @@
+ 
+ #springs {
+   [natural = 'spring'][zoom >= 14] {
++    /*
+     marker-file: url('symbols/spring.svg');
+     marker-clip: false;
++    */
++    marker-width: 4;
++    [zoom >= 17] {
++      marker-width: 4.5;
++    }
++    marker-fill: @water-color;
++    marker-line-width: 0;
++    marker-allow-overlap: true;
+   }
+ }
 diff --git a/water.mss b/water.mss
-index 3a766df..0e34243 100644
+index 1c26551..94515cf 100644
 --- a/water.mss
 +++ b/water.mss
-@@ -1,8 +1,48 @@
--@water-text: #6699cc;
+@@ -1,22 +1,50 @@
+-@water-text: #4d80b3;
 -@glacier: #ddecec;
 -@glacier-line: #9cf;
 +@water-text: @water-dark;
 +@glacier: #adbcec;
-+@glacier-line: #69f;
-+
++@glacier-line: #6cf;
+ 
+ @waterway-text-repeat-distance: 200;
+ 
+-#water-areas {
 +// local
 +#water-areas::border {
 +  [natural = 'lake'][way_pixels >= 4],
@@ -3932,37 +4093,29 @@ index 3a766df..0e34243 100644
 +  }
 +}
 +
++// renamed water-areas to glacier
 +#glacier {
-+  [natural = 'glacier']::natural {
-+    [zoom >= 6] {
-+      line-width: 0.75;
-+      line-color: @glacier-line;
-+      polygon-fill: @glacier;
+   [natural = 'glacier']::natural {
+     [zoom >= 5] {
+       line-width: 1.0;
+       line-color: @glacier-line;
+       polygon-fill: @glacier;
 +      [zoom >= 8] {
 +        line-width: 1;
 +      }
-+      [zoom >= 10] {
-+        line-dasharray: 4,2;
-+        line-width: 1.5;
-+      }
-+    }
-+  }
-+}
- 
- #water-areas {
-+  /*
-   [natural = 'glacier']::natural {
-     [zoom >= 6] {
-       line-width: 0.75;
-@@ -17,6 +57,7 @@
+       [zoom >= 10] {
+         line-dasharray: 4,2;
+         line-width: 1.5;
        }
      }
    }
-+  */
++}
  
++#water-areas {
    [waterway = 'dock'] {
      [zoom >= 9]::waterway {
-@@ -55,6 +96,34 @@
+       polygon-fill: @water-color;
+@@ -82,6 +110,34 @@
    }
  }
  
@@ -3997,16 +4150,16 @@ index 3a766df..0e34243 100644
  #water-lines-casing {
    [waterway = 'stream'],
    [waterway = 'ditch'],
-@@ -62,7 +131,7 @@
-     [int_tunnel = 'no'] {
-       [zoom >= 13] {
+@@ -90,7 +146,7 @@
+       [int_intermittent != 'yes'][zoom >= 14],
+       [zoom >= 15] {
          line-width: 2.5;
 -        line-color: white;
 +        line-color: @water-dark;
          [waterway = 'stream'][zoom >= 15] {
            line-width: 3.5;
          }
-@@ -75,6 +144,39 @@
+@@ -103,6 +159,39 @@
        }
      }
    }
@@ -4046,24 +4199,26 @@ index 3a766df..0e34243 100644
  }
  
  #water-lines-low-zoom {
-@@ -87,7 +189,10 @@
+@@ -113,9 +202,13 @@
+       line-join: round;
+       line-clip: false;
      }
-     line-color: @water-color;
+-    line-color: @water-color;
++    line-color: @water-dark;
      line-width: 0.7;
 -    [zoom >= 9] { line-width: 1.2; }
-+    [zoom >= 8] { line-width: 0.5; }
++    [zoom >= 8] { line-width: 1; }
 +    [zoom >= 9] {
 +      line-width: 1.2;
++      line-color: @water-color;
 +    }
      [zoom >= 10] { line-width: 1.6; }
    }
  }
-@@ -313,7 +418,19 @@
-   }
- }
+@@ -318,6 +411,18 @@
  
--.text[zoom >= 10] {
-+.text[zoom >= 5] {
+ .text-low-zoom[zoom < 10],
+ .text[zoom >= 10] {
 +  [feature = 'place_ocean'],
 +  [feature = 'place_sea'] {
 +    #text-point[zoom >= 5] {
@@ -4077,5 +4232,5 @@ index 3a766df..0e34243 100644
 +  }
 +
    [feature = 'natural_water'],
-   [feature = 'landuse_reservoir'],
-   [feature = 'landuse_basin'] {
+   [feature = 'natural_bay'],
+   [feature = 'natural_strait'],

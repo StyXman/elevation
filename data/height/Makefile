@@ -4,12 +4,17 @@
 
 # options used everywhere
 gopts = -co BIGTIFF=YES
-# -co TILED=YES -co COMPRESS=LZMA -co LZMA_PRESET=9
-# options used in final filkes because of
+
+# options used in final files because of
 # Cannot open TIFF file due to missing codec
 # see: https://gis.stackexchange.com/questions/72463/qgis-2-0-cannot-open-tiff
+# -co TILED=YES -co COMPRESS=LZMA -co LZMA_PRESET=9
 final_gopts = -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW
+
 # apply to slope (not slopeshade) and hillshade processing
+# the ratio of vertical units to horizontal
+# if data is in WGS84 projection (standard latitude/longitude), h=1°
+# 1° == 111120m at 0,0
 # scale_option = -s 111120
 scale_option = -s 1
 
@@ -40,18 +45,22 @@ corrected_files = $(foreach column,\
                         000 001 002 003 004 005 006 007 008 009 010 011 012\
                         013 014 015 016 017 018 019 020 021 022 023 024 025,\
 				$(column)x$(line)-corrected.tif))
-terrain_files =   $(foreach height_file,$(height_files),$(subst -corrected.tif,-terrain.tif,   $(height_file)))
-hill_files =      $(foreach height_file,$(height_files),$(subst -corrected.tif,-hillshade.tif, $(height_file)))
-slope_files =     $(foreach height_file,$(height_files),$(subst -corrected.tif,-slopeshade.tif,$(height_file)))
-contour_files =   $(foreach height_file,$(height_files),$(subst -corrected.tif,-contour.sql.xz,$(height_file)))
+
+terrain_files =    $(foreach height_file,$(height_files),$(subst -corrected.tif,-terrain.tif,   $(height_file)))
+hill_files =       $(foreach height_file,$(height_files),$(subst -corrected.tif,-hillshade.tif, $(height_file)))
+slope_orig_files = $(foreach height_file,$(height_files),$(subst -corrected.tif,-slopeshade.orig.tif,$(height_file)))
+slope_files =      $(foreach height_file,$(height_files),$(subst -corrected.tif,-slopeshade.tif,$(height_file)))
+contour_files =    $(foreach height_file,$(height_files),$(subst -corrected.tif,-contour.sql.xz,$(height_file)))
+
 all_files = $(sort $(terrain_files) $(hill_files) $(slope_files) $(contour_files))
 
 echo:
-	echo $(corrected_files)
-	echo $(all_files)
+#	@echo $(corrected_files)
+	@echo $(all_files)
 
 # do not remove these intermediate files
 .SECONDARY: $(corrected_files)
+.SECONDARY: $(slope_orig_files)
 
 # but removed failed ones
 .DELETE_ON_ERROR:
@@ -64,7 +73,8 @@ WebMerc = "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0
 m_per_pixel=30.92208077590933
 
 %-corrected.tif: %.hgt
-	gdalwarp $(gopts) -t_srs $(WebMerc) -r lanczos -tr $(m_per_pixel) -$(m_per_pixel) $< $@;
+	gdalwarp $(gopts) -t_srs $(WebMerc) -r lanczos -tr $(m_per_pixel) -$(m_per_pixel) \
+	    $< $@;
 
 %-terrain.tif: %-corrected.tif color-relief.txt
 	gdaldem color-relief -alpha $(gopts) $< color-relief.txt /vsistdout/ | \
@@ -74,13 +84,21 @@ m_per_pixel=30.92208077590933
 	gdaldem hillshade -alg Horn $(scale_option) -compute_edges $(final_gopts) $< $@
 
 %-combined.tif: %-corrected.tif
-	gdaldem hillshade -combined -alg Horn $(scale_option) -compute_edges $(final_gopts) $< $@
+	gdaldem hillshade -combined -alg Horn $(scale_option) -compute_edges $(final_gopts) \
+	    $< $@
 
-%-slopeshade.tif: %-corrected.tif slope.txt
+%-slopeshade.orig.tif: %-corrected.tif slope.txt
 	gdaldem slope -alg Horn $(scale_option) -compute_edges $(gopts) $< /vsistdout/ | \
 	    gdaldem color-relief $(gopts) /vsistdin/ slope.txt /vsistdout/ | \
 	    gdal_translate $(final_gopts) -b 1 /vsistdin/ $@
-	$(HOME)/local/bin/gdal_edit.py -colorinterp_1 gray $@
+	gdal_edit.py -colorinterp_1 gray $@
+
+%-slopeshade.tif: %-slopeshade.orig.tif
+	gdal_calc.py -A $< --outfile $@ --calc 'A-20' --co BIGTIFF=YES --co TILED=YES \
+	    --co COMPRESS=LZW
+# TODO:
+# 	gdal_translate $(final_gopts) -b 1 /vsistdin/ $@
+# 	gdal_edit.py -colorinterp_1 gray $@
 
 %-corrected.shp/contour.shp: %-corrected.tif
 	mkdir -pv $(dir $@)
@@ -103,7 +121,8 @@ terrain.vrt: *-terrain.tif
 # SECOND GOAL
 # the second goal is to combine these versions in three .vrt files,
 # so it can be used directly by the rendering engine
-# and also a small version so it can be used for rendering low zoom levels (currently 7 and below)
+# and also a small version so it can be used for rendering low zoom levels
+# (currently 7 and below)
 
 # iterate first over the suffixes, then the datafiles
 # so .vrt are built first and small later
@@ -118,13 +137,15 @@ main: $(main_files)
 	rm -f $@
 # 4 times less resolute than the original
 # units/pixel= 1 deg/900 (4 arc sec) = 0.001111111111111
-	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 123.68832310363732 -123.68832310363732 $< $@
+	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW \
+	    -tr 123.68832310363732 -123.68832310363732 $< $@
 
 %-small.tif: %.vrt
 	rm -f $@
 # 8 times less resolute than the original
 # units/pixel= 1 deg/450 (8 arc sec) = 0.002222222222222
-	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 247.37664620727463 -247.37664620727463 $< $@
+	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW \
+	    -tr 247.37664620727463 -247.37664620727463 $< $@
 
 tiny: mixed-terrain-tiny.tif mixed-hillshade-tiny.tif mixed-slopeshade-tiny.tif
 
@@ -132,4 +153,5 @@ tiny: mixed-terrain-tiny.tif mixed-hillshade-tiny.tif mixed-slopeshade-tiny.tif
 	rm -f $@
 # 8 times less resolute than -small (64 times the original)
 # units/pixel= 1 deg/56.25 (64 arc sec) = 0.017777777777778
-	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -tr 1979.013169658197 -1979.013169658197 $< $@
+	gdalwarp -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW \
+	    -tr 1979.013169658197 -1979.013169658197 $< $@
