@@ -12,4 +12,5 @@ PYTHON="python3 -s"
 nice -n 19 $PYTHON ./generate_tiles.py \
     --input-file Elevation.xml \
     --output-dir Elevation \
-    --metatile-size 8 --log-file render.log "$@"
+    --metatile-size 8 --empty-color '#aad3df' \
+    --log-file render.log "$@"
