@@ -1570,7 +1570,7 @@
 <Style name="contour-50" filter-mode="first" comp-op="overlay">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#7f7f7f" stroke-width="0.5" smooth="0.8" stroke-opacity="0.6" />
+    <LineSymbolizer stroke="#bfbfbf" stroke-width="0.5" smooth="0.8" stroke-opacity="0.6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -1598,7 +1598,7 @@
 <Style name="contour-100" filter-mode="first" comp-op="overlay">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#7f7f7f" stroke-opacity="1" stroke-width="0.5" smooth="0.8" />
+    <LineSymbolizer stroke="#bfbfbf" stroke-opacity="1" stroke-width="0.5" smooth="0.8" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -1660,7 +1660,7 @@
 <Style name="contour-500" filter-mode="first" comp-op="overlay">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#7f7f7f" stroke-opacity="1" stroke-width="1" smooth="0.8" />
+    <LineSymbolizer stroke="#bfbfbf" stroke-opacity="1" stroke-width="1" smooth="0.8" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -1703,7 +1703,7 @@
 <Style name="contour-1000" filter-mode="first" comp-op="overlay">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#7f7f7f" stroke-opacity="1" stroke-width="1" smooth="0.8" />
+    <LineSymbolizer stroke="#bfbfbf" stroke-opacity="1" stroke-width="1" smooth="0.8" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
