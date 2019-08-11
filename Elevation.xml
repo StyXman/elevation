@@ -1567,10 +1567,10 @@
     </Datasource>
   </Layer>
 
-<Style name="contour-50" filter-mode="first" comp-op="minus">
+<Style name="contour-50" filter-mode="first" comp-op="hue">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#bfbfff" stroke-width="0.5" smooth="0.8" stroke-opacity="0.6" />
+    <LineSymbolizer stroke="#000000" stroke-width="0.5" smooth="0.8" stroke-opacity="0.6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -1595,10 +1595,10 @@
     </Datasource>
   </Layer>
 
-<Style name="contour-100" filter-mode="first" comp-op="minus">
+<Style name="contour-100" filter-mode="first" comp-op="hue">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#bfbfff" stroke-opacity="1" stroke-width="0.5" smooth="0.8" />
+    <LineSymbolizer stroke="#000000" stroke-opacity="1" stroke-width="0.5" smooth="0.8" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -1633,7 +1633,7 @@
     </Datasource>
   </Layer>
 
-<Style name="contour-250" filter-mode="first" comp-op="minus">
+<Style name="contour-250" filter-mode="first" comp-op="hue">
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
@@ -1657,10 +1657,10 @@
     </Datasource>
   </Layer>
 
-<Style name="contour-500" filter-mode="first" comp-op="minus">
+<Style name="contour-500" filter-mode="first" comp-op="hue">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#bfbfff" stroke-opacity="1" stroke-width="1" smooth="0.8" />
+    <LineSymbolizer stroke="#000000" stroke-opacity="1" stroke-width="1" smooth="0.8" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -1700,10 +1700,36 @@
     </Datasource>
   </Layer>
 
-<Style name="contour-1000" filter-mode="first" comp-op="minus">
+<Style name="contour-1000-value" filter-mode="first" comp-op="value">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#bfbfff" stroke-opacity="1" stroke-width="1" smooth="0.8" />
+    <LineSymbolizer stroke="#000000" stroke-opacity="1" stroke-width="1" smooth="0.8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <LineSymbolizer stroke-opacity="1" stroke-width="1" stroke="#808080" smooth="0.8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <LineSymbolizer stroke-opacity="0.8" stroke-width="1" stroke="#808080" smooth="0.8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="1" stroke="#808080" smooth="0.8" stroke-opacity="0.6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <LineSymbolizer stroke="#808080" stroke-width="0.5" smooth="0.8" stroke-opacity="0.6" />
+  </Rule>
+</Style>
+<Style name="contour-1000-saturation" filter-mode="first" comp-op="saturation">
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <LineSymbolizer stroke="#000000" stroke-opacity="1" stroke-width="1" smooth="0.8" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -1729,7 +1755,8 @@
 <Layer name="contour-1000"
   maximum-scale-denominator="3000000"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-    <StyleName>contour-1000</StyleName>
+    <StyleName>contour-1000-saturation</StyleName>
+    <StyleName>contour-1000-value</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="dbname"><![CDATA[contours]]></Parameter>
