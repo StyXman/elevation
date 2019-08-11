@@ -1567,10 +1567,10 @@
     </Datasource>
   </Layer>
 
-<Style name="contour-50" filter-mode="first" comp-op="difference">
+<Style name="contour-50" filter-mode="first" comp-op="exclusion">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#bfbfff" stroke-width="0.5" smooth="0.8" stroke-opacity="0.6" />
+    <LineSymbolizer stroke="#000000" stroke-width="0.5" smooth="0.8" stroke-opacity="0.6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -1595,10 +1595,10 @@
     </Datasource>
   </Layer>
 
-<Style name="contour-100" filter-mode="first" comp-op="difference">
+<Style name="contour-100" filter-mode="first" comp-op="exclusion">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#bfbfff" stroke-opacity="1" stroke-width="0.5" smooth="0.8" />
+    <LineSymbolizer stroke="#000000" stroke-opacity="1" stroke-width="0.5" smooth="0.8" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -1633,7 +1633,7 @@
     </Datasource>
   </Layer>
 
-<Style name="contour-250" filter-mode="first" comp-op="difference">
+<Style name="contour-250" filter-mode="first" comp-op="exclusion">
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
@@ -1657,10 +1657,10 @@
     </Datasource>
   </Layer>
 
-<Style name="contour-500" filter-mode="first" comp-op="difference">
+<Style name="contour-500" filter-mode="first" comp-op="exclusion">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#bfbfff" stroke-opacity="1" stroke-width="1" smooth="0.8" />
+    <LineSymbolizer stroke="#000000" stroke-opacity="1" stroke-width="1" smooth="0.8" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -1700,10 +1700,10 @@
     </Datasource>
   </Layer>
 
-<Style name="contour-1000" filter-mode="first" comp-op="difference">
+<Style name="contour-1000" filter-mode="first" comp-op="exclusion">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#bfbfff" stroke-opacity="1" stroke-width="1" smooth="0.8" />
+    <LineSymbolizer stroke="#000000" stroke-opacity="1" stroke-width="1" smooth="0.8" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
