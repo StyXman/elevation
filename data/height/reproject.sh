@@ -1,12 +1,13 @@
 #! /bin/bash
 
 if [ $# -eq 0 -o "$1" == "-h" -o "$1" == "--help" ]; then
-    echo "$0 <region> <cols> <rows> file..."
+    echo "$0 <region> <ext> <cols> <rows> file..."
     exit 0
 fi
 
 name=$1
-shift
+ext=$2
+shift 2
 
 (
     cd ${name}
@@ -19,7 +20,7 @@ shift
     rows=$2
     shift 2
 
-    gdalbuildvrt -overwrite "$dst" *.hgt
+    gdalbuildvrt -overwrite "$dst" *.${ext}
     gdalwarp -t_srs "EPSG:3857" \
             -r lanczos -tr 30.92208077590933 -30.92208077590933 \
             -of VRT -overwrite "$dst" "$dst_corrected"
