@@ -94,8 +94,12 @@ m_per_pixel=30.92208077590933
 	    gdal_translate $(final_gopts) -b 1 /vsistdin/ $@
 	gdal_edit.py -colorinterp_1 gray $@
 
+# A>20 return 0 if false
+# all orig values are 0-255, so the new values are 0-235; 255 is a safe no data value
+# gdal_calc does not overwrite some params if the file exists, so remove the target if needed
 %-slopeshade.tif: %-slopeshade.orig.tif
-	gdal_calc.py -A $< --outfile $@ --calc 'A-20' $(final_gopts2)
+	gdal_calc.py -A $< --outfile $@ --calc '(A>20)*(A-20)' --NoDataValue=255 \
+		--overwrite $(final_gopts2)
 # TODO:
 # 	gdal_translate $(final_gopts) -b 1 /vsistdin/ $@
 # 	gdal_edit.py -colorinterp_1 gray $@
