@@ -106,7 +106,7 @@ m_per_pixel=30.92208077590933
 
 %-corrected.shp/contour.shp: %-corrected.tif
 	mkdir -pv $(dir $@)
-	gdal_contour -i 50 -a height $< $(dir $@)
+	gdal_contour -i 10 -a height $< $(dir $@)
 
 %-contour.sql.xz: %-contour.sql
 	xz -9 $<
