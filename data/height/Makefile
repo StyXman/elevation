@@ -9,7 +9,8 @@ gopts = -co BIGTIFF=YES
 # Cannot open TIFF file due to missing codec
 # see: https://gis.stackexchange.com/questions/72463/qgis-2-0-cannot-open-tiff
 # -co TILED=YES -co COMPRESS=LZMA -co LZMA_PRESET=9
-final_gopts = -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW
+final_gopts  =  -co BIGTIFF=YES  -co TILED=YES  -co COMPRESS=LZW
+final_gopts2 = --co BIGTIFF=YES --co TILED=YES --co COMPRESS=LZW
 
 # apply to slope (not slopeshade) and hillshade processing
 # the ratio of vertical units to horizontal
@@ -94,8 +95,7 @@ m_per_pixel=30.92208077590933
 	gdal_edit.py -colorinterp_1 gray $@
 
 %-slopeshade.tif: %-slopeshade.orig.tif
-	gdal_calc.py -A $< --outfile $@ --calc 'A-20' --co BIGTIFF=YES --co TILED=YES \
-	    --co COMPRESS=LZW
+	gdal_calc.py -A $< --outfile $@ --calc 'A-20' $(final_gopts2)
 # TODO:
 # 	gdal_translate $(final_gopts) -b 1 /vsistdin/ $@
 # 	gdal_edit.py -colorinterp_1 gray $@
