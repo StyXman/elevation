@@ -53,7 +53,8 @@ slope_orig_files = $(foreach height_file,$(height_files),$(subst -corrected.tif,
 slope_files =      $(foreach height_file,$(height_files),$(subst -corrected.tif,-slopeshade.tif,$(height_file)))
 contour_files =    $(foreach height_file,$(height_files),$(subst -corrected.tif,-contour.sql.xz,$(height_file)))
 
-all_files = $(sort $(terrain_files) $(hill_files) $(slope_files) $(contour_files))
+all_files = $(sort $(terrain_files) $(hill_files) $(slope_files))
+sql_files = $(sort $(contour_files))
 
 echo:
 #	@echo $(corrected_files)
@@ -68,7 +69,9 @@ echo:
 
 all_single: $(all_files)
 
-# unit is degree (2*math.pi / 360)
+sql_single: $(sql_files)
+
+# unit is degree (2 * math.pi / 360)
 # units/pixel= 1 deg/3600 (1 arc sec) = 0.000277777777778
 WebMerc = "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
 m_per_pixel=30.92208077590933
@@ -104,16 +107,12 @@ m_per_pixel=30.92208077590933
 # 	gdal_translate $(final_gopts) -b 1 /vsistdin/ $@
 # 	gdal_edit.py -colorinterp_1 gray $@
 
-%-corrected.shp/contour.shp: %-corrected.tif
-	mkdir -pv $(dir $@)
-	gdal_contour -i 10 -a height $< $(dir $@)
-
 %-contour.sql.xz: %-contour.sql
 	xz -9 $<
 
 %-contour.sql: %-corrected.tif
 	mkdir -pv $(basename $<).shp
-	gdal_contour -i 50 -a height $< $(basename $<).shp
+	gdal_contour -i 10 -a height $< $(basename $<).shp
 	shp2pgsql -c -I -g way $(basename $<).shp/contour contours > $@
 	rm -rfv $(basename $<).shp
 
