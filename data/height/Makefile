@@ -120,6 +120,8 @@ m_per_pixel=30.92208077590933
 terrain.vrt: *-terrain.tif
 	# gdalbuildvrt $@
 
+color-relief.txt slope.txt:
+	ln -sfv ../$@ ./
 
 ##############
 # SECOND GOAL
