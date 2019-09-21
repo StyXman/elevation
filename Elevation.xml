@@ -5499,6 +5499,11 @@
 </Style>
 <Style name="ocean-lz-border" filter-mode="first">
   <Rule>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <LineSymbolizer stroke="#5a5aa1" stroke-width="1.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
 </Style>
