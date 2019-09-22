@@ -2907,48 +2907,48 @@
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>1500000</MinScaleDenominator>
     <Filter>([waterway] = 'river')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#60adc3" />
+    <LineSymbolizer stroke="#60adc3" stroke-width="1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([waterway] = 'river')</Filter>
-    <LineSymbolizer stroke="#60adc3" stroke-width="0.5" />
+    <LineSymbolizer stroke="#5a5aa1" stroke-width="0.5" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([waterway] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="13.5" stroke-linecap="round" stroke-linejoin="round" stroke="#181818" />
+    <LineSymbolizer stroke-width="13.5" stroke-linecap="round" stroke-linejoin="round" stroke="#60adc3" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([waterway] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="11.5" stroke-linecap="round" stroke-linejoin="round" stroke="#181818" />
+    <LineSymbolizer stroke-width="11.5" stroke-linecap="round" stroke-linejoin="round" stroke="#60adc3" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([waterway] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" stroke="#181818" />
+    <LineSymbolizer stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" stroke="#60adc3" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([waterway] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" stroke="#181818" />
+    <LineSymbolizer stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" stroke="#60adc3" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([waterway] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" stroke="#181818" />
+    <LineSymbolizer stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" stroke="#60adc3" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([waterway] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke="#181818" />
+    <LineSymbolizer stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke="#60adc3" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
