@@ -1699,22 +1699,22 @@
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([natural] = 'glacier')</Filter>
-    <LineSymbolizer stroke-dasharray="4, 2" stroke-width="1.5" stroke="#66ccff" />
-    <PolygonSymbolizer fill="#adbcec" />
+    <LineSymbolizer stroke-dasharray="4, 2" stroke-width="1.5" stroke="#5a5aa1" />
+    <PolygonSymbolizer fill="#adbcec" fill-opacity="0.4" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([natural] = 'glacier')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#66ccff" />
-    <PolygonSymbolizer fill="#adbcec" />
+    <LineSymbolizer stroke-width="1" stroke="#5a5aa1" />
+    <PolygonSymbolizer fill="#adbcec" fill-opacity="0.4" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([natural] = 'glacier')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#66ccff" />
-    <PolygonSymbolizer fill="#adbcec" />
+    <LineSymbolizer stroke-width="1" stroke="#5a5aa1" />
+    <PolygonSymbolizer fill="#adbcec" fill-opacity="0.4" />
   </Rule>
 </Style>
 <Layer name="glacier"
@@ -5484,7 +5484,8 @@
   WHERE
     (waterway IN ('dock', 'riverbank')
       OR landuse IN ('reservoir', 'basin')
-      OR "natural" IN ('water', 'glacier'))
+      --                      , 'glacier' moved to glacier
+      OR "natural" IN ('water'))
     AND building IS NULL
     AND way_area > 1*!pixel_width!::real*!pixel_height!::real
   ORDER BY COALESCE(layer,0), way_area DESC
