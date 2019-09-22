@@ -31767,19 +31767,19 @@ WHERE
     <Filter>([aerialway] = 'drag_lift')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
-    <TextSymbolizer size="11" dy="5" fill="#666666" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="13" dy="5" fill="#666666" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-2" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
     <Filter>([aerialway] = 'drag_lift')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
-    <TextSymbolizer fill="#666666" size="10" dy="4" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#666666" size="12" dy="4" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-2" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([aerialway] = 'drag_lift')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
@@ -31789,19 +31789,19 @@ WHERE
     <Filter>([aerialway] = 'zip_line')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
-    <TextSymbolizer size="11" dy="5" fill="#666666" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="13" dy="5" fill="#666666" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-2" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
     <Filter>([aerialway] = 'zip_line')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
-    <TextSymbolizer fill="#666666" size="10" dy="4" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#666666" size="12" dy="4" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-2" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([aerialway] = 'zip_line')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
@@ -31811,19 +31811,19 @@ WHERE
     <Filter>([aerialway] = 'rope_tow')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
-    <TextSymbolizer size="11" dy="5" fill="#666666" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="13" dy="5" fill="#666666" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-2" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
     <Filter>([aerialway] = 'rope_tow')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
-    <TextSymbolizer fill="#666666" size="10" dy="4" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#666666" size="12" dy="4" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-2" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([aerialway] = 'rope_tow')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
@@ -31833,19 +31833,19 @@ WHERE
     <Filter>([aerialway] = 'platter')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
-    <TextSymbolizer size="11" dy="5" fill="#666666" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="13" dy="5" fill="#666666" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-2" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
     <Filter>([aerialway] = 'platter')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
-    <TextSymbolizer fill="#666666" size="10" dy="4" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#666666" size="12" dy="4" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-2" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([aerialway] = 'platter')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
@@ -31855,19 +31855,19 @@ WHERE
     <Filter>([aerialway] = 'j-bar')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
-    <TextSymbolizer size="11" dy="5" fill="#666666" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="13" dy="5" fill="#666666" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-2" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
     <Filter>([aerialway] = 'j-bar')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
-    <TextSymbolizer fill="#666666" size="10" dy="4" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#666666" size="12" dy="4" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-2" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([aerialway] = 'j-bar')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
@@ -31877,19 +31877,19 @@ WHERE
     <Filter>([aerialway] = 't-bar')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
-    <TextSymbolizer size="11" dy="5" fill="#666666" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="13" dy="5" fill="#666666" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-2" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
     <Filter>([aerialway] = 't-bar')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
-    <TextSymbolizer fill="#666666" size="10" dy="4" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#666666" size="12" dy="4" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-2" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([aerialway] = 't-bar')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
@@ -31899,19 +31899,19 @@ WHERE
     <Filter>([aerialway] = 'chair_lift')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
-    <TextSymbolizer size="11" dy="5" fill="#666666" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="13" dy="5" fill="#666666" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-2" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
     <Filter>([aerialway] = 'chair_lift')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
-    <TextSymbolizer fill="#666666" size="10" dy="4" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#666666" size="12" dy="4" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-2" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([aerialway] = 'chair_lift')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="4" stroke-linejoin="round" stroke="#000000" stroke-dasharray="1, 30" clip="false" />
@@ -31921,19 +31921,19 @@ WHERE
     <Filter>([aerialway] = 'goods')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="3.5" stroke-linejoin="round" stroke="#707070" stroke-dasharray="6, 25" clip="false" />
-    <TextSymbolizer size="11" dy="5" fill="#666666" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="13" dy="5" fill="#666666" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-2" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
     <Filter>([aerialway] = 'goods')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="3.5" stroke-linejoin="round" stroke="#707070" stroke-dasharray="6, 25" clip="false" />
-    <TextSymbolizer fill="#666666" size="10" dy="4" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-1" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#666666" size="12" dy="4" spacing="900" clip="false" placement="line" minimum-distance="18" fontset-name="fontset-2" halo-radius="2.5" halo-fill="#ffffff"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([aerialway] = 'goods')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#808080" />
     <LineSymbolizer stroke-width="3.5" stroke-linejoin="round" stroke="#707070" stroke-dasharray="6, 25" clip="false" />
