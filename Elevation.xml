@@ -1699,35 +1699,35 @@
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <Filter>([natural] = 'glacier')</Filter>
-    <PolygonSymbolizer fill="#adbcec" fill-opacity="0.4" />
+    <PolygonSymbolizer fill-opacity="0.4" fill="#adbcec" />
     <LineSymbolizer stroke-dasharray="4, 2" stroke-width="1.5" stroke="#5a5aa1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([natural] = 'glacier')</Filter>
-    <PolygonSymbolizer fill="#adbcec" fill-opacity="0.4" />
+    <PolygonSymbolizer fill-opacity="0.4" fill="#adbcec" />
     <LineSymbolizer stroke-width="1" stroke="#5a5aa1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([natural] = 'glacier')</Filter>
-    <PolygonSymbolizer fill="#adbcec" fill-opacity="0.4" />
+    <PolygonSymbolizer fill-opacity="0.4" fill="#adbcec" />
     <LineSymbolizer stroke-width="0.75" stroke="#5a5aa1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
     <Filter>([natural] = 'glacier')</Filter>
-    <PolygonSymbolizer fill="#adbcec" fill-opacity="0.4" />
+    <PolygonSymbolizer fill-opacity="0.4" fill="#adbcec" />
     <LineSymbolizer stroke-width="0.5" stroke="#5a5aa1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>1500000</MinScaleDenominator>
     <Filter>([natural] = 'glacier')</Filter>
-    <PolygonSymbolizer fill="#adbcec" fill-opacity="0.4" />
+    <PolygonSymbolizer fill="#adbcec" />
   </Rule>
 </Style>
 <Layer name="glacier"
