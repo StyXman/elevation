@@ -1703,10 +1703,24 @@
     <PolygonSymbolizer fill="#adbcec" fill-opacity="0.4" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([natural] = 'glacier')</Filter>
     <LineSymbolizer stroke-width="1" stroke="#5a5aa1" />
+    <PolygonSymbolizer fill="#adbcec" fill-opacity="0.4" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([natural] = 'glacier')</Filter>
+    <LineSymbolizer stroke-width="0.75" stroke="#5a5aa1" />
+    <PolygonSymbolizer fill="#adbcec" fill-opacity="0.4" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([natural] = 'glacier')</Filter>
+    <LineSymbolizer stroke-width="0.5" stroke="#5a5aa1" />
     <PolygonSymbolizer fill="#adbcec" fill-opacity="0.4" />
   </Rule>
   <Rule>
