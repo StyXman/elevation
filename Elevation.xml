@@ -1697,14 +1697,14 @@
 
 <Style name="glacier-natural" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
     <Filter>([natural] = 'glacier')</Filter>
     <LineSymbolizer stroke-dasharray="4, 2" stroke-width="1.5" stroke="#5a5aa1" />
     <PolygonSymbolizer fill="#adbcec" fill-opacity="0.4" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([natural] = 'glacier')</Filter>
     <LineSymbolizer stroke-width="1" stroke="#5a5aa1" />
     <PolygonSymbolizer fill="#adbcec" fill-opacity="0.4" />
@@ -2845,41 +2845,6 @@
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <Filter>([waterway] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="13.5" stroke-linecap="round" stroke-linejoin="round" stroke="#181818" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([waterway] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="11.5" stroke-linecap="round" stroke-linejoin="round" stroke="#181818" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([waterway] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" stroke="#181818" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([waterway] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" stroke="#181818" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([waterway] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" stroke="#181818" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([waterway] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke="#181818" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([waterway] = 'river')</Filter>
     <LineSymbolizer stroke-width="13.5" stroke-linecap="round" stroke-linejoin="round" stroke="#60adc3" />
   </Rule>
@@ -2938,13 +2903,48 @@
     <LineSymbolizer stroke="#60adc3" stroke-width="0.5" />
   </Rule>
   <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <Filter>([waterway] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="13.5" stroke-linecap="round" stroke-linejoin="round" stroke="#181818" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([waterway] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="11.5" stroke-linecap="round" stroke-linejoin="round" stroke="#181818" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([waterway] = 'ditch') and ([int_tunnel] = 'no') and ([int_intermittent] = 'yes')</Filter>
-    <LineSymbolizer stroke-dasharray="4, 3" stroke-linecap="butt" stroke-linejoin="round" clip="false" stroke-width="2.5" stroke="#60adc3" />
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([waterway] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" stroke="#181818" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([waterway] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" stroke="#181818" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([waterway] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" stroke="#181818" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([waterway] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke="#181818" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([waterway] = 'drain') and ([int_tunnel] = 'no') and ([int_intermittent] = 'yes')</Filter>
+    <LineSymbolizer stroke-dasharray="4, 3" stroke-linecap="butt" stroke-linejoin="round" clip="false" stroke-width="2.5" stroke="#60adc3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([waterway] = 'ditch') and ([int_tunnel] = 'no') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-dasharray="4, 3" stroke-linecap="butt" stroke-linejoin="round" clip="false" stroke-width="2.5" stroke="#60adc3" />
   </Rule>
   <Rule>
@@ -2959,12 +2959,12 @@
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([waterway] = 'drain') and ([int_tunnel] = 'no')</Filter>
+    <Filter>([waterway] = 'ditch') and ([int_tunnel] = 'no')</Filter>
     <LineSymbolizer stroke-width="2.5" stroke="#60adc3" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([waterway] = 'ditch') and ([int_tunnel] = 'no')</Filter>
+    <Filter>([waterway] = 'drain') and ([int_tunnel] = 'no')</Filter>
     <LineSymbolizer stroke-width="2.5" stroke="#60adc3" />
   </Rule>
 </Style>
@@ -4410,14 +4410,14 @@
     <PolygonPatternSymbolizer gamma="0.6" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([natural] = 'water') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 64)</Filter>
     <PolygonPatternSymbolizer gamma="0.6" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>500000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([natural] = 'water') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 64)</Filter>
     <PolygonPatternSymbolizer gamma="0.6" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
@@ -4425,6 +4425,18 @@
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([natural] = 'water') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 64)</Filter>
     <PolygonPatternSymbolizer gamma="0.6" file="symbols/jeisenbe/water_intermittent.png" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <Filter>([natural] = 'water') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 32)</Filter>
+    <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([natural] = 'water') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 32)</Filter>
+    <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
     <MinScaleDenominator>500000000</MinScaleDenominator>
@@ -4432,36 +4444,24 @@
     <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([natural] = 'water') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 32)</Filter>
     <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
     <MinScaleDenominator>200000000</MinScaleDenominator>
-    <Filter>([natural] = 'water') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 32)</Filter>
-    <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <Filter>([natural] = 'water') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 32)</Filter>
+    <Filter>([natural] = 'water') and ([way_pixels] &gt;= 16) and ([int_intermittent] = 'yes')</Filter>
     <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
     <MinScaleDenominator>500000000</MinScaleDenominator>
-    <Filter>([natural] = 'water') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 16)</Filter>
-    <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>500000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
-    <Filter>([natural] = 'water') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 16)</Filter>
+    <Filter>([natural] = 'water') and ([way_pixels] &gt;= 16) and ([int_intermittent] = 'yes')</Filter>
     <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <Filter>([natural] = 'water') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 16)</Filter>
+    <Filter>([natural] = 'water') and ([way_pixels] &gt;= 16) and ([int_intermittent] = 'yes')</Filter>
     <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
@@ -4557,12 +4557,6 @@
 </Style>
 <Style name="water-areas-landuse" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>200000000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([landuse] = 'reservoir') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonPatternSymbolizer gamma="0.6" file="symbols/jeisenbe/water_intermittent.png" />
-  </Rule>
-  <Rule>
     <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([landuse] = 'reservoir') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 64)</Filter>
     <PolygonPatternSymbolizer gamma="0.6" file="symbols/jeisenbe/water_intermittent.png" />
@@ -4574,30 +4568,36 @@
     <PolygonPatternSymbolizer gamma="0.6" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([landuse] = 'reservoir') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 64)</Filter>
+    <PolygonPatternSymbolizer gamma="0.6" file="symbols/jeisenbe/water_intermittent.png" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([landuse] = 'reservoir') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 64)</Filter>
     <PolygonPatternSymbolizer gamma="0.6" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 32) and ([int_intermittent] = 'yes')</Filter>
-    <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
-  </Rule>
-  <Rule>
     <MinScaleDenominator>500000000</MinScaleDenominator>
-    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 32) and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([landuse] = 'reservoir') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 32)</Filter>
     <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
     <MinScaleDenominator>200000000</MinScaleDenominator>
-    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 32) and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([landuse] = 'reservoir') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 32)</Filter>
+    <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([landuse] = 'reservoir') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 32)</Filter>
     <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 32) and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([landuse] = 'reservoir') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 32)</Filter>
     <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
@@ -4655,13 +4655,13 @@
     <PolygonSymbolizer gamma="0.75" fill="#aad3df" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 32) and ([int_intermittent] = 'no')</Filter>
     <PolygonSymbolizer gamma="0.75" fill="#aad3df" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>500000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 32) and ([int_intermittent] = 'no')</Filter>
     <PolygonSymbolizer gamma="0.75" fill="#aad3df" />
   </Rule>
@@ -4671,19 +4671,19 @@
     <PolygonSymbolizer gamma="0.75" fill="#aad3df" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>500000000</MinScaleDenominator>
-    <Filter>([landuse] = 'reservoir') and ([int_intermittent] = 'no') and ([way_pixels] &gt;= 16)</Filter>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 16) and ([int_intermittent] = 'no')</Filter>
     <PolygonSymbolizer gamma="0.75" fill="#aad3df" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>500000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
-    <Filter>([landuse] = 'reservoir') and ([int_intermittent] = 'no') and ([way_pixels] &gt;= 16)</Filter>
+    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 16) and ([int_intermittent] = 'no')</Filter>
     <PolygonSymbolizer gamma="0.75" fill="#aad3df" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <Filter>([landuse] = 'reservoir') and ([int_intermittent] = 'no') and ([way_pixels] &gt;= 16)</Filter>
+    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 16) and ([int_intermittent] = 'no')</Filter>
     <PolygonSymbolizer gamma="0.75" fill="#aad3df" />
   </Rule>
   <Rule>
@@ -4749,6 +4749,11 @@
 </Style>
 <Style name="water-areas-waterway" filter-mode="first">
   <Rule>
+    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <Filter>([waterway] = 'riverbank') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 64)</Filter>
+    <PolygonPatternSymbolizer gamma="0.6" file="symbols/jeisenbe/water_intermittent.png" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
     <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([waterway] = 'riverbank') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 64)</Filter>
@@ -4761,14 +4766,14 @@
     <PolygonPatternSymbolizer gamma="0.6" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([waterway] = 'riverbank') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 64)</Filter>
     <PolygonPatternSymbolizer gamma="0.6" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <Filter>([waterway] = 'riverbank') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonPatternSymbolizer gamma="0.6" file="symbols/jeisenbe/water_intermittent.png" />
+    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <Filter>([waterway] = 'riverbank') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 32)</Filter>
+    <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
@@ -4783,29 +4788,24 @@
     <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([waterway] = 'riverbank') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 32)</Filter>
     <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <Filter>([waterway] = 'riverbank') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 32)</Filter>
+    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <Filter>([waterway] = 'riverbank') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 16)</Filter>
     <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
     <MinScaleDenominator>200000000</MinScaleDenominator>
-    <Filter>([waterway] = 'riverbank') and ([way_pixels] &gt;= 16) and ([int_intermittent] = 'yes')</Filter>
-    <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>500000000</MinScaleDenominator>
-    <Filter>([waterway] = 'riverbank') and ([way_pixels] &gt;= 16) and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([waterway] = 'riverbank') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 16)</Filter>
     <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <Filter>([waterway] = 'riverbank') and ([way_pixels] &gt;= 16) and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([waterway] = 'riverbank') and ([int_intermittent] = 'yes') and ([way_pixels] &gt;= 16)</Filter>
     <PolygonPatternSymbolizer gamma="0.75" file="symbols/jeisenbe/water_intermittent.png" />
   </Rule>
   <Rule>
@@ -4847,13 +4847,13 @@
     <PolygonSymbolizer gamma="0.75" fill="#aad3df" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([waterway] = 'riverbank') and ([int_intermittent] = 'no') and ([way_pixels] &gt;= 32)</Filter>
     <PolygonSymbolizer gamma="0.75" fill="#aad3df" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([waterway] = 'riverbank') and ([int_intermittent] = 'no') and ([way_pixels] &gt;= 32)</Filter>
     <PolygonSymbolizer gamma="0.75" fill="#aad3df" />
   </Rule>
@@ -4964,13 +4964,13 @@
     <LineSymbolizer stroke-dasharray="4, 4" stroke-width="1.5" stroke="#60adc3" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>500000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([waterway] = 'dock') and ([way_pixels] &gt;= 32)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([waterway] = 'dock') and ([way_pixels] &gt;= 32)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
@@ -4986,13 +4986,13 @@
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>500000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([waterway] = 'dock') and ([way_pixels] &gt;= 16)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([waterway] = 'dock') and ([way_pixels] &gt;= 16)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
@@ -5120,50 +5120,6 @@
     <LineSymbolizer stroke-dasharray="4, 4" stroke-width="1.5" stroke="#60adc3" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>500000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
-    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 32)</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 32)</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>500000000</MinScaleDenominator>
-    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 32)</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 32)</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>500000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
-    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 16)</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>500000000</MinScaleDenominator>
-    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 16)</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 16)</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>500000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
-    <Filter>([landuse] = 'basin') and ([way_pixels] &gt;= 32)</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>200000000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([landuse] = 'basin') and ([way_pixels] &gt;= 32)</Filter>
@@ -5175,18 +5131,46 @@
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
   <Rule>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <Filter>([landuse] = 'basin') and ([way_pixels] &gt;= 32)</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([landuse] = 'basin') and ([way_pixels] &gt;= 32)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
   <Rule>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 32)</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
     <MinScaleDenominator>200000000</MinScaleDenominator>
+    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 32)</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 32)</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 32)</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([landuse] = 'basin') and ([way_pixels] &gt;= 16)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([landuse] = 'basin') and ([way_pixels] &gt;= 16)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
@@ -5203,6 +5187,22 @@
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <Filter>([landuse] = 'basin') and ([way_pixels] &gt;= 4)</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 16)</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 16)</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <Filter>([landuse] = 'reservoir') and ([way_pixels] &gt;= 16)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
   <Rule>
@@ -5227,12 +5227,12 @@
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <Filter>([landuse] = 'reservoir')</Filter>
+    <Filter>([landuse] = 'basin')</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <Filter>([landuse] = 'basin')</Filter>
+    <Filter>([landuse] = 'reservoir')</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
 </Style>
@@ -5292,13 +5292,13 @@
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([waterway] = 'riverbank') and ([way_pixels] &gt;= 32)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>500000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([waterway] = 'riverbank') and ([way_pixels] &gt;= 32)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
@@ -5308,13 +5308,13 @@
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([waterway] = 'riverbank') and ([way_pixels] &gt;= 16)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>500000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([waterway] = 'riverbank') and ([way_pixels] &gt;= 16)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
@@ -5400,13 +5400,13 @@
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([natural] = 'water') and ([way_pixels] &gt;= 32)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>500000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([natural] = 'water') and ([way_pixels] &gt;= 32)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
@@ -5416,13 +5416,13 @@
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>500000000</MinScaleDenominator>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
     <Filter>([natural] = 'water') and ([way_pixels] &gt;= 16)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>500000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <MinScaleDenominator>500000000</MinScaleDenominator>
     <Filter>([natural] = 'water') and ([way_pixels] &gt;= 16)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#60adc3" />
   </Rule>
@@ -51937,6 +51937,11 @@ UNION ALL
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <Filter>([feature] = 'natural_water') and ([way_pixels] &gt; 3000) and ([way_pixels] &lt;= 768000)</Filter>
+    <TextSymbolizer size="13" wrap-width="25" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'natural_bay') and ([way_pixels] &gt; 3000) and ([way_pixels] &lt;= 768000)</Filter>
     <TextSymbolizer size="13" wrap-width="25" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
@@ -51961,9 +51966,14 @@ UNION ALL
     <TextSymbolizer size="13" wrap-width="25" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <Filter>([feature] = 'natural_water') and ([way_pixels] &gt; 3000) and ([way_pixels] &lt;= 768000)</Filter>
-    <TextSymbolizer size="13" wrap-width="25" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <Filter>([feature] = 'natural_water') and ([way_pixels] &gt; 192000)</Filter>
+    <TextSymbolizer size="19" wrap-width="95" line-spacing="-0.95" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <Filter>([feature] = 'waterway_dock') and ([way_pixels] &gt; 192000)</Filter>
+    <TextSymbolizer size="19" wrap-width="95" line-spacing="-0.95" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -51972,7 +51982,7 @@ UNION ALL
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'natural_water') and ([way_pixels] &gt; 192000)</Filter>
+    <Filter>([feature] = 'landuse_basin') and ([way_pixels] &gt; 192000)</Filter>
     <TextSymbolizer size="19" wrap-width="95" line-spacing="-0.95" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
@@ -52005,17 +52015,23 @@ UNION ALL
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'landuse_basin') and ([way_pixels] &gt; 192000)</Filter>
-    <TextSymbolizer size="19" wrap-width="95" line-spacing="-0.95" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+    <Filter>([feature] = 'waterway_dock') and ([way_pixels] &gt; 48000)</Filter>
+    <TextSymbolizer size="17" wrap-width="59" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'waterway_dock') and ([way_pixels] &gt; 192000)</Filter>
-    <TextSymbolizer size="19" wrap-width="95" line-spacing="-0.95" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+    <Filter>([feature] = 'natural_bay') and ([way_pixels] &gt; 48000)</Filter>
+    <TextSymbolizer size="17" wrap-width="59" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([feature] = 'natural_bay') and ([way_pixels] &gt; 48000)</Filter>
+    <TextSymbolizer size="13" wrap-width="30" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'landuse_reservoir') and ([way_pixels] &gt; 48000)</Filter>
+    <Filter>([feature] = 'natural_water') and ([way_pixels] &gt; 48000)</Filter>
     <TextSymbolizer size="17" wrap-width="59" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
@@ -52042,55 +52058,8 @@ UNION ALL
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'natural_bay') and ([way_pixels] &gt; 48000)</Filter>
+    <Filter>([feature] = 'landuse_reservoir') and ([way_pixels] &gt; 48000)</Filter>
     <TextSymbolizer size="17" wrap-width="59" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([feature] = 'natural_bay') and ([way_pixels] &gt; 48000)</Filter>
-    <TextSymbolizer size="13" wrap-width="30" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'natural_water') and ([way_pixels] &gt; 48000)</Filter>
-    <TextSymbolizer size="17" wrap-width="59" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'waterway_dock') and ([way_pixels] &gt; 48000)</Filter>
-    <TextSymbolizer size="17" wrap-width="59" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'landuse_reservoir') and ([way_pixels] &gt; 12000)</Filter>
-    <TextSymbolizer size="15" wrap-width="37" line-spacing="-1.6" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'natural_water') and ([way_pixels] &gt; 12000)</Filter>
-    <TextSymbolizer size="15" wrap-width="37" line-spacing="-1.6" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'natural_bay') and ([way_pixels] &gt; 12000)</Filter>
-    <TextSymbolizer size="15" wrap-width="37" line-spacing="-1.6" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([feature] = 'natural_bay') and ([way_pixels] &gt; 12000)</Filter>
-    <TextSymbolizer size="13" wrap-width="30" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'landuse_basin') and ([way_pixels] &gt; 12000)</Filter>
-    <TextSymbolizer size="15" wrap-width="37" line-spacing="-1.6" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'waterway_dock') and ([way_pixels] &gt; 12000)</Filter>
-    <TextSymbolizer size="15" wrap-width="37" line-spacing="-1.6" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -52108,6 +52077,37 @@ UNION ALL
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([feature] = 'natural_strait') and ([way_pixels] &gt; 12000)</Filter>
     <TextSymbolizer size="13" wrap-width="25" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#ffffff" placement="point"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <Filter>([feature] = 'natural_bay') and ([way_pixels] &gt; 12000)</Filter>
+    <TextSymbolizer size="15" wrap-width="37" line-spacing="-1.6" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([feature] = 'natural_bay') and ([way_pixels] &gt; 12000)</Filter>
+    <TextSymbolizer size="13" wrap-width="30" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <Filter>([feature] = 'natural_water') and ([way_pixels] &gt; 12000)</Filter>
+    <TextSymbolizer size="15" wrap-width="37" line-spacing="-1.6" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <Filter>([feature] = 'waterway_dock') and ([way_pixels] &gt; 12000)</Filter>
+    <TextSymbolizer size="15" wrap-width="37" line-spacing="-1.6" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <Filter>([feature] = 'landuse_basin') and ([way_pixels] &gt; 12000)</Filter>
+    <TextSymbolizer size="15" wrap-width="37" line-spacing="-1.6" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <Filter>([feature] = 'landuse_reservoir') and ([way_pixels] &gt; 12000)</Filter>
+    <TextSymbolizer size="15" wrap-width="37" line-spacing="-1.6" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -52128,16 +52128,6 @@ UNION ALL
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'waterway_dock')</Filter>
-    <TextSymbolizer size="13" wrap-width="25" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'landuse_basin')</Filter>
-    <TextSymbolizer size="13" wrap-width="25" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'natural_bay')</Filter>
     <TextSymbolizer size="13" wrap-width="25" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
@@ -52149,7 +52139,12 @@ UNION ALL
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'natural_water')</Filter>
+    <Filter>([feature] = 'landuse_basin')</Filter>
+    <TextSymbolizer size="13" wrap-width="25" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <Filter>([feature] = 'waterway_dock')</Filter>
     <TextSymbolizer size="13" wrap-width="25" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
@@ -52158,13 +52153,18 @@ UNION ALL
     <TextSymbolizer size="13" wrap-width="25" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <Filter>([feature] = 'place_ocean')</Filter>
-    <TextSymbolizer halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" fill="#5a5aa1" size="13" fontset-name="fontset-0"><![CDATA[[name]]]></TextSymbolizer>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <Filter>([feature] = 'natural_water')</Filter>
+    <TextSymbolizer size="13" wrap-width="25" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-0" halo-radius="2.5" halo-fill="#aad3df" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'place_sea')</Filter>
+    <TextSymbolizer halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" fill="#5a5aa1" size="13" fontset-name="fontset-0"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <Filter>([feature] = 'place_ocean')</Filter>
     <TextSymbolizer halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" fill="#5a5aa1" size="13" fontset-name="fontset-0"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
@@ -60588,30 +60588,14 @@ SELECT
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'ditch') and ([natural] = 'strait')</Filter>
+    <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'drain') and ([natural] = 'bay')</Filter>
     <TextSymbolizer size="10" fontset-name="fontset-0" fill="#5a5aa1" halo-radius="2.5" halo-fill="#ffffff" spacing="600" placement="line" vertical-alignment="middle" dy="8" repeat-distance="200" max-char-angle-delta="15"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'ditch') and ([natural] = 'strait')</Filter>
+    <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'drain') and ([natural] = 'bay')</Filter>
     <TextSymbolizer size="10" fontset-name="fontset-0" fill="#5a5aa1" halo-radius="2.5" halo-fill="#ffffff" max-char-angle-delta="15" spacing="400" placement="line"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'ditch') and ([natural] = 'bay')</Filter>
-    <TextSymbolizer size="10" fontset-name="fontset-0" fill="#5a5aa1" halo-radius="2.5" halo-fill="#ffffff" spacing="600" placement="line" vertical-alignment="middle" dy="8" repeat-distance="200" max-char-angle-delta="15"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'ditch') and ([natural] = 'bay')</Filter>
-    <TextSymbolizer size="10" fontset-name="fontset-0" fill="#5a5aa1" halo-radius="2.5" halo-fill="#ffffff" max-char-angle-delta="15" spacing="400" placement="line"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'ditch')</Filter>
-    <TextSymbolizer size="10" fontset-name="fontset-0" fill="#5a5aa1" halo-radius="2.5" halo-fill="#ffffff" spacing="600" placement="line" vertical-alignment="middle" dy="8" repeat-distance="200"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -60622,17 +60606,6 @@ SELECT
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'drain') and ([natural] = 'strait')</Filter>
-    <TextSymbolizer size="10" fontset-name="fontset-0" fill="#5a5aa1" halo-radius="2.5" halo-fill="#ffffff" max-char-angle-delta="15" spacing="400" placement="line"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'drain') and ([natural] = 'bay')</Filter>
-    <TextSymbolizer size="10" fontset-name="fontset-0" fill="#5a5aa1" halo-radius="2.5" halo-fill="#ffffff" spacing="600" placement="line" vertical-alignment="middle" dy="8" repeat-distance="200" max-char-angle-delta="15"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'drain') and ([natural] = 'bay')</Filter>
     <TextSymbolizer size="10" fontset-name="fontset-0" fill="#5a5aa1" halo-radius="2.5" halo-fill="#ffffff" max-char-angle-delta="15" spacing="400" placement="line"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
@@ -60642,14 +60615,30 @@ SELECT
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'stream') and ([natural] = 'strait')</Filter>
+    <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'ditch') and ([natural] = 'bay')</Filter>
     <TextSymbolizer size="10" fontset-name="fontset-0" fill="#5a5aa1" halo-radius="2.5" halo-fill="#ffffff" spacing="600" placement="line" vertical-alignment="middle" dy="8" repeat-distance="200" max-char-angle-delta="15"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'stream') and ([natural] = 'strait')</Filter>
+    <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'ditch') and ([natural] = 'bay')</Filter>
     <TextSymbolizer size="10" fontset-name="fontset-0" fill="#5a5aa1" halo-radius="2.5" halo-fill="#ffffff" max-char-angle-delta="15" spacing="400" placement="line"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'ditch') and ([natural] = 'strait')</Filter>
+    <TextSymbolizer size="10" fontset-name="fontset-0" fill="#5a5aa1" halo-radius="2.5" halo-fill="#ffffff" spacing="600" placement="line" vertical-alignment="middle" dy="8" repeat-distance="200" max-char-angle-delta="15"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'ditch') and ([natural] = 'strait')</Filter>
+    <TextSymbolizer size="10" fontset-name="fontset-0" fill="#5a5aa1" halo-radius="2.5" halo-fill="#ffffff" max-char-angle-delta="15" spacing="400" placement="line"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'ditch')</Filter>
+    <TextSymbolizer size="10" fontset-name="fontset-0" fill="#5a5aa1" halo-radius="2.5" halo-fill="#ffffff" spacing="600" placement="line" vertical-alignment="middle" dy="8" repeat-distance="200"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -60660,6 +60649,17 @@ SELECT
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'stream') and ([natural] = 'bay')</Filter>
+    <TextSymbolizer size="10" fontset-name="fontset-0" fill="#5a5aa1" halo-radius="2.5" halo-fill="#ffffff" max-char-angle-delta="15" spacing="400" placement="line"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'stream') and ([natural] = 'strait')</Filter>
+    <TextSymbolizer size="10" fontset-name="fontset-0" fill="#5a5aa1" halo-radius="2.5" halo-fill="#ffffff" spacing="600" placement="line" vertical-alignment="middle" dy="8" repeat-distance="200" max-char-angle-delta="15"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([lock] != 'yes') and ([int_tunnel] != 'yes') and ([waterway] = 'stream') and ([natural] = 'strait')</Filter>
     <TextSymbolizer size="10" fontset-name="fontset-0" fill="#5a5aa1" halo-radius="2.5" halo-fill="#ffffff" max-char-angle-delta="15" spacing="400" placement="line"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
