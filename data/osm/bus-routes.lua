@@ -9,9 +9,6 @@ tables.routes = osm2pgsql.define_way_table('routes', {
     { column = 'way',    type = 'linestring' },
 })
 
--- This will be used to store lists of relation ids queryable by way id
-pt_ways = {}
-
 -- These tag keys are generally regarded as useless for most rendering. Most
 -- of them are from imports or intended as internal information for mappers.
 --
@@ -150,6 +147,10 @@ local delete_keys = {
 -- return true if it removed all tags from the table.
 local clean_tags = osm2pgsql.make_clean_tags_func(delete_keys)
 
+-- This will be used to store lists of relation ids queryable by way id
+pt_ways = {}
+route_in_way = {}
+
 function sort_by_ref(a, b)
     return a.tags.ref < b.tags.ref
 end
@@ -228,12 +229,21 @@ function osm2pgsql.process_relation(relation)
             if member.type == 'w' then
                 -- print(relation.id, member.ref, relation.tags.ref)
                 if not pt_ways[member.ref] then
+                    -- this is used as the list, because we can only sort in that case
                     pt_ways[member.ref] = {}
+                    -- this is used as a set, to find whether this route was already seen
+                    -- in this way
+                    route_in_way[member.ref] = {}
                 end
 
-                -- insert() is the new append()
-                table.insert(pt_ways[member.ref], relation)
-                osm2pgsql.mark_way(member.ref)
+                -- deduplicate two directions on the same way
+                if not route_in_way[member.ref][relation.tags.ref] then
+                    -- insert() is the new append()
+                    table.insert(pt_ways[member.ref], relation)
+                    route_in_way[member.ref][relation.tags.ref] = true
+
+                    osm2pgsql.mark_way(member.ref)
+                end
             end
         end
     end
