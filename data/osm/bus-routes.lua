@@ -232,7 +232,7 @@ function osm2pgsql.process_relation(relation)
                 end
 
                 -- insert() is the new append()
-                pt_ways[member.ref][member.tags.ref] = relation
+                table.insert(pt_ways[member.ref], relation)
                 osm2pgsql.mark_way(member.ref)
             end
         end
