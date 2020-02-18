@@ -155,6 +155,20 @@ function sort_by_ref(a, b)
     return a.tags.ref < b.tags.ref
 end
 
+-- see https://stackoverflow.com/a/27028488/1959016
+function dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) ~= 'number' then k = '"'..k..'"' end
+         s = s .. '['..k..'] = ' .. dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
+end
+
 function osm2pgsql.process_way(way)
     -- Do nothing for ways in stage1, it'll be in relations where the magic starts
     if osm2pgsql.stage == 1 then
