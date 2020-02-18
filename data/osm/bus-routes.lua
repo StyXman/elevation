@@ -222,7 +222,8 @@ function osm2pgsql.process_way_stage2(way)
     local routes = pt_ways[way.id]
     table.sort(routes, sort_by_ref)
 
-    local line_width = 2.5
+    -- line width is going to be calculated in the style
+    local line_width = 1
     local offset = 0
     local side = 1
     local base_offset
