@@ -169,19 +169,54 @@ function dump(o)
    end
 end
 
+function osm2pgsql.process_relation(relation)
+    if osm2pgsql.stage == 1 then
+        return osm2pgsql.process_relation_stage1(relation)
+    else
+        return osm2pgsql.process_relation_stage2(relation)
+    end
+
 function osm2pgsql.process_way(way)
     -- Do nothing for ways in stage1, it'll be in relations where the magic starts
     if osm2pgsql.stage == 1 then
         return
     end
 
-    -- skip ways with no routes
-    if not pt_ways[way.id] then
-        print(way.id)
-        return
-    end
+    return osm2pgsql.process_way_stage2(way)
+end
 
-    -- We are now in stage2
+function osm2pgsql.process_relation_stage1(relation)
+    -- Only interested in relations with type=route, route=bus and a ref
+    -- TODO: other pt routes too
+    -- TODO: non-ref routes too
+    if relation.tags.type == 'route' and relation.tags.route == 'bus' and relation.tags.ref then
+        -- Go through all the members and store relation ids and refs so it
+        -- can be found by the way id.
+        for _, member in ipairs(relation.members) do
+            if member.type == 'w' then  -- ways
+                -- print(relation.id, member.ref, relation.tags.ref)
+                if not pt_ways[member.ref] then
+                    -- this is used as the list, because we can only sort in that case
+                    pt_ways[member.ref] = {}
+                    -- this is used as a set, to find whether this route was already seen
+                    -- in this way
+                    route_in_way[member.ref] = {}
+                end
+
+                -- deduplicate two directions on the same way
+                if not route_in_way[member.ref][relation.tags.ref] then
+                    -- insert() is the new append()
+                    table.insert(pt_ways[member.ref], relation)
+                    route_in_way[member.ref][relation.tags.ref] = true
+
+                    osm2pgsql.mark_way(member.ref)
+                end
+            end
+        end
+    end
+end
+
+function osm2pgsql.process_way_stage2(way)
     clean_tags(way.tags)
 
     local routes = pt_ways[way.id]
@@ -220,9 +255,6 @@ function osm2pgsql.process_way(way)
             geom = { create = 'line' }
         }
 
-        print(row.ref, row.colour)
-        -- tables.routes:add(row)
-        -- print(tables.routes)
         tables.routes.add_row(tables.routes, row)
 
         if side == 1 then
@@ -233,32 +265,5 @@ function osm2pgsql.process_way(way)
     end
 end
 
-function osm2pgsql.process_relation(relation)
-    -- Only interested in relations with type=route, route=bus and a ref
-    -- TODO: other pt routes too
-    if relation.tags.type == 'route' and relation.tags.route == 'bus' and relation.tags.ref then
-        -- Go through all the members and store relation ids and refs so it
-        -- can be found by the way id.
-        for _, member in ipairs(relation.members) do
-            if member.type == 'w' then
-                -- print(relation.id, member.ref, relation.tags.ref)
-                if not pt_ways[member.ref] then
-                    -- this is used as the list, because we can only sort in that case
-                    pt_ways[member.ref] = {}
-                    -- this is used as a set, to find whether this route was already seen
-                    -- in this way
-                    route_in_way[member.ref] = {}
-                end
-
-                -- deduplicate two directions on the same way
-                if not route_in_way[member.ref][relation.tags.ref] then
-                    -- insert() is the new append()
-                    table.insert(pt_ways[member.ref], relation)
-                    route_in_way[member.ref][relation.tags.ref] = true
-
-                    osm2pgsql.mark_way(member.ref)
-                end
-            end
-        end
-    end
+function osm2pgsql.process_relation_stage2(relation)
 end
