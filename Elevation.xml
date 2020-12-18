@@ -1905,7 +1905,7 @@
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="port"><![CDATA[5434]]></Parameter>
-       <Parameter name="dbname"><![CDATA[contours]]></Parameter>
+       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
@@ -1946,7 +1946,7 @@
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="port"><![CDATA[5434]]></Parameter>
-       <Parameter name="dbname"><![CDATA[contours]]></Parameter>
+       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
@@ -1972,7 +1972,7 @@
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="port"><![CDATA[5434]]></Parameter>
-       <Parameter name="dbname"><![CDATA[contours]]></Parameter>
+       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
@@ -2020,7 +2020,7 @@
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="port"><![CDATA[5434]]></Parameter>
-       <Parameter name="dbname"><![CDATA[contours]]></Parameter>
+       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
@@ -2074,7 +2074,7 @@
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="port"><![CDATA[5434]]></Parameter>
-       <Parameter name="dbname"><![CDATA[contours]]></Parameter>
+       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
