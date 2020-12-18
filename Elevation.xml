@@ -398,6 +398,7 @@
     <StyleName>landcover-low-zoom-foreground</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -1598,6 +1599,7 @@
     <StyleName>landcover-high-zoom</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -1686,6 +1688,7 @@
     <StyleName>landcover-line</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -1739,6 +1742,7 @@
     <StyleName>glacier-natural</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -1900,6 +1904,7 @@
     <StyleName>contour-50</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[contours]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -1940,6 +1945,7 @@
     <StyleName>contour-100</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[contours]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -1965,6 +1971,7 @@
     <StyleName>contour-250</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[contours]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -2012,6 +2019,7 @@
     <StyleName>contour-500</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[contours]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -2065,6 +2073,7 @@
     <StyleName>contour-1000</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[contours]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -2765,6 +2774,7 @@
     <StyleName>landcover-flat-fill</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -2829,6 +2839,7 @@
     <StyleName>springs-casing</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -3054,6 +3065,7 @@
     <StyleName>water-lines-casing</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -3116,6 +3128,7 @@
     <StyleName>water-lines-low-zoom</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -4158,6 +4171,7 @@
     <StyleName>water-lines</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -5873,6 +5887,7 @@
     <StyleName>water-areas</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -8149,6 +8164,7 @@
     <StyleName>landcover-area-symbols-wood</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -8246,6 +8262,7 @@
     <StyleName>marinas-area</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -8309,6 +8326,7 @@
     <StyleName>water-barriers-line</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -8339,6 +8357,7 @@
     <StyleName>water-barriers-poly</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -8372,6 +8391,7 @@
     <StyleName>springs</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -8548,6 +8568,7 @@
     <StyleName>protected-areas-narrowline</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -8591,6 +8612,7 @@
     <StyleName>piers-poly</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -8668,6 +8690,7 @@
     <StyleName>piers-line</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -8721,6 +8744,7 @@
     <StyleName>water-barriers-point</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -8749,6 +8773,7 @@
     <StyleName>bridge</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -8877,6 +8902,7 @@
     <StyleName>buildings</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -17031,6 +17057,7 @@
     <StyleName>tunnels-strip</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -17197,6 +17224,7 @@
     <StyleName>landuse-overlay</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -17279,6 +17307,7 @@
     <StyleName>tourism-boundary</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -17421,6 +17450,7 @@
     <StyleName>line-barriers</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -17479,6 +17509,7 @@
     <StyleName>relief-symbols-man_made</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -17621,6 +17652,7 @@
     <StyleName>area-barriers</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -17660,6 +17692,7 @@
     <StyleName>ferry-routes</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -17843,6 +17876,7 @@
     <StyleName>turning-circle-casing</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -17930,6 +17964,7 @@
     <StyleName>highway-area-casing</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -19069,6 +19104,7 @@
     <StyleName>roads-casing-casing</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -19243,6 +19279,7 @@
     <StyleName>highway-area-fill</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -31752,6 +31789,7 @@
     <StyleName>roads-fill-strip</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -31943,6 +31981,7 @@
     <StyleName>pistes</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -32138,6 +32177,7 @@ WHERE
     <StyleName>turning-circle-fill</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -32417,6 +32457,7 @@ WHERE
     <StyleName>aerialways</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -32653,6 +32694,7 @@ WHERE
     <StyleName>roads-low-zoom-fill</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -33709,6 +33751,7 @@ WHERE
     <StyleName>waterway-bridges</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -41836,6 +41879,7 @@ WHERE
     <StyleName>bridges-strip</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -41951,6 +41995,7 @@ WHERE
     <StyleName>guideways</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -42178,6 +42223,7 @@ ORDER BY ref
     <StyleName>entrances</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -42329,6 +42375,7 @@ AS entrances]]></Parameter>
     <StyleName>aeroways-fill</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -42444,6 +42491,7 @@ AS entrances]]></Parameter>
     <StyleName>admin-low-zoom</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -42483,6 +42531,7 @@ AS entrances]]></Parameter>
     <StyleName>admin-mid-zoom</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -42518,6 +42567,7 @@ AS entrances]]></Parameter>
     <StyleName>admin-high-zoom</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -42556,6 +42606,7 @@ AS entrances]]></Parameter>
     <StyleName>power-minorline</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -42600,6 +42651,7 @@ AS entrances]]></Parameter>
     <StyleName>power-line</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -42689,6 +42741,7 @@ AS entrances]]></Parameter>
     <StyleName>trees-trunk</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -42786,6 +42839,7 @@ SELECT
     <StyleName>country-names</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -42984,6 +43038,7 @@ SELECT
     <StyleName>capital-names</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -43011,6 +43066,7 @@ SELECT
     
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -43366,6 +43422,7 @@ SELECT
     <StyleName>placenames-medium-low-importance</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -43555,6 +43612,7 @@ SELECT
     <StyleName>placenames-small-neighborhood</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -43722,6 +43780,7 @@ SELECT
     <StyleName>stations-aerialway</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -43919,6 +43978,7 @@ SELECT
     <StyleName>junctions</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -43980,6 +44040,7 @@ UNION ALL
     <StyleName>bridge-text</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -46893,6 +46954,7 @@ UNION ALL
     <StyleName>amenity-points-dot</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -47219,6 +47281,7 @@ UNION ALL
     <StyleName>amenity-line</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -47275,6 +47338,7 @@ UNION ALL
     <StyleName>power-towers</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -47327,6 +47391,7 @@ ORDER BY
     <StyleName>roads-text-ref-low-zoom</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -47475,6 +47540,7 @@ ORDER BY
     <StyleName>roads-text-ref</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -47542,6 +47608,7 @@ ORDER BY
     <StyleName>roads-area-text-name</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -48434,6 +48501,7 @@ ORDER BY
     <StyleName>roads-text-name-directions</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -48887,6 +48955,7 @@ ORDER BY
     <StyleName>paths-text-name-directions</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -49087,6 +49156,7 @@ ORDER BY
     <StyleName>railways-text-name</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -49176,6 +49246,7 @@ ORDER BY
     <StyleName>roads-text-ref-minor</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -49721,6 +49792,7 @@ ORDER BY
     <StyleName>text-poly-low-zoom</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -52111,6 +52183,7 @@ ORDER BY
     <StyleName>text-line-foreground</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -59079,6 +59152,7 @@ ORDER BY
     <StyleName>text-point-foreground</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -59337,6 +59411,7 @@ ORDER BY
     <StyleName>building-text</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -59367,6 +59442,7 @@ ORDER BY
     <StyleName>interpolation</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -59486,6 +59562,7 @@ ORDER BY
     <StyleName>addresses</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -59724,6 +59801,7 @@ SELECT
     <StyleName>water-lines-text</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -59761,6 +59839,7 @@ SELECT
     <StyleName>ferry-routes-text</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -59782,6 +59861,7 @@ SELECT
     
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -59824,6 +59904,7 @@ SELECT
     <StyleName>protected-areas-text</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -60030,6 +60111,7 @@ SELECT
     <StyleName>amenity-low-priority-amenity</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -60115,6 +60197,7 @@ SELECT
     <StyleName>text-low-priority</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
