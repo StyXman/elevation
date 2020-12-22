@@ -7,6 +7,21 @@ set -eu
 # procs
 # path
 
+function usage() {
+    echo "Usage: $0 [-h|--help] [-d|--database DB] [boot|restart|import PBF ARGS...|append PBF ARGS...]"
+    echo
+    echo "boot creates a super user '$USER'. needs sudo."
+    echo "restart (re)recreates the database from scratch. WARNING: it removes previous data."
+    echo "import and append import new data. ARGS are passed directly to osm2pgsql."
+    echo
+    echo "WARNING: -d|--database must be provided BEFORE the command."
+    exit 0
+}
+
+if [ $# -eq 0 ]; then
+    usage
+fi
+
 db='gis'
 bin='osm2pgsql'
 # bin='/home/mdione/src/system/osm/osm2pgsql/build/osm2pgsql'
@@ -15,6 +30,11 @@ case "$1" in
   -d|--database)
     db="$2"
     shift 2
+  ;;
+    
+  -h|--help)
+    usage
+  ;;
 esac
 
 osm_carto='../../osm-carto'
