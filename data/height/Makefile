@@ -24,7 +24,7 @@ all:
 	make -C datafiles -j 4 all_single
 	make main
 
-# this Makefile is multipurposse, to be used at the root of the height data dir
+# this Makefile is multipurpose, to be used at the root of the height data dir
 # (data/height) and on each provider's dir
 
 # but minor goals first
@@ -109,14 +109,8 @@ m_per_pixel=30.92208077590933
 # 	gdal_translate $(final_gopts) -b 1 /vsistdin/ $@
 # 	gdal_edit.py -colorinterp_1 gray $@
 
-%-contour.sql.xz: %-contour.sql
-	xz -9 $<
-
-%-contour.sql: %-corrected.tif
-	mkdir -pv $(basename $<).shp
-	gdal_contour -i 10 -a height $< $(basename $<).shp
-	shp2pgsql -c -I -g way $(basename $<).shp/contour contours > $@
-	rm -rfv $(basename $<).shp
+%-contour.sql.xz: %-corrected.tif
+	./contours.sh $< | xz -9 > $@
 
 terrain.vrt: *-terrain.tif
 	# gdalbuildvrt $@
