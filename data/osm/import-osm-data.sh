@@ -50,6 +50,10 @@ while true; do
     esac
 done
 
+if [ $# -eq 0 ]; then
+    usage
+fi
+
 osm_carto='../../osm-carto'
 
 common_opts="--username $USER --port $port --database "$db" --cache 0 --number-processes 4 --verbose \
