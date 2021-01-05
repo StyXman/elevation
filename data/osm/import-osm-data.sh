@@ -35,7 +35,7 @@ while true; do
         shift 2
       ;;
 
-      --p|-port)
+      -p|--port)
         port="$2"
         shift 2
       ;;
