@@ -28,7 +28,7 @@ port=5432
 bin='osm2pgsql'
 # bin='/home/mdione/src/system/osm/osm2pgsql/build/osm2pgsql'
 
-while true; do
+while [ $# -gt 0 ]; do
     case "$1" in
       -d|--database)
         db="$2"
