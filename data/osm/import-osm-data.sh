@@ -80,7 +80,7 @@ case "$command" in
     # unlogged is not recognized anymore, is there an option?
     opts="--create"
     nice -n 19 $bin $opts $common_opts "$@"
-    time psql --port $port --dbname "$db" ../../osm-carto/indexes.sql
+    time psql --port $port --dbname "$db" --file ../../osm-carto/indexes.sql
     ;;
 
   append)
