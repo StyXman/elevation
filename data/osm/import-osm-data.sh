@@ -69,11 +69,19 @@ shift
 
 case "$command" in
   boot)
+    if [ $# -ne 0 ]; then
+        usage 1
+    fi
+
     sudo --user postgres --port $port createuser --superuser $USER
     # sudo --user postgres psql -c "create tablespace hdd owner mdione location '/var/lib/data/postgresql';"
     ;;
 
   restart)
+    if [ $# -ne 0 ]; then
+        usage 1
+    fi
+
     sudo --user postgres dropdb --port $port --if-exists "$db"
     sudo --user postgres createdb --port $port --encoding UTF8 --owner $USER "$db"
     sudo --user postgres psql --port $port --dbname "$db" --command "CREATE EXTENSION postgis;"
@@ -83,6 +91,10 @@ case "$command" in
     ;;
 
   import)
+    if [ $# -ne 1 ]; then
+        usage 1
+    fi
+
     # opts="--create --unlogged"
     # unlogged is not recognized anymore, is there an option?
     opts="--create"
@@ -91,11 +103,15 @@ case "$command" in
     ;;
 
   append)
+    if [ $# -ne 1 ]; then
+        usage 1
+    fi
+
     opts="--append"
     nice -n 19 $bin $opts $common_opts "$@"
     ;;
 
   *)
     echo "ERROR: wrong command $command"
-    exit 1
+    usage 1
 esac
