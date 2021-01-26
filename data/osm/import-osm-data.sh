@@ -73,7 +73,7 @@ case "$command" in
         usage 1
     fi
 
-    sudo --user postgres --port $port createuser --superuser $USER
+    sudo --user postgres createuser --port $port --superuser $USER
     # sudo --user postgres psql -c "create tablespace hdd owner mdione location '/var/lib/data/postgresql';"
     ;;
 
