@@ -8,6 +8,8 @@ set -eu
 # path
 
 function usage() {
+    rc=${1:-0}
+
     echo "Usage: $0 [-h|--help] [-d|--database DB] [-p|--port PORT] [boot|restart|import PBF ARGS...|append PBF ARGS...]"
     echo
     echo "boot creates a super user '$USER'. needs sudo."
@@ -15,8 +17,9 @@ function usage() {
     echo "import and append import new data. ARGS are passed directly to osm2pgsql."
     echo "DB is by dfault 'gis', and PORT is postgres' port, usually 5432."
     echo
-    echo "WARNING: -d|--database must be provided BEFORE the command."
-    exit 0
+    echo "WARNING: -d|--database and -p|--port must be provided BEFORE the command."
+
+    exit $rc
 }
 
 if [ $# -eq 0 ]; then
