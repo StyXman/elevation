@@ -49388,7 +49388,7 @@ UNION ALL
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <Filter>([feature] = 'natural_peak') and ([name])</Filter>
+    <Filter>([feature] = 'natural_peak') and (not [name] = '')</Filter>
     <MarkersSymbolizer file="symbols/natural/peak.svg" fill="#d08f55" clip="false" />
   </Rule>
   <Rule>
