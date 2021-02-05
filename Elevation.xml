@@ -317,17 +317,17 @@
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="0.4" stroke="#8d618b" />
+    <LineSymbolizer stroke-width="0.4" stroke="#ac46ac" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000000</MaxScaleDenominator>
     <MinScaleDenominator>100000000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="0.3" stroke="#8d618b" />
+    <LineSymbolizer stroke-width="0.3" stroke="#ac46ac" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
     <MinScaleDenominator>200000000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="0.2" stroke="#8d618b" />
+    <LineSymbolizer stroke-width="0.2" stroke="#ac46ac" />
   </Rule>
 </Style>
 <Layer name="necountries"
@@ -486,14 +486,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_commercial') and ([name] != '') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.7" stroke="#d1b2b0" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_commercial') and ([name] != '') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#c5c3c3" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -504,14 +504,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_commercial') and ([name] != '') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.7" stroke="#d1b2b0" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_commercial') and ([name] != '') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#c5c3c3" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -522,14 +522,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_commercial') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.7" stroke="#d1b2b0" />
+    <PolygonSymbolizer fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_commercial') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -540,50 +540,50 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_railway') and ([name] != '') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#ebdbe8" />
-    <LineSymbolizer stroke-width="0.7" stroke="#c6b3c3" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_railway') and ([name] != '') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#ebdbe8" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_railway') and ([name] != '') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#ebdbe8" />
-    <LineSymbolizer stroke-width="0.7" stroke="#c6b3c3" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_railway') and ([name] != '') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#ebdbe8" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_railway') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
-    <LineSymbolizer stroke-width="0.7" stroke="#c6b3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_railway') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_industrial') and ([name] != '') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#ebdbe8" />
-    <LineSymbolizer stroke-width="0.7" stroke="#c6b3c3" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_industrial') and ([name] != '') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#ebdbe8" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -594,14 +594,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_industrial') and ([name] != '') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#ebdbe8" />
-    <LineSymbolizer stroke-width="0.7" stroke="#c6b3c3" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_industrial') and ([name] != '') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#ebdbe8" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -612,14 +612,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_industrial') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
-    <LineSymbolizer stroke-width="0.7" stroke="#c6b3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_industrial') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -630,14 +630,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_retail') and ([way_pixels] &gt;= 64) and ([name] != '')</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.7" stroke="#d99c95" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_retail') and ([way_pixels] &gt;= 64) and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -648,14 +648,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_retail') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.5" stroke="#d99c95" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_retail') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -666,14 +666,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'shop_mall') and ([way_pixels] &gt;= 64) and ([name] != '')</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.7" stroke="#d99c95" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'shop_mall') and ([way_pixels] &gt;= 64) and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -684,14 +684,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'shop_mall') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.5" stroke="#d99c95" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'shop_mall') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -702,14 +702,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'amenity_marketplace') and ([way_pixels] &gt;= 64) and ([name] != '')</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.7" stroke="#d99c95" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'amenity_marketplace') and ([way_pixels] &gt;= 64) and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -720,14 +720,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'amenity_marketplace') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.5" stroke="#d99c95" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'amenity_marketplace') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -738,14 +738,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_retail') and ([way_pixels] &gt;= 4) and ([name] != '')</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.7" stroke="#d99c95" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_retail') and ([way_pixels] &gt;= 4) and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -756,14 +756,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_retail') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.5" stroke="#d99c95" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_retail') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -774,14 +774,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'shop_mall') and ([way_pixels] &gt;= 4) and ([name] != '')</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.7" stroke="#d99c95" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'shop_mall') and ([way_pixels] &gt;= 4) and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -792,14 +792,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'shop_mall') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.5" stroke="#d99c95" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'shop_mall') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -810,14 +810,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'amenity_marketplace') and ([way_pixels] &gt;= 4) and ([name] != '')</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.7" stroke="#d99c95" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'amenity_marketplace') and ([way_pixels] &gt;= 4) and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -828,14 +828,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'amenity_marketplace') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.5" stroke="#d99c95" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'amenity_marketplace') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -846,14 +846,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_retail') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.7" stroke="#d99c95" />
+    <PolygonSymbolizer fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_retail') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -864,14 +864,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'shop_mall') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.7" stroke="#d99c95" />
+    <PolygonSymbolizer fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'shop_mall') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -882,14 +882,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'amenity_marketplace') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.7" stroke="#d99c95" />
+    <PolygonSymbolizer fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'amenity_marketplace') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -912,14 +912,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_residential') and ([name] != '') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#e0dfdf" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
     <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_residential') and ([name] != '') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#e0dfdf" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -930,14 +930,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_residential') and ([name] != '') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#e0dfdf" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
     <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_residential') and ([name] != '') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#e0dfdf" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -948,14 +948,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_residential') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#e0dfdf" />
+    <PolygonSymbolizer fill="#cfcfcf" />
     <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_residential') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#e0dfdf" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -1305,14 +1305,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_commercial') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.5" stroke="#d1b2b0" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_commercial') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#c5c3c3" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -1323,14 +1323,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_commercial') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.5" stroke="#d1b2b0" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_commercial') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#c5c3c3" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -1341,14 +1341,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_commercial')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.5" stroke="#d1b2b0" />
+    <PolygonSymbolizer fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_commercial')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -1359,65 +1359,65 @@
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_railway') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#ebdbe8" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_railway') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#ebdbe8" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_water_works') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
-    <LineSymbolizer stroke-width="0.7" stroke="#c6b3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'man_made_water_works') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([feature] = 'man_made_water_works') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_wastewater_plant') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
-    <LineSymbolizer stroke-width="0.7" stroke="#c6b3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'man_made_wastewater_plant') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([feature] = 'man_made_wastewater_plant') and ([name] != '')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_works') and ([name] != '')</Filter>
-    <LineSymbolizer stroke-width="0.7" stroke="#c6b3c3" />
+    <LineSymbolizer stroke-width="0.7" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_industrial') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#ebdbe8" />
-    <LineSymbolizer stroke-width="0.5" stroke="#c6b3c3" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_industrial') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#ebdbe8" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -1428,14 +1428,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_industrial') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#ebdbe8" />
-    <LineSymbolizer stroke-width="0.5" stroke="#c6b3c3" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_industrial') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#ebdbe8" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -1446,14 +1446,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_industrial')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
-    <LineSymbolizer stroke-width="0.5" stroke="#c6b3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_industrial')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -1464,14 +1464,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_retail')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.5" stroke="#d99c95" />
+    <PolygonSymbolizer fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_retail')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -1482,14 +1482,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'shop_mall')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.5" stroke="#d99c95" />
+    <PolygonSymbolizer fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'shop_mall')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -1500,14 +1500,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'amenity_marketplace')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
-    <LineSymbolizer stroke-width="0.5" stroke="#d99c95" />
+    <PolygonSymbolizer fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'amenity_marketplace')</Filter>
-    <PolygonSymbolizer fill="#c5c3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -1614,14 +1614,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_residential') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#e0dfdf" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
     <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_residential') and ([way_pixels] &gt;= 64)</Filter>
-    <PolygonSymbolizer gamma="0.3" fill="#e0dfdf" />
+    <PolygonSymbolizer gamma="0.3" fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -1632,14 +1632,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_residential') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#e0dfdf" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
     <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_residential') and ([way_pixels] &gt;= 4)</Filter>
-    <PolygonSymbolizer gamma="0.75" fill="#e0dfdf" />
+    <PolygonSymbolizer gamma="0.75" fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -1650,14 +1650,14 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_residential')</Filter>
-    <PolygonSymbolizer fill="#e0dfdf" />
+    <PolygonSymbolizer fill="#cfcfcf" />
     <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'landuse_residential')</Filter>
-    <PolygonSymbolizer fill="#e0dfdf" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -1760,7 +1760,7 @@
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <Filter>([feature] = 'railway_station')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -1911,48 +1911,48 @@
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_railway')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_water_works')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
-    <LineSymbolizer stroke-width="0.5" stroke="#c6b3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'man_made_water_works')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([feature] = 'man_made_water_works')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_wastewater_plant')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
-    <LineSymbolizer stroke-width="0.5" stroke="#c6b3c3" />
+    <PolygonSymbolizer fill="#cfcfcf" />
+    <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([feature] = 'man_made_wastewater_plant')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([feature] = 'man_made_wastewater_plant')</Filter>
-    <PolygonSymbolizer fill="#ebdbe8" />
+    <PolygonSymbolizer fill="#cfcfcf" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_works')</Filter>
-    <LineSymbolizer stroke-width="0.5" stroke="#c6b3c3" />
+    <LineSymbolizer stroke-width="0.5" stroke="#b9b9b9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -2026,6 +2026,7 @@
        <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
        <Parameter name="table"><![CDATA[(SELECT
     way, name, religion, way_pixels, is_building,
+    parking_space,
     -- see -->                                                                              tourism, gone to lc-flat
     COALESCE(aeroway, amenity, wetland, power, landuse, leisure, man_made, "natural", shop,          highway, railway) AS feature
   FROM (SELECT
@@ -2068,6 +2069,7 @@
       CASE WHEN religion IN ('christian', 'jewish', 'muslim') THEN religion ELSE 'INT-generic'::text END AS religion,
       way_area/NULLIF(POW(!scale_denominator!*0.001*0.28,2),0) AS way_pixels,
       CASE WHEN building = 'no' OR building IS NULL THEN 'no' ELSE 'yes' END AS is_building,
+      tags->'parking_space' as parking_space,
       way_area
     FROM planet_osm_polygon
     WHERE (landuse IS NOT NULL
@@ -2223,7 +2225,7 @@
   maximum-scale-denominator="3000000"
   minimum-scale-denominator="1500000"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-
+    
     <Datasource>
        <Parameter name="file"><![CDATA[data/height/mixed-hillshade-medium.tif]]></Parameter>
        <Parameter name="type"><![CDATA[gdal]]></Parameter>
@@ -2313,10 +2315,14 @@
     </Datasource>
   </Layer>
 
-<Style name="contour-10" filter-mode="first" comp-op="minus">
+<Style name="contour-10" filter-mode="first" comp-op="color-burn">
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#606060" stroke-width="0.25" smooth="0.8" stroke-opacity="0.6" />
+    <LineSymbolizer stroke-width="0.1" stroke="#181818" smooth="0.8" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <LineSymbolizer stroke="#181818" smooth="0.8" />
   </Rule>
 </Style>
 <Layer name="contour-10"
@@ -2337,15 +2343,14 @@
     </Datasource>
   </Layer>
 
-<Style name="contour-50" filter-mode="first" comp-op="minus">
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#606060" stroke-width="0.5" smooth="0.8" stroke-opacity="0.6" />
-  </Rule>
+<Style name="contour-50" filter-mode="first" comp-op="color-burn">
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <LineSymbolizer stroke="#404040" stroke-width="0.5" smooth="0.8" stroke-opacity="0.6" />
+    <LineSymbolizer stroke-width="0.2" stroke="#181818" smooth="0.8" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <LineSymbolizer stroke="#181818" smooth="0.8" />
   </Rule>
 </Style>
 <Layer name="contour-50"
@@ -2366,27 +2371,20 @@
     </Datasource>
   </Layer>
 
-<Style name="contour-100" filter-mode="first" comp-op="minus">
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#606060" stroke-opacity="1" stroke-width="0.5" smooth="0.8" />
-    <TextSymbolizer fontset-name="fontset-1" size="12" fill="#404040" opacity="0.7" halo-radius="2" halo-fill="#000000" placement="line" spacing="400" minimum-distance="100"><![CDATA[[height]]]></TextSymbolizer>
-  </Rule>
+<Style name="contour-100" filter-mode="first" comp-op="color-burn">
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <LineSymbolizer stroke-opacity="1" stroke="#404040" stroke-width="0.5" smooth="0.8" />
-    <TextSymbolizer fontset-name="fontset-1" size="12" fill="#404040" opacity="0.7" halo-radius="2" halo-fill="#000000" placement="line" spacing="400" minimum-distance="100"><![CDATA[[height]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <LineSymbolizer stroke-opacity="0.8" stroke="#404040" stroke-width="0.5" smooth="0.8" />
+    <LineSymbolizer stroke-width="0.5" stroke="#181818" smooth="0.8" />
+    <TextSymbolizer fontset-name="fontset-1" size="12" fill="#404040" halo-radius="2" halo-fill="#ffffff" placement="line" spacing="400" minimum-distance="100"><![CDATA[[height]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <LineSymbolizer stroke="#404040" stroke-width="0.5" smooth="0.8" stroke-opacity="0.6" />
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="0.2" stroke="#181818" smooth="0.8" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <LineSymbolizer stroke="#181818" smooth="0.8" />
   </Rule>
 </Style>
 <Layer name="contour-100"
@@ -2407,11 +2405,14 @@
     </Datasource>
   </Layer>
 
-<Style name="contour-250" filter-mode="first" comp-op="minus">
+<Style name="contour-250" filter-mode="first" comp-op="color-burn">
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>400000</MinScaleDenominator>
-    <LineSymbolizer stroke="#404040" stroke-width="0.5" smooth="0.8" stroke-opacity="0.6" />
+    <LineSymbolizer stroke-width="0.2" stroke="#181818" smooth="0.8" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <LineSymbolizer stroke="#181818" smooth="0.8" />
   </Rule>
 </Style>
 <Layer name="contour-250"
@@ -2433,34 +2434,31 @@
     </Datasource>
   </Layer>
 
-<Style name="contour-500" filter-mode="first" comp-op="minus">
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#606060" stroke-opacity="1" stroke-width="1" smooth="0.8" />
-    <TextSymbolizer fontset-name="fontset-1" size="12" fill="#404040" opacity="0.7" halo-radius="2" halo-fill="#000000" placement="line" spacing="400" minimum-distance="100"><![CDATA[[height]]]></TextSymbolizer>
-  </Rule>
+<Style name="contour-500" filter-mode="first" comp-op="color-burn">
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <LineSymbolizer stroke-opacity="1" stroke-width="1" stroke="#404040" smooth="0.8" />
-    <TextSymbolizer fontset-name="fontset-1" size="12" fill="#404040" opacity="0.7" halo-radius="2" halo-fill="#000000" placement="line" spacing="400" minimum-distance="100"><![CDATA[[height]]]></TextSymbolizer>
+    <LineSymbolizer stroke-width="0.75" stroke="#181818" smooth="0.8" />
+    <TextSymbolizer fontset-name="fontset-1" size="12" fill="#404040" halo-radius="2" halo-fill="#ffffff" placement="line" spacing="400" minimum-distance="100"><![CDATA[[height]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="1" stroke-opacity="0.8" stroke="#404040" smooth="0.8" />
-    <TextSymbolizer fontset-name="fontset-1" size="12" fill="#404040" opacity="0.7" halo-radius="2" halo-fill="#000000" placement="line" spacing="400" minimum-distance="100"><![CDATA[[height]]]></TextSymbolizer>
+    <LineSymbolizer stroke-width="0.5" stroke="#181818" smooth="0.8" />
+    <TextSymbolizer fontset-name="fontset-1" size="12" fill="#404040" halo-radius="2" halo-fill="#ffffff" placement="line" spacing="400" minimum-distance="100"><![CDATA[[height]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="0.75" stroke="#404040" smooth="0.8" stroke-opacity="0.6" />
-    <TextSymbolizer fontset-name="fontset-1" size="12" fill="#404040" opacity="0.7" halo-radius="2" halo-fill="#000000" placement="line" spacing="400" minimum-distance="100"><![CDATA[[height]]]></TextSymbolizer>
+    <LineSymbolizer stroke-width="0.5" stroke="#181818" smooth="0.8" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
-    <LineSymbolizer stroke="#404040" stroke-width="0.5" smooth="0.8" stroke-opacity="0.6" />
+    <LineSymbolizer stroke-width="0.2" stroke="#181818" smooth="0.8" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <LineSymbolizer stroke="#181818" smooth="0.8" />
   </Rule>
 </Style>
 <Layer name="contour-500"
@@ -2481,40 +2479,31 @@
     </Datasource>
   </Layer>
 
-<Style name="contour-1000" filter-mode="first" comp-op="minus">
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#606060" stroke-opacity="1" stroke-width="1" smooth="0.8" />
-    <TextSymbolizer fontset-name="fontset-1" size="12" fill="#404040" opacity="0.7" halo-radius="2" halo-fill="#000000" placement="line" spacing="400" minimum-distance="100"><![CDATA[[height]]]></TextSymbolizer>
-  </Rule>
+<Style name="contour-1000" filter-mode="first" comp-op="color-burn">
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <LineSymbolizer stroke-opacity="1" stroke-width="1" stroke="#404040" smooth="0.8" />
-    <TextSymbolizer fontset-name="fontset-1" size="12" fill="#404040" opacity="0.7" halo-radius="2" halo-fill="#000000" placement="line" spacing="400" minimum-distance="100"><![CDATA[[height]]]></TextSymbolizer>
+    <LineSymbolizer stroke-width="1" stroke="#181818" smooth="0.8" />
+    <TextSymbolizer fontset-name="fontset-1" size="12" fill="#404040" halo-radius="2" halo-fill="#ffffff" placement="line" spacing="400" minimum-distance="100"><![CDATA[[height]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <LineSymbolizer stroke-opacity="0.8" stroke-width="1" stroke="#404040" smooth="0.8" />
-    <TextSymbolizer fontset-name="fontset-1" size="12" fill="#404040" opacity="0.7" halo-radius="2" halo-fill="#000000" placement="line" spacing="400" minimum-distance="100"><![CDATA[[height]]]></TextSymbolizer>
+    <LineSymbolizer stroke-width="0.75" stroke="#181818" smooth="0.8" />
+    <TextSymbolizer fontset-name="fontset-1" size="12" fill="#404040" halo-radius="2" halo-fill="#ffffff" placement="line" spacing="400" minimum-distance="100"><![CDATA[[height]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="1" stroke="#404040" smooth="0.8" stroke-opacity="0.6" />
-    <TextSymbolizer fontset-name="fontset-1" size="12" fill="#404040" opacity="0.7" halo-radius="2" halo-fill="#000000" placement="line" spacing="400" minimum-distance="100"><![CDATA[[height]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <LineSymbolizer stroke="#404040" stroke-width="0.5" smooth="0.8" stroke-opacity="0.6" />
-    <TextSymbolizer fontset-name="fontset-1" size="12" fill="#404040" opacity="0.7" halo-radius="2" halo-fill="#000000" placement="line" spacing="400" minimum-distance="100"><![CDATA[[height]]]></TextSymbolizer>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="0.5" stroke="#181818" smooth="0.8" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <LineSymbolizer stroke="#404040" stroke-width="0.5" smooth="0.8" stroke-opacity="0.6" />
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="0.2" stroke="#181818" smooth="0.8" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <LineSymbolizer stroke="#181818" smooth="0.8" />
   </Rule>
 </Style>
 <Layer name="contour-1000"
@@ -12748,11 +12737,6 @@
     <LineSymbolizer stroke-width="1.9" stroke="#e66e89" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <Filter>([feature] = 'railway_subway')</Filter>
-    <LineSymbolizer stroke-dasharray="5, 3" stroke-width="2" stroke="#404040" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'railway_tram')</Filter>
     <LineSymbolizer stroke-dasharray="5, 3" stroke-width="2" stroke="#6e6e6e" />
@@ -17542,7 +17526,7 @@
 <Layer name="area-barriers"
   maximum-scale-denominator="12500"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-
+    
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="port"><![CDATA[5434]]></Parameter>
@@ -31411,11 +31395,6 @@
     <LineSymbolizer stroke-width="3" stroke="#777777" stroke-dasharray="2, 3" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <Filter>([feature] = 'railway_subway')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#404040" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([feature] = 'railway_miniature')</Filter>
     <LineSymbolizer stroke-width="1.2" stroke="#999999" />
@@ -40665,17 +40644,6 @@ WHERE
     <LineSymbolizer stroke="#444444" stroke-width="0.8" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([feature] = 'railway_subway')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#404040" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([feature] = 'railway_subway')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#404040" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <Filter>([feature] = 'highway_path') and ([bicycle] != 'designated') and ([horse] != 'designated') and ([access] != 'no') and ([int_surface] = 'unpaved')</Filter>
     <LineSymbolizer stroke-width="1.6" stroke="#000000" stroke-dasharray="1, 4" stroke-linejoin="round" stroke-linecap="round" />
@@ -44337,32 +44305,33 @@ WHERE
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([route] = 'bus')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linejoin="round" />
-    <LineSymbolizer stroke="[color]" stroke-dasharray="4, 2" stroke-width="2" stroke-linejoin="round" />
+    <LineSymbolizer stroke-width="2" stroke-opacity="1" stroke="#ffffff" stroke-linejoin="round" />
+    <LineSymbolizer stroke="[color]" stroke-dasharray="4, 2" stroke-width="2" stroke-opacity="1" stroke-linejoin="round" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([route] = 'bus')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#ffffff" stroke-linejoin="round" />
-    <LineSymbolizer stroke-width="1" stroke="#c00000" stroke-linejoin="round" stroke-dasharray="4, 4" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([route] = 'subway')</Filter>
-    <LineSymbolizer stroke-width="5" stroke-opacity="0.5" stroke="[color]" stroke-linejoin="round" />
+    <LineSymbolizer stroke-opacity="1" stroke-width="1" stroke="#ffffff" stroke-linejoin="round" />
+    <LineSymbolizer stroke-opacity="1" stroke-width="1" stroke="#c00000" stroke-linejoin="round" stroke-dasharray="4, 4" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([route] = 'bus')</Filter>
+    <LineSymbolizer stroke-width="1" stroke="#ffffff" stroke-linejoin="round" stroke-opacity="0.5" />
+    <LineSymbolizer stroke-width="1" stroke="#c00000" stroke-linejoin="round" stroke-dasharray="4, 4" stroke-opacity="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([route] = 'subway')</Filter>
-    <LineSymbolizer stroke-width="4" stroke-opacity="0.5" stroke="[color]" stroke-linejoin="round" />
+    <LineSymbolizer stroke-opacity="0.5" stroke-width="5" stroke="[color]" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([route] = 'subway')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="[color]" stroke-linejoin="round" stroke-opacity="0.75" />
+    <LineSymbolizer stroke-width="5" stroke="[color]" stroke-linejoin="round" stroke-opacity="0.75" />
   </Rule>
 </Style>
 <Layer name="routes"
@@ -44742,17 +44711,17 @@ AS entrances]]></Parameter>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="0.4" stroke="#8d618b" />
+    <LineSymbolizer stroke-width="0.4" stroke="#ac46ac" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000000</MaxScaleDenominator>
     <MinScaleDenominator>100000000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="0.3" stroke="#8d618b" />
+    <LineSymbolizer stroke-width="0.3" stroke="#ac46ac" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>500000000</MaxScaleDenominator>
     <MinScaleDenominator>200000000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="0.2" stroke="#8d618b" />
+    <LineSymbolizer stroke-width="0.2" stroke="#ac46ac" />
   </Rule>
 </Style>
 <Layer name="necountries"
@@ -44766,483 +44735,124 @@ AS entrances]]></Parameter>
     </Datasource>
   </Layer>
 
-<Style name="admin-low-zoom-narrowline" filter-mode="first" comp-op="darken" opacity="0.6">
+<Style name="admin-low-zoom-firstline" filter-mode="first" comp-op="darken" opacity="0.8">
 </Style>
-<Style name="admin-low-zoom-firstline" filter-mode="first" comp-op="darken" opacity="0.5">
-</Style>
-<Style name="admin-low-zoom-wideline" filter-mode="first" comp-op="darken" opacity="0.5">
+<Style name="admin-low-zoom-narrowline" filter-mode="first" comp-op="darken" opacity="0.8">
   <Rule>
-    <MaxScaleDenominator>6500000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="0.8" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="0.8" stroke="#8d618b" stroke-linejoin="bevel" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="0.6" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="0.6" stroke="#8d618b" stroke-linejoin="bevel" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000000</MaxScaleDenominator>
-    <MinScaleDenominator>12500000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="0.5" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="0.5" stroke="#8d618b" stroke-linejoin="bevel" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>25000000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#ffffff" stroke-width="0.4" />
-    <LineSymbolizer stroke="#8d618b" stroke-linejoin="bevel" stroke-width="0.4" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>6500000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="1.2" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.2" stroke-linejoin="bevel" stroke="#8d618b" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="1" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1" stroke-linejoin="bevel" stroke="#8d618b" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000000</MaxScaleDenominator>
-    <MinScaleDenominator>12500000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="0.8" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="0.8" stroke-linejoin="bevel" stroke="#8d618b" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>25000000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#ffffff" stroke-width="0.6" />
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#8d618b" stroke-width="0.6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>6500000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="2.2" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="2.2" stroke-linejoin="bevel" stroke="#8d618b" />
+    <LineSymbolizer stroke-width="1.8" stroke-dasharray="36, 2, 8, 2" stroke-linejoin="bevel" stroke="#845283" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="1.8" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.8" stroke-linejoin="bevel" stroke="#8d618b" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000000</MaxScaleDenominator>
-    <MinScaleDenominator>12500000</MinScaleDenominator>
-    <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.5" stroke-linejoin="bevel" stroke="#8d618b" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>25000000</MinScaleDenominator>
-    <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#ffffff" stroke-width="1.2" />
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#8d618b" stroke-width="1.2" />
-  </Rule>
-</Style>
-<Layer name="admin-low-zoom"
-  maximum-scale-denominator="50000000"
-  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-    <StyleName>admin-low-zoom-wideline</StyleName>
-    <StyleName>admin-low-zoom-firstline</StyleName>
-    <StyleName>admin-low-zoom-narrowline</StyleName>
-    <Datasource>
-       <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="port"><![CDATA[5434]]></Parameter>
-       <Parameter name="dbname"><![CDATA[paca]]></Parameter>
-       <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
-       <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT
-    way,
-    admin_level
-  FROM planet_osm_roads
-  WHERE boundary = 'administrative'
-    AND admin_level IN ('2', '3')
-    AND osm_id < 0
-  ORDER BY admin_level DESC
-) AS admin_low_zoom]]></Parameter>
-    </Datasource>
-  </Layer>
-
-<Style name="admin-mid-zoom-narrowline" filter-mode="first" comp-op="darken" opacity="0.6">
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="1" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1" stroke-dasharray="12, 3, 2, 3, 2, 3" stroke="#845283" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="0.8" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="0.8" stroke="#845283" stroke-dasharray="8, 2, 1.5, 2, 1.5, 2" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>400000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#ffffff" stroke-width="0.6" />
-    <LineSymbolizer stroke="#845283" stroke-width="0.6" stroke-dasharray="8, 2, 1.5, 2, 1.5, 2" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="1.2" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.2" stroke-dasharray="17, 3, 2, 3" stroke-linejoin="bevel" stroke="#845283" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="1" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1" stroke-linejoin="bevel" stroke="#845283" stroke-dasharray="12, 2, 1.5, 2" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>400000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#ffffff" stroke-width="0.8" />
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#845283" stroke-width="0.8" stroke-dasharray="12, 2, 1.5, 2" />
+    <LineSymbolizer stroke-width="1.6" stroke-dasharray="27, 1.5, 6, 1.5" stroke-linejoin="bevel" stroke="#845283" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="1.4" stroke-linejoin="bevel" stroke="#ffffff" />
     <LineSymbolizer stroke-width="1.4" stroke-dasharray="27, 1.5, 6, 1.5" stroke-linejoin="bevel" stroke="#845283" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="1.2" stroke-linejoin="bevel" stroke="#ffffff" />
     <LineSymbolizer stroke-width="1.2" stroke-dasharray="18, 1, 4, 1" stroke-linejoin="bevel" stroke="#845283" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
     <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="1" stroke-linejoin="bevel" stroke="#ffffff" />
     <LineSymbolizer stroke-width="1" stroke-dasharray="18, 1, 4, 1" stroke-linejoin="bevel" stroke="#845283" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="0.8" stroke-linejoin="bevel" stroke="#ffffff" />
     <LineSymbolizer stroke-width="0.8" stroke-linejoin="bevel" stroke="#845283" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>1500000</MinScaleDenominator>
     <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#ffffff" stroke-width="0.6" />
     <LineSymbolizer stroke-linejoin="bevel" stroke="#845283" stroke-width="0.6" />
   </Rule>
 </Style>
-<Style name="admin-mid-zoom-wideline" filter-mode="first" comp-op="darken" opacity="0.5">
+<Style name="admin-low-zoom-wideline" filter-mode="first" comp-op="darken" opacity="0.8">
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="3" stroke="#a37da1" stroke-linejoin="bevel" clip="false" />
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([admin_level] = '2')</Filter>
+    <LineSymbolizer stroke-width="8" stroke="#a37da1" stroke-linejoin="bevel" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="2.5" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="2.8" stroke="#a37da1" stroke-linejoin="bevel" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>400000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="2" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke="#a37da1" stroke-width="2" stroke-linejoin="bevel" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.5" stroke="#8d618b" stroke-linejoin="bevel" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="1" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1" stroke="#8d618b" stroke-linejoin="bevel" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="4.5" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="4.5" stroke="#a37da1" stroke-linejoin="bevel" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="4" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="4" stroke="#a37da1" stroke-linejoin="bevel" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>400000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke="#a37da1" stroke-width="3.2" stroke-linejoin="bevel" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="2.5" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="2.5" stroke-linejoin="bevel" stroke="#8d618b" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="1.8" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.8" stroke-linejoin="bevel" stroke="#8d618b" />
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([admin_level] = '2')</Filter>
+    <LineSymbolizer stroke-width="7" stroke="#a37da1" stroke-linejoin="bevel" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="6" stroke-linejoin="bevel" stroke="#ffffff" />
     <LineSymbolizer stroke-width="6" stroke="#a37da1" stroke-linejoin="bevel" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="5.5" stroke-linejoin="bevel" stroke="#ffffff" />
     <LineSymbolizer stroke-width="5" stroke="#a37da1" stroke-linejoin="bevel" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
     <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="4.5" stroke-linejoin="bevel" stroke="#ffffff" />
     <LineSymbolizer stroke="#a37da1" stroke-width="4.5" stroke-linejoin="bevel" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="3.5" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="3.5" stroke-linejoin="bevel" stroke="#8d618b" />
+    <LineSymbolizer stroke-width="3.5" stroke-linejoin="bevel" stroke="#ac46ac" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>1500000</MinScaleDenominator>
     <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="3" stroke-linejoin="bevel" stroke="#8d618b" />
+    <LineSymbolizer stroke-width="3" stroke-linejoin="bevel" stroke="#ac46ac" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([admin_level] = '2')</Filter>
+    <LineSymbolizer stroke-width="2.2" stroke-linejoin="bevel" stroke="#ac46ac" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([admin_level] = '2')</Filter>
+    <LineSymbolizer stroke-width="1.8" stroke-linejoin="bevel" stroke="#ac46ac" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([admin_level] = '2')</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke-linejoin="bevel" stroke="#ac46ac" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([admin_level] = '2')</Filter>
+    <LineSymbolizer stroke-linejoin="bevel" stroke="#ac46ac" stroke-width="1.2" />
   </Rule>
 </Style>
-<Style name="admin-mid-zoom-firstline" filter-mode="first" comp-op="darken" opacity="0.5">
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([admin_level] = '6')</Filter>
-    <LineSymbolizer stroke-width="1.8" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.8" stroke-dasharray="12, 1.5, 2, 1.5" stroke-linejoin="bevel" stroke="#8d618b" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([admin_level] = '6')</Filter>
-    <LineSymbolizer stroke-width="1.4" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.4" stroke-linejoin="bevel" stroke="#8d618b" stroke-dasharray="8, 1.5, 1.5, 1.5" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>400000</MinScaleDenominator>
-    <Filter>([admin_level] = '6')</Filter>
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#ffffff" stroke-width="1" />
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#8d618b" stroke-width="1" stroke-dasharray="8, 1.5, 1.5, 1.5" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([admin_level] = '5')</Filter>
-    <LineSymbolizer stroke-width="2.1" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="2.1" stroke-dasharray="16, 2, 6, 2" stroke-linejoin="bevel" stroke="#8d618b" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([admin_level] = '5')</Filter>
-    <LineSymbolizer stroke-width="1.7" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.7" stroke-dasharray="10, 1.5, 4.5, 1.5" stroke-linejoin="bevel" stroke="#8d618b" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>400000</MinScaleDenominator>
-    <Filter>([admin_level] = '5')</Filter>
-    <LineSymbolizer stroke-width="1.2" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.2" stroke-dasharray="10, 1.5, 4.5, 1.5" stroke-linejoin="bevel" stroke="#8d618b" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([admin_level] = '5')</Filter>
-    <LineSymbolizer stroke-width="0.8" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="0.8" stroke-dasharray="6, 1, 3, 1" stroke-linejoin="bevel" stroke="#8d618b" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([admin_level] = '5')</Filter>
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#ffffff" stroke-width="0.6" />
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#8d618b" stroke-width="0.6" stroke-dasharray="4, 0.6, 2, 0.6" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([admin_level] = '8')</Filter>
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#ffffff" stroke-width="1.4" />
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#8d618b" stroke-width="1.4" stroke-dasharray="8, 2, 2, 2, 2.5, 2, 2, 2" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([admin_level] = '7')</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.5" stroke-dasharray="9, 2, 2, 2, 2, 2" stroke-linejoin="bevel" stroke="#8d618b" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([admin_level] = '7')</Filter>
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#ffffff" stroke-width="1.2" />
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#8d618b" stroke-width="1.2" stroke-dasharray="6, 1.5, 1.5, 1.5, 1.5, 1.5" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-linejoin="bevel" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="2.5" stroke-linejoin="bevel" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>400000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="2" stroke-linejoin="bevel" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke-linejoin="bevel" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#ffffff" stroke-width="1" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="4.5" stroke-linejoin="bevel" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="4" stroke-linejoin="bevel" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>400000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke-linejoin="bevel" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="2.5" stroke-linejoin="bevel" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#ffffff" stroke-width="1.8" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="6" stroke-linejoin="bevel" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="5.5" stroke-linejoin="bevel" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>400000</MinScaleDenominator>
-    <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="4.5" stroke-linejoin="bevel" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="3.5" stroke-linejoin="bevel" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#ffffff" stroke-width="3" />
-  </Rule>
-</Style>
-<Layer name="admin-mid-zoom"
-  maximum-scale-denominator="3000000"
-  minimum-scale-denominator="100000"
+<Layer name="admin-low-zoom"
+  maximum-scale-denominator="50000000"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-    <StyleName>admin-mid-zoom-firstline</StyleName>
-    <StyleName>admin-mid-zoom-wideline</StyleName>
-    <StyleName>admin-mid-zoom-narrowline</StyleName>
+    <StyleName>admin-low-zoom-wideline</StyleName>
+    <StyleName>admin-low-zoom-narrowline</StyleName>
+    <StyleName>admin-low-zoom-firstline</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="port"><![CDATA[5434]]></Parameter>
@@ -45255,6 +44865,32 @@ AS entrances]]></Parameter>
     admin_level
   FROM planet_osm_roads
   WHERE boundary = 'administrative'
+    -- was:         IN ('2', '3')
+    AND admin_level = '2'
+    AND osm_id < 0
+  ORDER BY admin_level DESC
+) AS admin_low_zoom]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Layer name="admin-mid-zoom"
+  maximum-scale-denominator="3000000"
+  minimum-scale-denominator="100000"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="port"><![CDATA[5434]]></Parameter>
+       <Parameter name="dbname"><![CDATA[paca]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT
+    way,
+    admin_level
+  FROM planet_osm_roads
+  WHERE boundary = 'administrative'
+    -- THIS IS OFF
     AND admin_level IN ('0', '1', '2', '3', '4', '5', '6', '7', '8')
     AND osm_id < 0
   ORDER BY admin_level DESC
@@ -45262,200 +44898,10 @@ AS entrances]]></Parameter>
     </Datasource>
   </Layer>
 
-<Style name="admin-high-zoom-narrowline" filter-mode="first" comp-op="darken" opacity="0.6">
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="1.4" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.4" stroke-dasharray="16, 4, 3, 4, 3, 4" stroke="#845283" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="1.2" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.2" stroke-dasharray="12, 3, 2, 3, 2, 3" stroke="#845283" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="1.6" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.6" stroke-dasharray="23, 4, 3, 4" stroke-linejoin="bevel" stroke="#845283" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="1.4" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.4" stroke-dasharray="17, 3, 2, 3" stroke-linejoin="bevel" stroke="#845283" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="1.8" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.8" stroke-dasharray="36, 2, 8, 2" stroke-linejoin="bevel" stroke="#845283" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="1.6" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.6" stroke-dasharray="27, 1.5, 6, 1.5" stroke-linejoin="bevel" stroke="#845283" />
-  </Rule>
-</Style>
-<Style name="admin-high-zoom-wideline" filter-mode="first" comp-op="darken" opacity="0.5">
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="4" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="4" stroke="#a37da1" stroke-linejoin="bevel" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="3.5" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="3.5" stroke="#a37da1" stroke-linejoin="bevel" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="5.5" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="5.5" stroke="#a37da1" stroke-linejoin="bevel" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="5" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="5" stroke="#a37da1" stroke-linejoin="bevel" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="8" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="8" stroke="#a37da1" stroke-linejoin="bevel" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="7" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="7" stroke="#a37da1" stroke-linejoin="bevel" />
-  </Rule>
-</Style>
-<Style name="admin-high-zoom-firstline" filter-mode="first" comp-op="darken" opacity="0.5">
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([admin_level] = '9')</Filter>
-    <LineSymbolizer stroke-width="1.4" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.4" stroke-dasharray="0, 4, 2, 2, 3, 2, 2, 4" stroke-linejoin="bevel" stroke="#8d618b" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([admin_level] = '9')</Filter>
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#ffffff" stroke-width="1.2" />
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#8d618b" stroke-width="1.2" stroke-dasharray="0, 3, 2, 2, 2, 2, 2, 3" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([admin_level] = '6')</Filter>
-    <LineSymbolizer stroke-width="2.1" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="2.1" stroke-dasharray="16, 2, 3, 2" stroke-linejoin="bevel" stroke="#8d618b" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([admin_level] = '6')</Filter>
-    <LineSymbolizer stroke-width="1.8" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.8" stroke-dasharray="12, 1.5, 2, 1.5" stroke-linejoin="bevel" stroke="#8d618b" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([admin_level] = '5')</Filter>
-    <LineSymbolizer stroke-width="2.4" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="2.4" stroke-dasharray="20, 2, 8, 2" stroke-linejoin="bevel" stroke="#8d618b" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([admin_level] = '5')</Filter>
-    <LineSymbolizer stroke-width="2.1" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="2.1" stroke-dasharray="16, 2, 6, 2" stroke-linejoin="bevel" stroke="#8d618b" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([admin_level] = '10')</Filter>
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#ffffff" stroke-width="1.2" />
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#8d618b" stroke-width="1.2" stroke-dasharray="0, 3, 2, 2, 2, 3" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([admin_level] = '8')</Filter>
-    <LineSymbolizer stroke-width="1.6" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.6" stroke-dasharray="10, 2, 2, 2, 3, 2, 2, 2" stroke-linejoin="bevel" stroke="#8d618b" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([admin_level] = '8')</Filter>
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#ffffff" stroke-width="1.4" />
-    <LineSymbolizer stroke-linejoin="bevel" stroke="#8d618b" stroke-width="1.4" stroke-dasharray="8, 2, 2, 2, 2.5, 2, 2, 2" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([admin_level] = '7')</Filter>
-    <LineSymbolizer stroke-width="1.8" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.8" stroke-dasharray="12, 2, 3, 2, 3, 2" stroke-linejoin="bevel" stroke="#8d618b" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([admin_level] = '7')</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke-linejoin="bevel" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1.5" stroke-dasharray="9, 2, 2, 2, 2, 2" stroke-linejoin="bevel" stroke="#8d618b" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="4" stroke-linejoin="bevel" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="3.5" stroke-linejoin="bevel" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="5.5" stroke-linejoin="bevel" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="5" stroke-linejoin="bevel" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="8" stroke-linejoin="bevel" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="7" stroke-linejoin="bevel" stroke="#ffffff" />
-  </Rule>
-</Style>
 <Layer name="admin-high-zoom"
   maximum-scale-denominator="100000"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-    <StyleName>admin-high-zoom-firstline</StyleName>
-    <StyleName>admin-high-zoom-wideline</StyleName>
-    <StyleName>admin-high-zoom-narrowline</StyleName>
+    
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="port"><![CDATA[5434]]></Parameter>
@@ -45468,6 +44914,7 @@ AS entrances]]></Parameter>
     admin_level
   FROM planet_osm_roads
   WHERE boundary = 'administrative'
+    -- THIS IS OFF
     AND admin_level IN ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10')
     AND osm_id < 0
   ORDER BY admin_level::integer DESC -- With 10 as a valid value, we need to do a numeric ordering, not a text ordering
@@ -45954,7 +45401,7 @@ SELECT
   maximum-scale-denominator="50000000"
   status="off"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-
+    
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="port"><![CDATA[5434]]></Parameter>
@@ -46954,7 +46401,7 @@ UNION ALL
   maximum-scale-denominator="3000000"
   status="off"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-
+    
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="port"><![CDATA[5434]]></Parameter>
@@ -48892,9 +48339,53 @@ UNION ALL
     <MarkersSymbolizer file="symbols/tourism/office.svg" fill="#734a08" clip="false" />
   </Rule>
   <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([feature] = 'tourism_information') and ([information] = 'guidepost')</Filter>
+    <MarkersSymbolizer file="symbols/local/guidepost-14.svg" width="18" fill="#734a08" clip="false" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <Filter>([feature] = 'amenity_pub')</Filter>
+    <MarkersSymbolizer file="symbols/amenity/pub.svg" clip="false" fill="#c77400" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([feature] = 'amenity_pub')</Filter>
+    <MarkersSymbolizer width="4" stroke-width="0" clip="false" fill="#c77400" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <Filter>([feature] = 'amenity_ice_cream')</Filter>
+    <MarkersSymbolizer file="symbols/amenity/ice_cream.svg" clip="false" fill="#c77400" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([feature] = 'amenity_ice_cream')</Filter>
+    <MarkersSymbolizer width="4" stroke-width="0" clip="false" fill="#c77400" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'amenity_food_court')</Filter>
     <MarkersSymbolizer file="symbols/amenity/restaurant.svg" clip="false" fill="#c77400" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([feature] = 'amenity_food_court')</Filter>
+    <MarkersSymbolizer clip="false" fill="#c77400" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <Filter>([feature] = 'amenity_restaurant')</Filter>
+    <MarkersSymbolizer file="symbols/amenity/restaurant.svg" clip="false" fill="#c77400" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([feature] = 'amenity_restaurant')</Filter>
+    <MarkersSymbolizer width="4" stroke-width="0" clip="false" fill="#c77400" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
@@ -48902,9 +48393,48 @@ UNION ALL
     <MarkersSymbolizer width="10" file="symbols/amenity/fast_food.svg" stroke-width="0" clip="false" fill="#c77400" />
   </Rule>
   <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([feature] = 'amenity_fast_food')</Filter>
+    <MarkersSymbolizer width="4" stroke-width="0" clip="false" fill="#c77400" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([feature] = 'amenity_fast_food')</Filter>
+    <MarkersSymbolizer width="4" stroke-width="0" clip="false" fill="#c77400" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <Filter>([feature] = 'amenity_cafe')</Filter>
+    <MarkersSymbolizer file="symbols/amenity/cafe.svg" clip="false" fill="#c77400" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([feature] = 'amenity_cafe')</Filter>
+    <MarkersSymbolizer width="4" stroke-width="0" clip="false" fill="#c77400" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <Filter>([feature] = 'amenity_biergarten')</Filter>
+    <MarkersSymbolizer file="symbols/amenity/biergarten.svg" clip="false" fill="#c77400" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([feature] = 'amenity_biergarten')</Filter>
+    <MarkersSymbolizer width="4" stroke-width="0" clip="false" fill="#c77400" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <Filter>([feature] = 'amenity_bar')</Filter>
+    <MarkersSymbolizer file="symbols/amenity/bar.svg" clip="false" fill="#c77400" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([feature] = 'amenity_bar')</Filter>
     <MarkersSymbolizer width="4" stroke-width="0" clip="false" fill="#c77400" />
   </Rule>
   <Rule>
@@ -49236,11 +48766,6 @@ UNION ALL
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <Filter>([feature] = 'tourism_information') and ([information] = 'guidepost')</Filter>
-    <MarkersSymbolizer file="symbols/local/guidepost-14.svg" fill="#666666" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([feature] = 'tourism_information') and ([information] = 'board')</Filter>
     <MarkersSymbolizer file="symbols/tourism/board.svg" fill="#666666" clip="false" />
   </Rule>
@@ -49307,36 +48832,6 @@ UNION ALL
     <MarkersSymbolizer file="symbols/highway/elevator.12.svg" width="8" fill="#c00000" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'amenity_pub')</Filter>
-    <MarkersSymbolizer file="symbols/amenity/pub.svg" clip="false" fill="#c77400" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'amenity_ice_cream')</Filter>
-    <MarkersSymbolizer file="symbols/amenity/ice_cream.svg" clip="false" fill="#c77400" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'amenity_restaurant')</Filter>
-    <MarkersSymbolizer file="symbols/amenity/restaurant.svg" clip="false" fill="#c77400" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'amenity_cafe')</Filter>
-    <MarkersSymbolizer file="symbols/amenity/cafe.svg" clip="false" fill="#c77400" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'amenity_biergarten')</Filter>
-    <MarkersSymbolizer file="symbols/amenity/biergarten.svg" clip="false" fill="#c77400" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'amenity_bar')</Filter>
-    <MarkersSymbolizer file="symbols/amenity/bar.svg" clip="false" fill="#c77400" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'amenity_shelter')</Filter>
     <MarkersSymbolizer width="10" fill="#666666" file="symbols/amenity/shelter.svg" clip="false" />
@@ -49388,7 +48883,7 @@ UNION ALL
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <Filter>([feature] = 'natural_peak') and (not [name] = '')</Filter>
+    <Filter>([feature] = 'natural_peak')</Filter>
     <MarkersSymbolizer file="symbols/natural/peak.svg" fill="#d08f55" clip="false" />
   </Rule>
   <Rule>
@@ -49774,7 +49269,7 @@ UNION ALL
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'tourism_caravan_site')</Filter>
-    <MarkersSymbolizer file="symbols/tourism/caravan_park.svg" width="10" clip="false" fill="#5a5aa1" />
+    <MarkersSymbolizer file="symbols/tourism/caravan_park.svg" width="10" clip="false" fill="#0c8416" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
@@ -49825,7 +49320,13 @@ UNION ALL
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([feature] = 'highway_bus_stop')</Filter>
-    <MarkersSymbolizer file="symbols/square.svg" fill="#c00000" width="6" clip="false" />
+    <MarkersSymbolizer width="6" file="symbols/square.svg" fill="#c00000" clip="false" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([feature] = 'highway_bus_stop')</Filter>
+    <MarkersSymbolizer file="symbols/square.svg" fill="#c00000" width="4" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
@@ -49848,7 +49349,7 @@ UNION ALL
     <MarkersSymbolizer file="symbols/amenity/internet_cafe.svg" fill="#734a08" clip="false" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([feature] = 'amenity_bank')</Filter>
     <MarkersSymbolizer file="symbols/amenity/bank.svg" fill="#734a08" clip="false" />
   </Rule>
@@ -49898,7 +49399,7 @@ UNION ALL
             THEN CONCAT(ROUND((tags->'height')::NUMERIC)::TEXT, U&'\00A0', 'm') END
           )
         ) AS name,
-        tags->'parking' as "parking",
+      tags->'parking' as "parking",
       COALESCE(
         'aeroway_' || CASE WHEN aeroway IN ('gate', 'apron', 'helipad', 'aerodrome') THEN aeroway END,
 
@@ -52677,8 +52178,8 @@ ORDER BY
       'leisure_' || CASE WHEN leisure IN ('nature_reserve') THEN leisure END
     ) AS feature,
     name,
-    CASE WHEN building = 'no' OR building IS NULL THEN 'no' ELSE 'yes' END AS is_building, -- always no with the where conditions
-    CASE WHEN tags->'salt' IN ('yes') THEN 'yes' ELSE 'no' END AS int_salt
+    CASE WHEN tags->'salt' IN ('yes') THEN 'yes' ELSE 'no' END AS int_salt,
+    CASE WHEN building = 'no' OR building IS NULL THEN 'no' ELSE 'yes' END AS is_building -- always no with the where conditions
   FROM planet_osm_polygon
   WHERE way && !bbox!
     AND (landuse IN ('forest', 'military', 'farmland')
@@ -55056,15 +54557,15 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([feature] = 'sport_climbing')</Filter>
-    <MarkersSymbolizer allow-overlap="true" placement="interior" fill="#c00000" file="symbols/local/climbing.svg" width="16" clip="false" />
-    <TextSymbolizer size="10" fontset-name="fontset-1" fill="#c00000" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" placement="interior" dy="12" wrap-width="30" line-spacing="-1.5"><![CDATA[[name]]]></TextSymbolizer>
+    <MarkersSymbolizer allow-overlap="true" fill="#c00000" file="symbols/local/climbing.svg" width="16" clip="false" />
+    <TextSymbolizer size="10" fontset-name="fontset-1" fill="#c00000" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="12" wrap-width="30" line-spacing="-1.5"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([feature] = 'sport_climbing')</Filter>
-    <MarkersSymbolizer placement="interior" fill="#c00000" file="symbols/local/climbing.svg" width="16" clip="false" />
-    <TextSymbolizer size="10" fontset-name="fontset-1" fill="#c00000" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" placement="interior" dy="12" wrap-width="30" line-spacing="-1.5"><![CDATA[[name]]]></TextSymbolizer>
+    <MarkersSymbolizer fill="#c00000" file="symbols/local/climbing.svg" width="16" clip="false" />
+    <TextSymbolizer size="10" fontset-name="fontset-1" fill="#c00000" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="12" wrap-width="30" line-spacing="-1.5"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
@@ -55870,32 +55371,32 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'shop') and ([shop] = 'mall') and ([location] != 'underground') and ([way_pixels] &gt; 48000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#464343" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'shop') and ([shop] = 'mall') and ([location] != 'underground') and ([way_pixels] &gt; 12000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#464343" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'shop') and ([shop] = 'mall') and ([location] != 'underground') and ([way_pixels] &gt; 3000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#464343" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'shop') and ([shop] = 'mall') and ([location] != 'underground') and ([way_pixels] &gt; 48000)</Filter>
-    <TextSymbolizer fill="#464343" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'shop') and ([shop] = 'mall') and ([location] != 'underground') and ([way_pixels] &gt; 12000)</Filter>
-    <TextSymbolizer fill="#464343" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'shop') and ([shop] = 'mall') and ([location] != 'underground') and ([way_pixels] &gt; 3000)</Filter>
-    <TextSymbolizer fill="#464343" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -55942,12 +55443,12 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'shop') and ([shop] = 'mall') and ([location] != 'underground') and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#464343" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'shop') and ([shop] = 'mall') and ([location] != 'underground')</Filter>
-    <TextSymbolizer fill="#464343" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -56007,12 +55508,12 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'power_generator') and ([is_building] = 'no') and ([generator:source] != 'wind') and ([way_pixels] &gt; 48000)</Filter>
-    <TextSymbolizer size="15" wrap-width="45" line-spacing="-2.25" fill="#905084" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="15" wrap-width="45" line-spacing="-2.25" fill="#5c5c5c" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'power_generator') and ([is_building] = 'no') and ([generator:source] != 'wind') and ([way_pixels] &gt; 12000)</Filter>
-    <TextSymbolizer size="12" wrap-width="36" line-spacing="-1.8" fill="#905084" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="12" wrap-width="36" line-spacing="-1.8" fill="#5c5c5c" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
@@ -56249,32 +55750,32 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'power_plant') and ([is_building] = 'no') and ([way_pixels] &gt; 48000)</Filter>
-    <TextSymbolizer size="15" wrap-width="45" line-spacing="-2.25" fill="#905084" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="15" wrap-width="45" line-spacing="-2.25" fill="#5c5c5c" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <Filter>([feature] = 'power_substation') and ([is_building] = 'no') and ([way_pixels] &gt; 48000)</Filter>
-    <TextSymbolizer size="15" wrap-width="45" line-spacing="-2.25" fill="#905084" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="15" wrap-width="45" line-spacing="-2.25" fill="#5c5c5c" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'power_plant') and ([is_building] = 'no') and ([way_pixels] &gt; 12000)</Filter>
-    <TextSymbolizer size="12" wrap-width="36" line-spacing="-1.8" fill="#905084" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="12" wrap-width="36" line-spacing="-1.8" fill="#5c5c5c" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <Filter>([feature] = 'power_substation') and ([is_building] = 'no') and ([way_pixels] &gt; 12000)</Filter>
-    <TextSymbolizer size="12" wrap-width="36" line-spacing="-1.8" fill="#905084" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="12" wrap-width="36" line-spacing="-1.8" fill="#5c5c5c" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'power_generator') and ([is_building] = 'no') and ([generator:source] != 'wind') and ([way_pixels] &gt; 3000)</Filter>
-    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#905084" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#5c5c5c" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'power_generator') and ([is_building] = 'no') and ([generator:source] != 'wind')</Filter>
-    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#905084" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#5c5c5c" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -56618,7 +56119,7 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <Filter>([feature] = 'leisure_sports_centre') and ([way_pixels] &gt; 48000) and ([is_building] = 'no') and ([sport] = 'climbing')</Filter>
-    <TextSymbolizer fill="#0a6d12" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="12" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#0a6d12" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="12"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -56645,7 +56146,7 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <Filter>([feature] = 'leisure_sports_centre') and ([way_pixels] &gt; 12000) and ([is_building] = 'no') and ([sport] = 'climbing')</Filter>
-    <TextSymbolizer fill="#0a6d12" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="12" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#0a6d12" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="12"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -56672,7 +56173,7 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <Filter>([feature] = 'leisure_sports_centre') and ([way_pixels] &gt; 3000) and ([is_building] = 'no') and ([sport] = 'climbing')</Filter>
-    <TextSymbolizer fill="#0a6d12" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="12" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#0a6d12" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="12"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -56699,7 +56200,7 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <Filter>([feature] = 'leisure_sports_centre') and ([way_pixels] &gt; 48000) and ([shop] = 'mall') and ([sport] = 'climbing')</Filter>
-    <TextSymbolizer fill="#0a6d12" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="12" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#0a6d12" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="12"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -56726,7 +56227,7 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <Filter>([feature] = 'leisure_sports_centre') and ([way_pixels] &gt; 12000) and ([shop] = 'mall') and ([sport] = 'climbing')</Filter>
-    <TextSymbolizer fill="#0a6d12" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="12" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#0a6d12" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="12"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -56753,7 +56254,7 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <Filter>([feature] = 'leisure_sports_centre') and ([way_pixels] &gt; 3000) and ([shop] = 'mall') and ([sport] = 'climbing')</Filter>
-    <TextSymbolizer fill="#0a6d12" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="12" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#0a6d12" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="12"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -57219,212 +56720,212 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_commercial') and ([way_pixels] &gt; 48000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#2c2a2a" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_commercial') and ([way_pixels] &gt; 12000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#2c2a2a" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_commercial') and ([way_pixels] &gt; 3000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#2c2a2a" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_commercial') and ([way_pixels] &gt; 48000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#2c2a2a" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_commercial') and ([way_pixels] &gt; 12000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#2c2a2a" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_commercial') and ([way_pixels] &gt; 3000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#2c2a2a" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_industrial') and ([way_pixels] &gt; 48000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_industrial') and ([way_pixels] &gt; 12000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_industrial') and ([way_pixels] &gt; 3000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_industrial') and ([way_pixels] &gt; 48000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_industrial') and ([way_pixels] &gt; 12000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_industrial') and ([way_pixels] &gt; 3000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_railway') and ([way_pixels] &gt; 48000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_railway') and ([way_pixels] &gt; 12000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_railway') and ([way_pixels] &gt; 3000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_railway') and ([way_pixels] &gt; 48000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_railway') and ([way_pixels] &gt; 12000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_railway') and ([way_pixels] &gt; 3000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_wastewater_plant') and ([way_pixels] &gt; 48000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_wastewater_plant') and ([way_pixels] &gt; 12000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_wastewater_plant') and ([way_pixels] &gt; 3000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_wastewater_plant') and ([way_pixels] &gt; 48000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_wastewater_plant') and ([way_pixels] &gt; 12000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_wastewater_plant') and ([way_pixels] &gt; 3000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_water_works') and ([way_pixels] &gt; 48000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_water_works') and ([way_pixels] &gt; 12000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_water_works') and ([way_pixels] &gt; 3000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_water_works') and ([way_pixels] &gt; 48000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_water_works') and ([way_pixels] &gt; 12000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_water_works') and ([way_pixels] &gt; 3000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_works') and ([way_pixels] &gt; 48000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_works') and ([way_pixels] &gt; 12000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_works') and ([way_pixels] &gt; 3000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_works') and ([way_pixels] &gt; 48000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_works') and ([way_pixels] &gt; 12000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_works') and ([way_pixels] &gt; 3000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_retail') and ([way_pixels] &gt; 48000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#464343" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_retail') and ([way_pixels] &gt; 12000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#464343" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_retail') and ([way_pixels] &gt; 3000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#464343" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_retail') and ([way_pixels] &gt; 48000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#464343" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_retail') and ([way_pixels] &gt; 12000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#464343" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_retail') and ([way_pixels] &gt; 3000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#464343" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -57639,32 +57140,32 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_residential') and ([way_pixels] &gt; 48000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#625e5e" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_residential') and ([way_pixels] &gt; 12000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#625e5e" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_residential') and ([way_pixels] &gt; 3000) and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#625e5e" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_residential') and ([way_pixels] &gt; 48000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#625e5e" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="15" wrap-width="45" line-spacing="-2.25" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_residential') and ([way_pixels] &gt; 12000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#625e5e" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="12" wrap-width="36" line-spacing="-1.8" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_residential') and ([way_pixels] &gt; 3000) and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#625e5e" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -58117,16 +57618,6 @@ ORDER BY
     <TextSymbolizer fill="#0565bf" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <Filter>([feature] = 'landuse_garages') and ([is_building] = 'no') and ([way_pixels] &gt; 48000)</Filter>
-    <TextSymbolizer size="15" wrap-width="45" line-spacing="-2.25" fill="#696545" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <Filter>([feature] = 'landuse_garages') and ([is_building] = 'no') and ([way_pixels] &gt; 12000)</Filter>
-    <TextSymbolizer size="12" wrap-width="36" line-spacing="-1.8" fill="#696545" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'military_danger_area') and ([is_building] = 'no') and ([way_pixels] &gt; 48000)</Filter>
     <TextSymbolizer size="15" wrap-width="45" line-spacing="-2.25" fill="#ee0000" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
@@ -58292,11 +57783,6 @@ ORDER BY
     <TextSymbolizer dy="10" size="10" wrap-width="30" line-spacing="-1.5" fill="#333333" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'amenity_bbq') and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')</Filter>
-    <TextSymbolizer opacity="0.33" halo-radius="0" size="10" wrap-width="30" line-spacing="-1.5" fill="#734a08" dy="10" fontset-name="fontset-1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <Filter>([feature] = 'amenity_bicycle_repair_station') and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')</Filter>
     <TextSymbolizer opacity="0.33" halo-radius="0" size="10" wrap-width="30" line-spacing="-1.5" fill="#734a08" dy="10" fontset-name="fontset-1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
@@ -58369,22 +57855,22 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'power_plant') and ([is_building] = 'no') and ([way_pixels] &gt; 3000)</Filter>
-    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#905084" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#5c5c5c" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <Filter>([feature] = 'power_substation') and ([is_building] = 'no') and ([way_pixels] &gt; 3000)</Filter>
-    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#905084" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#5c5c5c" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'power_plant') and ([is_building] = 'no')</Filter>
-    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#905084" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#5c5c5c" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'power_substation') and ([is_building] = 'no')</Filter>
-    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#905084" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#5c5c5c" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
@@ -58405,11 +57891,6 @@ ORDER BY
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([feature] = 'leisure_marina') and ([way_pixels] &gt; 3000)</Filter>
     <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#576ddf" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'leisure_picnic_table')</Filter>
-    <TextSymbolizer fill="#666666" size="10" wrap-width="30" line-spacing="-1.5" dy="11" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -58474,13 +57955,13 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'leisure_sports_centre') and ([is_building] = 'no') and ([sport] = 'climbing')</Filter>
-    <TextSymbolizer fill="#0a6d12" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="12" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#0a6d12" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="12"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([feature] = 'leisure_sports_centre') and ([is_building] = 'no') and ([sport] = 'climbing')</Filter>
-    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#c00000" dy="12" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#c00000" dy="12" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -58495,13 +57976,13 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'leisure_sports_centre') and ([shop] = 'mall') and ([sport] = 'climbing')</Filter>
-    <TextSymbolizer fill="#0a6d12" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="12" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#0a6d12" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="12"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([feature] = 'leisure_sports_centre') and ([shop] = 'mall') and ([sport] = 'climbing')</Filter>
-    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#c00000" dy="12" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#c00000" dy="12" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -58666,72 +58147,72 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_commercial') and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#2c2a2a" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_commercial') and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#2c2a2a" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_industrial') and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_industrial') and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_railway') and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_railway') and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_wastewater_plant') and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_wastewater_plant') and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_water_works') and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_water_works') and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_works') and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_works') and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#5f3557" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#363636" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_retail') and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#464343" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_retail') and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#464343" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -58806,12 +58287,12 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_residential') and ([is_building] = 'no')</Filter>
-    <TextSymbolizer fill="#625e5e" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'landuse_residential') and ([shop] = 'mall')</Filter>
-    <TextSymbolizer fill="#625e5e" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#505050" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -58964,11 +58445,6 @@ ORDER BY
     <TextSymbolizer fill="#0565bf" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <Filter>([feature] = 'landuse_garages') and ([is_building] = 'no') and ([way_pixels] &gt; 3000)</Filter>
-    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#696545" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <Filter>([feature] = 'military_danger_area') and ([is_building] = 'no') and ([way_pixels] &gt; 3000)</Filter>
     <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#ee0000" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
@@ -58986,6 +58462,11 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'tourism_information') and ([information] = 'office')</Filter>
+    <TextSymbolizer fill="#734a08" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="11"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([feature] = 'tourism_information') and ([information] = 'guidepost')</Filter>
     <TextSymbolizer fill="#734a08" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="11"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
@@ -59032,6 +58513,29 @@ ORDER BY
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'tourism_attraction') and ([is_building] = 'no')</Filter>
     <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#660033" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" fontset-name="fontset-1"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750</MaxScaleDenominator>
+    <Filter>([feature] = 'natural_tree')</Filter>
+    <TextSymbolizer dy="18" size="10" wrap-width="30" line-spacing="-1.5" fill="#008000" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500</MaxScaleDenominator>
+    <MinScaleDenominator>750</MinScaleDenominator>
+    <Filter>([feature] = 'natural_tree')</Filter>
+    <TextSymbolizer dy="11" size="10" wrap-width="30" line-spacing="-1.5" fill="#008000" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <MinScaleDenominator>1500</MinScaleDenominator>
+    <Filter>([feature] = 'natural_tree')</Filter>
+    <TextSymbolizer dy="8" size="10" wrap-width="30" line-spacing="-1.5" fill="#008000" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([feature] = 'natural_tree')</Filter>
+    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#008000" dy="7" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -59277,7 +58781,7 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'tourism_caravan_site')</Filter>
-    <TextSymbolizer dy="15" size="10" wrap-width="30" line-spacing="-1.5" fill="#5a5aa1" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#0c8416" dy="15" size="10" wrap-width="30" line-spacing="-1.5" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -59293,11 +58797,6 @@ ORDER BY
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([feature] = 'amenity_vending_machine') and ([vending] = 'public_transport_tickets')</Filter>
     <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" dy="10" fill="#734a08" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" fontset-name="fontset-1"><![CDATA[[operator]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'landuse_garages') and ([is_building] = 'no')</Filter>
-    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#696545" fontset-name="fontset-0" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -59437,7 +58936,7 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <Filter>([feature] = 'leisure_sports_centre') and ([sport] = 'climbing')</Filter>
-    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#c00000" dy="12" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#c00000" dy="12" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
@@ -59483,17 +58982,6 @@ ORDER BY
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <Filter>([feature] = 'historic_memorial') and ([memorial] = 'plaque')</Filter>
     <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#734a08" dy="11" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500</MaxScaleDenominator>
-    <Filter>([feature] = 'tourism_information') and ([information] = 'guidepost')</Filter>
-    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#734a08" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" placement="interior" dy="11"><![CDATA[[ref]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>1500</MinScaleDenominator>
-    <Filter>([feature] = 'tourism_information') and ([information] = 'guidepost')</Filter>
-    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#734a08" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" placement="interior"><![CDATA[[ref]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
@@ -59617,11 +59105,6 @@ ORDER BY
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'leisure_bird_hide')</Filter>
-    <TextSymbolizer fill="#0c8416" size="10" wrap-width="30" line-spacing="-1.5" dy="10" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'leisure_amusement_arcade')</Filter>
     <TextSymbolizer fill="#0c8416" size="10" wrap-width="30" line-spacing="-1.5" dy="10" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
@@ -59658,11 +59141,6 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'leisure_slipway')</Filter>
-    <TextSymbolizer dy="13" size="10" wrap-width="30" line-spacing="-1.5" fill="#800000" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'barrier_toll_booth')</Filter>
     <TextSymbolizer dy="13" size="10" wrap-width="30" line-spacing="-1.5" fill="#800000" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
@@ -59907,11 +59385,6 @@ ORDER BY
     <TextSymbolizer fill="#bf0000" size="10" wrap-width="30" line-spacing="-1.5" dy="10" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>1500</MaxScaleDenominator>
-    <Filter>([feature] = 'amenity_recycling')</Filter>
-    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#734a08" dy="10" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([feature] = 'man_made_lighthouse')</Filter>
     <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#333333" dy="10" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
@@ -60024,7 +59497,7 @@ ORDER BY
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <Filter>([feature] = 'sport_climbing')</Filter>
-    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#c00000" dy="12" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" placement="interior"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#c00000" dy="12" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -60092,7 +59565,7 @@ ORDER BY
     <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#5a5aa1" dy="10" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>1500</MaxScaleDenominator>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([feature] = 'tourism_information')</Filter>
     <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#000000" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" dy="11"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
@@ -60120,11 +59593,6 @@ ORDER BY
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([feature] = 'amenity_place_of_worship')</Filter>
     <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#000033" dy="12" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([feature] = 'amenity_bbq')</Filter>
-    <TextSymbolizer size="10" wrap-width="30" line-spacing="-1.5" fill="#734a08" dy="10" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
@@ -60294,7 +59762,7 @@ ORDER BY
             THEN CONCAT(ROUND((tags->'height')::NUMERIC)::TEXT, U&'\00A0', 'm') END
           )
         ) AS name,
-        tags->'parking' as "parking",
+      tags->'parking' as "parking",
       COALESCE(
         'aeroway_' || CASE WHEN aeroway IN ('gate', 'apron', 'helipad', 'aerodrome') THEN aeroway END,
 
@@ -61095,48 +60563,8 @@ SELECT
 
 <Style name="admin-text" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <Filter>([way_pixels] &gt;= 196000) and ([admin_level] = '6')</Filter>
-    <TextSymbolizer fill="#986e96" fontset-name="fontset-1" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" largest-bbox-only="false" placement="line" spacing="750" repeat-distance="250" margin="10" clip="true" vertical-alignment="middle" dy="-10"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <Filter>([admin_level] = '1') and ([way_pixels] &gt;= 360000)</Filter>
-    <TextSymbolizer fontset-name="fontset-1" fill="#7f577e" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" largest-bbox-only="false" placement="line" spacing="750" repeat-distance="250" margin="10" clip="true" vertical-alignment="middle" dy="-10"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <Filter>([admin_level] = '2') and ([way_pixels] &gt;= 360000)</Filter>
-    <TextSymbolizer fontset-name="fontset-1" fill="#7f577e" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" largest-bbox-only="false" placement="line" spacing="750" repeat-distance="250" margin="10" clip="true" vertical-alignment="middle" dy="-10"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <Filter>([way_pixels] &gt;= 196000) and ([admin_level] = '3')</Filter>
-    <TextSymbolizer fontset-name="fontset-1" fill="#7f577e" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" largest-bbox-only="false" placement="line" spacing="750" repeat-distance="250" margin="10" clip="true" vertical-alignment="middle" dy="-10"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <Filter>([way_pixels] &gt;= 196000) and ([admin_level] = '4')</Filter>
-    <TextSymbolizer fontset-name="fontset-1" fill="#7f577e" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" largest-bbox-only="false" placement="line" spacing="750" repeat-distance="250" margin="10" clip="true" vertical-alignment="middle" dy="-10"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <Filter>([way_pixels] &gt;= 196000) and ([admin_level] = '5')</Filter>
-    <TextSymbolizer fontset-name="fontset-1" fill="#7f577e" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" largest-bbox-only="false" placement="line" spacing="750" repeat-distance="250" margin="10" clip="true" vertical-alignment="middle" dy="-10"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <Filter>([way_pixels] &gt;= 196000) and ([admin_level] = '7')</Filter>
-    <TextSymbolizer fontset-name="fontset-1" fill="#7f577e" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" largest-bbox-only="false" placement="line" spacing="750" repeat-distance="250" margin="10" clip="true" vertical-alignment="middle" dy="-10"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([way_pixels] &gt;= 196000) and ([admin_level] = '8')</Filter>
-    <TextSymbolizer fontset-name="fontset-1" fill="#7f577e" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" largest-bbox-only="false" placement="line" spacing="750" repeat-distance="250" margin="10" clip="true" vertical-alignment="middle" dy="-10"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([way_pixels] &gt;= 196000) and ([admin_level] = '9')</Filter>
     <TextSymbolizer fontset-name="fontset-1" fill="#7f577e" halo-radius="1" halo-fill="rgba(255, 255, 255, 0.6)" largest-bbox-only="false" placement="line" spacing="750" repeat-distance="250" margin="10" clip="true" vertical-alignment="middle" dy="-10"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
@@ -61163,7 +60591,8 @@ SELECT
     way_area/NULLIF(POW(!scale_denominator!*0.001*0.28,2),0) AS way_pixels
   FROM planet_osm_polygon
   WHERE boundary = 'administrative'
-    AND admin_level IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10')
+    -- was          IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10')
+    AND admin_level = '2'
     AND name IS NOT NULL
     AND osm_id < 0
     AND way_area > 196000*POW(!scale_denominator!*0.001*0.28,2)
