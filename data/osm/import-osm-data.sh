@@ -10,12 +10,13 @@ set -eu
 function usage() {
     rc=${1:-0}
 
-    echo "Usage: $0 [-h|--help] [-d|--database DB] [-p|--port PORT] [boot|restart|import PBF ARGS...|append PBF ARGS...]"
+    echo "Usage: $0 [-h|--help] [-d|--database DB] [-p|--port PORT] [boot|restart|import PBF ARGS...|append PBF ARGS...|drop]"
     echo
     echo "boot creates a super user '$USER'. needs sudo."
     echo "restart (re)recreates the database from scratch. WARNING: it removes previous data."
     echo "import and append import new data. ARGS are passed directly to osm2pgsql."
-    echo "DB is by dfault 'gis', and PORT is postgres' port, usually 5432."
+    echo "drop deletes the whole database."
+    echo "DB is by default 'gis', and PORT is postgres' port, usually 5432."
     echo
     echo "WARNING: -d|--database and -p|--port must be provided BEFORE the command."
 
@@ -26,6 +27,7 @@ if [ $# -eq 0 ]; then
     usage
 fi
 
+# defaults
 db='gis'
 port=5432
 bin='osm2pgsql'
@@ -114,6 +116,10 @@ case "$command" in
 
     opts="--append"
     nice -n 19 $bin $opts $common_opts "$@"
+    ;;
+
+  drop)
+    sudo --user postgres dropdb --port $port --if-exists "$db"
     ;;
 
   *)
