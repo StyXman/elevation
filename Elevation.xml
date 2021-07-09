@@ -2698,7 +2698,7 @@
       <LineSymbolizer smooth="0.8" stroke="#181818" />
     </Rule>
   </Style>
-  <Layer maximum-scale-denominator="25000" name="contour-10" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+  <Layer maximum-scale-denominator="25000" name="contour-10" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
     <StyleName><![CDATA[contour-10]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
@@ -2722,7 +2722,7 @@
       <LineSymbolizer smooth="0.8" stroke="#181818" />
     </Rule>
   </Style>
-  <Layer maximum-scale-denominator="100000" name="contour-50" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+  <Layer maximum-scale-denominator="100000" name="contour-50" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
     <StyleName><![CDATA[contour-50]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
@@ -2752,7 +2752,7 @@
       <LineSymbolizer smooth="0.8" stroke="#181818" />
     </Rule>
   </Style>
-  <Layer maximum-scale-denominator="400000" name="contour-100" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+  <Layer maximum-scale-denominator="400000" name="contour-100" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
     <StyleName><![CDATA[contour-100]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
@@ -2776,7 +2776,7 @@
       <LineSymbolizer smooth="0.8" stroke="#181818" />
     </Rule>
   </Style>
-  <Layer maximum-scale-denominator="750000" minimum-scale-denominator="400000" name="contour-250" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+  <Layer maximum-scale-denominator="750000" minimum-scale-denominator="400000" name="contour-250" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
     <StyleName><![CDATA[contour-250]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
@@ -2817,7 +2817,7 @@
       <LineSymbolizer smooth="0.8" stroke="#181818" />
     </Rule>
   </Style>
-  <Layer maximum-scale-denominator="1500000" name="contour-500" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+  <Layer maximum-scale-denominator="1500000" name="contour-500" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
     <StyleName><![CDATA[contour-500]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
@@ -2858,7 +2858,7 @@
       <LineSymbolizer smooth="0.8" stroke="#181818" />
     </Rule>
   </Style>
-  <Layer maximum-scale-denominator="3000000" name="contour-1000" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+  <Layer maximum-scale-denominator="3000000" name="contour-1000" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
     <StyleName><![CDATA[contour-1000]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
