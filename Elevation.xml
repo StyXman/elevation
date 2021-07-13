@@ -1239,12 +1239,6 @@
       <PolygonSymbolizer fill="#dadae0" gamma="0.75" />
     </Rule>
     <Rule>
-      <MaxScaleDenominator>5000</MaxScaleDenominator>
-      <Filter><![CDATA[([feature] = 'amenity_parking_space') and ([parking_space] = 'disabled')]]></Filter>
-      <LineSymbolizer stroke="#7e7070" stroke-width="0.3" />
-      <PolygonSymbolizer fill="#3e92fb" />
-    </Rule>
-    <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_fire_station')]]></Filter>
       <PolygonSymbolizer fill="#f3e3dd" />
@@ -2442,7 +2436,7 @@
       <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
       <Parameter name="table"><![CDATA[(SELECT
     way, name, religion, way_pixels, is_building,
-    parking_space,
+    -- parking_space, gone to lc-flat
     -- see -->                                                                              tourism, gone to lc-flat
     COALESCE(aeroway, amenity, wetland, power, landuse, leisure, man_made, "natural", shop,          highway, railway) AS feature
   FROM (SELECT
@@ -2485,7 +2479,7 @@
       CASE WHEN religion IN ('christian', 'jewish', 'muslim') THEN religion ELSE 'INT-generic'::text END AS religion,
       way_area/NULLIF(POW(!scale_denominator!*0.001*0.28,2),0) AS way_pixels,
       CASE WHEN building = 'no' OR building IS NULL THEN 'no' ELSE 'yes' END AS is_building,
-      tags->'parking_space' as parking_space,
+      -- tags->'parking_space' as parking_space,  -- mostly gone to lc-flat
       way_area
     FROM planet_osm_polygon
     WHERE (landuse IS NOT NULL
@@ -2686,190 +2680,6 @@
     <Datasource>
       <Parameter name="file"><![CDATA[data/height/mixed-slopeshade.vrt]]></Parameter>
       <Parameter name="type"><![CDATA[gdal]]></Parameter>
-    </Datasource>
-  </Layer>
-  <Style comp-op="color-burn" filter-mode="first" name="contour-10" opacity="0.6">
-    <Rule>
-      <MaxScaleDenominator>25000</MaxScaleDenominator>
-      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.1" />
-    </Rule>
-    <Rule>
-      <MinScaleDenominator>25000</MinScaleDenominator>
-      <LineSymbolizer smooth="0.8" stroke="#181818" />
-    </Rule>
-  </Style>
-  <Layer maximum-scale-denominator="25000" name="contour-10" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
-    <StyleName><![CDATA[contour-10]]></StyleName>
-    <Datasource>
-      <Parameter name="type"><![CDATA[postgis]]></Parameter>
-      <Parameter name="dbname"><![CDATA[contours]]></Parameter>
-      <Parameter name="key_field"><![CDATA[]]></Parameter>
-      <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
-      <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
-      <Parameter name="table"><![CDATA[(SELECT height, way
- FROM contours
- WHERE height::int%100 in (10, 20, 30, 40, 60, 70, 80, 90)
-) as c10]]></Parameter>
-    </Datasource>
-  </Layer>
-  <Style comp-op="color-burn" filter-mode="first" name="contour-50" opacity="0.6">
-    <Rule>
-      <MaxScaleDenominator>100000</MaxScaleDenominator>
-      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.2" />
-    </Rule>
-    <Rule>
-      <MinScaleDenominator>100000</MinScaleDenominator>
-      <LineSymbolizer smooth="0.8" stroke="#181818" />
-    </Rule>
-  </Style>
-  <Layer maximum-scale-denominator="100000" name="contour-50" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
-    <StyleName><![CDATA[contour-50]]></StyleName>
-    <Datasource>
-      <Parameter name="type"><![CDATA[postgis]]></Parameter>
-      <Parameter name="dbname"><![CDATA[contours]]></Parameter>
-      <Parameter name="key_field"><![CDATA[]]></Parameter>
-      <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
-      <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
-      <Parameter name="table"><![CDATA[(SELECT height, way
- FROM contours
- WHERE height::int%100 = 50
-) as c50]]></Parameter>
-    </Datasource>
-  </Layer>
-  <Style comp-op="color-burn" filter-mode="first" name="contour-100" opacity="0.6">
-    <Rule>
-      <MaxScaleDenominator>100000</MaxScaleDenominator>
-      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.5" />
-      <TextSymbolizer fill="#404040" fontset-name="fontset-1" halo-fill="#ffffff" halo-radius="2" minimum-distance="100" placement="line" size="12" spacing="400"><![CDATA[[height]]]></TextSymbolizer>
-    </Rule>
-    <Rule>
-      <MaxScaleDenominator>400000</MaxScaleDenominator>
-      <MinScaleDenominator>100000</MinScaleDenominator>
-      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.2" />
-    </Rule>
-    <Rule>
-      <MinScaleDenominator>400000</MinScaleDenominator>
-      <LineSymbolizer smooth="0.8" stroke="#181818" />
-    </Rule>
-  </Style>
-  <Layer maximum-scale-denominator="400000" name="contour-100" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
-    <StyleName><![CDATA[contour-100]]></StyleName>
-    <Datasource>
-      <Parameter name="type"><![CDATA[postgis]]></Parameter>
-      <Parameter name="dbname"><![CDATA[contours]]></Parameter>
-      <Parameter name="key_field"><![CDATA[]]></Parameter>
-      <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
-      <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
-      <Parameter name="table"><![CDATA[(SELECT height, way
- FROM contours
- WHERE height::int%1000 in (100, 200, 300, 400, 600, 700, 800, 900)
-) as c100]]></Parameter>
-    </Datasource>
-  </Layer>
-  <Style comp-op="color-burn" filter-mode="first" name="contour-250" opacity="0.6">
-    <Rule>
-      <MaxScaleDenominator>750000</MaxScaleDenominator>
-      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.2" />
-    </Rule>
-    <Rule>
-      <MinScaleDenominator>750000</MinScaleDenominator>
-      <LineSymbolizer smooth="0.8" stroke="#181818" />
-    </Rule>
-  </Style>
-  <Layer maximum-scale-denominator="750000" minimum-scale-denominator="400000" name="contour-250" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
-    <StyleName><![CDATA[contour-250]]></StyleName>
-    <Datasource>
-      <Parameter name="type"><![CDATA[postgis]]></Parameter>
-      <Parameter name="dbname"><![CDATA[contours]]></Parameter>
-      <Parameter name="key_field"><![CDATA[]]></Parameter>
-      <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
-      <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
-      <Parameter name="table"><![CDATA[(SELECT height, way
- FROM contours
- WHERE height::int%1000 in (250, 750)
-) as c250]]></Parameter>
-    </Datasource>
-  </Layer>
-  <Style comp-op="color-burn" filter-mode="first" name="contour-500" opacity="0.6">
-    <Rule>
-      <MaxScaleDenominator>100000</MaxScaleDenominator>
-      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.75" />
-      <TextSymbolizer fill="#404040" fontset-name="fontset-1" halo-fill="#ffffff" halo-radius="2" minimum-distance="100" placement="line" size="12" spacing="400"><![CDATA[[height]]]></TextSymbolizer>
-    </Rule>
-    <Rule>
-      <MaxScaleDenominator>200000</MaxScaleDenominator>
-      <MinScaleDenominator>100000</MinScaleDenominator>
-      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.5" />
-      <TextSymbolizer fill="#404040" fontset-name="fontset-1" halo-fill="#ffffff" halo-radius="2" minimum-distance="100" placement="line" size="12" spacing="400"><![CDATA[[height]]]></TextSymbolizer>
-    </Rule>
-    <Rule>
-      <MaxScaleDenominator>400000</MaxScaleDenominator>
-      <MinScaleDenominator>200000</MinScaleDenominator>
-      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.5" />
-    </Rule>
-    <Rule>
-      <MaxScaleDenominator>1500000</MaxScaleDenominator>
-      <MinScaleDenominator>400000</MinScaleDenominator>
-      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.2" />
-    </Rule>
-    <Rule>
-      <MinScaleDenominator>1500000</MinScaleDenominator>
-      <LineSymbolizer smooth="0.8" stroke="#181818" />
-    </Rule>
-  </Style>
-  <Layer maximum-scale-denominator="1500000" name="contour-500" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
-    <StyleName><![CDATA[contour-500]]></StyleName>
-    <Datasource>
-      <Parameter name="type"><![CDATA[postgis]]></Parameter>
-      <Parameter name="dbname"><![CDATA[contours]]></Parameter>
-      <Parameter name="key_field"><![CDATA[]]></Parameter>
-      <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
-      <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
-      <Parameter name="table"><![CDATA[(SELECT height, way
- FROM contours
- WHERE height::int%1000 = 500
-) as c500]]></Parameter>
-    </Datasource>
-  </Layer>
-  <Style comp-op="color-burn" filter-mode="first" name="contour-1000" opacity="0.6">
-    <Rule>
-      <MaxScaleDenominator>100000</MaxScaleDenominator>
-      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="1" />
-      <TextSymbolizer fill="#404040" fontset-name="fontset-1" halo-fill="#ffffff" halo-radius="2" minimum-distance="100" placement="line" size="12" spacing="400"><![CDATA[[height]]]></TextSymbolizer>
-    </Rule>
-    <Rule>
-      <MaxScaleDenominator>400000</MaxScaleDenominator>
-      <MinScaleDenominator>100000</MinScaleDenominator>
-      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.75" />
-      <TextSymbolizer fill="#404040" fontset-name="fontset-1" halo-fill="#ffffff" halo-radius="2" minimum-distance="100" placement="line" size="12" spacing="400"><![CDATA[[height]]]></TextSymbolizer>
-    </Rule>
-    <Rule>
-      <MaxScaleDenominator>750000</MaxScaleDenominator>
-      <MinScaleDenominator>400000</MinScaleDenominator>
-      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.5" />
-    </Rule>
-    <Rule>
-      <MaxScaleDenominator>3000000</MaxScaleDenominator>
-      <MinScaleDenominator>750000</MinScaleDenominator>
-      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.2" />
-    </Rule>
-    <Rule>
-      <MinScaleDenominator>3000000</MinScaleDenominator>
-      <LineSymbolizer smooth="0.8" stroke="#181818" />
-    </Rule>
-  </Style>
-  <Layer maximum-scale-denominator="3000000" name="contour-1000" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
-    <StyleName><![CDATA[contour-1000]]></StyleName>
-    <Datasource>
-      <Parameter name="type"><![CDATA[postgis]]></Parameter>
-      <Parameter name="dbname"><![CDATA[contours]]></Parameter>
-      <Parameter name="key_field"><![CDATA[]]></Parameter>
-      <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
-      <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
-      <Parameter name="table"><![CDATA[(SELECT height, way
- FROM contours
- WHERE height::int%1000 = 0
-) as c1000]]></Parameter>
     </Datasource>
   </Layer>
   <Style filter-mode="first" name="landcover-flat-fill" opacity="0.3">
@@ -3437,6 +3247,12 @@
       <PolygonPatternSymbolizer file="symbols/beach.png" />
     </Rule>
     <Rule>
+      <MaxScaleDenominator>5000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_parking_space') and ([parking_space] = 'disabled')]]></Filter>
+      <LineSymbolizer stroke="#7e7070" stroke-width="0.3" />
+      <PolygonSymbolizer fill="#3e92fb" />
+    </Rule>
+    <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_parking') and ([way_pixels] >= 64)]]></Filter>
       <PolygonSymbolizer fill="#aaaaaa" gamma="0.3" />
@@ -3718,6 +3534,7 @@
       <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
       <Parameter name="table"><![CDATA[(SELECT
     way, name, religion, way_pixels, access,
+    parking_space,
     COALESCE(amenity, landuse, leisure, tourism, "natural") AS feature
   FROM (SELECT
       way, COALESCE(name, '') AS name, access,
@@ -3729,6 +3546,7 @@
       ('tourism_' || (CASE WHEN tourism IN ('camp_site', 'caravan_site', 'picnic_site') THEN tourism ELSE NULL END)) AS tourism,
       ('natural_' || (CASE WHEN "natural" IN ('beach', 'shoal') THEN "natural" ELSE NULL END)) AS "natural",
       CASE WHEN religion IN ('christian', 'jewish') THEN religion ELSE 'INT-generic'::text END AS religion,
+      tags->'parking_space' as parking_space,
       way_area/NULLIF(!pixel_width!::real*!pixel_height!::real,0) AS way_pixels
     FROM planet_osm_polygon
     WHERE (landuse IS NOT NULL
@@ -3739,6 +3557,190 @@
     ORDER BY layer, way_area DESC
   ) AS landcover
 ) AS features]]></Parameter>
+    </Datasource>
+  </Layer>
+  <Style comp-op="color-burn" filter-mode="first" name="contour-10" opacity="0.6">
+    <Rule>
+      <MaxScaleDenominator>25000</MaxScaleDenominator>
+      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.1" />
+    </Rule>
+    <Rule>
+      <MinScaleDenominator>25000</MinScaleDenominator>
+      <LineSymbolizer smooth="0.8" stroke="#181818" />
+    </Rule>
+  </Style>
+  <Layer maximum-scale-denominator="25000" name="contour-10" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName><![CDATA[contour-10]]></StyleName>
+    <Datasource>
+      <Parameter name="type"><![CDATA[postgis]]></Parameter>
+      <Parameter name="dbname"><![CDATA[contours]]></Parameter>
+      <Parameter name="key_field"><![CDATA[]]></Parameter>
+      <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
+      <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
+      <Parameter name="table"><![CDATA[(SELECT height, way
+ FROM contours
+ WHERE height::int%100 in (10, 20, 30, 40, 60, 70, 80, 90)
+) as c10]]></Parameter>
+    </Datasource>
+  </Layer>
+  <Style comp-op="color-burn" filter-mode="first" name="contour-50" opacity="0.6">
+    <Rule>
+      <MaxScaleDenominator>100000</MaxScaleDenominator>
+      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.2" />
+    </Rule>
+    <Rule>
+      <MinScaleDenominator>100000</MinScaleDenominator>
+      <LineSymbolizer smooth="0.8" stroke="#181818" />
+    </Rule>
+  </Style>
+  <Layer maximum-scale-denominator="100000" name="contour-50" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName><![CDATA[contour-50]]></StyleName>
+    <Datasource>
+      <Parameter name="type"><![CDATA[postgis]]></Parameter>
+      <Parameter name="dbname"><![CDATA[contours]]></Parameter>
+      <Parameter name="key_field"><![CDATA[]]></Parameter>
+      <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
+      <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
+      <Parameter name="table"><![CDATA[(SELECT height, way
+ FROM contours
+ WHERE height::int%100 = 50
+) as c50]]></Parameter>
+    </Datasource>
+  </Layer>
+  <Style comp-op="color-burn" filter-mode="first" name="contour-100" opacity="0.6">
+    <Rule>
+      <MaxScaleDenominator>100000</MaxScaleDenominator>
+      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.5" />
+      <TextSymbolizer fill="#404040" fontset-name="fontset-1" halo-fill="#ffffff" halo-radius="2" minimum-distance="100" placement="line" size="12" spacing="400"><![CDATA[[height]]]></TextSymbolizer>
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>400000</MaxScaleDenominator>
+      <MinScaleDenominator>100000</MinScaleDenominator>
+      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.2" />
+    </Rule>
+    <Rule>
+      <MinScaleDenominator>400000</MinScaleDenominator>
+      <LineSymbolizer smooth="0.8" stroke="#181818" />
+    </Rule>
+  </Style>
+  <Layer maximum-scale-denominator="400000" name="contour-100" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName><![CDATA[contour-100]]></StyleName>
+    <Datasource>
+      <Parameter name="type"><![CDATA[postgis]]></Parameter>
+      <Parameter name="dbname"><![CDATA[contours]]></Parameter>
+      <Parameter name="key_field"><![CDATA[]]></Parameter>
+      <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
+      <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
+      <Parameter name="table"><![CDATA[(SELECT height, way
+ FROM contours
+ WHERE height::int%1000 in (100, 200, 300, 400, 600, 700, 800, 900)
+) as c100]]></Parameter>
+    </Datasource>
+  </Layer>
+  <Style comp-op="color-burn" filter-mode="first" name="contour-250" opacity="0.6">
+    <Rule>
+      <MaxScaleDenominator>750000</MaxScaleDenominator>
+      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.2" />
+    </Rule>
+    <Rule>
+      <MinScaleDenominator>750000</MinScaleDenominator>
+      <LineSymbolizer smooth="0.8" stroke="#181818" />
+    </Rule>
+  </Style>
+  <Layer maximum-scale-denominator="750000" minimum-scale-denominator="400000" name="contour-250" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName><![CDATA[contour-250]]></StyleName>
+    <Datasource>
+      <Parameter name="type"><![CDATA[postgis]]></Parameter>
+      <Parameter name="dbname"><![CDATA[contours]]></Parameter>
+      <Parameter name="key_field"><![CDATA[]]></Parameter>
+      <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
+      <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
+      <Parameter name="table"><![CDATA[(SELECT height, way
+ FROM contours
+ WHERE height::int%1000 in (250, 750)
+) as c250]]></Parameter>
+    </Datasource>
+  </Layer>
+  <Style comp-op="color-burn" filter-mode="first" name="contour-500" opacity="0.6">
+    <Rule>
+      <MaxScaleDenominator>100000</MaxScaleDenominator>
+      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.75" />
+      <TextSymbolizer fill="#404040" fontset-name="fontset-1" halo-fill="#ffffff" halo-radius="2" minimum-distance="100" placement="line" size="12" spacing="400"><![CDATA[[height]]]></TextSymbolizer>
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>200000</MaxScaleDenominator>
+      <MinScaleDenominator>100000</MinScaleDenominator>
+      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.5" />
+      <TextSymbolizer fill="#404040" fontset-name="fontset-1" halo-fill="#ffffff" halo-radius="2" minimum-distance="100" placement="line" size="12" spacing="400"><![CDATA[[height]]]></TextSymbolizer>
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>400000</MaxScaleDenominator>
+      <MinScaleDenominator>200000</MinScaleDenominator>
+      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.5" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>1500000</MaxScaleDenominator>
+      <MinScaleDenominator>400000</MinScaleDenominator>
+      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.2" />
+    </Rule>
+    <Rule>
+      <MinScaleDenominator>1500000</MinScaleDenominator>
+      <LineSymbolizer smooth="0.8" stroke="#181818" />
+    </Rule>
+  </Style>
+  <Layer maximum-scale-denominator="1500000" name="contour-500" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName><![CDATA[contour-500]]></StyleName>
+    <Datasource>
+      <Parameter name="type"><![CDATA[postgis]]></Parameter>
+      <Parameter name="dbname"><![CDATA[contours]]></Parameter>
+      <Parameter name="key_field"><![CDATA[]]></Parameter>
+      <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
+      <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
+      <Parameter name="table"><![CDATA[(SELECT height, way
+ FROM contours
+ WHERE height::int%1000 = 500
+) as c500]]></Parameter>
+    </Datasource>
+  </Layer>
+  <Style comp-op="color-burn" filter-mode="first" name="contour-1000" opacity="0.6">
+    <Rule>
+      <MaxScaleDenominator>100000</MaxScaleDenominator>
+      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="1" />
+      <TextSymbolizer fill="#404040" fontset-name="fontset-1" halo-fill="#ffffff" halo-radius="2" minimum-distance="100" placement="line" size="12" spacing="400"><![CDATA[[height]]]></TextSymbolizer>
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>400000</MaxScaleDenominator>
+      <MinScaleDenominator>100000</MinScaleDenominator>
+      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.75" />
+      <TextSymbolizer fill="#404040" fontset-name="fontset-1" halo-fill="#ffffff" halo-radius="2" minimum-distance="100" placement="line" size="12" spacing="400"><![CDATA[[height]]]></TextSymbolizer>
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>750000</MaxScaleDenominator>
+      <MinScaleDenominator>400000</MinScaleDenominator>
+      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.5" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>3000000</MaxScaleDenominator>
+      <MinScaleDenominator>750000</MinScaleDenominator>
+      <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.2" />
+    </Rule>
+    <Rule>
+      <MinScaleDenominator>3000000</MinScaleDenominator>
+      <LineSymbolizer smooth="0.8" stroke="#181818" />
+    </Rule>
+  </Style>
+  <Layer maximum-scale-denominator="3000000" name="contour-1000" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName><![CDATA[contour-1000]]></StyleName>
+    <Datasource>
+      <Parameter name="type"><![CDATA[postgis]]></Parameter>
+      <Parameter name="dbname"><![CDATA[contours]]></Parameter>
+      <Parameter name="key_field"><![CDATA[]]></Parameter>
+      <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
+      <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
+      <Parameter name="table"><![CDATA[(SELECT height, way
+ FROM contours
+ WHERE height::int%1000 = 0
+) as c1000]]></Parameter>
     </Datasource>
   </Layer>
   <Style filter-mode="first" name="icesheet-poly">
@@ -5129,122 +5131,127 @@
   <Style filter-mode="first" name="water-areas">
     <Rule>
       <Filter><![CDATA[([waterway] = 'dock') and ([int_intermittent] = 'yes') and ([way_pixels] >= 64) and ([int_salt] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.6" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_salt_bg.png" />
-      <PolygonSymbolizer gamma="0.6" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([waterway] = 'dock') and ([int_intermittent] = 'yes') and ([way_pixels] >= 64)]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.6" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_bg.png" />
-      <PolygonSymbolizer gamma="0.6" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([landuse] = 'basin') and ([int_intermittent] = 'yes') and ([way_pixels] >= 64) and ([int_salt] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.6" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_salt_bg.png" />
-      <PolygonSymbolizer gamma="0.6" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([landuse] = 'basin') and ([int_intermittent] = 'yes') and ([way_pixels] >= 64)]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.6" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_bg.png" />
-      <PolygonSymbolizer gamma="0.6" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([natural] = 'water') and ([int_intermittent] = 'yes') and ([way_pixels] >= 64) and ([int_salt] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.6" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_salt_bg.png" />
-      <PolygonSymbolizer gamma="0.6" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([natural] = 'water') and ([int_intermittent] = 'yes') and ([way_pixels] >= 64)]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.6" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_bg.png" />
-      <PolygonSymbolizer gamma="0.6" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([landuse] = 'reservoir') and ([int_intermittent] = 'yes') and ([way_pixels] >= 64) and ([int_salt] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.6" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_salt_bg.png" />
-      <PolygonSymbolizer gamma="0.6" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([landuse] = 'reservoir') and ([int_intermittent] = 'yes') and ([way_pixels] >= 64)]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.6" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_bg.png" />
-      <PolygonSymbolizer gamma="0.6" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([waterway] = 'riverbank') and ([int_intermittent] = 'yes') and ([way_pixels] >= 64) and ([int_salt] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.6" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_salt_bg.png" />
-      <PolygonSymbolizer gamma="0.6" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([waterway] = 'riverbank') and ([int_intermittent] = 'yes') and ([way_pixels] >= 64)]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.6" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_bg.png" />
-      <PolygonSymbolizer gamma="0.6" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([waterway] = 'dock') and ([int_intermittent] = 'yes') and ([way_pixels] >= 4) and ([int_salt] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.75" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_salt_bg.png" />
-      <PolygonSymbolizer gamma="0.75" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([waterway] = 'dock') and ([int_intermittent] = 'yes') and ([way_pixels] >= 4)]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.75" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_bg.png" />
-      <PolygonSymbolizer gamma="0.75" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([landuse] = 'basin') and ([int_intermittent] = 'yes') and ([way_pixels] >= 4) and ([int_salt] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.75" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_salt_bg.png" />
-      <PolygonSymbolizer gamma="0.75" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([landuse] = 'basin') and ([int_intermittent] = 'yes') and ([way_pixels] >= 4)]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.75" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_bg.png" />
-      <PolygonSymbolizer gamma="0.75" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([natural] = 'water') and ([int_intermittent] = 'yes') and ([way_pixels] >= 4) and ([int_salt] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.75" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_salt_bg.png" />
-      <PolygonSymbolizer gamma="0.75" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([natural] = 'water') and ([int_intermittent] = 'yes') and ([way_pixels] >= 4)]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.75" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_bg.png" />
-      <PolygonSymbolizer gamma="0.75" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([landuse] = 'reservoir') and ([int_intermittent] = 'yes') and ([way_pixels] >= 4) and ([int_salt] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.75" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_salt_bg.png" />
-      <PolygonSymbolizer gamma="0.75" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([landuse] = 'reservoir') and ([int_intermittent] = 'yes') and ([way_pixels] >= 4)]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.75" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_bg.png" />
-      <PolygonSymbolizer gamma="0.75" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([waterway] = 'riverbank') and ([int_intermittent] = 'yes') and ([way_pixels] >= 4) and ([int_salt] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.75" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_salt_bg.png" />
-      <PolygonSymbolizer gamma="0.75" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([waterway] = 'riverbank') and ([int_intermittent] = 'yes') and ([way_pixels] >= 4)]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" gamma="0.75" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_bg.png" />
-      <PolygonSymbolizer gamma="0.75" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([waterway] = 'dock') and ([int_intermittent] = 'yes') and ([int_salt] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_salt_bg.png" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([landuse] = 'basin') and ([int_intermittent] = 'yes') and ([int_salt] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_salt_bg.png" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([natural] = 'water') and ([int_intermittent] = 'yes') and ([int_salt] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_salt_bg.png" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([landuse] = 'reservoir') and ([int_intermittent] = 'yes') and ([int_salt] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_salt_bg.png" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([waterway] = 'riverbank') and ([int_intermittent] = 'yes') and ([int_salt] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_salt_bg.png" />
     </Rule>
     <Rule>
@@ -5349,22 +5356,27 @@
     </Rule>
     <Rule>
       <Filter><![CDATA[([waterway] = 'dock') and ([int_intermittent] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_bg.png" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([landuse] = 'basin') and ([int_intermittent] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_bg.png" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([natural] = 'water') and ([int_intermittent] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_bg.png" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([landuse] = 'reservoir') and ([int_intermittent] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_bg.png" />
     </Rule>
     <Rule>
       <Filter><![CDATA[([waterway] = 'riverbank') and ([int_intermittent] = 'yes')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" />
       <PolygonPatternSymbolizer alignment="global" file="symbols/local/water_intermittent_bg.png" />
     </Rule>
     <Rule>
@@ -5385,6 +5397,26 @@
     </Rule>
     <Rule>
       <Filter><![CDATA[([waterway] = 'riverbank') and ([int_intermittent] = 'no')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" />
+    </Rule>
+    <Rule>
+      <Filter><![CDATA[([waterway] = 'dock')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" />
+    </Rule>
+    <Rule>
+      <Filter><![CDATA[([landuse] = 'basin')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" />
+    </Rule>
+    <Rule>
+      <Filter><![CDATA[([natural] = 'water')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" />
+    </Rule>
+    <Rule>
+      <Filter><![CDATA[([landuse] = 'reservoir')]]></Filter>
+      <PolygonSymbolizer fill="#aad3df" />
+    </Rule>
+    <Rule>
+      <Filter><![CDATA[([waterway] = 'riverbank')]]></Filter>
       <PolygonSymbolizer fill="#aad3df" />
     </Rule>
   </Style>
@@ -19179,84 +19211,84 @@
     <Rule>
       <MaxScaleDenominator>750</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'historic_citywalls')]]></Filter>
-      <LineSymbolizer stroke="#919191" stroke-width="5" />
-      <LineSymbolizer stroke="#444444" stroke-width="0.4" />
+      <LineSymbolizer stroke="#ff0080" stroke-width="6" />
+      <LineSymbolizer stroke="#660033" stroke-width="1" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>1500</MaxScaleDenominator>
       <MinScaleDenominator>750</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'historic_citywalls')]]></Filter>
-      <LineSymbolizer stroke="#919191" stroke-width="4" />
-      <LineSymbolizer stroke="#444444" stroke-width="0.4" />
+      <LineSymbolizer stroke="#ff0080" stroke-width="5" />
+      <LineSymbolizer stroke="#660033" stroke-width="1" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>2500</MaxScaleDenominator>
       <MinScaleDenominator>1500</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'historic_citywalls')]]></Filter>
-      <LineSymbolizer stroke="#919191" stroke-width="3" />
-      <LineSymbolizer stroke="#444444" stroke-width="0.4" />
+      <LineSymbolizer stroke="#ff0080" stroke-width="4" />
+      <LineSymbolizer stroke="#660033" stroke-width="1" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>5000</MaxScaleDenominator>
       <MinScaleDenominator>2500</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'historic_citywalls')]]></Filter>
-      <LineSymbolizer stroke="#919191" stroke-width="2" />
-      <LineSymbolizer stroke="#444444" stroke-width="0.4" />
+      <LineSymbolizer stroke="#ff0080" stroke-width="3" />
+      <LineSymbolizer stroke="#660033" stroke-width="1" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>12500</MaxScaleDenominator>
       <MinScaleDenominator>5000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'historic_citywalls')]]></Filter>
-      <LineSymbolizer stroke="#919191" stroke-width="1.5" />
+      <LineSymbolizer stroke="#ff0080" stroke-width="2.5" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
       <MinScaleDenominator>12500</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'historic_citywalls')]]></Filter>
-      <LineSymbolizer stroke="#919191" stroke-width="1" />
+      <LineSymbolizer stroke="#ff0080" stroke-width="2" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>750</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'barrier_city_wall')]]></Filter>
-      <LineSymbolizer stroke="#919191" stroke-width="5" />
-      <LineSymbolizer stroke="#444444" stroke-width="0.4" />
+      <LineSymbolizer stroke="#ff0080" stroke-width="6" />
+      <LineSymbolizer stroke="#660033" stroke-width="1" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>1500</MaxScaleDenominator>
       <MinScaleDenominator>750</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'barrier_city_wall')]]></Filter>
-      <LineSymbolizer stroke="#919191" stroke-width="4" />
-      <LineSymbolizer stroke="#444444" stroke-width="0.4" />
+      <LineSymbolizer stroke="#ff0080" stroke-width="5" />
+      <LineSymbolizer stroke="#660033" stroke-width="1" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>2500</MaxScaleDenominator>
       <MinScaleDenominator>1500</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'barrier_city_wall')]]></Filter>
-      <LineSymbolizer stroke="#919191" stroke-width="3" />
-      <LineSymbolizer stroke="#444444" stroke-width="0.4" />
+      <LineSymbolizer stroke="#ff0080" stroke-width="4" />
+      <LineSymbolizer stroke="#660033" stroke-width="1" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>5000</MaxScaleDenominator>
       <MinScaleDenominator>2500</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'barrier_city_wall')]]></Filter>
-      <LineSymbolizer stroke="#919191" stroke-width="2" />
-      <LineSymbolizer stroke="#444444" stroke-width="0.4" />
+      <LineSymbolizer stroke="#ff0080" stroke-width="3" />
+      <LineSymbolizer stroke="#660033" stroke-width="1" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>12500</MaxScaleDenominator>
       <MinScaleDenominator>5000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'barrier_city_wall')]]></Filter>
-      <LineSymbolizer stroke="#919191" stroke-width="1.5" />
+      <LineSymbolizer stroke="#ff0080" stroke-width="2.5" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
       <MinScaleDenominator>12500</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'barrier_city_wall')]]></Filter>
-      <LineSymbolizer stroke="#919191" stroke-width="1" />
+      <LineSymbolizer stroke="#ff0080" stroke-width="2" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>12500</MaxScaleDenominator>
-      <LineSymbolizer stroke="#444444" stroke-width="0.4" />
+      <LineSymbolizer stroke="#444444" stroke-width="1" />
     </Rule>
   </Style>
   <Layer maximum-scale-denominator="50000" name="barriers" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
@@ -51682,8 +51714,11 @@ UNION ALL
       ) AS feature,
       access,
       CASE
-        -- local
-        WHEN tags->'sport' IN ('climbing') THEN 10000 -- higher than any peak
+        -- local: these are shown before mountain peaks or saddles; keep score above 9000
+        WHEN tags->'sport' IN ('climbing') THEN 10000 -- higher than anything
+        WHEN man_made='cross' THEN 9900
+        -- important things that are not necessarily at peaks, but that we want to render before other stuff
+        WHEN historic IN ('city_gate', 'castle', 'fort') THEN 9800
         WHEN "natural" IN ('peak', 'volcano', 'saddle') THEN
           CASE
             WHEN tags->'ele' ~ '^-?\d{1,4}(\.\d+)?$' THEN (tags->'ele')::NUMERIC
@@ -61999,8 +62034,11 @@ ORDER BY
       ) AS feature,
       access,
       CASE
-        -- local
-        WHEN tags->'sport' IN ('climbing') THEN 10000 -- higher than any peak
+        -- local: these are shown before mountain peaks or saddles; keep score above 9000
+        WHEN tags->'sport' IN ('climbing') THEN 10000 -- higher than anything
+        WHEN man_made='cross' THEN 9900
+        -- important things that are not necessarily at peaks, but that we want to render before other stuff
+        WHEN historic IN ('city_gate', 'castle', 'fort') THEN 9800
         WHEN "natural" IN ('peak', 'volcano', 'saddle') THEN
           CASE
             WHEN tags->'ele' ~ '^-?\d{1,4}(\.\d+)?$' THEN (tags->'ele')::NUMERIC
