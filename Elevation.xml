@@ -48672,71 +48672,71 @@ UNION ALL
     <Rule>
       <MaxScaleDenominator>12500</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station') and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#ffffff" opacity="0.33" stroke="#ffff00" stroke-width="2" width="24" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#ffffff" opacity="0.33" stroke="#ffffff" stroke-width="2" width="24" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
       <MinScaleDenominator>12500</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station') and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#ffffff" opacity="0.33" stroke="#ffff00" stroke-width="2" width="16" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#ffffff" opacity="0.33" stroke="#ffffff" stroke-width="2" width="16" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station') and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#ffffff" opacity="0.33" stroke="#ffff00" stroke-width="2" width="14" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#ffffff" opacity="0.33" stroke="#ffffff" stroke-width="2" width="14" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>400000</MaxScaleDenominator>
       <MinScaleDenominator>100000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station') and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#ffffff" opacity="0.33" stroke="#ffff00" stroke-width="2" width="12" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#ffffff" opacity="0.33" stroke="#ffffff" stroke-width="2" width="12" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>12500</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#ffffff" stroke="#ffff00" stroke-width="2" width="24" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#ffffff" stroke="#ffffff" stroke-width="2" width="24" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
       <MinScaleDenominator>12500</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#ffffff" stroke="#ffff00" stroke-width="2" width="16" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#ffffff" stroke="#ffffff" stroke-width="2" width="16" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#ffffff" stroke="#ffff00" stroke-width="2" width="14" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#ffffff" stroke="#ffffff" stroke-width="2" width="14" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>400000</MaxScaleDenominator>
       <MinScaleDenominator>100000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#ffffff" stroke="#ffff00" stroke-width="2" width="12" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#ffffff" stroke="#ffffff" stroke-width="2" width="12" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>12500</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_fuel')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/fuel.svg" fill="#c00000" stroke="#ffff00" stroke-width="2" width="24" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/fuel.svg" fill="#c00000" stroke="#ffffff" stroke-width="2" width="24" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
       <MinScaleDenominator>12500</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_fuel')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/fuel.svg" fill="#c00000" stroke="#ffff00" stroke-width="2" width="16" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/fuel.svg" fill="#c00000" stroke="#ffffff" stroke-width="2" width="16" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_fuel')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/fuel.svg" fill="#c00000" stroke="#ffff00" stroke-width="2" width="14" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/fuel.svg" fill="#c00000" stroke="#ffffff" stroke-width="2" width="14" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>400000</MaxScaleDenominator>
       <MinScaleDenominator>100000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_fuel')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/fuel.svg" fill="#c00000" stroke="#ffff00" stroke-width="2" width="12" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/fuel.svg" fill="#c00000" stroke="#ffffff" stroke-width="2" width="12" />
     </Rule>
   </Style>
   <Layer cache-features="true" maximum-scale-denominator="750000" name="amenity-points-halo" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
@@ -50392,25 +50392,25 @@ UNION ALL
     <Rule>
       <MaxScaleDenominator>12500</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station') and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" opacity="0.33" stroke="#ffffff" width="24" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" opacity="0.33" stroke="#008000" stroke-width="0" width="24" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
       <MinScaleDenominator>12500</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station') and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" opacity="0.33" stroke="#ffffff" width="16" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" opacity="0.33" stroke="#008000" stroke-width="0" width="16" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station') and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" opacity="0.33" stroke="#ffffff" width="14" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" opacity="0.33" stroke="#008000" stroke-width="0" width="14" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>400000</MaxScaleDenominator>
       <MinScaleDenominator>100000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station') and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" opacity="0.33" stroke="#ffffff" width="12" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" opacity="0.33" stroke="#008000" stroke-width="0" width="12" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>2500</MaxScaleDenominator>
@@ -51373,48 +51373,48 @@ UNION ALL
     <Rule>
       <MaxScaleDenominator>12500</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" stroke="#ffffff" width="24" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" stroke="#008000" stroke-width="0" width="24" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
       <MinScaleDenominator>12500</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" stroke="#ffffff" width="16" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" stroke="#008000" stroke-width="0" width="16" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" stroke="#ffffff" width="14" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" stroke="#008000" stroke-width="0" width="14" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>400000</MaxScaleDenominator>
       <MinScaleDenominator>100000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" stroke="#ffffff" width="12" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" stroke="#008000" stroke-width="0" width="12" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>12500</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_fuel')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/fuel.svg" fill="#c00000" stroke="#ffffff" width="24" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/fuel.svg" fill="#c00000" stroke="#008000" stroke-width="0" width="24" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
       <MinScaleDenominator>12500</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_fuel')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/fuel.svg" fill="#c00000" stroke="#ffffff" width="16" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/fuel.svg" fill="#c00000" stroke="#008000" stroke-width="0" width="16" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_fuel')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/fuel.svg" fill="#c00000" stroke="#ffffff" width="14" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/fuel.svg" fill="#c00000" stroke="#008000" stroke-width="0" width="14" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>400000</MaxScaleDenominator>
       <MinScaleDenominator>100000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_fuel')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/fuel.svg" fill="#c00000" stroke="#ffffff" width="12" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/fuel.svg" fill="#c00000" stroke="#008000" stroke-width="0" width="12" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>2500</MaxScaleDenominator>
