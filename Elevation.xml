@@ -3638,13 +3638,13 @@
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'leisure_garden') and ([way_pixels] >= 64)]]></Filter>
       <PolygonSymbolizer fill="#cdebb0" gamma="0.3" />
-      <PolygonPatternSymbolizer alignment="global" file="symbols/plant_nursery.png" gamma="0.3" opacity="0.6" />
+      <PolygonPatternSymbolizer alignment="global" file="patterns/plant_nursery.png" gamma="0.3" opacity="0.6" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'leisure_garden') and ([way_pixels] >= 4)]]></Filter>
       <PolygonSymbolizer fill="#cdebb0" gamma="0.75" />
-      <PolygonPatternSymbolizer alignment="global" file="symbols/plant_nursery.png" gamma="0.75" opacity="0.6" />
+      <PolygonPatternSymbolizer alignment="global" file="patterns/plant_nursery.png" gamma="0.75" opacity="0.6" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -3716,7 +3716,7 @@
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'leisure_garden')]]></Filter>
       <PolygonSymbolizer fill="#cdebb0" />
-      <PolygonPatternSymbolizer alignment="global" file="symbols/plant_nursery.png" opacity="0.6" />
+      <PolygonPatternSymbolizer alignment="global" file="patterns/plant_nursery.png" opacity="0.6" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
