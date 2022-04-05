@@ -2095,7 +2095,7 @@
       <MaxScaleDenominator>200000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_prison') and ([way_pixels] > 75)]]></Filter>
       <PolygonSymbolizer fill="#8e8e8e" fill-opacity="0.14" />
-      <PolygonPatternSymbolizer alignment="global" file="patterns/grey_vertical_hatch.svg" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/grey_vertical_hatch.svg" />
       <LineSymbolizer stroke="#888888" stroke-opacity="0.329" stroke-width="3" />
     </Rule>
     <Rule>
@@ -2125,12 +2125,12 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'landuse_plant_nursery') and ([way_pixels] >= 64)]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/plant_nursery.svg" gamma="0.3" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/plant_nursery.svg" gamma="0.3" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'landuse_plant_nursery') and ([way_pixels] >= 4)]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/plant_nursery.svg" gamma="0.75" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/plant_nursery.svg" gamma="0.75" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -2421,7 +2421,7 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'landuse_plant_nursery')]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/plant_nursery.svg" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/plant_nursery.svg" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -3638,45 +3638,45 @@
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'leisure_garden') and ([way_pixels] >= 64)]]></Filter>
       <PolygonSymbolizer fill="#cdebb0" gamma="0.3" />
-      <PolygonPatternSymbolizer alignment="global" file="patterns/plant_nursery.png" gamma="0.3" opacity="0.6" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/plant_nursery.png" gamma="0.3" opacity="0.6" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'leisure_garden') and ([way_pixels] >= 4)]]></Filter>
       <PolygonSymbolizer fill="#cdebb0" gamma="0.75" />
-      <PolygonPatternSymbolizer alignment="global" file="patterns/plant_nursery.png" gamma="0.75" opacity="0.6" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/plant_nursery.png" gamma="0.75" opacity="0.6" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'landuse_recreation_ground') and ([way_pixels] >= 64)]]></Filter>
       <LineSymbolizer stroke="#0e9b19" stroke-width="0.3" />
-      <PolygonPatternSymbolizer alignment="global" file="patterns/local/grass2.png" gamma="0.3" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/local/grass2.png" gamma="0.3" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'landuse_village_green') and ([way_pixels] >= 64)]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/local/grass2.png" gamma="0.3" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/local/grass2.png" gamma="0.3" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'leisure_common') and ([way_pixels] >= 64)]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/local/grass2.png" gamma="0.3" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/local/grass2.png" gamma="0.3" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'landuse_recreation_ground') and ([way_pixels] >= 4)]]></Filter>
       <LineSymbolizer stroke="#0e9b19" stroke-width="0.3" />
-      <PolygonPatternSymbolizer alignment="global" file="patterns/local/grass2.png" gamma="0.75" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/local/grass2.png" gamma="0.75" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'landuse_village_green') and ([way_pixels] >= 4)]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/local/grass2.png" gamma="0.75" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/local/grass2.png" gamma="0.75" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'leisure_common') and ([way_pixels] >= 4)]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/local/grass2.png" gamma="0.75" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/local/grass2.png" gamma="0.75" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>12500</MaxScaleDenominator>
@@ -3716,23 +3716,23 @@
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'leisure_garden')]]></Filter>
       <PolygonSymbolizer fill="#cdebb0" />
-      <PolygonPatternSymbolizer alignment="global" file="patterns/plant_nursery.png" opacity="0.6" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/plant_nursery.png" opacity="0.6" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'landuse_recreation_ground')]]></Filter>
       <LineSymbolizer stroke="#0e9b19" stroke-width="0.3" />
-      <PolygonPatternSymbolizer alignment="global" file="patterns/local/grass2.png" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/local/grass2.png" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'landuse_village_green')]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/local/grass2.png" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/local/grass2.png" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'leisure_common')]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/local/grass2.png" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/local/grass2.png" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
