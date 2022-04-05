@@ -9552,7 +9552,7 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([natural] = 'shoal') and ([landuse] = 'salt_pond') and ([int_wetland] != null)]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/salt-dots-2.png" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/salt-dots-2.png" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -9563,7 +9563,7 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([natural] = 'shoal') and ([landuse] = 'salt_pond')]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/salt-dots-2.png" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/salt-dots-2.png" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -9672,7 +9672,7 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([natural] = 'beach') and ([landuse] = 'salt_pond') and ([int_wetland] != null)]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/salt-dots-2.png" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/salt-dots-2.png" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -9683,7 +9683,7 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([natural] = 'beach') and ([landuse] = 'salt_pond')]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/salt-dots-2.png" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/salt-dots-2.png" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -9792,7 +9792,7 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([landuse] = 'salt_pond') and ([natural] = 'reef')]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/salt-dots-2.png" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/salt-dots-2.png" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -9803,7 +9803,7 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([landuse] = 'salt_pond') and ([int_wetland] != null)]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/salt-dots-2.png" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/salt-dots-2.png" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -9814,7 +9814,7 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([landuse] = 'salt_pond')]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/salt-dots-2.png" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/salt-dots-2.png" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
