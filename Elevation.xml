@@ -3452,25 +3452,25 @@
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'natural_beach') and ([way_pixels] >= 64)]]></Filter>
       <PolygonSymbolizer fill="#fff1ba" gamma="0.3" />
-      <PolygonPatternSymbolizer file="patterns/beach.png" />
+      <PolygonPatternSymbolizer file="symbols/beach.png" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'natural_shoal') and ([way_pixels] >= 64)]]></Filter>
       <PolygonSymbolizer fill="#fff1ba" gamma="0.3" />
-      <PolygonPatternSymbolizer file="patterns/beach.png" />
+      <PolygonPatternSymbolizer file="symbols/beach.png" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'natural_beach') and ([way_pixels] >= 4)]]></Filter>
       <PolygonSymbolizer fill="#fff1ba" gamma="0.75" />
-      <PolygonPatternSymbolizer file="patterns/beach.png" />
+      <PolygonPatternSymbolizer file="symbols/beach.png" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'natural_shoal') and ([way_pixels] >= 4)]]></Filter>
       <PolygonSymbolizer fill="#fff1ba" gamma="0.75" />
-      <PolygonPatternSymbolizer file="patterns/beach.png" />
+      <PolygonPatternSymbolizer file="symbols/beach.png" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -3704,13 +3704,13 @@
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'natural_beach')]]></Filter>
       <PolygonSymbolizer fill="#fff1ba" />
-      <PolygonPatternSymbolizer file="patterns/beach.png" />
+      <PolygonPatternSymbolizer file="symbols/beach.png" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'natural_shoal')]]></Filter>
       <PolygonSymbolizer fill="#fff1ba" />
-      <PolygonPatternSymbolizer file="patterns/beach.png" />
+      <PolygonPatternSymbolizer file="symbols/beach.png" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
