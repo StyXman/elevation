@@ -2095,7 +2095,7 @@
       <MaxScaleDenominator>200000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_prison') and ([way_pixels] > 75)]]></Filter>
       <PolygonSymbolizer fill="#8e8e8e" fill-opacity="0.14" />
-      <PolygonPatternSymbolizer alignment="global" file="symbols/grey_vertical_hatch.svg" />
+      <PolygonPatternSymbolizer alignment="global" file="patterns/military_red_hatch.svg" />
       <LineSymbolizer stroke="#888888" stroke-opacity="0.329" stroke-width="3" />
     </Rule>
     <Rule>
