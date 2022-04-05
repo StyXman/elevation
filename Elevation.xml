@@ -450,22 +450,22 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'natural_scree') and ([way_pixels] >= 64)]]></Filter>
-      <PolygonPatternSymbolizer file="patterns/scree_overlay.png" gamma="0.3" />
+      <PolygonPatternSymbolizer file="symbols/scree_overlay.png" gamma="0.3" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'natural_shingle') and ([way_pixels] >= 64)]]></Filter>
-      <PolygonPatternSymbolizer file="patterns/scree_overlay.png" gamma="0.3" />
+      <PolygonPatternSymbolizer file="symbols/scree_overlay.png" gamma="0.3" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'natural_scree') and ([way_pixels] >= 4)]]></Filter>
-      <PolygonPatternSymbolizer file="patterns/scree_overlay.png" gamma="0.75" />
+      <PolygonPatternSymbolizer file="symbols/scree_overlay.png" gamma="0.75" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'natural_shingle') and ([way_pixels] >= 4)]]></Filter>
-      <PolygonPatternSymbolizer file="patterns/scree_overlay.png" gamma="0.75" />
+      <PolygonPatternSymbolizer file="symbols/scree_overlay.png" gamma="0.75" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -1490,12 +1490,12 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'natural_scree')]]></Filter>
-      <PolygonPatternSymbolizer file="patterns/scree_overlay.png" />
+      <PolygonPatternSymbolizer file="symbols/scree_overlay.png" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'natural_shingle')]]></Filter>
-      <PolygonPatternSymbolizer file="patterns/scree_overlay.png" />
+      <PolygonPatternSymbolizer file="symbols/scree_overlay.png" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
