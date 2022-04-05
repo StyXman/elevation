@@ -3324,7 +3324,7 @@
       <MaxScaleDenominator>12500</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'leisure_dog_park') and ([way_pixels] >= 64)]]></Filter>
       <PolygonSymbolizer fill="#aacbaf" gamma="0.3" />
-      <PolygonPatternSymbolizer alignment="global" file="symbols/dog_park_15.svg" gamma="0.3" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/dog_park_16.svg" gamma="0.3" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -3336,7 +3336,7 @@
       <MaxScaleDenominator>12500</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'leisure_dog_park') and ([way_pixels] >= 4)]]></Filter>
       <PolygonSymbolizer fill="#aacbaf" gamma="0.75" />
-      <PolygonPatternSymbolizer alignment="global" file="symbols/dog_park_15.svg" gamma="0.75" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/dog_park_16.svg" gamma="0.75" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -3682,7 +3682,7 @@
       <MaxScaleDenominator>12500</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'leisure_dog_park')]]></Filter>
       <PolygonSymbolizer fill="#aacbaf" />
-      <PolygonPatternSymbolizer alignment="global" file="symbols/dog_park_15.svg" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/dog_park_16.svg" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
