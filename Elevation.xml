@@ -409,12 +409,12 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'wetland_saltmarsh') and ([way_pixels] >= 64)]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/salt-dots-2.png" gamma="0.3" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/salt-dots-2.png" gamma="0.3" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'wetland_saltmarsh') and ([way_pixels] >= 4)]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/salt-dots-2.png" gamma="0.75" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/salt-dots-2.png" gamma="0.75" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -445,7 +445,7 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'wetland_saltmarsh')]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/salt-dots-2.png" />
+      <PolygonPatternSymbolizer alignment="global" file="symbols/salt-dots-2.png" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
