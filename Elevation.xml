@@ -8803,7 +8803,7 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([landuse] = 'vineyard') and ([way_pixels] >= 64) and ([natural] = 'reef')]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/vineyard.png" gamma="0.3" />
+      <PolygonPatternSymbolizer alignment="global" file="patterns/vineyard.svg" gamma="0.3" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -8814,7 +8814,7 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([landuse] = 'vineyard') and ([way_pixels] >= 64) and ([int_wetland] != null)]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/vineyard.png" gamma="0.3" />
+      <PolygonPatternSymbolizer alignment="global" file="patterns/vineyard.svg" gamma="0.3" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -8825,7 +8825,7 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([landuse] = 'vineyard') and ([way_pixels] >= 64)]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/vineyard.png" gamma="0.3" />
+      <PolygonPatternSymbolizer alignment="global" file="patterns/vineyard.svg" gamma="0.3" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -9086,7 +9086,7 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([landuse] = 'vineyard') and ([way_pixels] >= 4) and ([natural] = 'reef')]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/vineyard.png" gamma="0.75" />
+      <PolygonPatternSymbolizer alignment="global" file="patterns/vineyard.svg" gamma="0.75" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -9097,7 +9097,7 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([landuse] = 'vineyard') and ([way_pixels] >= 4) and ([int_wetland] != null)]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/vineyard.png" gamma="0.75" />
+      <PolygonPatternSymbolizer alignment="global" file="patterns/vineyard.svg" gamma="0.75" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -9108,7 +9108,7 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([landuse] = 'vineyard') and ([way_pixels] >= 4)]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/vineyard.png" gamma="0.75" />
+      <PolygonPatternSymbolizer alignment="global" file="patterns/vineyard.svg" gamma="0.75" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -9493,7 +9493,7 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([landuse] = 'vineyard') and ([natural] = 'reef')]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/vineyard.png" />
+      <PolygonPatternSymbolizer alignment="global" file="patterns/vineyard.svg" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -9504,7 +9504,7 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([landuse] = 'vineyard') and ([int_wetland] != null)]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/vineyard.png" />
+      <PolygonPatternSymbolizer alignment="global" file="patterns/vineyard.svg" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -9515,7 +9515,7 @@
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([landuse] = 'vineyard')]]></Filter>
-      <PolygonPatternSymbolizer alignment="global" file="patterns/vineyard.png" />
+      <PolygonPatternSymbolizer alignment="global" file="patterns/vineyard.svg" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
