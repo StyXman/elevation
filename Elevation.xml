@@ -51570,7 +51570,7 @@ UNION ALL
     <Rule>
       <MaxScaleDenominator>2500</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'tourism_information')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/tourism/information.svg" fill="#666666" />
+      <MarkersSymbolizer clip="false" fill="#666666" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>5000</MaxScaleDenominator>
