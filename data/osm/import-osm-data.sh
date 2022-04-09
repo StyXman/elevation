@@ -100,7 +100,7 @@ case "$command" in
 
   import)
     # opts="--create --unlogged"
-    # unlogged is not recognized anymore, is there an option?
+    # unlogged was removed in https://github.com/openstreetmap/osm2pgsql/issues/940
     opts="--create"
     nice -n 19 $bin $opts $common_opts "$@"
     time psql --port $port --dbname "$db" --file ../../osm-carto/indexes.sql
