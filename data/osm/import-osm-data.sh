@@ -18,7 +18,7 @@ function usage() {
     echo "drop deletes the whole database."
     echo "DB is by default 'gis', and PORT is postgres' port, usually 5432."
     echo
-    echo "WARNING: -d|--database must be provided BEFORE the command."
+    echo "WARNING: -d|--database must be provided BEFORE the command, and MUST be provided for restart."
 
     exit $exit_code
 }
@@ -29,6 +29,7 @@ fi
 
 # defaults
 db='gis'
+db_provided=false
 port=5432
 bin='osm2pgsql'
 # bin='/home/mdione/src/system/osm/osm2pgsql/build/osm2pgsql'
@@ -37,6 +38,7 @@ while [ $# -gt 0 ]; do
     case "$1" in
       -d|--database)
         db="$2"
+        db_provided=true
         shift 2
       ;;
 
@@ -81,6 +83,10 @@ case "$command" in
 
   restart)
     if [ $# -gt 0 ]; then
+        usage 1
+    fi
+
+    if [ $db_provided == false ]; then
         usage 1
     fi
 
