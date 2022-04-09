@@ -56,7 +56,7 @@ while [ $# -gt 0 ]; do
 done
 
 if [ $# -eq 0 ]; then
-    usage
+    usage 1
 fi
 
 osm_carto='../../osm-carto'
@@ -71,11 +71,19 @@ shift
 
 case "$command" in
   boot)
+    if [ $# -gt 0 ]; then
+        usage 1
+    fi
+
     sudo --user postgres createuser --port $port --superuser $USER
     # sudo --user postgres psql -c "create tablespace hdd owner mdione location '/var/lib/data/postgresql';"
     ;;
 
   restart)
+    if [ $# -gt 0 ]; then
+        usage 1
+    fi
+
     sudo --user postgres dropdb --port $port --if-exists "$db"
     sudo --user postgres createdb --port $port --encoding UTF8 --owner $USER "$db"
     sudo --user postgres psql --port $port --dbname "$db" --command "CREATE EXTENSION postgis;"
