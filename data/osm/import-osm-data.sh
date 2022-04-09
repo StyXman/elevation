@@ -61,10 +61,10 @@ if [ $# -eq 0 ]; then
     usage 1
 fi
 
-osm_carto='../../osm-carto'
+osm_carto="$(realpath $(pwd)/../../osm-carto)"
 
-common_opts="--username $USER --port $port --database "$db" --cache 0 --number-processes 4 --verbose \
-    --slim --flat-nodes /home/mdione/src/projects/osm/nodes.cache --hstore \
+common_opts="--username $USER --port $port --database "$db" --cache 0 --number-processes 16 --verbose \
+    --slim --flat-nodes $(pwd)/nodes.cache --hstore \
     --multi-geometry --style $osm_carto/openstreetmap-carto.style --tag-transform-script $osm_carto/openstreetmap-carto.lua \
     --drop"
 
