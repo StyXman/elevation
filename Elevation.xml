@@ -1108,18 +1108,6 @@
       <PolygonSymbolizer fill="#dddddd" />
     </Rule>
     <Rule>
-      <MaxScaleDenominator>50000</MaxScaleDenominator>
-      <Filter><![CDATA[([feature] = 'leisure_ice_rink') and ([is_building] = 'no') and ([way_pixels] >= 64)]]></Filter>
-      <PolygonSymbolizer fill="#adbcec" gamma="0.3" />
-      <LineSymbolizer stroke="#28c98a" stroke-width="0.5" />
-    </Rule>
-    <Rule>
-      <MaxScaleDenominator>50000</MaxScaleDenominator>
-      <Filter><![CDATA[([feature] = 'leisure_ice_rink') and ([is_building] = 'no') and ([way_pixels] >= 4)]]></Filter>
-      <PolygonSymbolizer fill="#adbcec" gamma="0.75" />
-      <LineSymbolizer stroke="#28c98a" stroke-width="0.5" />
-    </Rule>
-    <Rule>
       <MaxScaleDenominator>12500</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'landuse_residential') and ([name] != '') and ([way_pixels] >= 64)]]></Filter>
       <PolygonSymbolizer fill="#e0dfdf" gamma="0.3" />
@@ -2022,12 +2010,6 @@
       <PolygonSymbolizer fill="#def6c0" gamma="0.75" />
     </Rule>
     <Rule>
-      <MaxScaleDenominator>50000</MaxScaleDenominator>
-      <Filter><![CDATA[([feature] = 'leisure_ice_rink') and ([is_building] = 'no')]]></Filter>
-      <PolygonSymbolizer fill="#adbcec" />
-      <LineSymbolizer stroke="#28c98a" stroke-width="0.5" />
-    </Rule>
-    <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'landuse_garages') and ([way_pixels] >= 64)]]></Filter>
       <PolygonSymbolizer fill="#dfddce" gamma="0.3" />
@@ -2090,13 +2072,6 @@
       <MinScaleDenominator>100000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'landuse_residential')]]></Filter>
       <PolygonSymbolizer fill="#dddddd" />
-    </Rule>
-    <Rule>
-      <MaxScaleDenominator>200000</MaxScaleDenominator>
-      <Filter><![CDATA[([feature] = 'amenity_prison') and ([way_pixels] > 75)]]></Filter>
-      <PolygonSymbolizer fill="#8e8e8e" fill-opacity="0.14" />
-      <PolygonPatternSymbolizer alignment="global" file="patterns/military_red_hatch.svg" />
-      <LineSymbolizer stroke="#888888" stroke-opacity="0.329" stroke-width="3" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -2455,8 +2430,8 @@
 
       -- ('golf_' || (CASE WHEN (tags->'golf') IN ('rough', 'fairway', 'driving_range', 'water_hazard', 'green', 'bunker', 'tee') THEN tags->'golf' ELSE NULL END)) AS golf,
       ('amenity_' || (CASE WHEN amenity IN (                                         'university', 'college', 'school',
-                                         --                             'grave_yard' gone to landcover-flat
-                                            'hospital', 'kindergarten',               'prison', 'place_of_worship', 'clinic', 'ferry_terminal',
+                                         --                             'grave_yard', 'prison', gone to landcover-flat
+                                            'hospital', 'kindergarten',                         'place_of_worship', 'clinic', 'ferry_terminal',
                                             'marketplace', 'community_centre', 'social_facility', 'arts_centre', 'parking_space', 'bus_station',
                                             'fire_station', 'police')
                       -- OR amenity IN ('parking') AND (tags->'parking' NOT IN ('underground') OR (tags->'parking') IS NULL)  gone to lc-flat
@@ -2498,8 +2473,8 @@
       -- OR (tags->'golf') IS NOT NULL
                   -- 'parking', 'bicycle_parking', 'motorcycle_parking', gone to lc-flat, 'taxi', gone
       OR amenity IN (                                                            'university', 'college', 'school', 'hospital', 'kindergarten',
-                  -- 'grave_yard', gone to lc-flat
-                                   'place_of_worship', 'prison', 'clinic', 'ferry_terminal', 'marketplace', 'community_centre', 'social_facility',
+                  -- 'grave_yard',                     'prison', gone to lc-flat
+                                   'place_of_worship',           'clinic', 'ferry_terminal', 'marketplace', 'community_centre', 'social_facility',
                      'arts_centre', 'parking_space', 'bus_station', 'fire_station', 'police')
       OR man_made IN ('works', 'wastewater_plant','water_works')
       OR "natural" IN ('beach', 'shoal', 'heath', 'mud', 'wetland', 'grassland', 'wood', 'sand', 'scree', 'shingle', 'bare_rock', 'scrub')
@@ -2705,7 +2680,7 @@
       <LineSymbolizer smooth="0.8" stroke="#181818" />
     </Rule>
   </Style>
-  <Layer maximum-scale-denominator="25000" name="contour-10" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" status="off">
+  <Layer maximum-scale-denominator="25000" name="contour-10" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName><![CDATA[contour-10]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
@@ -2730,7 +2705,7 @@
       <LineSymbolizer smooth="0.8" stroke="#181818" />
     </Rule>
   </Style>
-  <Layer maximum-scale-denominator="100000" name="contour-50" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" status="off">
+  <Layer maximum-scale-denominator="100000" name="contour-50" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName><![CDATA[contour-50]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
@@ -2761,7 +2736,7 @@
       <LineSymbolizer smooth="0.8" stroke="#181818" />
     </Rule>
   </Style>
-  <Layer maximum-scale-denominator="400000" name="contour-100" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" status="off">
+  <Layer maximum-scale-denominator="400000" name="contour-100" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName><![CDATA[contour-100]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
@@ -2786,7 +2761,7 @@
       <LineSymbolizer smooth="0.8" stroke="#181818" />
     </Rule>
   </Style>
-  <Layer maximum-scale-denominator="750000" minimum-scale-denominator="400000" name="contour-250" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" status="off">
+  <Layer maximum-scale-denominator="750000" minimum-scale-denominator="400000" name="contour-250" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName><![CDATA[contour-250]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
@@ -2828,7 +2803,7 @@
       <LineSymbolizer smooth="0.8" stroke="#181818" />
     </Rule>
   </Style>
-  <Layer maximum-scale-denominator="1500000" name="contour-500" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" status="off">
+  <Layer maximum-scale-denominator="1500000" name="contour-500" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName><![CDATA[contour-500]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
@@ -2870,7 +2845,7 @@
       <LineSymbolizer smooth="0.8" stroke="#181818" />
     </Rule>
   </Style>
-  <Layer maximum-scale-denominator="3000000" name="contour-1000" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" status="off">
+  <Layer maximum-scale-denominator="3000000" name="contour-1000" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName><![CDATA[contour-1000]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
@@ -3117,6 +3092,18 @@
       <PolygonSymbolizer fill="#aaaaaa" fill-opacity="0.5" />
     </Rule>
     <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'leisure_ice_rink') and ([is_building] = 'no') and ([way_pixels] >= 64)]]></Filter>
+      <PolygonSymbolizer fill="#adbcec" gamma="0.3" />
+      <LineSymbolizer stroke="#28c98a" stroke-width="0.5" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'leisure_ice_rink') and ([is_building] = 'no') and ([way_pixels] >= 4)]]></Filter>
+      <PolygonSymbolizer fill="#adbcec" gamma="0.75" />
+      <LineSymbolizer stroke="#28c98a" stroke-width="0.5" />
+    </Rule>
+    <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'landuse_cemetery') and ([religion] = 'jewish') and ([way_pixels] >= 64)]]></Filter>
       <PolygonSymbolizer fill="#aacbaf" gamma="0.3" />
@@ -3249,6 +3236,13 @@
       <PolygonSymbolizer fill="#aad3df" />
     </Rule>
     <Rule>
+      <MaxScaleDenominator>100000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_prison') and ([way_pixels] > 75)]]></Filter>
+      <PolygonSymbolizer fill="#8e8e8e" fill-opacity="0.14" />
+      <PolygonPatternSymbolizer alignment="global" file="patterns/grey_vertical_hatch.svg" />
+      <LineSymbolizer stroke="#888888" stroke-opacity="0.329" stroke-width="3" />
+    </Rule>
+    <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'leisure_pitch') and ([way_pixels] >= 64)]]></Filter>
       <PolygonSymbolizer fill="#aae0cb" gamma="0.3" />
@@ -3343,6 +3337,12 @@
       <MinScaleDenominator>12500</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'leisure_dog_park') and ([way_pixels] >= 4)]]></Filter>
       <PolygonSymbolizer fill="#aacbaf" gamma="0.75" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'leisure_ice_rink') and ([is_building] = 'no')]]></Filter>
+      <PolygonSymbolizer fill="#adbcec" />
+      <LineSymbolizer stroke="#28c98a" stroke-width="0.5" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -3765,7 +3765,7 @@
     COALESCE(amenity, landuse, leisure, tourism, "natural") AS feature
   FROM (SELECT
       way, COALESCE(name, '') AS name, access,
-      ('amenity_' || (CASE WHEN amenity IN ('grave_yard', 'parking', 'bicycle_parking', 'motorcycle_parking')
+      ('amenity_' || (CASE WHEN amenity IN ('grave_yard', 'parking', 'bicycle_parking', 'motorcycle_parking', 'prison')
                              OR amenity IN ('parking') AND (tags->'parking' NOT IN ('underground') OR (tags->'parking') IS NULL) THEN amenity ELSE NULL END)) AS amenity,
       ('landuse_' || (CASE WHEN landuse IN ('cemetery', 'recreation_ground', 'village_green') THEN landuse ELSE NULL END)) AS landuse,
       ('leisure_' || (CASE WHEN leisure IN ('swimming_pool', 'playground', 'park', 'recreation_ground', 'garden',
@@ -3776,7 +3776,7 @@
       way_area/NULLIF(!pixel_width!::real*!pixel_height!::real,0) AS way_pixels
     FROM planet_osm_polygon
     WHERE (landuse IS NOT NULL
-      OR amenity IN ('parking', 'bicycle_parking', 'motorcycle_parking', 'grave_yard')
+      OR amenity IN ('parking', 'bicycle_parking', 'motorcycle_parking', 'grave_yard', 'prison')
       OR leisure IS NOT NULL
       OR "natural" IN ('beach', 'shoal'))
       AND way_area > 0.01*!pixel_width!::real*!pixel_height!::real
@@ -51792,7 +51792,8 @@ UNION ALL
                                             'fast_food', 'ferry_terminal', 'fire_station', 'food_court', 'fountain', 'fuel', 'grave_yard',
                                             'hospital', 'hunting_stand', 'ice_cream', 'internet_cafe', 'kindergarten', 'library', 'marketplace',
                                             'nightclub', 'nursing_home', 'pharmacy', 'place_of_worship', 'police', 'post_box',
-                                            'post_office', 'prison', 'pub', 'public_bath', 'public_bookcase', 'recycling', 'restaurant', 'school',
+                                            --             'prison',  moved to lc-flat
+                                            'post_office',           'pub', 'public_bath', 'public_bookcase', 'recycling', 'restaurant', 'school',
                                             'shelter', 'shower', 'social_facility', 'taxi', 'telephone', 'theatre', 'toilets', 'townhall',
                                             'university', 'vehicle_inspection', 'veterinary') THEN amenity END,
 
@@ -62130,7 +62131,8 @@ ORDER BY
                                             'fast_food', 'ferry_terminal', 'fire_station', 'food_court', 'fountain', 'fuel', 'grave_yard',
                                             'hospital', 'hunting_stand', 'ice_cream', 'internet_cafe', 'kindergarten', 'library', 'marketplace',
                                             'nightclub', 'nursing_home', 'pharmacy', 'place_of_worship', 'police', 'post_box',
-                                            'post_office', 'prison', 'pub', 'public_bath', 'public_bookcase', 'recycling', 'restaurant', 'school',
+                                            --             'prison',  moved to lc-flat
+                                            'post_office',           'pub', 'public_bath', 'public_bookcase', 'recycling', 'restaurant', 'school',
                                             'shelter', 'shower', 'social_facility', 'taxi', 'telephone', 'theatre', 'toilets', 'townhall',
                                             'university', 'vehicle_inspection', 'veterinary') THEN amenity END,
 
