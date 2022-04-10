@@ -3761,7 +3761,7 @@
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
       <Parameter name="extent"><![CDATA[-20037508,-20037508,20037508,20037508]]></Parameter>
       <Parameter name="table"><![CDATA[(SELECT
-    way, name, religion, way_pixels, access,
+    way, name, religion, way_pixels, access, is_building,
     COALESCE(amenity, landuse, leisure, tourism, "natural") AS feature
   FROM (SELECT
       way, COALESCE(name, '') AS name, access,
