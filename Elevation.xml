@@ -3773,6 +3773,7 @@
       ('tourism_' || (CASE WHEN tourism IN ('camp_site', 'caravan_site', 'picnic_site') THEN tourism ELSE NULL END)) AS tourism,
       ('natural_' || (CASE WHEN "natural" IN ('beach', 'shoal') THEN "natural" ELSE NULL END)) AS "natural",
       CASE WHEN religion IN ('christian', 'jewish') THEN religion ELSE 'INT-generic'::text END AS religion,
+      CASE WHEN building = 'no' OR building IS NULL THEN 'no' ELSE 'yes' END AS is_building,
       way_area/NULLIF(!pixel_width!::real*!pixel_height!::real,0) AS way_pixels
     FROM planet_osm_polygon
     WHERE (landuse IS NOT NULL
