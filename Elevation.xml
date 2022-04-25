@@ -2449,7 +2449,7 @@
 
                                          -- 'swimming_pool', 'playground', 'park', 'recreation_ground', 'garden' gone to landcover-flat
       ('leisure_' || (CASE WHEN leisure IN (
-                                         --                                                   'stadium', 'pitch', 'ice-rink' gone to landcover-flat
+                                         --                                                   'stadium', 'pitch', 'ice_rink' gone to landcover-flat
                                             'golf_course', 'miniature_golf', 'sports_centre',
                                          -- 'track', 'dog_park', gone to landcover-flat
                                                                  'fitness_station', 'water_park') THEN leisure END)) AS leisure,
@@ -3769,7 +3769,7 @@
                              OR amenity IN ('parking') AND (tags->'parking' NOT IN ('underground') OR (tags->'parking') IS NULL) THEN amenity ELSE NULL END)) AS amenity,
       ('landuse_' || (CASE WHEN landuse IN ('cemetery', 'recreation_ground', 'village_green') THEN landuse ELSE NULL END)) AS landuse,
       ('leisure_' || (CASE WHEN leisure IN ('swimming_pool', 'playground', 'park', 'recreation_ground', 'garden',
-                                            'sports_centre', 'stadium', 'pitch', 'track', 'dog_park') THEN leisure ELSE NULL END)) AS leisure,
+                                            'sports_centre', 'stadium', 'pitch', 'track', 'dog_park', 'ice_rink') THEN leisure ELSE NULL END)) AS leisure,
       ('tourism_' || (CASE WHEN tourism IN ('camp_site', 'caravan_site', 'picnic_site') THEN tourism ELSE NULL END)) AS tourism,
       ('natural_' || (CASE WHEN "natural" IN ('beach', 'shoal') THEN "natural" ELSE NULL END)) AS "natural",
       CASE WHEN religion IN ('christian', 'jewish') THEN religion ELSE 'INT-generic'::text END AS religion,
@@ -10090,8 +10090,10 @@
   FROM planet_osm_polygon
                                                                            -- added 'sand', 'grassland'
   WHERE ("natural" IN ('mud', 'wetland', 'wood', 'beach', 'shoal', 'reef', 'scrub', 'sand', 'grassland')
-                         -- added 'vineyard', 'orchard', 'meadow', 'grass', 'salt_pond', 'village_green'
-         OR landuse IN ('forest', 'vineyard', 'orchard', 'meadow', 'grass', 'salt_pond', 'village_green'))
+                         -- added 'vineyard', 'orchard', 'meadow', 'grass', 'salt_pond', 'village_green',
+         OR landuse IN ('forest', 'vineyard', 'orchard', 'meadow', 'grass', 'salt_pond', 'village_green',
+         -- local
+         'farmland', 'greenhouse_horticulture'))
     AND building IS NULL
     AND way_area > 1*!pixel_width!::real*!pixel_height!::real
   ORDER BY COALESCE(layer,0), way_area DESC
@@ -48476,14 +48478,14 @@ SELECT
     <Rule>
       <MaxScaleDenominator>1500</MaxScaleDenominator>
       <Filter><![CDATA[([railway] = 'subway_entrance')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/maki-0.5/london-underground-18.png" fill="#c00000" />
+      <MarkersSymbolizer clip="false" file="symbols/maki-0.5/london-underground-18.png" />
       <TextSymbolizer dy="10" fill="#800000" fontset-name="fontset-1" halo-fill="#ffffff" halo-radius="3.75" size="10" wrap-width="0"><![CDATA[[ref]]]></TextSymbolizer>
     </Rule>
     <Rule>
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>1500</MinScaleDenominator>
       <Filter><![CDATA[([railway] = 'subway_entrance')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/maki-0.5/london-underground-18.png" fill="#c00000" />
+      <MarkersSymbolizer clip="false" file="symbols/maki-0.5/london-underground-18.png" />
     </Rule>
   </Style>
   <Layer cache-features="true" maximum-scale-denominator="200000" name="stations" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
@@ -48883,6 +48885,11 @@ UNION ALL
     </Rule>
     <Rule>
       <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_parking') and ([way_pixels] > 750) and ([parking] != 'street_side') and ([parking] != 'lane') and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes') and ([charging_places] > 0)]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/parking.svg" fill="#008000" opacity="0.33" width="24" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_parking') and ([way_pixels] > 750) and ([parking] != 'street_side') and ([parking] != 'lane') and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')]]></Filter>
       <MarkersSymbolizer clip="false" file="symbols/amenity/parking.svg" fill="#c00000" opacity="0.33" width="24" />
     </Rule>
@@ -48910,6 +48917,17 @@ UNION ALL
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_parking_entrance') and ([way_pixels] > 750) and ([parking] != 'street_side') and ([parking] != 'lane') and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')]]></Filter>
       <MarkersSymbolizer clip="false" fill="#c00000" opacity="0.33" width="10" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>5000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_parking') and ([parking] != 'street_side') and ([parking] != 'lane') and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes') and ([charging_places] > 0)]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/parking.svg" fill="#008000" opacity="0.33" width="24" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <MinScaleDenominator>5000</MinScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_parking') and ([parking] != 'street_side') and ([parking] != 'lane') and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes') and ([charging_places] > 0)]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/parking.svg" fill="#008000" opacity="0.33" width="24" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -49035,6 +49053,22 @@ UNION ALL
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_parking_entrance') and ([way_pixels] > 750) and ([parking] = 'underground')]]></Filter>
       <MarkersSymbolizer clip="false" file="symbols/amenity/parking_entrance_underground.svg" fill="#c00000" width="24" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_parking') and ([way_pixels] > 750) and ([parking] != 'street_side') and ([parking] != 'lane') and ([charging_places] > 0)]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/parking.svg" fill="#008000" width="24" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>5000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_parking') and ([parking] != 'street_side') and ([parking] != 'lane') and ([charging_places] > 0)]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/parking.svg" fill="#008000" width="24" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <MinScaleDenominator>5000</MinScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_parking') and ([parking] != 'street_side') and ([parking] != 'lane') and ([charging_places] > 0)]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/parking.svg" fill="#008000" width="24" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -50007,6 +50041,46 @@ UNION ALL
     </Rule>
     <Rule>
       <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_parking') and ([charging_places] > 0) and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes') and ([parking] = 'street_side')]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/parking_subtle.svg" fill="#008000" opacity="0.33" width="24" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_parking') and ([charging_places] > 0) and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes') and ([parking] = 'lane')]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/parking_subtle.svg" fill="#008000" opacity="0.33" width="24" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_parking') and ([charging_places] > 0) and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/parking.svg" fill="#008000" opacity="0.33" width="24" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_bicycle_parking') and ([charging_places] > 0) and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/bicycle_parking.svg" fill="#c00000" opacity="0.33" width="10" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_motorcycle_parking') and ([charging_places] > 0) and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/motorcycle_parking.svg" fill="#c00000" opacity="0.33" width="10" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_parking_entrance') and ([charging_places] > 0) and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes') and ([parking] = 'multi-storey')]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/parking_entrance_multistorey.svg" fill="#c00000" opacity="0.33" width="24" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_parking_entrance') and ([charging_places] > 0) and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes') and ([parking] = 'underground')]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/parking_entrance_underground.svg" fill="#c00000" opacity="0.33" width="24" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_parking_entrance') and ([charging_places] > 0) and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')]]></Filter>
+      <MarkersSymbolizer clip="false" fill="#c00000" opacity="0.33" width="10" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_motorcycle_parking') and ([way_pixels] > 750) and ([parking] != 'street_side') and ([parking] != 'lane')]]></Filter>
       <MarkersSymbolizer clip="false" file="symbols/amenity/motorcycle_parking.svg" fill="#c00000" width="10" />
     </Rule>
@@ -50277,6 +50351,31 @@ UNION ALL
     </Rule>
     <Rule>
       <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_parking_entrance') and ([charging_places] > 0) and ([parking] = 'multi-storey')]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/parking_entrance_multistorey.svg" fill="#c00000" width="24" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_parking_entrance') and ([charging_places] > 0) and ([parking] = 'underground')]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/parking_entrance_underground.svg" fill="#c00000" width="24" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_parking') and ([charging_places] > 0) and ([parking] = 'street_side')]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/parking_subtle.svg" fill="#008000" width="24" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_parking') and ([charging_places] > 0) and ([parking] = 'lane')]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/parking_subtle.svg" fill="#008000" width="24" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_parking') and ([charging_places] > 0)]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/parking.svg" fill="#008000" width="24" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_parking_entrance') and ([way_pixels] > 750) and ([parking] != 'street_side') and ([parking] != 'lane')]]></Filter>
       <MarkersSymbolizer clip="false" fill="#c00000" width="10" />
     </Rule>
@@ -50518,7 +50617,7 @@ UNION ALL
     <Rule>
       <MaxScaleDenominator>12500</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station') and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#c00000" opacity="0.33" width="24" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" opacity="0.33" width="24" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -50549,6 +50648,16 @@ UNION ALL
       <MaxScaleDenominator>2500</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_parking_entrance') and ([parking] = 'underground')]]></Filter>
       <MarkersSymbolizer clip="false" file="symbols/amenity/parking_entrance_underground.svg" fill="#c00000" width="24" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_motorcycle_parking') and ([charging_places] > 0)]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/motorcycle_parking.svg" fill="#c00000" width="10" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_bicycle_parking') and ([charging_places] > 0)]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/amenity/bicycle_parking.svg" fill="#c00000" width="10" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>2500</MaxScaleDenominator>
@@ -50823,6 +50932,11 @@ UNION ALL
       <MaxScaleDenominator>2500</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_parking')]]></Filter>
       <MarkersSymbolizer clip="false" file="symbols/amenity/parking.svg" fill="#c00000" width="24" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_parking_entrance') and ([charging_places] > 0)]]></Filter>
+      <MarkersSymbolizer clip="false" fill="#c00000" width="10" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>2500</MaxScaleDenominator>
@@ -51616,7 +51730,7 @@ UNION ALL
     <Rule>
       <MaxScaleDenominator>12500</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#c00000" width="24" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" width="24" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>12500</MaxScaleDenominator>
@@ -51779,6 +51893,13 @@ UNION ALL
           )
         ) AS name,
       tags->'parking' as "parking",
+      CASE
+        WHEN tags ? 'capacity:charging' THEN CASE
+          WHEN tags->'capacity:charging' = 'yes' THEN 1
+          ELSE (SUBSTRING(tags->'capacity:charging', '^(\d{1,3}(\.\d+)?)( m)?$'))::NUMERIC
+        END
+        ELSE 0
+      END AS charging_places,
       COALESCE(
         'aeroway_' || CASE WHEN aeroway IN ('gate', 'apron', 'helipad', 'aerodrome') THEN aeroway END,
 
@@ -62118,6 +62239,13 @@ ORDER BY
           )
         ) AS name,
       tags->'parking' as "parking",
+      CASE
+        WHEN tags ? 'capacity:charging' THEN CASE
+          WHEN tags->'capacity:charging' = 'yes' THEN 1
+          ELSE (SUBSTRING(tags->'capacity:charging', '^(\d{1,3}(\.\d+)?)( m)?$'))::NUMERIC
+        END
+        ELSE 0
+      END AS charging_places,
       COALESCE(
         'aeroway_' || CASE WHEN aeroway IN ('gate', 'apron', 'helipad', 'aerodrome') THEN aeroway END,
 
@@ -63134,11 +63262,6 @@ SELECT
       <MaxScaleDenominator>5000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'historic_wayside_shrine')]]></Filter>
       <MarkersSymbolizer clip="false" file="symbols/historic/shrine.svg" fill="#666666" width="8" />
-    </Rule>
-    <Rule>
-      <MaxScaleDenominator>12500</MaxScaleDenominator>
-      <Filter><![CDATA[([feature] = 'man_made_cross')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/man_made/cross.svg" fill="#000000" width="8" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>12500</MaxScaleDenominator>
