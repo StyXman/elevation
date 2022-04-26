@@ -50615,7 +50615,7 @@ UNION ALL
       <MarkersSymbolizer clip="false" file="symbols/amenity/bicycle_repair_station.svg" fill="#734a08" opacity="0.33" width="10" />
     </Rule>
     <Rule>
-      <MaxScaleDenominator>12500</MaxScaleDenominator>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station') and ([access] != '') and ([access] != 'permissive') and ([access] != 'yes')]]></Filter>
       <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" opacity="0.33" width="24" />
     </Rule>
@@ -51728,7 +51728,7 @@ UNION ALL
       <MarkersSymbolizer clip="false" file="symbols/amenity/fuel.svg" fill="#c00000" width="24" />
     </Rule>
     <Rule>
-      <MaxScaleDenominator>12500</MaxScaleDenominator>
+      <MaxScaleDenominator>50000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_charging_station')]]></Filter>
       <MarkersSymbolizer clip="false" file="symbols/amenity/charging_station.svg" fill="#008000" width="24" />
     </Rule>
