@@ -1,11 +1,19 @@
-4000 207 255 255
-3000 207 195 207
-2000 207 127 127
-1000 255 255 127
-   0 102 204 141
--450  58 118  80
+# height    R    G    B       H    S    V
+    6000  255  255  255   #   0    0  255
+    5000  207  255  255   # 180   48  255
+    4000  212  207  255   # 246   48  255
+    3000  207  195  207   # 300   15  207
+    2000  207  127  127   #   0   99  207
+    1000  255  255  127   #  61  127  255
+       0  102  204  141   # 135   92  244
+      -1   58  118   80
+    -450   58  118   80
+
 # The lowest (from sea level) artificially made point with open sky
 # might be the Hambach surface mine, Germany, 293 m (961 feet) below sea level.
 # The lowest point on dry land
 # is the shore of the Dead Sea, shared by Israel, the West Bank, and Jordan,
 # 418 m (1,371 feet) below sea level.
+
+# Europe:
+# Lowest point (natural, with open sky). Caspian Sea shore, Russia (28 metres; 92 feet below sea level).
