@@ -378,7 +378,10 @@
     <StyleName><![CDATA[landcover-low-zoom-foreground]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -1228,7 +1231,7 @@
       <PolygonSymbolizer fill="#dadae0" gamma="0.75" />
     </Rule>
     <Rule>
-      <MaxScaleDenominator>5000</MaxScaleDenominator>
+      <MaxScaleDenominator>2500</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_parking_space') and ([parking_space] = 'disabled')]]></Filter>
       <LineSymbolizer stroke="#7e7070" stroke-width="0.3" />
       <PolygonSymbolizer fill="#3e92fb" />
@@ -2413,7 +2416,10 @@
     <StyleName><![CDATA[landcover-high-zoom]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -2509,7 +2515,10 @@
     <StyleName><![CDATA[landcover-line]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -2560,7 +2569,10 @@
     <StyleName><![CDATA[glacier-natural]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -2670,7 +2682,7 @@
       <Parameter name="type"><![CDATA[gdal]]></Parameter>
     </Datasource>
   </Layer>
-  <Style comp-op="color-burn" filter-mode="first" name="contour-10" opacity="0.6">
+  <Style comp-op="color-burn" filter-mode="first" name="contour-10">
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
       <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.1" />
@@ -2684,7 +2696,10 @@
     <StyleName><![CDATA[contour-10]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[contours]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -2695,7 +2710,7 @@
 ) as c10]]></Parameter>
     </Datasource>
   </Layer>
-  <Style comp-op="color-burn" filter-mode="first" name="contour-50" opacity="0.6">
+  <Style comp-op="color-burn" filter-mode="first" name="contour-50">
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.2" />
@@ -2709,7 +2724,10 @@
     <StyleName><![CDATA[contour-50]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[contours]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -2720,7 +2738,7 @@
 ) as c50]]></Parameter>
     </Datasource>
   </Layer>
-  <Style comp-op="color-burn" filter-mode="first" name="contour-100" opacity="0.6">
+  <Style comp-op="color-burn" filter-mode="first" name="contour-100">
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.5" />
@@ -2740,7 +2758,10 @@
     <StyleName><![CDATA[contour-100]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[contours]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -2751,7 +2772,7 @@
 ) as c100]]></Parameter>
     </Datasource>
   </Layer>
-  <Style comp-op="color-burn" filter-mode="first" name="contour-250" opacity="0.6">
+  <Style comp-op="color-burn" filter-mode="first" name="contour-250">
     <Rule>
       <MaxScaleDenominator>750000</MaxScaleDenominator>
       <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.2" />
@@ -2765,7 +2786,10 @@
     <StyleName><![CDATA[contour-250]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[contours]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -2776,7 +2800,7 @@
 ) as c250]]></Parameter>
     </Datasource>
   </Layer>
-  <Style comp-op="color-burn" filter-mode="first" name="contour-500" opacity="0.6">
+  <Style comp-op="color-burn" filter-mode="first" name="contour-500">
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="0.75" />
@@ -2807,7 +2831,10 @@
     <StyleName><![CDATA[contour-500]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[contours]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -2818,7 +2845,7 @@
 ) as c500]]></Parameter>
     </Datasource>
   </Layer>
-  <Style comp-op="color-burn" filter-mode="first" name="contour-1000" opacity="0.6">
+  <Style comp-op="color-burn" filter-mode="first" name="contour-1000">
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <LineSymbolizer smooth="0.8" stroke="#181818" stroke-width="1" />
@@ -2849,7 +2876,10 @@
     <StyleName><![CDATA[contour-1000]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[contours]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -3755,7 +3785,10 @@
     <StyleName><![CDATA[landcover-flat-fill]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -3829,7 +3862,10 @@
     <StyleName><![CDATA[springs-casing]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -4052,7 +4088,10 @@
     <StyleName><![CDATA[water-lines-casing]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -4113,7 +4152,10 @@
     <StyleName><![CDATA[water-lines-low-zoom]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -5153,7 +5195,10 @@
     <StyleName><![CDATA[water-lines]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -6120,7 +6165,10 @@
     <StyleName><![CDATA[water-areas]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -10064,7 +10112,10 @@
     <StyleName><![CDATA[landcover-area-symbols-wood]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -10175,7 +10226,10 @@
     <StyleName><![CDATA[marinas-area]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -10236,7 +10290,10 @@
     <StyleName><![CDATA[water-barriers-line]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -10266,7 +10323,10 @@
     <StyleName><![CDATA[water-barriers-poly]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -10296,7 +10356,10 @@
     <StyleName><![CDATA[springs]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -10452,7 +10515,10 @@
     <StyleName><![CDATA[protected-areas-narrowline]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -10492,7 +10558,10 @@
     <StyleName><![CDATA[piers-poly]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -10567,7 +10636,10 @@
     <StyleName><![CDATA[piers-line]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -10618,7 +10690,10 @@
     <StyleName><![CDATA[water-barriers-point]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -10644,7 +10719,10 @@
     <StyleName><![CDATA[bridge]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -10768,7 +10846,10 @@
     <StyleName><![CDATA[buildings]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -17129,6 +17210,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade5')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -17136,6 +17218,9 @@
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade5')]]></Filter>
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -17146,6 +17231,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade4')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -17153,6 +17239,9 @@
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade4')]]></Filter>
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -17163,6 +17252,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade3')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -17170,6 +17260,9 @@
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade3')]]></Filter>
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -17180,6 +17273,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -17187,6 +17281,9 @@
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2')]]></Filter>
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -17197,6 +17294,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -17204,6 +17302,9 @@
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1')]]></Filter>
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -17214,6 +17315,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -17221,6 +17323,9 @@
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no')]]></Filter>
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -17737,7 +17842,11 @@
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.75" />
+=======
+      <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -17754,7 +17863,11 @@
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.75" />
+=======
+      <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>1500</MaxScaleDenominator>
@@ -17838,6 +17951,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" />
     </Rule>
     <Rule>
@@ -17845,6 +17959,9 @@
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no')]]></Filter>
       <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.75" />
+=======
+      <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -18061,7 +18178,11 @@
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#808080" stroke-dasharray="4, 2" stroke-width="4.75" />
+=======
+      <LineSymbolizer stroke="#808080" stroke-dasharray="4, 2" stroke-width="4.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -18078,7 +18199,11 @@
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#808080" stroke-dasharray="4, 2" stroke-width="4.75" />
+=======
+      <LineSymbolizer stroke="#808080" stroke-dasharray="4, 2" stroke-width="4.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>1500</MaxScaleDenominator>
@@ -18162,6 +18287,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#808080" stroke-dasharray="4, 2" stroke-width="5" />
     </Rule>
     <Rule>
@@ -18169,6 +18295,9 @@
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no')]]></Filter>
       <LineSymbolizer stroke="#808080" stroke-dasharray="4, 2" stroke-width="4.75" />
+=======
+      <LineSymbolizer stroke="#808080" stroke-dasharray="4, 2" stroke-width="4.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>1500</MaxScaleDenominator>
@@ -18985,7 +19114,10 @@
     <StyleName><![CDATA[tunnels-strip]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -19141,7 +19273,10 @@
     <StyleName><![CDATA[landuse-overlay]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -19221,7 +19356,10 @@
     <StyleName><![CDATA[tourism-boundary]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -19358,7 +19496,10 @@
     <StyleName><![CDATA[barriers]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -19454,7 +19595,10 @@
     <StyleName><![CDATA[relief-symbols-man_made]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -19470,7 +19614,10 @@
   <Layer maximum-scale-denominator="12500" name="area-barriers" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -19507,7 +19654,10 @@
     <StyleName><![CDATA[ferry-routes]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -19740,7 +19890,10 @@
     <StyleName><![CDATA[turning-circle-casing]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -19807,7 +19960,10 @@
     <StyleName><![CDATA[highway-area-casing]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -20943,7 +21099,10 @@
     <StyleName><![CDATA[roads-casing-casing]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -21087,7 +21246,10 @@
     <StyleName><![CDATA[highway-area-fill]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -23943,6 +24105,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2') and ([sac_scale] = 'difficult_alpine_hiking')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
@@ -23952,6 +24115,10 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2') and ([sac_scale] = 'difficult_alpine_hiking')]]></Filter>
       <LineSymbolizer stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="2.75" />
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -23963,6 +24130,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2') and ([sac_scale] = 'demanding_alpine_hiking')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
@@ -23972,6 +24140,10 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2') and ([sac_scale] = 'demanding_alpine_hiking')]]></Filter>
       <LineSymbolizer stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="2.75" />
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -23983,6 +24155,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2') and ([sac_scale] = 'alpine_hiking')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#0000ff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
@@ -23992,6 +24165,10 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2') and ([sac_scale] = 'alpine_hiking')]]></Filter>
       <LineSymbolizer stroke="#0000ff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer stroke="#0000ff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="2.75" />
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24003,6 +24180,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2') and ([sac_scale] = 'demanding_mountain_hiking')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#ee82ee" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
@@ -24012,6 +24190,10 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2') and ([sac_scale] = 'demanding_mountain_hiking')]]></Filter>
       <LineSymbolizer stroke="#ee82ee" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer stroke="#ee82ee" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="2.75" />
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24023,6 +24205,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2') and ([sac_scale] = 'mountain_hiking')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#ff0000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
@@ -24032,6 +24215,10 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2') and ([sac_scale] = 'mountain_hiking')]]></Filter>
       <LineSymbolizer stroke="#ff0000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer stroke="#ff0000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="2.75" />
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24043,6 +24230,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2') and ([sac_scale] = 'hiking')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#ffa500" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
@@ -24052,6 +24240,10 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2') and ([sac_scale] = 'hiking')]]></Filter>
       <LineSymbolizer stroke="#ffa500" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer stroke="#ffa500" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="2.75" />
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24063,6 +24255,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.4" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
@@ -24072,6 +24265,10 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2')]]></Filter>
       <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.4" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.4" stroke-width="2.75" />
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24083,6 +24280,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1') and ([sac_scale] = 'difficult_alpine_hiking')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
@@ -24092,6 +24290,10 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1') and ([sac_scale] = 'difficult_alpine_hiking')]]></Filter>
       <LineSymbolizer stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="2.75" />
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24103,6 +24305,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1') and ([sac_scale] = 'demanding_alpine_hiking')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
@@ -24112,6 +24315,10 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1') and ([sac_scale] = 'demanding_alpine_hiking')]]></Filter>
       <LineSymbolizer stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="2.75" />
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24123,6 +24330,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1') and ([sac_scale] = 'alpine_hiking')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#0000ff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
@@ -24132,6 +24340,10 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1') and ([sac_scale] = 'alpine_hiking')]]></Filter>
       <LineSymbolizer stroke="#0000ff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer stroke="#0000ff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="2.75" />
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24143,6 +24355,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1') and ([sac_scale] = 'demanding_mountain_hiking')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#ee82ee" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
@@ -24152,6 +24365,10 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1') and ([sac_scale] = 'demanding_mountain_hiking')]]></Filter>
       <LineSymbolizer stroke="#ee82ee" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer stroke="#ee82ee" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="2.75" />
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24163,6 +24380,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1') and ([sac_scale] = 'mountain_hiking')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#ff0000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
@@ -24172,6 +24390,10 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1') and ([sac_scale] = 'mountain_hiking')]]></Filter>
       <LineSymbolizer stroke="#ff0000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer stroke="#ff0000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="2.75" />
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24183,6 +24405,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1') and ([sac_scale] = 'hiking')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#ffa500" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
@@ -24192,6 +24415,10 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1') and ([sac_scale] = 'hiking')]]></Filter>
       <LineSymbolizer stroke="#ffa500" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer stroke="#ffa500" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="2.75" />
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24203,6 +24430,7 @@
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.4" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
@@ -24212,6 +24440,10 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1')]]></Filter>
       <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.4" stroke-width="3" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.4" stroke-width="2.75" />
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24224,6 +24456,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'difficult_alpine_hiking') and ([tracktype] = 'grade5')]]></Filter>
       <LineSymbolizer stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24232,6 +24465,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'difficult_alpine_hiking') and ([tracktype] = 'grade5')]]></Filter>
       <LineSymbolizer stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24244,6 +24480,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'difficult_alpine_hiking') and ([tracktype] = 'grade4')]]></Filter>
       <LineSymbolizer stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24252,6 +24489,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'difficult_alpine_hiking') and ([tracktype] = 'grade4')]]></Filter>
       <LineSymbolizer stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24264,6 +24504,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'difficult_alpine_hiking') and ([tracktype] = 'grade3')]]></Filter>
       <LineSymbolizer stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24272,6 +24513,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'difficult_alpine_hiking') and ([tracktype] = 'grade3')]]></Filter>
       <LineSymbolizer stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24284,6 +24528,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'difficult_alpine_hiking')]]></Filter>
       <LineSymbolizer stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24292,6 +24537,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'difficult_alpine_hiking')]]></Filter>
       <LineSymbolizer stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24304,6 +24552,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'demanding_alpine_hiking') and ([tracktype] = 'grade5')]]></Filter>
       <LineSymbolizer stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24312,6 +24561,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'demanding_alpine_hiking') and ([tracktype] = 'grade5')]]></Filter>
       <LineSymbolizer stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24324,6 +24576,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'demanding_alpine_hiking') and ([tracktype] = 'grade4')]]></Filter>
       <LineSymbolizer stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24332,6 +24585,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'demanding_alpine_hiking') and ([tracktype] = 'grade4')]]></Filter>
       <LineSymbolizer stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24344,6 +24600,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'demanding_alpine_hiking') and ([tracktype] = 'grade3')]]></Filter>
       <LineSymbolizer stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24352,6 +24609,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'demanding_alpine_hiking') and ([tracktype] = 'grade3')]]></Filter>
       <LineSymbolizer stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24364,6 +24624,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'demanding_alpine_hiking')]]></Filter>
       <LineSymbolizer stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24372,6 +24633,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'demanding_alpine_hiking')]]></Filter>
       <LineSymbolizer stroke="#808080" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24384,6 +24648,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'alpine_hiking') and ([tracktype] = 'grade5')]]></Filter>
       <LineSymbolizer stroke="#0000ff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24392,6 +24657,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'alpine_hiking') and ([tracktype] = 'grade5')]]></Filter>
       <LineSymbolizer stroke="#0000ff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24404,6 +24672,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'alpine_hiking') and ([tracktype] = 'grade4')]]></Filter>
       <LineSymbolizer stroke="#0000ff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24412,6 +24681,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'alpine_hiking') and ([tracktype] = 'grade4')]]></Filter>
       <LineSymbolizer stroke="#0000ff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24424,6 +24696,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'alpine_hiking') and ([tracktype] = 'grade3')]]></Filter>
       <LineSymbolizer stroke="#0000ff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24432,6 +24705,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'alpine_hiking') and ([tracktype] = 'grade3')]]></Filter>
       <LineSymbolizer stroke="#0000ff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24444,6 +24720,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'alpine_hiking')]]></Filter>
       <LineSymbolizer stroke="#0000ff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24452,6 +24729,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'alpine_hiking')]]></Filter>
       <LineSymbolizer stroke="#0000ff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24464,6 +24744,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'demanding_mountain_hiking') and ([tracktype] = 'grade5')]]></Filter>
       <LineSymbolizer stroke="#ee82ee" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24472,6 +24753,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'demanding_mountain_hiking') and ([tracktype] = 'grade5')]]></Filter>
       <LineSymbolizer stroke="#ee82ee" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24484,6 +24768,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'demanding_mountain_hiking') and ([tracktype] = 'grade4')]]></Filter>
       <LineSymbolizer stroke="#ee82ee" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24492,6 +24777,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'demanding_mountain_hiking') and ([tracktype] = 'grade4')]]></Filter>
       <LineSymbolizer stroke="#ee82ee" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24504,6 +24792,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'demanding_mountain_hiking') and ([tracktype] = 'grade3')]]></Filter>
       <LineSymbolizer stroke="#ee82ee" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24512,6 +24801,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'demanding_mountain_hiking') and ([tracktype] = 'grade3')]]></Filter>
       <LineSymbolizer stroke="#ee82ee" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24524,6 +24816,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'demanding_mountain_hiking')]]></Filter>
       <LineSymbolizer stroke="#ee82ee" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24532,6 +24825,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'demanding_mountain_hiking')]]></Filter>
       <LineSymbolizer stroke="#ee82ee" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24544,6 +24840,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'mountain_hiking') and ([tracktype] = 'grade5')]]></Filter>
       <LineSymbolizer stroke="#ff0000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24552,6 +24849,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'mountain_hiking') and ([tracktype] = 'grade5')]]></Filter>
       <LineSymbolizer stroke="#ff0000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24564,6 +24864,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'mountain_hiking') and ([tracktype] = 'grade4')]]></Filter>
       <LineSymbolizer stroke="#ff0000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24572,6 +24873,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'mountain_hiking') and ([tracktype] = 'grade4')]]></Filter>
       <LineSymbolizer stroke="#ff0000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24584,6 +24888,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'mountain_hiking') and ([tracktype] = 'grade3')]]></Filter>
       <LineSymbolizer stroke="#ff0000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24592,6 +24897,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'mountain_hiking') and ([tracktype] = 'grade3')]]></Filter>
       <LineSymbolizer stroke="#ff0000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24604,6 +24912,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'mountain_hiking')]]></Filter>
       <LineSymbolizer stroke="#ff0000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24612,6 +24921,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'mountain_hiking')]]></Filter>
       <LineSymbolizer stroke="#ff0000" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24624,6 +24936,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'hiking') and ([tracktype] = 'grade5')]]></Filter>
       <LineSymbolizer stroke="#ffa500" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24632,6 +24945,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'hiking') and ([tracktype] = 'grade5')]]></Filter>
       <LineSymbolizer stroke="#ffa500" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24644,6 +24960,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'hiking') and ([tracktype] = 'grade4')]]></Filter>
       <LineSymbolizer stroke="#ffa500" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24652,6 +24969,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'hiking') and ([tracktype] = 'grade4')]]></Filter>
       <LineSymbolizer stroke="#ffa500" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24664,6 +24984,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'hiking') and ([tracktype] = 'grade3')]]></Filter>
       <LineSymbolizer stroke="#ffa500" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24672,6 +24993,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'hiking') and ([tracktype] = 'grade3')]]></Filter>
       <LineSymbolizer stroke="#ffa500" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -24684,6 +25008,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'hiking')]]></Filter>
       <LineSymbolizer stroke="#ffa500" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -24692,6 +25017,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([sac_scale] = 'hiking')]]></Filter>
       <LineSymbolizer stroke="#ffa500" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.2" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>1500</MaxScaleDenominator>
@@ -26547,6 +26875,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade5')]]></Filter>
       <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.4" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -26555,6 +26884,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade5')]]></Filter>
       <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.4" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -26567,6 +26899,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade4')]]></Filter>
       <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.4" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -26575,6 +26908,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade4')]]></Filter>
       <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.4" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -26587,6 +26923,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade3')]]></Filter>
       <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.4" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -26595,6 +26932,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade3')]]></Filter>
       <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.4" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -26607,6 +26947,7 @@
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no')]]></Filter>
       <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.4" stroke-width="3.5" />
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -26615,6 +26956,9 @@
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no')]]></Filter>
       <LineSymbolizer stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.4" stroke-width="3.5" />
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>1500</MaxScaleDenominator>
@@ -33882,7 +34226,10 @@
     <StyleName><![CDATA[roads-fill-strip]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -34068,7 +34415,10 @@
     <StyleName><![CDATA[pistes]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -34348,7 +34698,10 @@ WHERE
     <StyleName><![CDATA[turning-circle-fill-circle]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -37109,7 +37462,10 @@ WHERE
     <StyleName><![CDATA[aerialways]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -37355,7 +37711,10 @@ WHERE
     <StyleName><![CDATA[roads-low-zoom-fill]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -38408,7 +38767,10 @@ WHERE
     <StyleName><![CDATA[waterway-bridges]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -44479,6 +44841,7 @@ WHERE
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade5')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -44486,6 +44849,9 @@ WHERE
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade5')]]></Filter>
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="1.6, 6.4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -44496,6 +44862,7 @@ WHERE
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade4')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -44503,6 +44870,9 @@ WHERE
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade4')]]></Filter>
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="3.2, 4.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -44513,6 +44883,7 @@ WHERE
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade3')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -44520,6 +44891,9 @@ WHERE
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade3')]]></Filter>
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5.6, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -44530,6 +44904,7 @@ WHERE
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -44537,6 +44912,9 @@ WHERE
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2')]]></Filter>
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="8.8, 3.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -44547,6 +44925,7 @@ WHERE
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -44554,6 +44933,9 @@ WHERE
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1')]]></Filter>
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="100, 0" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -44564,6 +44946,7 @@ WHERE
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <MinScaleDenominator>25000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="1" />
     </Rule>
     <Rule>
@@ -44571,6 +44954,9 @@ WHERE
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no')]]></Filter>
       <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.75" />
+=======
+      <LineSymbolizer clip="false" stroke="#000000" stroke-dasharray="5, 4, 2, 4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" stroke-width="0.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -45205,7 +45591,11 @@ WHERE
     <Rule>
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#ffffff" stroke-linejoin="round" stroke-width="3" />
+=======
+      <LineSymbolizer stroke="#ffffff" stroke-linejoin="round" stroke-width="2.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -45216,6 +45606,7 @@ WHERE
     <Rule>
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#ffffff" stroke-linejoin="round" stroke-width="3" />
     </Rule>
     <Rule>
@@ -45223,6 +45614,9 @@ WHERE
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1')]]></Filter>
       <LineSymbolizer stroke="#ffffff" stroke-linejoin="round" stroke-width="2.75" />
+=======
+      <LineSymbolizer stroke="#ffffff" stroke-linejoin="round" stroke-width="2.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -45387,7 +45781,11 @@ WHERE
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#ffffff" stroke-linejoin="round" stroke-width="2.75" />
+=======
+      <LineSymbolizer stroke="#ffffff" stroke-linejoin="round" stroke-width="2.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -45627,7 +46025,11 @@ WHERE
     <Rule>
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade2')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#000000" stroke-linejoin="round" stroke-width="4" />
+=======
+      <LineSymbolizer stroke="#000000" stroke-linejoin="round" stroke-width="3.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -45638,6 +46040,7 @@ WHERE
     <Rule>
       <MaxScaleDenominator>50000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#000000" stroke-linejoin="round" stroke-width="4" />
     </Rule>
     <Rule>
@@ -45645,6 +46048,9 @@ WHERE
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no') and ([tracktype] = 'grade1')]]></Filter>
       <LineSymbolizer stroke="#000000" stroke-linejoin="round" stroke-width="3.75" />
+=======
+      <LineSymbolizer stroke="#000000" stroke-linejoin="round" stroke-width="3.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>1500</MaxScaleDenominator>
@@ -45843,7 +46249,11 @@ WHERE
       <MaxScaleDenominator>100000</MaxScaleDenominator>
       <MinScaleDenominator>50000</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'highway_track') and ([access] != 'no')]]></Filter>
+<<<<<<< HEAD
       <LineSymbolizer stroke="#000000" stroke-linejoin="round" stroke-width="3.75" />
+=======
+      <LineSymbolizer stroke="#000000" stroke-linejoin="round" stroke-width="3.7" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
     <Rule>
       <MaxScaleDenominator>1500</MaxScaleDenominator>
@@ -46593,7 +47003,10 @@ WHERE
     <StyleName><![CDATA[bridges-strip]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -46703,7 +47116,10 @@ WHERE
     <StyleName><![CDATA[guideways]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -46752,7 +47168,10 @@ WHERE
     <StyleName><![CDATA[routes]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -46946,7 +47365,10 @@ ORDER BY ref
     <StyleName><![CDATA[entrances]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -47094,7 +47516,10 @@ AS entrances]]></Parameter>
     <StyleName><![CDATA[aeroways-fill]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -47274,7 +47699,10 @@ AS entrances]]></Parameter>
     <StyleName><![CDATA[admin-low-zoom-firstline]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -47294,7 +47722,10 @@ AS entrances]]></Parameter>
   <Layer maximum-scale-denominator="3000000" minimum-scale-denominator="100000" name="admin-mid-zoom" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -47314,7 +47745,10 @@ AS entrances]]></Parameter>
   <Layer maximum-scale-denominator="100000" name="admin-high-zoom" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -47351,7 +47785,10 @@ AS entrances]]></Parameter>
     <StyleName><![CDATA[power-minorline]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -47393,7 +47830,10 @@ AS entrances]]></Parameter>
     <StyleName><![CDATA[power-line]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -47477,7 +47917,10 @@ AS entrances]]></Parameter>
     <StyleName><![CDATA[trees-trunk]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -47572,7 +48015,10 @@ SELECT
     <StyleName><![CDATA[country-names]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -47768,7 +48214,10 @@ SELECT
     <StyleName><![CDATA[capital-names]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -47791,7 +48240,10 @@ SELECT
   <Layer maximum-scale-denominator="50000000" name="state-names" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" status="off">
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -48144,7 +48596,10 @@ SELECT
     <StyleName><![CDATA[placenames-medium-low-importance]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -48325,7 +48780,10 @@ SELECT
     <StyleName><![CDATA[placenames-small-neighborhood]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -48493,7 +48951,10 @@ SELECT
     <StyleName><![CDATA[stations-aerialway]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -48689,7 +49150,10 @@ SELECT
     <StyleName><![CDATA[junctions]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -48751,7 +49215,10 @@ UNION ALL
     <StyleName><![CDATA[bridge-text]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -48774,7 +49241,10 @@ UNION ALL
   <Layer maximum-scale-denominator="3000000" name="county-names" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" status="off">
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -50708,6 +51178,11 @@ UNION ALL
       <MarkersSymbolizer clip="false" fill="#ac39ac" />
     </Rule>
     <Rule>
+      <MaxScaleDenominator>12500</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_marketplace') and ([way_pixels] > 3000)]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/shop/marketplace.svg" fill="#ac39ac" stroke-width="0" width="4" />
+    </Rule>
+    <Rule>
       <MaxScaleDenominator>25000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'historic_castle') and ([castle_type] = 'palace') and ([ruins] = 'yes')]]></Filter>
       <MarkersSymbolizer clip="false" file="symbols/historic/palace.svg" fill="#9f8762" width="14" />
@@ -50871,7 +51346,7 @@ UNION ALL
     <Rule>
       <MaxScaleDenominator>2500</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_fast_food')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/amenity/fast_food.svg" fill="#c77400" stroke-width="0" width="10" />
+      <MarkersSymbolizer clip="false" file="symbols/amenity/fast_food.svg" fill="#c77400" width="10" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>12500</MaxScaleDenominator>
@@ -50883,7 +51358,7 @@ UNION ALL
       <MaxScaleDenominator>5000</MaxScaleDenominator>
       <MinScaleDenominator>2500</MinScaleDenominator>
       <Filter><![CDATA[([feature] = 'amenity_fast_food')]]></Filter>
-      <MarkersSymbolizer clip="false" fill="#c77400" stroke-width="0" width="4" />
+      <MarkersSymbolizer clip="false" fill="#c77400" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -51032,9 +51507,25 @@ UNION ALL
       <MarkersSymbolizer file="symbols/shop/massage.svg" fill="#0c8416" width="8" />
     </Rule>
     <Rule>
+      <MaxScaleDenominator>5000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_marketplace')]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/shop/marketplace.svg" fill="#ac39ac" stroke-width="0" width="4" />
+    </Rule>
+    <Rule>
       <MaxScaleDenominator>12500</MaxScaleDenominator>
-      <Filter><![CDATA[([feature] = 'amenity_marketplace') and ([way_pixels] > 3000)]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/shop/marketplace.svg" fill="#ac39ac" />
+      <MinScaleDenominator>5000</MinScaleDenominator>
+      <Filter><![CDATA[([feature] = 'amenity_marketplace')]]></Filter>
+      <MarkersSymbolizer clip="false" fill="#ac39ac" stroke-width="0" width="4" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>400000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'historic_archaeological_site') and ([name] != '')]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/historic/archaeological_site.svg" fill="#734a08" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>12500</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'historic_archaeological_site') and ([name] = '')]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/historic/archaeological_site.svg" fill="#734a08" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>400000</MaxScaleDenominator>
@@ -51498,16 +51989,6 @@ UNION ALL
       <MarkersSymbolizer clip="false" fill="#4863a0" stroke-width="0" width="6" />
     </Rule>
     <Rule>
-      <MaxScaleDenominator>5000</MaxScaleDenominator>
-      <Filter><![CDATA[([feature] = 'amenity_marketplace')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/shop/marketplace.svg" fill="#ac39ac" />
-    </Rule>
-    <Rule>
-      <MaxScaleDenominator>400000</MaxScaleDenominator>
-      <Filter><![CDATA[([feature] = 'historic_archaeological_site')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/historic/archaeological_site.svg" fill="#734a08" />
-    </Rule>
-    <Rule>
       <MaxScaleDenominator>400000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'historic_fort')]]></Filter>
       <MarkersSymbolizer clip="false" file="symbols/local/fort.svg" placement="interior" width="14" />
@@ -51867,7 +52348,10 @@ UNION ALL
     <StyleName><![CDATA[amenity-points-dot]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -51983,6 +52467,8 @@ UNION ALL
         'place_' || CASE WHEN place IN ('locality') AND way_area IS NULL THEN place END
         -- 'golf_' || CASE WHEN tags->'golf' IN ('hole', 'pin') THEN tags->'golf' END
       ) AS feature,
+      -- local
+      man_made,
       access,
       CASE
         -- local
@@ -52179,7 +52665,10 @@ UNION ALL
     <StyleName><![CDATA[amenity-line]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -52231,7 +52720,10 @@ UNION ALL
     <StyleName><![CDATA[power-towers]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -52279,7 +52771,10 @@ ORDER BY
     <StyleName><![CDATA[roads-text-ref-low-zoom]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -52424,7 +52919,10 @@ ORDER BY
     <StyleName><![CDATA[roads-text-ref]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -52488,7 +52986,10 @@ ORDER BY
     <StyleName><![CDATA[roads-area-text-name]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -53376,7 +53877,10 @@ ORDER BY
     <StyleName><![CDATA[roads-text-name-directions]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -53804,7 +54308,10 @@ ORDER BY
     <StyleName><![CDATA[paths-text-name-directions]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -54001,7 +54508,10 @@ ORDER BY
     <StyleName><![CDATA[railways-text-name]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -54088,7 +54598,10 @@ ORDER BY
     <StyleName><![CDATA[roads-text-ref-minor]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -54629,7 +55142,10 @@ ORDER BY
     <StyleName><![CDATA[text-poly-low-zoom]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -57191,7 +57707,10 @@ ORDER BY
     <StyleName><![CDATA[text-line-foreground]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -60928,6 +61447,11 @@ ORDER BY
       <TextSymbolizer dy="11" fill="#0c8416" fontset-name="fontset-1" halo-fill="#ffffff" halo-radius="2.5" line-spacing="-1.5" size="10" wrap-width="30"><![CDATA[[name]]]></TextSymbolizer>
     </Rule>
     <Rule>
+      <MaxScaleDenominator>400000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'natural_cave_entrance') and ([name] != '')]]></Filter>
+      <TextSymbolizer dy="11" fill="#333333" fontset-name="fontset-1" halo-fill="#ffffff" halo-radius="2.5" line-spacing="-1.5" size="10" wrap-width="30"><![CDATA[[name]]]></TextSymbolizer>
+    </Rule>
+    <Rule>
       <MaxScaleDenominator>5000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'tourism_information') and ([information] = 'office')]]></Filter>
       <TextSymbolizer dy="11" fill="#734a08" fontset-name="fontset-1" halo-fill="#ffffff" halo-radius="2.5" line-spacing="-1.5" size="10" wrap-width="30"><![CDATA[[name]]]></TextSymbolizer>
@@ -61452,6 +61976,14 @@ ORDER BY
       <TextSymbolizer dy="11" fill="#734a08" fontset-name="fontset-1" halo-fill="#ffffff" halo-radius="2.5" line-spacing="-1.5" size="10" wrap-width="30"><![CDATA[[name]]]></TextSymbolizer>
     </Rule>
     <Rule>
+<<<<<<< HEAD
+=======
+      <MaxScaleDenominator>25000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'natural_cave_entrance')]]></Filter>
+      <TextSymbolizer dy="11" fill="#333333" fontset-name="fontset-1" halo-fill="#ffffff" halo-radius="2.5" line-spacing="-1.5" size="10" wrap-width="30"><![CDATA[[name]]]></TextSymbolizer>
+    </Rule>
+    <Rule>
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <MaxScaleDenominator>400000</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'historic_city_gate')]]></Filter>
       <TextSymbolizer dy="10" fill="#333333" fontset-name="fontset-1" halo-fill="#ffffff" halo-radius="2.5" line-spacing="-1.5" size="10" wrap-width="30"><![CDATA[[name]]]></TextSymbolizer>
@@ -62213,7 +62745,10 @@ ORDER BY
     <StyleName><![CDATA[text-point-foreground]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -62329,6 +62864,8 @@ ORDER BY
         'place_' || CASE WHEN place IN ('locality') AND way_area IS NULL THEN place END
         -- 'golf_' || CASE WHEN tags->'golf' IN ('hole', 'pin') THEN tags->'golf' END
       ) AS feature,
+      -- local
+      man_made,
       access,
       CASE
         -- local
@@ -62472,7 +63009,10 @@ ORDER BY
     <StyleName><![CDATA[building-text]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -62501,7 +63041,10 @@ ORDER BY
     <StyleName><![CDATA[interpolation]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -62737,7 +63280,10 @@ ORDER BY
     <StyleName><![CDATA[addresses]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -62981,7 +63527,10 @@ SELECT
     <StyleName><![CDATA[water-lines-text]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -63018,7 +63567,10 @@ SELECT
     <StyleName><![CDATA[ferry-routes-text]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -63049,7 +63601,10 @@ SELECT
     <StyleName><![CDATA[admin-text]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -63086,7 +63641,10 @@ SELECT
     <StyleName><![CDATA[protected-areas-text]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -63259,14 +63817,24 @@ SELECT
       <MarkersSymbolizer fill="#7d7c7c" stroke-width="0" width="3" />
     </Rule>
     <Rule>
-      <MaxScaleDenominator>5000</MaxScaleDenominator>
-      <Filter><![CDATA[([feature] = 'historic_wayside_shrine')]]></Filter>
-      <MarkersSymbolizer clip="false" file="symbols/historic/shrine.svg" fill="#666666" width="8" />
-    </Rule>
-    <Rule>
       <MaxScaleDenominator>12500</MaxScaleDenominator>
       <Filter><![CDATA[([feature] = 'historic_wayside_cross')]]></Filter>
       <MarkersSymbolizer clip="false" file="symbols/man_made/cross.svg" fill="#000000" width="8" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>12500</MaxScaleDenominator>
+<<<<<<< HEAD
+      <Filter><![CDATA[([feature] = 'historic_wayside_cross')]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/man_made/cross.svg" fill="#000000" width="8" />
+=======
+      <Filter><![CDATA[([feature] = 'man_made_cross')]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/man_made/cross.svg" fill="#000000" width="18" />
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>5000</MaxScaleDenominator>
+      <Filter><![CDATA[([feature] = 'historic_wayside_shrine')]]></Filter>
+      <MarkersSymbolizer clip="false" file="symbols/historic/shrine.svg" fill="#666666" width="8" />
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
     </Rule>
   </Style>
   <Layer cache-features="true" maximum-scale-denominator="50000" name="amenity-low-priority" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
@@ -63276,7 +63844,10 @@ SELECT
     <StyleName><![CDATA[amenity-low-priority-amenity]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -63342,6 +63913,11 @@ SELECT
         WHEN 'bench' THEN 2
         WHEN NULL THEN 3
       END DESC,
+      CASE man_made
+        WHEN 'cross' THEN 3
+        WHEN 'wayside_cross' THEN 2
+        ELSE 1
+      END DESC,
       way_pixels DESC NULLS LAST
   ) AS amenity_low_priority]]></Parameter>
     </Datasource>
@@ -63362,7 +63938,10 @@ SELECT
     <StyleName><![CDATA[text-low-priority]]></StyleName>
     <Datasource>
       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+<<<<<<< HEAD
       <Parameter name="port">5432</Parameter>
+=======
+>>>>>>> c8f0a9a3ca4551dea2c6cdb73aa2747d1b5e7ec7
       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
       <Parameter name="key_field"><![CDATA[]]></Parameter>
       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
@@ -63427,6 +64006,11 @@ SELECT
         WHEN 'waste_disposal' THEN 1
         WHEN 'bench' THEN 2
         WHEN NULL THEN 3
+      END DESC,
+      CASE man_made
+        WHEN 'cross' THEN 3
+        WHEN 'wayside_cross' THEN 2
+        ELSE 1
       END DESC,
       way_pixels DESC NULLS LAST
   ) AS amenity_low_priority]]></Parameter>

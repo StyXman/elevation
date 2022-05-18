@@ -93,12 +93,21 @@ case "$command" in
     sudo --user postgres dropdb --port $port --if-exists "$db"
     sudo --user postgres createdb --port $port --encoding UTF8 --owner $USER "$db"
     sudo --user postgres psql --port $port --dbname "$db" --command "CREATE EXTENSION postgis;"
-    sudo --user postgres psql --port $port --dbname "$db" --command "CREATE EXTENSION hstore;"
-    sudo --user postgres psql --port $port --dbname "$db" --command "ALTER TABLE geometry_columns OWNER TO $USER;"
-    sudo --user postgres psql --port $port --dbname "$db" --command "ALTER TABLE spatial_ref_sys  OWNER TO $USER;"
+
+    if [ "$db" == 'contours' ]; then
+        psql --port $port --dbname "$db" < 'contours.sql'
+    else
+        sudo --user postgres psql --port $port --dbname "$db" --command "CREATE EXTENSION hstore;"
+        sudo --user postgres psql --port $port --dbname "$db" --command "ALTER TABLE geometry_columns OWNER TO $USER;"
+        sudo --user postgres psql --port $port --dbname "$db" --command "ALTER TABLE spatial_ref_sys  OWNER TO $USER;"
+    fi
     ;;
 
   import)
+    if [ $# -ne 1 ]; then
+        usage 1
+    fi
+
     # opts="--create --unlogged"
     # unlogged was removed in https://github.com/openstreetmap/osm2pgsql/issues/940
     opts="--create"
@@ -107,6 +116,10 @@ case "$command" in
     ;;
 
   append)
+    if [ $# -ne 1 ]; then
+        usage 1
+    fi
+
     opts="--append"
     nice -n 19 $bin $opts $common_opts "$@"
     ;;
@@ -117,5 +130,5 @@ case "$command" in
 
   *)
     echo "ERROR: wrong command $command"
-    exit 1
+    usage 1
 esac

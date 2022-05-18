@@ -57,7 +57,11 @@ all_files = $(sort $(terrain_files) $(hill_files) $(slope_files))
 sql_files = $(sort $(contour_files))
 
 echo:
-#	@echo $(corrected_files)
+	@echo $(height_files)
+	@echo $(terrain_files)
+	@echo $(slope_orig_files)
+	@echo $(slope_files)
+	@echo $(contour_files)
 	@echo $(all_files)
 
 # do not remove these intermediate files
@@ -115,6 +119,8 @@ m_per_pixel=30.92208077590933
 terrain.vrt: *-terrain.tif
 	# gdalbuildvrt $@
 
+color-relief.txt slope.txt:
+	ln -sfv ../$@ ./
 
 ##############
 # SECOND GOAL
