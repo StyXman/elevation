@@ -301,30 +301,6 @@
       <Parameter name="type"><![CDATA[gdal]]></Parameter>
     </Datasource>
   </Layer>
-  <Style filter-mode="first" name="necountries">
-    <Rule>
-      <MaxScaleDenominator>100000000</MaxScaleDenominator>
-      <MinScaleDenominator>50000000</MinScaleDenominator>
-      <LineSymbolizer stroke="#ac46ac" stroke-width="0.4" />
-    </Rule>
-    <Rule>
-      <MaxScaleDenominator>200000000</MaxScaleDenominator>
-      <MinScaleDenominator>100000000</MinScaleDenominator>
-      <LineSymbolizer stroke="#ac46ac" stroke-width="0.3" />
-    </Rule>
-    <Rule>
-      <MaxScaleDenominator>500000000</MaxScaleDenominator>
-      <MinScaleDenominator>200000000</MinScaleDenominator>
-      <LineSymbolizer stroke="#ac46ac" stroke-width="0.2" />
-    </Rule>
-  </Style>
-  <Layer maximum-scale-denominator="500000000" minimum-scale-denominator="50000000" name="necountries" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
-    <StyleName><![CDATA[necountries]]></StyleName>
-    <Datasource>
-      <Parameter name="file"><![CDATA[data/ne_110m_admin_0_boundary_lines_land/ne_110m_admin_0_boundary_lines_land.shp]]></Parameter>
-      <Parameter name="type"><![CDATA[shape]]></Parameter>
-    </Datasource>
-  </Layer>
   <Style filter-mode="first" name="landcover-low-zoom-foreground">
     <Rule>
       <MaxScaleDenominator>1500000</MaxScaleDenominator>
