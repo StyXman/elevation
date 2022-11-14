@@ -1,6 +1,8 @@
 #! /bin/bash
 
-if [ $# -eq 0 -o "$1" == "-h" -o "$1" == "--help" ]; then
+set -eu
+
+if [ $# -eq 0 ] || [ "$1" == "-h" -o "$1" == "--help" ]; then
     echo "$0 <region> <ext> <cols> <rows> file..."
     exit 0
 fi
