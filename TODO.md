@@ -1,13 +1,12 @@
+* unpaved highway areas
+* http://127.0.0.1:6789/osm-carto/#10/45.9387/6.6193 valley/etc names
+* http://127.0.0.1:6789/osm-carto/#16/41.5944/1.8272 contours not visible around 1000m
 * icons from ZL17 must be dots from ZL 16 or before
 * man_made=cross + man_made=summit_cross + summit:cross=yes
 * http://diablo:6789/osm-carto/#16/48.8733/2.4459
-* hillshading not working?
-* marshes have no grass: https://www.openstreetmap.org/way/232559153#map=14/46.8787/9.2437
 * fix contour 0, no smooth?
 * darker shopping color
-* smaller artworks
 * leafless
-* farmland
 * don't show landuse until ZL13 or more
 * finish places texts
 * Stop rendering extreme mountain paths without giving indication of difficulty
@@ -30,8 +29,6 @@
 
 * (private?) living_street ZL13 http://127.0.0.1:6789/osm-carto/#13/43.5466/6.9168
 * ZL 8
-* ocean
-* contours
 
 * things to see from afar if they're low density:
   * pharmacy
@@ -70,6 +67,11 @@
      11 408 building=toilets
       1 626 room=toilets
 
+* zoom in in places with these:
+  * restaurant    1 308 997
+  * cafe            512 267
+  *
+
 * bus lines
   * make text halos ~transparent on subways ZL13
   * darker trams et al (find all)
@@ -82,7 +84,6 @@
 * simplify coastline for ZL <= 6
 * calculate casing colors so they're not calculated all the time
 * thicker for phone?
-* vallons/bois names too prominent.
 * lowzooms: specific rivers/lakes for rendering
   * natural earth vs imagico
 * sync riverbanks thickness with river casing
@@ -101,6 +102,7 @@
 * comment more the tags that are removed so I can resolve conflicts more easily
 
 * verify disabled parking spaces
+* watermills
 
 * ice/winter road
 gis=# select highway, count(highway) from planet_osm_line where tags->'ice_road' = 'yes' and highway is not null group by highway;
