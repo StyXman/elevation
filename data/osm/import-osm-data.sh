@@ -100,6 +100,8 @@ case "$command" in
         sudo --user postgres psql --port $port --dbname "$db" --command "CREATE EXTENSION hstore;"
         sudo --user postgres psql --port $port --dbname "$db" --command "ALTER TABLE geometry_columns OWNER TO $USER;"
         sudo --user postgres psql --port $port --dbname "$db" --command "ALTER TABLE spatial_ref_sys  OWNER TO $USER;"
+        # see https://github.com/gravitystorm/openstreetmap-carto/blob/master/INSTALL.md#disable-jit
+        psql --port $port --dbname "$db" --command 'ALTER SYSTEM SET jit=off;' -c 'SELECT pg_reload_conf();'
     fi
   ;;
 
