@@ -1,6 +1,6 @@
 # Makefile
 
-OSM_CARTO_VERSION=5.2.0
+OSM_CARTO_VERSION=5.7.0
 
 .PHONY: osm-carto-prepare Elevation-prepare data-height-prepare clean
 
