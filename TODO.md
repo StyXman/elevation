@@ -4,10 +4,38 @@
 * icons from ZL17 must be dots from ZL 16 or before
 * man_made=cross + man_made=summit_cross + summit:cross=yes
 * http://diablo:6789/osm-carto/#16/48.8733/2.4459
+
+* Chambery label changes ZL 11 -> 12
+
+* landcover/landuse
+  * dark grey reservoirs http://192.168.84.99:6789/osm-carto/#14/43.4545/6.2140
+  * remake scrub and leaveless symbol/pattern
+  * salt_pond text halo
+
+* review:
+  * https://github.com/gravitystorm/openstreetmap-carto/commit/008f155c5b3818f4fc2f7d71c88bca5958fc860f
+
+* contours:
+  * http://192.168.84.99:6789/osm-carto/#13/44.2539/6.9334
+  * http://192.168.84.99:6789/osm-carto/#12/44.2539/6.9334
+  * http://192.168.84.99:6789/osm-carto/#11/44.2539/6.9334
+
+* remove caves and peaks w/o names
+  * bug? https://github.com/mapnik/mapnik/issues/4210
+
+* differentiate ruin areas from tourist attractions
+* https://wiki.openstreetmap.org/wiki/Historical_Objects/Map_Properties
+* http://192.168.84.99:6789/osm-carto/#12/43.3032/5.3818 a jumble
+* statue, obelisk, monument from @nice?
+* http://diablo:6789/osm-carto/#16/48.8733/2.4459
+* marshes have no grass: https://www.openstreetmap.org/way/232559153#map=14/46.8787/9.2437
+
 * fix contour 0, no smooth?
 * darker shopping color
 * leafless
 * don't show landuse until ZL13 or more
+* make crosses HP against peaks
+* man_made=cross + man_made=summit_cross + summit:cross=yes
 * finish places texts
 * Stop rendering extreme mountain paths without giving indication of difficulty
   https://github.com/gravitystorm/openstreetmap-carto/issues/1500
@@ -24,8 +52,6 @@
 * st_dump(st_linemerge(st_approximatemedialaxis(st_simplifypreservetopology(st_multi(st_buildarea(st_buffer(st_collect(way), 50))),20)))))
   for generalizing parallel roads
   see https://sk53-osm.blogspot.com/2018/04/linear-or-1d-maps-from-openstreetmap.html
-
-* https://launchpad.net/squaremap
 
 * (private?) living_street ZL13 http://127.0.0.1:6789/osm-carto/#13/43.5466/6.9168
 * ZL 8

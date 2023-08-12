@@ -63,9 +63,11 @@ fi
 
 osm_carto="$(realpath $(pwd)/../../osm-carto)"
 
-common_opts="--username $USER --port $port --database "$db" --cache 0 --number-processes 16 --verbose \
+cpus=$(cat /proc/cpuinfo | grep 'vendor_id' | wc -l)
+common_opts="--username $USER --port $port --database "$db" --cache 0 --number-processes $cpus --verbose \
     --slim --flat-nodes $(pwd)/nodes.cache --hstore \
-    --multi-geometry --style $osm_carto/openstreetmap-carto.style --tag-transform-script $osm_carto/openstreetmap-carto.lua \
+    --multi-geometry --style $osm_carto/openstreetmap-carto.style \
+    --tag-transform-script $osm_carto/openstreetmap-carto.lua \
     --drop"
 
 command=$1

@@ -82,7 +82,15 @@ sql_single: $(sql_files)
 WebMerc = EPSG:3857
 m_per_pixel=30.92208077590933
 
+%-corrected.tif: %.vrt
+	gdalwarp $(gopts) -t_srs $(WebMerc) -r lanczos -tr $(m_per_pixel) -$(m_per_pixel) \
+	    $< $@;
+
 %-corrected.tif: %.hgt
+	gdalwarp $(gopts) -t_srs $(WebMerc) -r lanczos -tr $(m_per_pixel) -$(m_per_pixel) \
+	    $< $@;
+
+%-corrected.tif: %.tif
 	gdalwarp $(gopts) -t_srs $(WebMerc) -r lanczos -tr $(m_per_pixel) -$(m_per_pixel) \
 	    $< $@;
 
@@ -113,8 +121,21 @@ m_per_pixel=30.92208077590933
 # 	gdal_translate $(final_gopts) -b 1 /vsistdin/ $@
 # 	gdal_edit.py -colorinterp_1 gray $@
 
-%-contour.sql.xz: %-corrected.tif
-	./contours.sh $< | xz -9 > $@
+# files for blender
+%-blender.tif: %.hgt
+	gdal_calc.py -A $< --outfile $@ --calc 'A*8' --NoDataValue=255 --overwrite $(final_gopts2);
+
+# %-contour.sql.xz: %-corrected.tif
+# 	./contours.sh $< | xz -9 > $@
+
+%-contour.sql.xz: %-contour.sql
+	xz -9 $<
+
+%-contour.sql: %-corrected.tif
+	mkdir -pv $(basename $<).shp
+	gdal_contour -i 10 -a height $< $(basename $<).shp
+	shp2pgsql -c -I -g way $(basename $<).shp/contour contours > $@
+	rm -rfv $(basename $<).shp
 
 terrain.vrt: *-terrain.tif
 	# gdalbuildvrt $@

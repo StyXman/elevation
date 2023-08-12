@@ -1,5 +1,7 @@
 # Makefile
 
+OSM_CARTO_VERSION=5.2.0
+
 .PHONY: osm-carto-prepare Elevation-prepare data-height-prepare clean
 
 all: Elevation.xml Elevation.diff
@@ -7,11 +9,11 @@ all: Elevation.xml Elevation.diff
 diff: Elevation.diff
 
 Elevation.diff: osm-carto/project.mml osm-carto/*.mss
-	cd osm-carto; git diff -w v4.19.0 > ../Elevation.diff
+	cd osm-carto; git diff -w v$(OSM_CARTO_VERSION) > ../Elevation.diff
 
-Elevation.xml: osm-carto/project.mml osm-carto/*.mss
+Elevation.xml: osm-carto/project.mml osm-carto/style/*.mss
 	make -C osm-carto
-	time ./node_modules/.bin/carto $< > $@
+	if ! time ./node_modules/.bin/carto $< > $@; then rm -f $@; false; fi
 
 # it works like this
 # git clone complaints when you try to checkout to an exiting directory
