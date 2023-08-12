@@ -1,8 +1,12 @@
+* dates on castles' and arch.sites' names
+* what's this line
+  http://127.0.0.1:6789/osm-carto/#11/46.8785/9.2285
+* playgroung equipment https://github.com/gravitystorm/openstreetmap-carto/pull/3161/
 * unpaved highway areas
 * http://127.0.0.1:6789/osm-carto/#10/45.9387/6.6193 valley/etc names
-* http://127.0.0.1:6789/osm-carto/#16/41.5944/1.8272 contours not visible around 1000m
 * icons from ZL17 must be dots from ZL 16 or before
 * man_made=cross + man_made=summit_cross + summit:cross=yes
+
 * http://diablo:6789/osm-carto/#16/48.8733/2.4459
 
 * Chambery label changes ZL 11 -> 12
@@ -42,13 +46,12 @@
 * fix tunnel road names
 * find out city pattern in old maps, apply to populated places.
 * review names for stupid things like picnic_table
-* partially revert b066af54f61b02685edb5db4191c5fbc3617eb5d
 * enable wetlands bg
 * check cyclable for lowest ZL for cyclable roads
 * contour lines as darken or similar.
     * not possible due to several bugs in mapnik
 * wider bridges
-  * this requires a big rework
+  * this requires a big rework because bridge casings grow inward
 * st_dump(st_linemerge(st_approximatemedialaxis(st_simplifypreservetopology(st_multi(st_buildarea(st_buffer(st_collect(way), 50))),20)))))
   for generalizing parallel roads
   see https://sk53-osm.blogspot.com/2018/04/linear-or-1d-maps-from-openstreetmap.html
