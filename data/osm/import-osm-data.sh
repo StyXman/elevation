@@ -79,7 +79,7 @@ case "$command" in
 
     sudo --user postgres createuser --port $port --superuser $USER
     # sudo --user postgres psql -c "create tablespace hdd owner mdione location '/var/lib/data/postgresql';"
-    ;;
+  ;;
 
   restart)
     if [ $# -gt 0 ]; then
@@ -101,7 +101,7 @@ case "$command" in
         sudo --user postgres psql --port $port --dbname "$db" --command "ALTER TABLE geometry_columns OWNER TO $USER;"
         sudo --user postgres psql --port $port --dbname "$db" --command "ALTER TABLE spatial_ref_sys  OWNER TO $USER;"
     fi
-    ;;
+  ;;
 
   import)
     if [ $# -ne 1 ]; then
@@ -113,7 +113,7 @@ case "$command" in
     opts="--create"
     nice -n 19 $bin $opts $common_opts "$@"
     time psql --port $port --dbname "$db" --file ../../osm-carto/indexes.sql
-    ;;
+  ;;
 
   append)
     if [ $# -ne 1 ]; then
@@ -122,13 +122,14 @@ case "$command" in
 
     opts="--append"
     nice -n 19 $bin $opts $common_opts "$@"
-    ;;
+  ;;
 
   drop)
     sudo --user postgres dropdb --port $port --if-exists "$db"
-    ;;
+  ;;
 
   *)
     echo "ERROR: wrong command $command"
     usage 1
+  ;;
 esac
