@@ -114,6 +114,7 @@ case "$command" in
     # opts="--create --unlogged"
     # unlogged was removed in https://github.com/openstreetmap/osm2pgsql/issues/940
     opts="--create"
+    date
     nice -n 19 $bin $opts $common_opts "$@"
     time psql --port $port --dbname "$db" --file ../../osm-carto/indexes.sql
   ;;
