@@ -14,7 +14,7 @@ function usage() {
     echo
     echo "boot creates a super user '$USER'. needs sudo."
     echo "restart (re)recreates the database from scratch. WARNING: it removes previous data."
-    echo "import and append import new data. ARGS are passed directly to osm2pgsql."
+    echo "import and append import new data. ARGS are passed directly to osm2pgsql. if a static import, add --drop."
     echo "drop deletes the whole database."
     echo "DB is by default 'gis', and PORT is postgres' port, usually 5432."
     echo
@@ -67,8 +67,7 @@ cpus=$(cat /proc/cpuinfo | grep 'vendor_id' | wc -l)
 common_opts="--username $USER --port $port --database "$db" --cache 0 --number-processes $cpus --verbose \
     --slim --flat-nodes $(pwd)/nodes.cache --hstore \
     --multi-geometry --style $osm_carto/openstreetmap-carto.style \
-    --tag-transform-script $osm_carto/openstreetmap-carto.lua \
-    --drop"
+    --tag-transform-script $osm_carto/openstreetmap-carto.lua"
 
 command=$1
 shift
