@@ -6346,7 +6346,7 @@ index 38a7232b..e24d14a4 100644
  }
 +*/
 diff --git a/style/roads.mss b/style/roads.mss
-index 709ba8ec..3985b309 100644
+index 709ba8ec..409600ff 100644
 --- a/style/roads.mss
 +++ b/style/roads.mss
 @@ -1,5 +1,8 @@
@@ -8476,7 +8476,7 @@ index 709ba8ec..3985b309 100644
        text-repeat-distance: @minor-highway-text-repeat-distance;
      }
      [zoom >= 16] {
-@@ -3950,7 +4708,14 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -3950,12 +4708,20 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
    [zoom >= 17] {
      text-name: "[name]";
      text-size: 11;
@@ -8492,7 +8492,13 @@ index 709ba8ec..3985b309 100644
      text-wrap-width: 30; // 2.7 em
      text-line-spacing: -1.7; // -0.15 em
    }
-@@ -4017,7 +4782,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+ }
+ 
++/*
+ #paths-text-name {
+   [highway = 'track'],
+   [highway = 'construction'][construction = 'track'][zoom >= 16] {
+@@ -4017,7 +4783,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
  
  #roads-text-name::directions,
  #paths-text-name::directions {
@@ -8501,7 +8507,7 @@ index 709ba8ec..3985b309 100644
      // intentionally omitting highway_platform, highway_construction
      [highway = 'motorway'],
      [highway = 'motorway_link'],
-@@ -4039,7 +4804,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -4039,7 +4805,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
        [oneway = 'yes'],
        [oneway = '-1'] {
          marker-placement: line;
@@ -8510,7 +8516,7 @@ index 709ba8ec..3985b309 100644
          marker-max-error: 0.5;
          marker-file: url('symbols/oneway.svg');
          [oneway = '-1'] {
-@@ -4104,10 +4869,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -4104,10 +4870,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
          text-upright: right;
          text-vertical-alignment: middle;
          text-face-name: @book-fonts;
@@ -8523,14 +8529,17 @@ index 709ba8ec..3985b309 100644
          [highway = 'footway'] {
            text-fill: @footway-oneway-arrow-color;
          }
-@@ -4137,6 +4904,32 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+@@ -4136,6 +4904,34 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
+     }
    }
  }
- 
++*/
++
 +#paths-text-name::incline {
-+  [zoom > 16][highway = 'steps'][incline != null] {
++  [zoom > 16][highway = 'steps']/*[incline != null]*/ {
 +    // the arrow points down
-+    text-name: "'⇐'";
++    // text-name: "'⇐'";
++    text-name: "'foo!'";
 +    text-size: 15;
 +    text-clip: false;
 +    text-spacing: 40;
@@ -8552,10 +8561,9 @@ index 709ba8ec..3985b309 100644
 +    }
 +  }
 +}
-+
+ 
  #railways-text-name {
    /* Mostly started from z17. */
-   [railway = 'rail'],
 diff --git a/style/shapefiles.mss b/style/shapefiles.mss
 index 585cda65..ce95687f 100644
 --- a/style/shapefiles.mss
