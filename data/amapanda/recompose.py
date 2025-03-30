@@ -5,11 +5,11 @@ from dataclasses import dataclass
 import math
 # I thought I would generate a shapefile, but then I was thinking of storing the segments in a DB
 # so I can update their full_size when creating a new segment. then I realized that not only this would require
-# double the space, sqlite has support for GIS data and indexes
-import sqlite3
+# double the space, so we use pg+postgis
 import sys
 import threading
 
+import psycopg2
 from shapely import from_wkt, LineString, to_wkb, to_wkt
 
 # TODO: split in functions so the heavy stuff can be done in //
@@ -18,25 +18,8 @@ from shapely import from_wkt, LineString, to_wkb, to_wkt
 WebMerc = 3857
 LonLat = 4326
 
-db = sqlite3.connect('amapanda.sqlt')
-db.enable_load_extension(True)
+db = psycopg2.connect('dbname=rivers')
 cursor = db.cursor()
-
-cursor.execute('''SELECT load_extension('mod_spatialite');''')
-cursor.execute('''SELECT InitSpatialMetaData();''')
-db.commit()
-
-cursor.execute('''DROP TABLE IF EXISTS "rivers";''')
-db.commit()
-
-
-cursor.execute('''CREATE TABLE "rivers" (
-    "id"      INTEGER,
-    "size"    INTEGER
-    -- "way"     GEOMETRY  -- this one is add by hand later
-)''')
-cursor.execute(f"""SELECT AddGeometryColumn('rivers', 'way', {LonLat}, 'LINESTRING', 'XY');""")  # 2D
-db.commit()
 
 
 @dataclass
@@ -52,7 +35,8 @@ class River:
         # TODO: convert to WebMerc!
         # line_string = to_wkb(LineString(self.points), hex=True, output_dimension=2)
         line_string = to_wkt(LineString(self.points), output_dimension=2)
-        cursor.execute(f"""INSERT INTO rivers VALUES (?, ?, GeomFromText(?, {LonLat}));""", (self.id, self.size, line_string))
+        # cursor.execute(f"""INSERT INTO rivers VALUES (?, ?, GeomFromText(?, {LonLat}));""", (self.id, self.size, line_string))
+        cursor.execute(f"""INSERT INTO rivers VALUES (%s, %s, %s);""", (self.id, self.size, line_string))
 
 
 current = None
@@ -69,8 +53,11 @@ for data in csv.DictReader(sys.stdin):
             size = 1
 
         # too small, don't want it
-        if size < 6:
+        if size < 5.75:
             continue
+
+        # reduce
+        size = int(size * 100.0) / 100.0
 
         # start_lon, start_lat, end_lon, end_lat = line.coords
         # print(f"{river_id=}, {size=}")
@@ -117,15 +104,12 @@ for data in csv.DictReader(sys.stdin):
         if count % 1024 == 0:
             db.commit()
     except Exception as e:
-        print(f"{data=} failed because {e=}")
+        print(f"{data=} failed because\n{e=}")
         raise
-
-# SELECT load_extension('spatialite_dynamic_library_name');
-# SELECT load_extension('mod_spatialite');
 
 db.commit()
 
-cursor.execute( '''SELECT CreateSpatialIndex('rivers', 'way');''')
+cursor.execute( '''CREATE INDEX rivers_idx ON rivers USING GIST(way);''')
 db.commit()
 
 db.close()
